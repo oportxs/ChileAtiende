@@ -1,0 +1,125 @@
+@media (min-width: 1200px) {
+    .side-bar {
+        width: (@gridColumnWidth1200*4)-1px;
+    }
+
+    .breadcrumbs {
+        width:( @gridRowWidth1200 - ( @basePaddingWidth*2 ) - 2px );
+        &.affix {
+            max-width:@gridRowWidth1200;
+        }
+    }
+    
+}
+
+@media (max-width: 1024px) {
+    .paginacion {
+        strong,a {
+            padding:10px;
+        }
+    }
+    .sobre-esta-imagen {
+        padding: 3px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .ficha {
+        .side-bar {
+            width: (@gridColumnWidth768*4)-1px;
+        }
+        .span-maincontent {
+            width: @gridRowWidth768;
+        }
+    }
+
+    header {
+        .header-center {
+            border:none;
+        }
+    }
+
+    .breadcrumbs {
+        width:( @gridRowWidth768 - ( @basePaddingWidth*2 ) - 2px );
+
+        &.affix {
+            max-width:@gridRowWidth768;
+        }
+    }
+
+    .paginacion {
+        strong,a {
+            padding:10px 4px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        position: relative;
+
+        .row-top {
+            border:none;
+        }
+
+        .header-left {
+            padding-right:0px;
+        }
+
+        .header-center {
+            border:none;
+        }
+
+        form {
+            width:380px;
+            margin-top: 20px;
+            margin-left: 10px;
+
+            .main_search_input{
+                width:320px;
+            }
+        }
+    }
+
+    footer {
+        .footer-top {
+            .span4 {
+                min-height: auto;
+            }
+        }
+        .span4 {
+            text-align: center;
+
+            li {
+                background: none;
+                margin-left: 0;
+                padding-left: 0;
+
+                a{
+                    line-height: 25px;
+                }
+            }
+        }
+
+        h4 {
+            padding:10px 0;
+            margin:0;
+        }
+
+        .medios-contacto {
+            h4 {
+                margin-bottom: 10px;
+            }
+            ul {
+                width: 160px;
+                margin:0 auto;
+            }
+        }
+    }
+
+    .ficha {
+        .side-bar {
+            width: (@gridColumnWidth768*4)-1px;
+        }
+    }
+}

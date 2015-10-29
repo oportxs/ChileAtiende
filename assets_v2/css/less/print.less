@@ -1,0 +1,52 @@
+.print { display:none; }
+
+@media print {
+    .print,
+    .tab-content > .tab-pane {
+        display:block!important;
+    }
+
+    .ficha #maincontent {
+        border:none;
+    }
+
+    .panel-heading {
+        border:none;
+        background: transparent;
+    }
+
+    .no-disponible {
+        font-weight: bold;
+    }
+    
+    .panel-collapse {
+        height: auto;
+        display: block!important;
+    }
+
+    .no-print,
+    #iframeBarra {
+        display:none;
+    }
+
+    .logo-print {
+        display:block;
+    }
+    
+    // Flujo
+    .contenedor-pasos-flujo{
+        .span4 {
+            display: none;
+        }
+        .span8 {
+            display: block;
+            .cont-paso-contenido{
+                display: block!important;
+                h4.paso-titulo {
+                    display: block!important;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,142 @@
+@media (min-width: 1024px) {
+  .nav-principal .span2 {
+    width: 20%;
+  }
+}
+@media (max-width: 1024px) {
+  header .nav-areas a {
+    padding: 18px 21px;
+  }
+  .header-search form .main_search_input {
+    width: 540px;
+  }
+  .contenedor-principal h3.bread {
+    font-size: 22px;
+  }
+  .nav-principal div.span2 {
+    min-height: 100px;
+    padding-left: 30px;
+    width: 20%;
+  }
+  .nav-principal div.span2 h3 {
+    font-size: 22px;
+  }
+  .nav-principal div.selected {
+    background-color: #008bda;
+    margin-top: -5px;
+    height: 110px;
+  }
+  .nav-secundaria div.span3 {
+    padding-left: 25px;
+  }
+  .nav-secundaria div.span3 h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 640px) {
+  body {
+    background-image: none;
+    background-color: #7a7979;
+  }
+  header .row-top {
+    height: initial;
+  }
+  header .nav-areas a {
+    padding: initial;
+  }
+  header .cont-busqueda .main_search_input {
+    width: initial;
+  }
+  header form {
+    width: initial;
+  }
+  .header-search {
+    text-align: center;
+  }
+  .header-search form {
+    width: auto;
+    float: none;
+    margin-top: auto;
+  }
+  .header-search form h3 {
+    font-size: initial;
+    color: #FFF;
+    line-height: initial;
+  }
+  .header-search form .main_search_input {
+    float: none;
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    border-right: none;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: inset 1px 6px 4px 0px #dddddd;
+  }
+  .header-search form .searchbtn {
+    display: inline;
+    float: none;
+    border: none;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: url('../img/lupa_buscador.png') 12px 12px no-repeat #f03f3d;
+    text-indent: -9999px;
+    margin-bottom: 10px;
+    margin-left: -5px;
+  }
+  .contenedor-principal {
+    padding: initial;
+  }
+  .contenedor-principal h3.bread {
+    font-size: 14px;
+  }
+  .nav-principal div.span2 {
+    width: initial;
+    min-height: 30px;
+    padding-left: 25px;
+    padding-top: 5px;
+    height: 50px;
+  }
+  .nav-principal div.span2 h3 {
+    margin: initial;
+    font-size: initial;
+    margin-top: initial;
+    line-height: initial;
+  }
+  .nav-principal div.selected {
+    margin-top: initial;
+    height: 50px;
+  }
+  .nav-secundaria div.span3 {
+    min-height: initial;
+    padding-left: 25px;
+  }
+  .nav-secundaria div.span3 h2 {
+    font-size: initial;
+  }
+  .subcontenido {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .subcontenido .span6 .cabecera h3 {
+    color: #FFF;
+    padding-left: 25px;
+    font-size: initial;
+  }
+  .subcontenido .span6 .row ul li {
+    height: initial;
+  }
+  .titulo-tabla {
+    white-space: initial;
+  }
+  .ficha #maincontent .participacion .opina {
+    height: initial;
+  }
+  .ficha #maincontent .participacion .reporta-error {
+    height: initial;
+  }
+}

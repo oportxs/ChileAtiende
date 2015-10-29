@@ -1,0 +1,376 @@
+.estadisticas-chileatiende{
+    margin-top: 20px;
+    padding: 20px 60px;
+
+    @media (max-width: 768px) {
+        padding: 10px 20px;
+    }
+    @media (max-width: 480px) {
+        padding: 10px 10px;
+    }
+    h1 {
+        font-size: 22px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+    }
+    h2 {
+        font-size: 22px;
+        font-weight: normal;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        @media (max-width: 720px) {
+            margin-bottom: 20px;
+        }
+    }
+    h6 {
+        padding: 0;
+        margin: 0;
+    }
+    .form-control {
+        max-width: 100%;
+    }
+    .row-fluid {
+        position: relative;
+    }
+    .no-relative {
+        position: static!important;
+    }
+
+    .disable-chart {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .seccion-grafico {
+        padding-bottom: 30px;
+        margin-bottom: 60px;
+        background: url('../images/separacion_graficos.jpg') center bottom no-repeat;
+    }
+
+    .icon-download {
+        opacity: 0.5;
+    }
+
+    .info-numero-atenciones {
+        .span2-lista-canales,
+        .span10-cont-nun-atenciones {
+            @media (max-width: 768px){
+                float: none;
+                display: block;
+                width: 100%;
+            }
+        }
+        .cont-pie-graph{
+            position: relative;
+            &.disabled{
+                opacity: 0.5;
+            }
+            @media (max-width: 768px) {
+                width: 33%;
+                float: left;
+            }
+            @media (max-width: 480px) {
+                width: 50%;
+                &:last-child {
+                    margin-left: 25%;
+                }
+            }
+        }
+        .lista-canales{
+            li {
+                text-align: center;
+                margin-top: 30px;
+                @media (max-width: 768px){
+                    margin-top: 0px;
+                    float: left;
+                    width: 33%;
+                }
+            }
+        }
+
+        #cont-nun-atenciones {
+            .cont-info-chart {
+                position: absolute;
+                top: 130px;
+                left: 80px;
+                width: 140px;
+                text-align: center;
+                text-transform: uppercase;
+                @media (min-width: 980px) and (max-width: 1199px) {
+                    top: 100px;
+                    left: 46px;
+                }
+                @media (max-width: 979px) {
+                    top: 65px;
+                    left: 16px;
+                }
+                @media (max-width: 768px) {
+                    top: 100px;
+                    left: 50px;
+                }
+                @media (max-width: 480px){
+                    top: 140px;
+                    left: 77px;
+                }
+                h5 {
+                    font-weight: bold;
+                    font-size: 24px;
+                    margin: 0;
+                    padding: 0;
+                    @media (max-width: 1199px){
+                        font-size: 20px;
+                    }
+                    @media (max-width: 1024px){
+                        font-size: 16px;
+                    }
+                }
+                h6 {
+                    font-size: 15px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            .cont-info-bajada-chart {
+                margin-top: -30px;
+                text-align: center;
+            }
+        }
+    }
+    .info-evolucion-visitas {
+        .nvtooltip {
+            padding: 10px;
+            h2, h4 {
+                display: inline;
+            }
+        }
+        .cont-slider{
+            position: relative;
+            padding-top: 30px;
+            #slider-evolucion-visitas {
+                width: 600px;
+                @media (max-width: 1199px){
+                    width: 500px;
+                }
+                @media (max-width: 979px) {
+                    width: 400px;
+                }
+                @media (max-width: 767px) {
+                    width: 480px;
+                }
+                @media (max-width: 480px) {
+                    width: 300px;
+                }
+            }
+            .tooltip {
+                opacity: 1;
+                display: block;
+            }
+        }
+    }
+    .info-evolucion-tiempo-espera {
+        .cont-slider{
+            position: relative;
+            padding-top: 30px;
+            #slider-evolucion-tiempo-espera {
+                width: 600px;
+                @media (max-width: 1199px){
+                    width: 500px;
+                }
+                @media (max-width: 979px) {
+                    width: 400px;
+                }
+                @media (max-width: 767px) {
+                    width: 480px;
+                }
+                @media (max-width: 480px) {
+                    width: 300px;
+                }
+            }
+            .tooltip {
+                opacity: 1;
+                display: block;
+            }
+        }
+    }
+
+    .info-atencion-por-region {
+        #cont-mapa-chile {
+            padding: 20px 0;
+        }
+        .table {
+            tr:nth-child(odd) td {
+                background-color: #dddddd;
+            }
+        }
+        .tooltip-mapa {
+            margin: 50px 0 0 0;
+            display: none;
+            .nombre-region {
+                margin: 0;
+                padding: 0;
+                font-size: 30px;
+            }
+            .cant-atenciones {
+                padding: 0;
+                margin: 0;
+                float: left;
+                font-size: 40px;
+                font-weight: bold;
+            }
+            .text-atenciones {
+                float: left;
+                margin: 2px 0 0 5px;
+            }
+        }
+        #tabla-instituciones {
+            min-height: 200px;
+            td {
+                padding: 2px 10px;
+            }
+            .no-data {
+                background-color: #ffffff!important;
+                height: 200px;
+                vertical-align: middle!important;
+                text-align: center;
+            }
+        }
+        #g2999 {
+            path {
+                cursor: pointer;
+                -webkit-transition: opacity 0.5s;-moz-transition: opacity 0.5s;-ms-transition: opacity 0.5s;-o-transition: opacity 0.5s;transition: opacity 0.5s;
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .info-numero-comunas {
+        .cont-puntos-comunas {
+            margin-right: 15px;
+        }
+        .punto-comuna {
+            margin: 1px;
+            float: left;
+            width: 20px;
+            height: 26px;
+            background: url('../images/icono_puntos_oficinas.png') left -26px no-repeat;
+            &.con-chileatiende{
+                background-position: left top;
+            }
+        }
+        p {
+            padding: 0;
+            margin: 0;
+            font-size: 26px;
+            line-height: 26px;
+        }
+        .cont-cantidad-comunas{
+            .cantidad-comunas {
+                font-size: 60px;
+                line-height: 45px;
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+                @media (max-width: 768px) {
+                    margin-top: 20px;
+                }
+            }
+        }
+        .cont-porcentaje-poblacion {
+            margin: 10px 0 0 10px;
+            padding: 60px 0 0 160px;
+            background: url('../images/icono_porcentaje_oficinas.png') left top no-repeat;
+            min-height: 165px;
+            h3 {
+                margin: 0;
+                padding: 0;
+                font-size: 45px;
+                line-height: 45px;
+                font-weight: bold;
+            }
+            @media (min-width: 481px) and (max-width: 1024px) {
+                background: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+    .info-evolucion-crecimiento {
+      .cont-slider{
+        #slider-evolucion-crecimiento {
+          width: 600px;
+          @media (max-width: 1199px){
+            width: 500px;
+          }
+          @media (max-width: 979px) {
+            width: 400px;
+          }
+          @media (max-width: 767px) {
+            width: 480px;
+          }
+          @media (max-width: 480px) {
+            width: 300px;
+          }
+        }
+
+        .tooltip {
+          opacity: 1;
+          display: block;
+        }
+      }
+    }
+    .info-evolucion-sucursales {
+        .cont-slider{
+          #slider-evolucion-sucursales {
+            width: 600px;
+            @media (max-width: 1199px){
+              width: 500px;
+            }
+            @media (max-width: 979px) {
+              width: 400px;
+            }
+            @media (max-width: 767px) {
+              width: 480px;
+            }
+            @media (max-width: 480px) {
+              width: 300px;
+            }
+          }
+
+          .tooltip {
+            opacity: 1;
+            display: block;
+          }
+        }
+    }
+    .info-evolucion-crecimiento,
+    .info-evolucion-sucursales {
+      .nv-controlsWrap{
+        display: none;
+      }
+    }
+    td[align="right"]{
+        text-align: right;
+    }
+    .info-numero-oficinas-moviles{
+      padding-bottom: 80px;
+      font-size: 20px;
+      img {
+        margin-right: 10px;
+      }
+      span {
+        line-height: 45px;
+      }
+    }
+}
+.nvtooltip {
+    padding: 10px;
+    text-align: center;
+}

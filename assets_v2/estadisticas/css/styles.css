@@ -1,0 +1,402 @@
+.estadisticas-chileatiende {
+  margin-top: 20px;
+  padding: 20px 60px;
+}
+@media (max-width: 768px) {
+  .estadisticas-chileatiende {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende {
+    padding: 10px 10px;
+  }
+}
+.estadisticas-chileatiende h1 {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.estadisticas-chileatiende h2 {
+  font-size: 22px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+@media (max-width: 720px) {
+  .estadisticas-chileatiende h2 {
+    margin-bottom: 20px;
+  }
+}
+.estadisticas-chileatiende h6 {
+  padding: 0;
+  margin: 0;
+}
+.estadisticas-chileatiende .form-control {
+  max-width: 100%;
+}
+.estadisticas-chileatiende .row-fluid {
+  position: relative;
+}
+.estadisticas-chileatiende .no-relative {
+  position: static!important;
+}
+.estadisticas-chileatiende .disable-chart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.estadisticas-chileatiende .seccion-grafico {
+  padding-bottom: 30px;
+  margin-bottom: 60px;
+  background: url('../images/separacion_graficos.jpg') center bottom no-repeat;
+}
+.estadisticas-chileatiende .icon-download {
+  opacity: 0.5;
+}
+@media (max-width: 768px) {
+  .estadisticas-chileatiende .info-numero-atenciones .span2-lista-canales,
+  .estadisticas-chileatiende .info-numero-atenciones .span10-cont-nun-atenciones {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+.estadisticas-chileatiende .info-numero-atenciones .cont-pie-graph {
+  position: relative;
+}
+.estadisticas-chileatiende .info-numero-atenciones .cont-pie-graph.disabled {
+  opacity: 0.5;
+}
+@media (max-width: 768px) {
+  .estadisticas-chileatiende .info-numero-atenciones .cont-pie-graph {
+    width: 33%;
+    float: left;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende .info-numero-atenciones .cont-pie-graph {
+    width: 50%;
+  }
+  .estadisticas-chileatiende .info-numero-atenciones .cont-pie-graph:last-child {
+    margin-left: 25%;
+  }
+}
+.estadisticas-chileatiende .info-numero-atenciones .lista-canales li {
+  text-align: center;
+  margin-top: 30px;
+}
+@media (max-width: 768px) {
+  .estadisticas-chileatiende .info-numero-atenciones .lista-canales li {
+    margin-top: 0px;
+    float: left;
+    width: 33%;
+  }
+}
+.estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart {
+  position: absolute;
+  top: 130px;
+  left: 80px;
+  width: 140px;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+  .estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart {
+    top: 100px;
+    left: 46px;
+  }
+}
+@media (max-width: 979px) {
+  .estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart {
+    top: 65px;
+    left: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart {
+    top: 100px;
+    left: 50px;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart {
+    top: 140px;
+    left: 77px;
+  }
+}
+.estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart h5 {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 1199px) {
+  .estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart h5 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart h5 {
+    font-size: 16px;
+  }
+}
+.estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-chart h6 {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+.estadisticas-chileatiende .info-numero-atenciones #cont-nun-atenciones .cont-info-bajada-chart {
+  margin-top: -30px;
+  text-align: center;
+}
+.estadisticas-chileatiende .info-evolucion-visitas .nvtooltip {
+  padding: 10px;
+}
+.estadisticas-chileatiende .info-evolucion-visitas .nvtooltip h2,
+.estadisticas-chileatiende .info-evolucion-visitas .nvtooltip h4 {
+  display: inline;
+}
+.estadisticas-chileatiende .info-evolucion-visitas .cont-slider {
+  position: relative;
+  padding-top: 30px;
+}
+.estadisticas-chileatiende .info-evolucion-visitas .cont-slider #slider-evolucion-visitas {
+  width: 600px;
+}
+@media (max-width: 1199px) {
+  .estadisticas-chileatiende .info-evolucion-visitas .cont-slider #slider-evolucion-visitas {
+    width: 500px;
+  }
+}
+@media (max-width: 979px) {
+  .estadisticas-chileatiende .info-evolucion-visitas .cont-slider #slider-evolucion-visitas {
+    width: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .estadisticas-chileatiende .info-evolucion-visitas .cont-slider #slider-evolucion-visitas {
+    width: 480px;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende .info-evolucion-visitas .cont-slider #slider-evolucion-visitas {
+    width: 300px;
+  }
+}
+.estadisticas-chileatiende .info-evolucion-visitas .cont-slider .tooltip {
+  opacity: 1;
+  display: block;
+}
+.estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider {
+  position: relative;
+  padding-top: 30px;
+}
+.estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider #slider-evolucion-tiempo-espera {
+  width: 600px;
+}
+@media (max-width: 1199px) {
+  .estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider #slider-evolucion-tiempo-espera {
+    width: 500px;
+  }
+}
+@media (max-width: 979px) {
+  .estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider #slider-evolucion-tiempo-espera {
+    width: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider #slider-evolucion-tiempo-espera {
+    width: 480px;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider #slider-evolucion-tiempo-espera {
+    width: 300px;
+  }
+}
+.estadisticas-chileatiende .info-evolucion-tiempo-espera .cont-slider .tooltip {
+  opacity: 1;
+  display: block;
+}
+.estadisticas-chileatiende .info-atencion-por-region #cont-mapa-chile {
+  padding: 20px 0;
+}
+.estadisticas-chileatiende .info-atencion-por-region .table tr:nth-child(odd) td {
+  background-color: #dddddd;
+}
+.estadisticas-chileatiende .info-atencion-por-region .tooltip-mapa {
+  margin: 50px 0 0 0;
+  display: none;
+}
+.estadisticas-chileatiende .info-atencion-por-region .tooltip-mapa .nombre-region {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+}
+.estadisticas-chileatiende .info-atencion-por-region .tooltip-mapa .cant-atenciones {
+  padding: 0;
+  margin: 0;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+}
+.estadisticas-chileatiende .info-atencion-por-region .tooltip-mapa .text-atenciones {
+  float: left;
+  margin: 2px 0 0 5px;
+}
+.estadisticas-chileatiende .info-atencion-por-region #tabla-instituciones {
+  min-height: 200px;
+}
+.estadisticas-chileatiende .info-atencion-por-region #tabla-instituciones td {
+  padding: 2px 10px;
+}
+.estadisticas-chileatiende .info-atencion-por-region #tabla-instituciones .no-data {
+  background-color: #ffffff!important;
+  height: 200px;
+  vertical-align: middle!important;
+  text-align: center;
+}
+.estadisticas-chileatiende .info-atencion-por-region #g2999 path {
+  cursor: pointer;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.estadisticas-chileatiende .info-atencion-por-region #g2999 path.active {
+  opacity: 1;
+}
+.estadisticas-chileatiende .info-numero-comunas .cont-puntos-comunas {
+  margin-right: 15px;
+}
+.estadisticas-chileatiende .info-numero-comunas .punto-comuna {
+  margin: 1px;
+  float: left;
+  width: 20px;
+  height: 26px;
+  background: url('../images/icono_puntos_oficinas.png') left -26px no-repeat;
+}
+.estadisticas-chileatiende .info-numero-comunas .punto-comuna.con-chileatiende {
+  background-position: left top;
+}
+.estadisticas-chileatiende .info-numero-comunas p {
+  padding: 0;
+  margin: 0;
+  font-size: 26px;
+  line-height: 26px;
+}
+.estadisticas-chileatiende .info-numero-comunas .cont-cantidad-comunas .cantidad-comunas {
+  font-size: 60px;
+  line-height: 45px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .estadisticas-chileatiende .info-numero-comunas .cont-cantidad-comunas .cantidad-comunas {
+    margin-top: 20px;
+  }
+}
+.estadisticas-chileatiende .info-numero-comunas .cont-porcentaje-poblacion {
+  margin: 10px 0 0 10px;
+  padding: 60px 0 0 160px;
+  background: url('../images/icono_porcentaje_oficinas.png') left top no-repeat;
+  min-height: 165px;
+}
+.estadisticas-chileatiende .info-numero-comunas .cont-porcentaje-poblacion h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: bold;
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  .estadisticas-chileatiende .info-numero-comunas .cont-porcentaje-poblacion {
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+.estadisticas-chileatiende .info-evolucion-crecimiento .cont-slider #slider-evolucion-crecimiento {
+  width: 600px;
+}
+@media (max-width: 1199px) {
+  .estadisticas-chileatiende .info-evolucion-crecimiento .cont-slider #slider-evolucion-crecimiento {
+    width: 500px;
+  }
+}
+@media (max-width: 979px) {
+  .estadisticas-chileatiende .info-evolucion-crecimiento .cont-slider #slider-evolucion-crecimiento {
+    width: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .estadisticas-chileatiende .info-evolucion-crecimiento .cont-slider #slider-evolucion-crecimiento {
+    width: 480px;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende .info-evolucion-crecimiento .cont-slider #slider-evolucion-crecimiento {
+    width: 300px;
+  }
+}
+.estadisticas-chileatiende .info-evolucion-crecimiento .cont-slider .tooltip {
+  opacity: 1;
+  display: block;
+}
+.estadisticas-chileatiende .info-evolucion-sucursales .cont-slider #slider-evolucion-sucursales {
+  width: 600px;
+}
+@media (max-width: 1199px) {
+  .estadisticas-chileatiende .info-evolucion-sucursales .cont-slider #slider-evolucion-sucursales {
+    width: 500px;
+  }
+}
+@media (max-width: 979px) {
+  .estadisticas-chileatiende .info-evolucion-sucursales .cont-slider #slider-evolucion-sucursales {
+    width: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .estadisticas-chileatiende .info-evolucion-sucursales .cont-slider #slider-evolucion-sucursales {
+    width: 480px;
+  }
+}
+@media (max-width: 480px) {
+  .estadisticas-chileatiende .info-evolucion-sucursales .cont-slider #slider-evolucion-sucursales {
+    width: 300px;
+  }
+}
+.estadisticas-chileatiende .info-evolucion-sucursales .cont-slider .tooltip {
+  opacity: 1;
+  display: block;
+}
+.estadisticas-chileatiende .info-evolucion-crecimiento .nv-controlsWrap,
+.estadisticas-chileatiende .info-evolucion-sucursales .nv-controlsWrap {
+  display: none;
+}
+.estadisticas-chileatiende td[align="right"] {
+  text-align: right;
+}
+.estadisticas-chileatiende .info-numero-oficinas-moviles {
+  padding-bottom: 80px;
+  font-size: 20px;
+}
+.estadisticas-chileatiende .info-numero-oficinas-moviles img {
+  margin-right: 10px;
+}
+.estadisticas-chileatiende .info-numero-oficinas-moviles span {
+  line-height: 45px;
+}
+.nvtooltip {
+  padding: 10px;
+  text-align: center;
+}

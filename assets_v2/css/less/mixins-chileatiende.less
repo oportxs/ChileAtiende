@@ -1,0 +1,64 @@
+.encabezado() {
+    position: relative;
+    font-family: @fontArial;
+    padding: 10px 0 10px 50px;
+    background-color: @white;
+    border-bottom: 1px solid @grayBorder;
+    @media (max-width: 1024px) {
+        padding: 10px @mobilPaddingWidth;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: normal;
+        @media (max-width: 480px) {
+            line-height: 26px;
+        }
+    }
+
+    h5 {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    h6 {
+        font-size: 14px;
+    }
+
+    h5, h6 {
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+    }
+
+    &:after{
+        content:'';
+        position: absolute;
+        width: 20px;
+        height: 22px;
+        left: 50px;
+        bottom: -12px;
+        background: url('../img/filtros_busqueda/fondo_header_filtros.png') left bottom no-repeat;
+    }
+
+    .separador_header {
+        position: absolute;
+        bottom: -10px;
+        left: 50px;
+    }
+}
+
+.placeholder-color(@color) {
+    &::-webkit-input-placeholder { /* WebKit browsers */
+    color:    @color;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:    @color;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:    @color;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color:    @color;
+    }
+}

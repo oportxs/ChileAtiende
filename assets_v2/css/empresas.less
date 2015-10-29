@@ -1,0 +1,285 @@
+//Fonts
+@fontNormal:"gobCLRegular", Arial, Helvetica, sans-serif;
+@fontLight:"gobCLLight", Arial, Helvetica, sans-serif;
+@fontBold:"gobCLBold", Arial, Helvetica, sans-serif;
+@fontHeavy:"gobCLHeavy", Arial, Helvetica, sans-serif;
+
+body {
+    background:url('../img/background/Fondo-Vina-ArribaMiPyme.jpg') center top no-repeat fixed;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+
+header {
+    background: url('../img/portada/fondo_header_home.png') left top transparent;
+    h3 {
+        font-size: 22px;
+        color: #FFF;
+    }
+    form {
+        margin-top: 30px;
+    }
+    .row-top {
+        height: 65px;
+    }
+    .header-right .row-bottom {
+        padding-bottom: initial;
+    }
+    .header-center {
+        padding-top: initial;
+    }
+
+    // overwrite margin prop on frontend.css - ChA Personas
+    .nav-areas {
+        .span2:first-child {
+            margin-right: -40px;
+        }
+        .eventos {
+            width: 25%;
+        }
+    }
+    .banner-home{
+        margin: 20px;
+    }
+}
+
+.header-search {
+    text-align: center;
+    padding-bottom: 10px;
+    form {
+        width: auto;
+        float: none;
+        h3 {
+            font-size: 22px;
+            color: #FFF;
+            text-shadow: 1px 1px 1px #000;
+            filter: dropshadow(color=#000, offx=1, offy=1);
+        }
+        .main_search_input {
+            float: none;
+            width: 640px;
+            height:47px;
+            font-size:16px;
+            border-right: none;
+            border-radius: 0;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-shadow: inset 1px 6px 4px 0px #dddddd;
+        }
+
+        .searchbtn {
+            display: inline;
+            float: none;
+            border:none;
+            height: 57px;
+            width: 105px;
+            padding:5px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: #e20033;
+            margin-bottom: 10px;
+            margin-left: -5px;
+            color: #ffffff;
+            font-size: 23px;
+        }
+    }
+}
+
+.background {
+    z-index: -1;
+    position: absolute;
+    background-color: #000;
+    filter: alpha(opacity=40);
+    opacity: 0.4;
+    display: block;
+    height: 100%;
+}
+body .esPortada {
+    background-color: transparent;
+}
+.contenedor-principal {
+    padding: 5px 35px 30px;
+}
+.titulos-accesos {
+    h3 {
+        float: left;
+        color: #FFF;
+        font-family: @fontHeavy;
+        font-size: 28px;
+        padding: 6px 0 6px 40px;
+        font-weight: normal;
+    }
+    h3.etapas {
+        background: url('../img/portada/icon_bonos_servicios.png') left top no-repeat;
+    }
+    h3.puntos {
+        background: url('../img/portada/icon_puntos_atencion.png') left top no-repeat;
+    }
+}
+
+.nav-principal {
+    
+    div.span2 {
+        background-color: #004ea2;
+        height: 105px;
+        min-height: 105px;
+        padding: 0px 10px;
+        text-align: center;
+        h3 {
+            font-family: @fontBold;
+            font-weight: initial;
+            line-height: 25px;
+            color: #FFF;
+            margin-top: 25px;
+            a {
+                color: #FFF;
+            }
+            a:hover {
+                color: #FFF;
+            }
+        }
+    }
+    div:hover {
+        background-color: #006CB8;
+    }
+    div.selected {
+        background-color: #008bda;
+        margin-top: -10px;
+        height: 115px;
+    }
+}
+
+.nav-secundaria,.nav-secundaria-movil {
+    div.span3 {
+        background-color: rgba(255,255, 255, 0.85);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#d9ffffff', endColorstr='#d9ffffff')"; /* IE */
+        height: 105px;
+        min-height: 105px;
+        padding: 0 30px;
+        border: 1px solid #DDD;
+        h3 {
+            font-size: 14px;
+            color: #004b99;
+            line-height: 20px;
+            font-weight: normal;
+        }
+        h3.apoyo {
+            color: #e20033;
+        }
+        h2 {
+            line-height: 20px;
+            font-size: 24px;
+            font-weight: normal;
+            a {
+                color: #000;
+            }
+            a:hover {
+                color: #000;
+            }
+        }
+    }
+
+    div.span3:hover{
+        background-color: #fff;
+    }
+}
+
+.subcontenido {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    .span6{
+        .cabecera {
+            h3 {
+                color: #FFF;
+                padding-left: 25px;
+                font-family: @fontHeavy;
+                font-weight: normal;
+            }
+        }
+        .row{
+            background-color: rgba(255,255, 255, 0.85);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#d9ffffff', endColorstr='#d9ffffff')"; /* IE */
+            ul {
+                margin: 0;
+
+                li {
+                    list-style-type: none; 
+                    height: 65px;
+                    border-bottom: 1px solid #FFF;
+                    padding: 5px;
+                    padding-top: 15px;
+                    padding-left: 25px;
+                    a {
+                        color: #555555;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                    div.contenedor-label {
+                        margin: 15px;
+                    }
+                    
+                    span.institucion {
+                        display: block;
+                        color: #0091cc;
+                    }
+                }
+                li:hover {
+                    background-color: rgba(255,255, 255, 1);
+                }
+            }
+        }
+    }
+}
+
+#maincontent {
+    background-color: white;
+}
+
+.label-success {
+    padding: 3px 15px;
+}
+.paso-paso-emprendete {
+    border: 1px solid #CCC;
+    padding: 0px 5px;
+
+    ol {
+        margin: initial;
+        li {
+            background: url('/assets_v2/img/icon_bg_pasopaso.png') no-repeat 20px 20px;
+            list-style-position: inside; 
+            list-style-type: none;
+            padding-top: 15px;
+            padding-left: 70px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #CCC;
+            strong {
+                font-size: 18px;
+            }
+        }
+    }
+}
+.emprendete-calendario {
+    
+    padding-left: 30px !important;
+
+    h4 {
+        background-image: url('/assets_v2/img/icon_calendario.png');
+        background-repeat: no-repeat;
+        background-position: 20px 20px;
+    }
+}
+//tablas
+.table td {
+    border-top: initial;
+    border-bottom: 1px solid #ccc;
+}
+.titulo-tabla {
+    color: #0065a9;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+//Responsive
+@import "empresas-responsive.less";

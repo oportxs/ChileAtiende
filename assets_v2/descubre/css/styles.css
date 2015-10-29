@@ -1,0 +1,223 @@
+@font-face {
+  font-family: 'gobCLLight';
+  src: url('fonts/gobcl_light-webfont.eot');
+  src: url('fonts/gobcl_light-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/gobcl_light-webfont.ttf') format('truetype'), url('fonts/gobcl_light-webfont.svg#gobCLLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gobCLBold';
+  src: url('fonts/gobcl_bold-webfont.eot');
+  src: url('fonts/gobcl_bold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/gobcl_bold-webfont.woff') format('woff'), url('fonts/gobcl_bold-webfont.ttf') format('truetype'), url('fonts/gobcl_bold-webfont.svg#gobCLBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {font-family: "gobCLLight", Arial, Helvetica, sans-serif;}
+
+.container-fluid{background-color: #e6e6e6}
+
+.logo_p{
+    float:right!important;
+    width: 135px;
+    height: 47px;
+    margin: 15px;
+}
+
+header .header-top {margin: 20px 0;}
+header .header-top .logo { max-width: 280px; }
+header h1{margin: 20px 0 10px 30px;}
+header h2 {font-size: 42px;line-height: 42px;padding-top: 20px;}
+
+#navbar {position: absolute;}
+#navbar.affix {top:0px;position: fixed;}
+#navbar .nav{background-color: #457ab0;}
+#navbar .nav a{padding: 15px 20px;color: #fff;text-shadow: none;font-size: 22px;line-height: 23px;border-right: 1px solid #5888b9;}
+
+#navbar .navbar-inner {
+    background-color: #457ab0;
+    background-image: none;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+}
+#navbar .navbar-inner .btn-navbar {
+    background-color: #73a4d6;
+    background-image: none;
+    margin-bottom: 5px;
+}
+
+.navbar .nav .active a {font-family: "gobCLBold", Arial, Helvetica, sans-serif;font-weight: normal;background-color: #0094cf;}
+.navbar .nav .active a:hover {background-color: #0094cf }
+.navbar .nav .active:after{
+	content:'';
+	position: absolute;
+	bottom: -10px;
+	color: transparent;
+	background-image:url('../images/ico_flecha-azul.png');
+	width: 19px;
+	height: 11px;
+	margin-left: 40px;
+}
+
+
+.main .content {padding: 0 20px;}
+.main .content h3{margin: 0 0 20px 0;padding: 0;font-size: 42px;line-height: 42px;color:#333;}
+.main .content li{font-size: 24px;line-height: 30px;color:#457ab0;}
+.main .content li p { color:#666; }
+.main .content iframe { max-width: 100%; }
+
+.main .row-fluid {margin: 90px 0;}
+
+#pie {margin-bottom: 60px;}
+#pie p{font-size: 42px;line-height: 42px;color:#666;}
+#pie p span{color:#5888b9}
+
+footer li {
+  list-style: none;
+}
+footer h4 {
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 18px;
+  padding: 20px 0 5px 0;
+  margin-left: 40px;
+}
+footer ul.unstyled {
+  margin-left: 40px;
+}
+footer .sobre-chileatiende li,
+footer .terminos-condiciones li,
+footer .accesos-directos li {
+  background: url('../images/list_bullet.png') left 6px no-repeat;
+  padding-left: 15px;
+  margin: 10px 0;
+}
+footer .sobre-chileatiende li a,
+footer .terminos-condiciones li a,
+footer .accesos-directos li a {
+  color: #7ba0ba;
+}
+footer .red-multicanal {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+footer .red-multicanal a {
+  color: #ffffff;
+}
+footer .red-multicanal .lista-canales {
+  margin-bottom: 15px;
+}
+footer .red-multicanal .lista-canales li {
+  padding-left: 30px;
+  line-height: 24px;
+  margin: 5px 0;
+  background-image: url('../images/sprite_footer_icons.png');
+  background-repeat: no-repeat;
+}
+footer .red-multicanal .lista-canales li.canal-web {
+  background-position: left -48px;
+}
+footer .red-multicanal .lista-canales li.canal-oficina {
+  background-position: left -24px;
+}
+footer .red-multicanal .lista-canales li.canal-callcenter {
+  background-position: left 0;
+}
+footer .red-multicanal .lista-contactos li {
+  float: left;
+  margin-right: 10px;
+}
+footer .red-multicanal .lista-contactos li a {
+  background-repeat: no-repeat;
+  display: block;
+  text-indent: -9999px;
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/sprite_footer_icons.png');
+}
+footer .red-multicanal .contactos-twitter a {
+  background-position: left -96px;
+}
+footer .red-multicanal .contactos-facebook a {
+  background-position: left -120px;
+}
+footer .red-multicanal .contactos-correo a {
+  background-position: left -72px;
+}
+footer .footer-top {
+  background-color: #353b43;
+}
+footer .footer-top .span4 {
+  min-height: 150px;
+}
+footer .footer-bottom {
+  background-color: #1a1d21;
+}
+footer .footer-bottom .span4 {
+  min-height: 80px;
+}
+footer .footer-bottom ul {
+  float: left;
+  margin-top: 25px;
+  margin-left:15px;
+}
+footer .footer-bottom .creative-commons a {
+  background: url('../images/icon_footer_copyright.png') left top no-repeat;
+  text-indent: -9999px;
+  float: left;
+  width: 47px;
+  height: 21px;
+}
+footer .footer-bottom .modernizacion {
+  margin-left: 5px;
+  float: left;
+  font-size: 14px;
+  line-height: 14px;
+  margin-top: 25px;
+  color: #b1b9be;
+}
+footer .footer-bottom .modernizacion a {
+  color: #7ba0ba;
+}
+footer .footer-bottom .cont-logo-footer {
+  border-left: none;
+  position: relative;
+}
+footer .footer-bottom .gobierno-chile {
+  background: url('../images/logo_gobierno_footer.png') left bottom no-repeat;
+  text-indent: -9999px;
+  float: left;
+  width: 181px;
+  height: 80px;
+  position: absolute;
+  right: 30px;
+}
+
+@media (max-width: 1200px) {
+    .logo_p{
+        display:none;
+    }
+}
+@media (max-width: 979px) {
+    #navbar .nav li a {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .main .row-fluid {
+        margin: 50px 0;
+    }
+    #navbar .nav li {
+        float: none;
+        text-align: center;
+        border-top: 1px solid #73a4d6;
+    }
+}
+@media (max-width: 767px) {
+    .footer-top .span3 ul,
+    .footer-top .span3 h4 {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}

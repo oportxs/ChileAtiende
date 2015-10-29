@@ -1,0 +1,77 @@
+body {
+	background: #FFF;
+  margin: 0;
+  padding: 0;
+  color: #2C2C2C;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 87.5%;	
+}
+@font-face {
+    font-family: 'gobCLLight';
+    src: url('font/gobcl_light-webfont.eot');
+    src: url('font/gobcl_light-webfont.eot?#iefix') format('embedded-opentype'),
+        url('font/gobcl_light-webfont.ttf') format('truetype'),
+        url('font/gobcl_light-webfont.svg#gobCLLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#map {
+    float: left;
+    margin: 5px;
+}
+#map .tramites_frecuentes_subtitulo {
+    background-position: left bottom;
+}
+#map .mapa {
+    margin-top: 20px;
+}
+#map .comuna {
+	margin-bottom: 15px;
+}
+#map .comuna #form1 {
+    display: inline;
+    margin-right: 30px;
+    margin-left: 10px;
+}
+#map .comuna span.mensaje {
+    font-family: gobCLLight;
+    font-size: 1.2em;
+    color: #2A5267;
+}
+#map .mapa {
+    height: 342px;
+    width: 100%;
+}
+#map table td, #map table th {
+    padding: 2px 5px;
+    border-bottom: dotted 1px #d9d9d9;
+}
+#map table th {
+    font-weight: bold;
+    color: #2A5267;
+}
+
+#map .tramites_frecuentes_subtitulo {
+	margin: 0;
+	padding: 0;
+	height: 39px;
+	font-size: 1.143em;
+	font-family: gobCLLight;
+	line-height: 39px;
+	background-image: url(../images/linea_gob.png);
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	margin-bottom: 5px;
+}
+
+#map .cont-link-chileatiende {
+	text-align: right;
+	margin-top: 10px;
+}
+
+#map .cont-link-chileatiende a {
+	color: #003F92;
+	font-size: 0.8em;
+}

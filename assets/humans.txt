@@ -1,0 +1,29 @@
+/* TEAM */
+Titulo: Unidad de Modernizacion de Gobierno Electronico
+Twitter: @modernizacioncl
+
+Muchas gracias a:
+Felipe Mancini
+Valentina Raddatz
+Carolina Díaz
+Carolina Catalán
+Mercedes Castro
+Daniela Pradenas
+Marcelo Pérez
+Nicolas Silva
+Camilo López
+Enrique González
+José Garrido (Subsecretaría de Economía y Empresas de Menor Tamaño, División Empresas de Menor Tamaño)
+Claudio Vega
+Ricardo Rosende
+Sofía Varas
+Pablo Canales
+Gonzalo Valdés (Subsecretaría de Economía y Empresas de Menor Tamaño, División Empresas de Menor Tamaño)
+Darcy Vergara
+Godofredo Acuña
+
+/* SITE */
+Last update: 2013/03/20
+Standards: XHTML1.1, CSS3
+Components: CodeIgniter, Doctrine, jQuery, Bootstrap
+Software: Sublime Text, Mercurial, Ubuntu Server LAMP, SSH

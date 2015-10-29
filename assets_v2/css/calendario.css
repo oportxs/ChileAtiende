@@ -1,0 +1,199 @@
+.calendario_top
+{
+	width: 100%;
+	height: 50px; 
+	padding: 15px 0px 15px 0px;
+	border-bottom: 1px solid #ccc;
+}
+.calendario_top>#titulo
+{
+	color: #6a83c6;
+	font-size: x-large;
+	font-weight: bold;
+
+	position: relative;
+	left: 30px;
+	bottom: -21px;
+	padding: 20px 30px;
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
+}
+.calendario_top>#enlace
+{
+	background-color: #eaeaea;
+	font-size: large;
+	font-weight: bold;
+
+	position: relative;
+	left: 30px;
+	bottom: -22px;
+	padding: 20px 30px;
+}
+.calendario_top>#enlace>a { color: #333; }
+.calendario_top>#enlace>a:hover { color: #aaa; }
+
+.calendario_container
+{   
+    width: 100%;
+}
+.calendario_week
+{
+	width: 100%;
+}
+.calendario_week_day
+{
+	color: #AAA;
+	font-weight: bolder;
+	padding: 3px;
+	float: left;
+	width: 13%;
+
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+.calendario_cal
+{
+	width: 100%;
+}
+.calendario_cal_day
+{
+	min-height: 145px;
+	float: left;
+	width: 13%;
+	padding: 3px;
+
+	border-bottom: 1px solid #ccc;	
+	border-left: 1px solid #ccc;
+}
+.cal_day_evento
+{
+    color: white;
+    background-color: #2B4C95;
+    border-radius: 15px;
+    padding: 3px;
+    
+    line-height: 150%;
+    position: relative;
+    top: -1px;
+}
+.cal_item
+{
+ 	position: absolute;
+ 	background-color: rgba(200,200,200,0.85);
+ 	margin-left: -3px;
+ 	padding: 4px;
+ 	opacity: 0.85;
+ 	color: #000;
+ 	font-size: 90%;
+
+ 	overflow: hidden;
+ 	white-space: nowrap;
+}
+.cal_item:hover
+{
+	opacity: 1;
+	color: #fff;
+	background-color: #2B4C95;
+}
+
+
+.calendario_title
+{
+	/*border-top: 1px solid #ccc;*/
+	font-size: x-large;
+	width: 100%;
+	height: 60px;
+	line-height: 2.5;
+	text-align: center;
+}
+.calendario_title>a
+{
+	text-decoration: none;
+	color: #AAA;
+	border: 1px solid #AAA;
+	padding: 2px 10px 2px 10px;
+}
+.calendario_title>a:hover
+{
+	color: #555;
+}
+
+.popbox {
+    display: none;
+    position: absolute;
+    z-index: 99999;
+    width: 400px;
+    padding: 15px;
+    background: #FFFFFF;
+    color: #000000;
+    border: 10px solid #aacae3;
+    margin: 0px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(164, 164, 164, 1);
+    box-shadow: 0px 0px 5px 0px rgba(164, 164, 164, 1);
+    opacity: 0.95;
+}
+.expirado 
+{
+	border: 10px solid #AAAAAA;
+}
+.msg_expirado
+{
+	float: right;
+	padding: 5px;
+	background-color: #AAAAAA;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; /* future proofing */
+	-khtml-border-radius: 5px; /* for old Konqueror browsers */
+}
+.popbox h2
+{
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    margin: -10px 0px 10px -10px;
+    padding: 5px 10px 0px 10px;
+    line-height: normal;
+}
+.popbox li
+{
+	color: #0dc5ff;
+}
+.popbox li>span
+{
+	color: #000;
+}
+
+table.eventos_permanentes
+{
+	margin-left: 15px;
+}
+
+.info.permanente
+{
+	padding-top: 15px;
+	padding-right: 10px;
+	background-color: #eee;
+}
+.info.permanente:hover { cursor: pointer; }
+.permanente.separacion
+{
+	border-bottom: 1px solid #aaa;
+}
+.info
+{
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+	padding-right: 15px; 
+	padding-top: 10px;
+}
+.ver-todos {
+	margin-top: 100px; 
+	display: none;
+}
+.ver-todos a {
+    background: url('../img/metafichas/icono_abrirlightbox.png') right center no-repeat;
+    font-size: small;
+    padding-right: 20px;
+}
