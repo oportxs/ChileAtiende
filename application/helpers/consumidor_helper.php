@@ -2,7 +2,7 @@
 //permite consumir fichas desde plataforma ChileAtiende mediante la API
 /*
  * Obtiene un servicio
- * https://www.chileatiende.cl/desarrolladores/servicios_obtener
+ * https://www.chileatiende.gob.cl/desarrolladores/servicios_obtener
  */
 function APIServicio($idServicio) {
     $CI = & get_instance();
@@ -17,7 +17,7 @@ function APIServicio($idServicio) {
 
 /*
  * Obtiene todos los servicios
- * https://www.chileatiende.cl/desarrolladores/servicios_listar
+ * https://www.chileatiende.gob.cl/desarrolladores/servicios_listar
  */
 
 function APIServicios() {
@@ -33,7 +33,7 @@ function APIServicios() {
 
 /*
  * Obtiene una ficha
- * https://www.chileatiende.cl/desarrolladores/fichas_obtener
+ * https://www.chileatiende.gob.cl/desarrolladores/fichas_obtener
  */
 
 function APIFicha($idFicha) {
@@ -49,7 +49,7 @@ function APIFicha($idFicha) {
 
 /*
  * Obtiene las fichas asociadas a un servicio
- * https://www.chileatiende.cl/desarrolladores/fichas_listarporservicio
+ * https://www.chileatiende.gob.cl/desarrolladores/fichas_listarporservicio
  */
 
 function APIFichas($servicioId) {
@@ -65,7 +65,7 @@ function APIFichas($servicioId) {
 
 /*
  * Obtiene todas las fichas
- * https://www.chileatiende.cl/desarrolladores/fichas_listar
+ * https://www.chileatiende.gob.cl/desarrolladores/fichas_listar
  */
 function APIAllFichas($aParams = array()) {
     $CI = & get_instance();

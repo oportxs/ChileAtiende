@@ -124,7 +124,7 @@
                 <div id="pie">
                     <div class="row-fluid">
                         <div class="span6 offset3">
-                            <p>Para conocer más<br/>ingresa a <span><a href="<?php echo site_url(); ?>">www.chileatiende.cl</a></span></p>
+                            <p>Para conocer más<br/>ingresa a <span><a href="<?php echo site_url(); ?>">www.chileatiende.gob.cl</a></span></p>
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                             </h4>
                             <ul class="unstyled lista-canales">
                                 <li class="canal-web">
-                                    <a href="<?php echo site_url(); ?>">www.chileatiende.cl</a>
+                                    <a href="<?php echo site_url(); ?>">www.chileatiende.gob.cl</a>
                                 </li>
                                 <li class="canal-oficina">
                                     <a href="<?php echo site_url(); ?>oficinas">Puntos de atención</a>
@@ -182,7 +182,7 @@
                             <ul class="unstyled lista-contactos">
                                 <li>Contacto</li>
                                 <li class="contactos-correo">
-                                    <a href="http://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe">Contacto</a>
+                                    <a href="https://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe">Contacto</a>
                                 </li>
                                 <li class="contactos-twitter">
                                     <a href="https://twitter.com/ChileAtiende" target="_blank">Twitter</a>
@@ -238,7 +238,7 @@
 
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-28124406-2']);
-        _gaq.push(['_setDomainName', 'chileatiende.cl']);
+        _gaq.push(['_setDomainName', 'chileatiende.gob.cl']);
         _gaq.push(['_trackPageview']);
 
         (function() {

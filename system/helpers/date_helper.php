@@ -35,6 +35,8 @@
  * @access	public
  * @return	integer
  */
+date_default_timezone_set('America/Santiago');
+setlocale(LC_TIME, 'es_ES.UTF-8');
 if ( ! function_exists('now'))
 {
 	function now()

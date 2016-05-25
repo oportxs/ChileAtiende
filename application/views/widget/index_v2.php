@@ -18,7 +18,7 @@
                 <h3>Buscador ChileAtiende</h3>
                 <p><strong>Código HTML</strong></p>
                 <code>
-                    &lt;script type=&quot;text/javascript&quot; src=&quot;http://www.chileatiende.cl/assets/js/widget-buscador-cha.js&quot;&gt;&lt;/script&gt;<br />&lt;div id=&quot;buscadorChA&quot;&gt;&lt;/div&gt;
+                    &lt;script type=&quot;text/javascript&quot; src=&quot;https://www.chileatiende.gob.cl/assets/js/widget-buscador-cha.js&quot;&gt;&lt;/script&gt;<br />&lt;div id=&quot;buscadorChA&quot;&gt;&lt;/div&gt;
                 </code>
             </div>
             <div id="buscadorChA" class="span4"></div>
@@ -119,4 +119,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="http://www.chileatiende.cl/assets/js/widget-buscador-cha.js"></script>
+<script type="text/javascript" src="https://www.chileatiende.gob.cl/assets/js/widget-buscador-cha.js"></script>

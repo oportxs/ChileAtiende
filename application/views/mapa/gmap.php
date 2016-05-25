@@ -132,7 +132,7 @@
 		  <div align="center" id="map_canvas" style="width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; border-bottom: 1px solid #ccc;" /></div>
           <?php if(!$oficina_seleccionada){ ?>
 		  <div class="cont-link-chileatiende">
-				<a target="_blank" href="http://www.chileatiende.cl/">Ir a ChileAtiende</a>
+				<a target="_blank" href="http://www.chileatiende.gob.cl/">Ir a ChileAtiende</a>
 			</div>
             <?php } ?>
 		</div>

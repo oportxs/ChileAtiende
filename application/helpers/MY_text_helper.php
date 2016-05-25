@@ -25,7 +25,7 @@ function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha 
     // YOUTUBE
     // {{youtube:idvideo}}
     $pattern = '/\{\{youtube:(.*?)\}\}/';
-    $replacement = '<iframe class="iframe-video iframe-youtube" width="600" height="335" src="http://www.youtube-nocookie.com/embed/$1?rel=0" frameborder="0" allowfullscreen></iframe>';
+    $replacement = '<iframe class="iframe-video iframe-youtube" width="600" height="335" src="https://www.youtube-nocookie.com/embed/$1?rel=0" frameborder="0" allowfullscreen></iframe>';
     if($separados){
         list($tmp, $contenidos['youtube']) = separa_contenidos($texto, $pattern, $replacement);
         list($texto, $contenidos['youtube_sources']) = separa_contenidos($texto, $pattern, '$1');
@@ -37,7 +37,7 @@ function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha 
     // VIMEO
     // {{vimeo:idvideo}}
     $pattern = '/\{\{vimeo:(.*?)\}\}/';
-    $replacement = '<iframe class="iframe-video iframe-vimeo" src="http://player.vimeo.com/video/$1?title=0&amp;byline=0&amp;portrait=0" width="601" height="338" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+    $replacement = '<iframe class="iframe-video iframe-vimeo" src="https://player.vimeo.com/video/$1?title=0&amp;byline=0&amp;portrait=0" width="601" height="338" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
     if($separados){
         list($texto, $contenidos['vimeo']) = separa_contenidos($texto, $pattern, $replacement);
         list($texto, $contenidos['vimeo_sources']) = separa_contenidos($texto, $pattern, '$1');
@@ -254,7 +254,7 @@ function botonMejorarTramite($obj, $tipoTramite = 'online')
     $ficha = isset($obj['metaficha']) ? $obj : $obj->MetaFicha;
 
     if(!$obj->guia_online_url){
-        return '<a class="btn btn-quiero-tramite-online rs_skip" href="http://www.chilesinpapeleo.cl/digitalizacion/formulario?origen='.$ficha->getCodigo().'&tipo='.($ficha->tipo==1?"p":"e").'&tipo_tramite='.$tipoTramite.'&mejora=0" target="_blank" data-ga-te-category="Fichas" data-ga-te-action="Botón Quiero Trámite Online" data-ga-te-value="'.$ficha->Maestro->id.'">Quiero este trámite en línea</a>';
+        return '<a class="btn btn-quiero-tramite-online rs_skip" href="http://www.chilesinpapeleo.cl/digitalizacion/formulario?origen='.$ficha->getCodigo().'&tipo='.($ficha->tipo==1?"p":"e").'&tipo_tramite='.$tipoTramite.'&mejora=0" target="_blank" data-ga-te-category="Fichas" data-ga-te-action="Botón Quiero Trámite Online" data-ga-te-value="'.$ficha->Maestro->id.'">Quisiera este trámite disponible en línea</a>';
     }else{
         return '<a class="btn btn-mejorar-tramite rs_skip" href="http://www.chilesinpapeleo.cl/digitalizacion/formulario?origen='.$ficha->getCodigo().'&tipo='.($ficha->tipo==1?"p":"e").'&tipo_tramite='.$tipoTramite.'&mejora=1" target="_blank" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
     }

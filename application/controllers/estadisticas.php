@@ -1,5 +1,5 @@
 <?php
-
+/*
 class Estadisticas extends CI_Controller
 {
 
@@ -136,5 +136,5 @@ class Estadisticas extends CI_Controller
         redirect($fileUrl);
     }
 }
-
+*/
 ?>

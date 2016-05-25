@@ -11761,3 +11761,21 @@ body.portada .container-alertas-sitio .alert:first-child,
   color: #333333;
   margin: 10px 0;
 }
+
+/*form encuestas*/
+#gform {
+  width: 100%;
+  height: 350px;
+  overflow-x: hidden;
+}
+.modal-body {
+    position: relative;
+    overflow: hidden;
+    height: 420px;
+    max-height: 420px;
+    padding: 1px !important;
+}
+@media (max-width: 767px)
+.modal {
+    width: 100%;
+}

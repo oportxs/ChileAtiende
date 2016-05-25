@@ -177,7 +177,7 @@
         </script>
 
         <script type="text/javascript">
-            window.____aParams = {"gobabierto":"1","domain":"http://www.chileatiende.cl","icons":"1"};
+            window.____aParams = {"gobabierto":"1","domain":"http://www.chileatiende.gob.cl","icons":"1"};
             (function() {
                 var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
                 po.src = 'https://apis.modernizacion.cl/barra/js/barraEstado.js';
@@ -190,7 +190,7 @@
 
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-28124406-2']);
-            _gaq.push(['_setDomainName', '.chileatiende.cl']);
+            _gaq.push(['_setDomainName', '.chileatiende.gob.cl']);
             _gaq.push(['_trackPageview']);
             
             //marca barra

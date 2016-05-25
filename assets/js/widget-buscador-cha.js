@@ -3,7 +3,7 @@
  * Desarrollado por Unidad de Modernización y Gobierno Electrónico
  * 
  * uso: 
- *      incluir llamada al archivo js <script type="text/javascript" src="http://www.chileatiende.cl/assets/js/widget-buscador-cha.js"></script>
+ *      incluir llamada al archivo js <script type="text/javascript" src="http://www.chileatiende.gob.cl/assets/js/widget-buscador-cha.js"></script>
  *      crear un elemento (div, span, etc) con id buscadorChA
  * ejemplo: 
  *      <div id="buscadorChA"></div>
@@ -13,7 +13,7 @@ function buscadorChileAtiende() {
     var str;
     var $ = document;
     var cssId = 'css-cha';
-    var dominio = 'http://www.chileatiende.cl';
+    var dominio = 'http://www.chileatiende.gob.cl';
     
     if (!$.getElementById(cssId))
     {
@@ -36,7 +36,7 @@ function buscadorChileAtiende() {
     str += '<input type="submit" name="buscar_btn" id="buscar_btn" value="Buscar" title="Buscar" />';
     str += '</form>';
     str += '<div class="txt">';
-    str += '<a href="http://www.chileatiende.cl/" target="_blank"><img src="http://www.chileatiende.cl/assets/images/widgets/logo.png" alt="Logo ChileAtiende" width="42" height="53" /></a>Información sobre beneficios, trámites, programas y transparencia en los sitios web del Estado de Chile.';
+    str += '<a href="http://www.chileatiende.gob.cl/" target="_blank"><img src="http://www.chileatiende.gob.cl/assets/images/widgets/logo.png" alt="Logo ChileAtiende" width="42" height="53" /></a>Información sobre beneficios, trámites, programas y transparencia en los sitios web del Estado de Chile.';
     str += '<div class="clear"></div>';
     str += '</div>';
     str += '<div class="detalle2"></div>';
@@ -45,7 +45,7 @@ function buscadorChileAtiende() {
     str += '<script type="text/javascript">';
     str += 'var _gaq = _gaq || [];';
     str += '_gaq.push([\'_setAccount\', \'UA-28124406-8\']);';
-    //str += '_gaq.push([\'_setDomainName\', \'.chileatiende.cl\']);';
+    //str += '_gaq.push([\'_setDomainName\', \'.chileatiende.gob.cl\']);';
     str += '_gaq.push([\'_trackPageview\']);';
     str += '_gaq.push([\'_setCustomVar\', 1, \'WidgetBuscador\', window.location.host, 1]);';
     str += '(function() {';

@@ -1090,7 +1090,7 @@ if(typeof(console) === 'undefined') {
                         return false;
                     videos.find('.cont-videos-thumbs .active').removeClass('active');
                     elem.addClass('active');
-                    videoPrincipal.find('iframe').attr('src','http://www.youtube-nocookie.com/embed/'+elem.data('video-id')+'?rel=0')
+                    videoPrincipal.find('iframe').attr('src','https://www.youtube-nocookie.com/embed/'+elem.data('video-id')+'?rel=0')
                 });
             }
             var tabs = $('#maincontent .nav-tabs');

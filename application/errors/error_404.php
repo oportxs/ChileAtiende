@@ -1,6 +1,6 @@
 <?php
     $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
-    $site_url = $protocol . "://" . $_SERVER['HTTP_HOST'].'/';
+    $site_url = 'https://www.chileatiende.gob.cl/';
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -120,7 +120,7 @@
                                 <a class="canal-twitter" href="https://twitter.com/ChileAtiende" target="_blank" alt="Twitter"></a>
                                 <a class="canal-facebook" href="https://www.facebook.com/ChileAtiende" target="_blank" alt="Facebook"></a>
                                 <a class="canal-oficina" href="<?php echo $site_url; ?>oficinas" alt="Puntos de atención"></a>
-                                <a class="hidden-phone canal-mail" href="http://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
+                                <a class="hidden-phone canal-mail" href="https://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
                             </div>
                             <div class="clearfix"></div>
                             <div class="lista-canales-callcenter">
@@ -163,7 +163,7 @@
 
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-28124406-2']);
-            _gaq.push(['_setDomainName', 'chileatiende.cl']);
+            _gaq.push(['_setDomainName', 'chileatiende.gob.cl']);
 
             (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;

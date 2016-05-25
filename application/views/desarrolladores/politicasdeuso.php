@@ -1,6 +1,6 @@
 <h2>Terminos de Uso - API ChileAtiende</h2>
 
-<p>El uso y/o publicación de los contenidos entregados a través de la API ChileAtiende está autorizado, con la consecuente incorporación de una mención a la fuente más un enlace a la página principal del sitio web (www.chileatiende.cl).</p>
+<p>El uso y/o publicación de los contenidos entregados a través de la API ChileAtiende está autorizado, con la consecuente incorporación de una mención a la fuente más un enlace a la página principal del sitio web (www.chileatiende.gob.cl).</p>
 
 <p>Si desea más información al respecto o tiene alguna duda en particular, comuníquese con ChileAtiende mediante la opción Contacto de <a href="<?=site_url()?>">nuestro portal</a>.</p>
 

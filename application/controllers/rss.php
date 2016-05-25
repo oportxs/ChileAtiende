@@ -26,7 +26,7 @@ class Rss extends CI_Controller {
 		$data['items'] = $items;
 		$data['titulo'] = 'ChileAtiende - Fichas '.$titulo;
 		$data['link'] = base_url();
-		$data['descripcion'] = 'Fichas '.$titulo.' de www.chileatiende.cl';
+		$data['descripcion'] = 'Fichas '.$titulo.' de www.chileatiende.gob.cl';
 
     $this->output->cache($this->config->item('cache'));
     $this->output->set_content_type('application/rss+xml');

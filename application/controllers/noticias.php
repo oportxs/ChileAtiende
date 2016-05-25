@@ -73,7 +73,7 @@ class Noticias extends CI_Controller {
         $data['items'] = $items;
         $data['titulo'] = 'ChileAtiende - Noticias';
         $data['link'] = base_url() . 'noticias/';
-        $data['descripcion'] = 'Noticias de www.chileatiende.cl';
+        $data['descripcion'] = 'Noticias de www.chileatiende.gob.cl';
 
         $this->output->cache($this->config->item('cache'));
         $this->output->set_content_type('application/rss+xml');

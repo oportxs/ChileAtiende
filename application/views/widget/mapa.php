@@ -5,7 +5,7 @@
 	<div class="clearfix">&nbsp;</div>
 	<div class="control-group">
 		<div id="mapaChileAtiende">
-			<iframe src="<?php echo site_url(); ?>api/mapa?dominio=http://www.chileatiende.cl&amp;comuna=&amp;titulo=&amp;filtros=&amp;width=960&amp;height=220&amp;zoom=15" frameborder="0" width="960" height="220"></iframe>
+			<iframe src="<?php echo site_url(); ?>api/mapa?dominio=http://www.chileatiende.gob.cl&amp;comuna=&amp;titulo=&amp;filtros=&amp;width=960&amp;height=220&amp;zoom=15" frameborder="0" width="960" height="220"></iframe>
 		</div>
 	</div>
 	<form id="formGeneradorMapa">

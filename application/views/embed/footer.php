@@ -15,7 +15,6 @@
                         <h4>Sobre ChileAtiende</h4>
                         <ul class="unstyled">
                             <li><a href="<?php echo site_url('contenidos/que-es-chileatiende'); ?>" alt="Encuentra toda la información relacionada al proyecto ChileAtiende">¿Qué es ChileAtiende?</a></li>
-                            <li><a href="<?php echo site_url('estadisticas'); ?>" alt="Estadísticas ChileAtiende">Estadísticas</a></li>
                             <li><a href="<?php echo site_url('serviciosdisponibles'); ?>" alt="Encuentra todos los servicios y beneficios  disponibles en ChileAtiende">Servicios disponibles en sucursales</a></li>
                             <li><a href="<?php echo site_url('servicios/directorio/') ?>" alt="Listado de todas las instituciones en convenio con ChileAtiende">Instituciones asociadas</a></li>
                             <li><a href="<?php echo site_url('contenidos/preguntas-frecuentes'); ?>" rel="help" data-ga-te-category="Acciones" data-ga-te-action="Ayuda" data-ga-te-value="Footer" alt="Preguntas Frecuentes">Preguntas frecuentes</a></li>
@@ -47,7 +46,7 @@
                         </h4>
                         <ul class="unstyled lista-canales">
                             <li class="canal-web">
-                                <a href="<?php echo site_url(); ?>" alt="www.chileatiende.cl">www.chileatiende.cl</a>
+                                <a href="<?php echo site_url(); ?>" alt="www.chileatiende.gob.cl">www.chileatiende.gob.cl</a>
                             </li>
                             <li class="canal-oficina">
                                 <a href="<?php echo site_url('oficinas'); ?>" alt="Puntos de atención">Puntos de atención</a>

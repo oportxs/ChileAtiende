@@ -136,7 +136,7 @@
                         <li><a href="http://www.impulsocompetitivo.gob.cl/" target="_blank"><img src="<?= base_url('assets/images/emprendete/impulso.jpg') ?>" border="0" /></a></li>
                     </ul>
                 </div>
-                <script type="text/javascript" src="http://www.chileatiende.cl/assets/js/widget-buscador-cha.js"></script>
+                <script type="text/javascript" src="http://www.chileatiende.gob.cl/assets/js/widget-buscador-cha.js"></script>
                 <div id="buscadorChA"></div>
                 <div class="contacto"><a href="http://creativecommons.org/licenses/by/3.0/cl/" title="Creative Commons">CC BY 3.0</a> | <a href="http://validator.w3.org/check?uri=<?= base_url() ?>" title="Validación W3C">W3C</a></div>
                 <div class="moduloatencion">&nbsp;</div>
@@ -167,7 +167,7 @@
         </script>
 
         <script type="text/javascript">
-            window.____aParams = {"gobabierto":"1","domain":"http://www.chileatiende.cl","icons":"1"};
+            window.____aParams = {"gobabierto":"1","domain":"http://www.chileatiende.gob.cl","icons":"1"};
             (function() {
                 var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
                 po.src = 'https://apis.modernizacion.cl/barra/js/barraEstado.js';

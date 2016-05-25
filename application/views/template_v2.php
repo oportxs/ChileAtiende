@@ -89,7 +89,6 @@
                             <h4>Sobre ChileAtiende</h4>
                             <ul class="unstyled">
                                 <li><a href="<?php echo site_url('contenidos/que-es-chileatiende'); ?>" alt="Encuentra toda la información relacionada al proyecto ChileAtiende">¿Qué es ChileAtiende?</a></li>
-                                <li><a href="<?php echo site_url('estadisticas'); ?>" alt="Estadísticas ChileAtiende">Estadísticas</a></li>
                                 <li><a href="<?php echo site_url('serviciosdisponibles'); ?>" alt="Encuentra todos los servicios y beneficios  disponibles en ChileAtiende">Servicios disponibles en sucursales</a></li>
                                 <li><a href="<?php echo site_url('servicios/directorio/') ?>" alt="Listado de todas las instituciones en convenio con ChileAtiende">Instituciones asociadas</a></li>
                                 <li><a href="<?php echo site_url('contenidos/preguntas-frecuentes'); ?>" rel="help" data-ga-te-category="Acciones" data-ga-te-action="Ayuda" data-ga-te-value="Footer" alt="Preguntas Frecuentes">Preguntas frecuentes</a></li>
@@ -123,7 +122,7 @@
                                 <a class="canal-twitter" href="https://twitter.com/ChileAtiende" target="_blank" alt="Twitter"></a>
                                 <a class="canal-facebook" href="https://www.facebook.com/ChileAtiende" target="_blank" alt="Facebook"></a>
                                 <a class="canal-oficina" href="<?php echo site_url('oficinas'); ?>" alt="Puntos de atención"></a>
-                                <a class="hidden-phone canal-mail" href="http://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
+                                <a class="hidden-phone canal-mail" href="https://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
                             </div>
                             <div class="clearfix"></div>
                             <div class="lista-canales-callcenter">
@@ -185,7 +184,7 @@
             var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
             _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
             _gaq.push(['_setAccount', 'UA-28124406-2']);
-            _gaq.push(['_setDomainName', 'chileatiende.cl']);
+            _gaq.push(['_setDomainName', 'chileatiende.gob.cl']);
 
             (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -224,7 +223,23 @@
                 _gaq.push(['_trackPageview']);
             }
         </script>
+
         <?php echo isset($assets) ? loadAssets($assets, 'js') : ''; ?>
-        <script src="http://f1.na.readspeaker.com/script/6404/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
+
+        <div id="survey-modal" class="modal hide fade" tabindex="-1" role="dialog">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+              <h3>Queremos conocer su Opinión</h3>
+          </div>
+          <div class="modal-body">
+              <iframe id="gform" src="" height="250" frameborder="0"></iframe>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+
+        <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
+
     </body>
 </html>

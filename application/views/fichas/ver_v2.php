@@ -12,7 +12,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
 <div id="content" class="ficha<?php echo $ficha->flujo?' ficha-flujo':''; ?><?php echo $ficha->Maestro->sello_chilesinpapeleo?' ficha-sello-chilesinpapeleo':''; ?><?php echo $ficha->metaficha ? ' ficha-metaficha':''; ?>">
     <div id="readspeaker_container" class="readspeaker_container">
         <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-            <a class="rsbtn_play" accesskey="L" title="Escuchar esta pagina utilizando ReadSpeaker" href="http://app.na.readspeaker.com/cgi-bin/rsent?customerid=6404&amp;lang=es_419&amp;readid=maincontent-ficha&amp;url=<?php echo urlencode('http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]); ?>">
+            <a class="rsbtn_play" accesskey="L" title="Escuchar esta pagina utilizando ReadSpeaker" href="https://app.readspeaker.com/cgi-bin/rsent?customerid=6404&amp;lang=es_419&amp;readid=maincontent-ficha&amp;url=<?php echo urlencode('http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]); ?>">
                 <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Escuchar</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span>
             </a>
         </div>

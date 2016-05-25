@@ -2,10 +2,10 @@
 /* CSS Document */
 @font-face {
     font-family: 'gobCLLight';
-    src: url('http://www.chileatiende.cl/assets/css/font/gobcl_light-webfont.eot');
-    src: url('http://www.chileatiende.cl/assets/css/font/gobcl_light-webfont.eot?#iefix') format('embedded-opentype'),
-        url('http://www.chileatiende.cl/assets/css/font/gobcl_light-webfont.ttf') format('truetype'),
-        url('http://www.chileatiende.cl/assets/css/font/gobcl_light-webfont.svg#gobCLLight') format('svg');
+    src: url('http://www.chileatiende.gob.cl/assets/css/font/gobcl_light-webfont.eot');
+    src: url('http://www.chileatiende.gob.cl/assets/css/font/gobcl_light-webfont.eot?#iefix') format('embedded-opentype'),
+        url('http://www.chileatiende.gob.cl/assets/css/font/gobcl_light-webfont.ttf') format('truetype'),
+        url('http://www.chileatiende.gob.cl/assets/css/font/gobcl_light-webfont.svg#gobCLLight') format('svg');
     font-weight: normal;
     font-style: normal;
 

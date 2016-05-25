@@ -183,7 +183,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
             _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
             _gaq.push(['_setAccount', 'UA-28124406-2']);
-            _gaq.push(['_setDomainName', 'chileatiende.cl']);
+            _gaq.push(['_setDomainName', 'chileatiende.gob.cl']);
             _gaq.push(['_trackPageview']);
 
             (function() {

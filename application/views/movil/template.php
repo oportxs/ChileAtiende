@@ -60,7 +60,7 @@
         _gaq.push(['_trackPageview']);
         
         _gaq.push(['desk_version._setAccount', 'UA-28124406-2']);
-        _gaq.push(['desk_version._setDomainName', '.chileatiende.cl']);
+        _gaq.push(['desk_version._setDomainName', '.chileatiende.gob.cl']);
         _gaq.push(['desk_version._trackPageview']);
 
         (function() {

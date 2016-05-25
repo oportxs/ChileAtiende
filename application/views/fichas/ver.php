@@ -139,7 +139,7 @@ if ($ficha->Servicio->codigo == 'ZZ002' && $ficha->flujo) {
                     <?php
                     $mejorar_tramite_online = '<div class="cont_btn_denuncia"><a class="mejorar_tramite tooltip_denuncia">¿Podemos mejorar este trámite?</a></div><div class="clear"></div>';
                     if (empty($ficha->guia_online)) { //Se debe mostrar el boton de "quiero tramite online" solo si este no existe
-                        $solicita_tramite_online = '<div class="cont_btn_denuncia"><a class="quiero_online tooltip_denuncia">Quiero este trámite en línea</a></div><div class="clear"></div>';
+                        $solicita_tramite_online = '<div class="cont_btn_denuncia"><a class="quiero_online tooltip_denuncia">Quisiera este trámite disponible en línea</a></div><div class="clear"></div>';
                     } else {
                         $solicita_tramite_online = $mejorar_tramite_online;
                     }

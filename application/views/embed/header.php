@@ -96,8 +96,8 @@
                                 <a href="https://twitter.com/ChileAtiende" target="_blank" data-ga-te-category="Menu Encabezado" data-ga-te-action="clic" data-ga-te-value="Twitter">Twitter</a>
                             </li>
                             <li class="contactos-correo">
-                                <a class="hidden-phone" href="http://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe" data-ga-te-category="Menu Encabezado" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
-                                <a class="visible-phone" href="http://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-ga-te-category="Menu Encabezado" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
+                                <a class="hidden-phone" href="https://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe" data-ga-te-category="Menu Encabezado" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
+                                <a class="visible-phone" href="https://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-ga-te-category="Menu Encabezado" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
                             </li>
                             <li class="contactos-texto">Contacto</li>
                         </ul>

@@ -32,7 +32,7 @@ class Migration_NuevoEvento extends Doctrine_Migration_Base {
             $evento->publicado = 0;
             $evento->estado = NULL;
             $evento->titulo = "Evento sin titulo, url ni institucion asociada";
-            $evento->url = "http://www.chileatiende.cl";
+            $evento->url = "http://www.chileatiende.gob.cl";
             $evento->servicio_codigo = "ZZ001";
             $evento->save();
             // $evento->generarVersion();
