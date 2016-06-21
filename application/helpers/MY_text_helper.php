@@ -252,11 +252,11 @@ function botonMejorarTramite($obj, $tipoTramite = 'online')
 {
     // INFO: se agrega para usar la misma funcion en Fichas y SubFichas
     $ficha = isset($obj['metaficha']) ? $obj : $obj->MetaFicha;
-
+    $agradecimiento = '<div class="btn btn-mejorar-tramite mejora-agradecimiento" style="display:none;">Gracias por su opinión</div>';
     if(!$obj->guia_online_url){
-        return '<a class="btn btn-quiero-tramite-online rs_skip" href="http://www.chilesinpapeleo.cl/digitalizacion/formulario?origen='.$ficha->getCodigo().'&tipo='.($ficha->tipo==1?"p":"e").'&tipo_tramite='.$tipoTramite.'&mejora=0" target="_blank" data-ga-te-category="Fichas" data-ga-te-action="Botón Quiero Trámite Online" data-ga-te-value="'.$ficha->Maestro->id.'">Quisiera este trámite disponible en línea</a>';
+        return $agradecimiento . '<a id="btn-mejora" class="btn btn-quiero-tramite-online rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Quiero Trámite Online" data-ga-te-value="'.$ficha->Maestro->id.'">Quisiera este trámite disponible en línea</a>';
     }else{
-        return '<a class="btn btn-mejorar-tramite rs_skip" href="http://www.chilesinpapeleo.cl/digitalizacion/formulario?origen='.$ficha->getCodigo().'&tipo='.($ficha->tipo==1?"p":"e").'&tipo_tramite='.$tipoTramite.'&mejora=1" target="_blank" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
+        return $agradecimiento . '<a id="btn-mejora" class="btn btn-mejorar-tramite rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
     }
 }
 

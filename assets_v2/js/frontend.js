@@ -484,6 +484,9 @@ if(typeof(console) === 'undefined') {
             }
         },
         bindEvents : function(){
+
+            console.log('bindEvents');
+
             $('.breadcrumbs').on('onChangeClass', function(e){
                 var elem = $(this),
                     btnRealizarTramite = $('.row-ficha-encabezado .btn-realizar-tramite');
@@ -493,6 +496,34 @@ if(typeof(console) === 'undefined') {
                     btnRealizarTramite.show();
                 }
             });
+
+
+            var botonMejora = $('#btn-mejora');
+            var idFicha = $(botonMejora).data('ga-te-value');
+            var accion_mejorar = localStorage.getItem('accion_mejorar')
+            if(!accion_mejorar){
+                localStorage.setItem('accion_mejorar', [])
+            }
+            console.log(accion_mejorar);
+            if(accion_mejorar &&  accion_mejorar[idFicha]) {
+                $(botonMejora).hide();
+            }
+
+            botonMejora.on('click', function(event){
+                event.preventDefault();
+                var img = $('<img>').attr('src', '/assets_v2/img/loading.gif').css({'margin-right':'10px'});
+                var that = this;
+                var arrayMejorar =  localStorage.getItem('accion_mejorar');
+                arrayMejorar[idFicha] = true
+                localStorage.setItem('accion_mejorar',arrayMejorar);
+
+                $(this).prepend(img);
+                setTimeout(function(){
+                        $(that).hide();
+                        $('.mejora-agradecimiento').show();
+                }, 1*1500)
+
+            })
 
         },
         loadPlugins : function(){
