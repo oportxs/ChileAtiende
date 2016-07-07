@@ -11,6 +11,7 @@
         <div class='wrapper'>
             <ul>
                 <li class='active' ><a href='<?php echo site_url(); ?>'><img src='<?=base_url('assets_v2/img/navegacion/cchileatiende.png')?>' alt='Chileatiende' /> ChileAtiende</a></li>
+                <li><a href='<?php echo site_url('exterior'); ?>'><img src='<?=base_url('assets_v2/img/navegacion/cchileatiende.png')?>' alt='Chileatiende exterior' /> ChileAtiende en el Exterior</a></li>
                 <li><a href='<?php echo site_url('empresas'); ?>'><img src='<?=base_url('assets_v2/img/navegacion/barra_estado_ico_chileatiendeempresas.png')?>' alt='Chileatiende Pymes' /> ChileAtiende Pymes</a></li>
                 <li><a class='visible-desktop' href='http://www.chilesinpapeleo.cl' target='_blank'><img src='<?=base_url('assets_v2/img/navegacion/barra_estado_ico_chilesinpapeleo.png')?>' alt='Chile sin Papeleo' /> Chile Sin Papeleo</a></li>
                 <li><a class='visible-desktop' href='http://www.gobiernoabierto.cl' target='_blank'><img src='<?=base_url('assets_v2/img/navegacion/barra_estado_ico_gobiernoabierto.png')?>' alt='Gobierno Abierto' /> Gobierno Abierto</a></li>

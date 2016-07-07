@@ -1,5 +1,6 @@
 <?php 
 $isEmpresa = false;
+$isExterior = false;
 include('header_selector.php'); ?>
 <header class="no-print">     
     <div class="container">

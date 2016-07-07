@@ -41,7 +41,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     </head>
     <body data-spy="scroll" data-target=".nav-scrollspy">
         <?php 
-        $isEmpresa = true;
+        $isEmpresa = false;
+        $isExterior = true;
         include('header_selector.php'); ?>
         <header class="no-print header-empresas">
             <div class="container">
