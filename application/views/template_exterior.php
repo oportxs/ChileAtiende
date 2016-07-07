@@ -9,7 +9,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <head>
         <meta charset="utf-8">
         
-        <title><?= $title ?> - ChileAtiende Pymes - Al servicio de los emprendedores</title>
+        <title><?= $title ?> - ChileAtiende en el Exterior - Trémites para chilenos en el extranjero</title>
         <link rel="icon" type="image/x-icon" href="<?=base_url()?>assets_v2/img/favicon.ico" />
         <?php
         if (isset($descripcion)) {
@@ -56,15 +56,10 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             </h1>
                         </div>
                         <div class="offset4 span4">
-                            <?php if (!isset($esPortada)): ?>
-                                <?php $this->load->view('busqueda/buscador'); ?>
-                            <?php else: ?>
-                                <div class="text-right">
-                                    <a href="http://www.economia.gob.cl/2015/04/08/reemprende-atacama.htm" target="_blank">
-                                        <img class="banner-home" src="<?php echo base_url('assets_v2/img/banners/banner-atacama.png'); ?>" alt="Reemprende Atacama">
-                                    </a>
-                                </div>
-                            <?php endif; ?>
+                            <?php if (!isset($esPortada)){
+                                    $this->load->view('busqueda/buscador'); 
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

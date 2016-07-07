@@ -17,7 +17,7 @@ class Exterior extends CI_Controller {
         $data['slide'] = 'etapas';
         $data['title'] = 'Portada';
         //$data['content'] = 'portada/emprendete/slider';
-        $data['content'] = 'portada/emprendete_v2/etapas';
+        $data['content'] = 'portada/exterior_tabs';
         $data['hidden_buscador'] = 1;
         
         //habilitamos el cache
