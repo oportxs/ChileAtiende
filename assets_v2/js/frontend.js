@@ -484,6 +484,9 @@ if(typeof(console) === 'undefined') {
             }
         },
         bindEvents : function(){
+
+            console.log('bindEvents');
+
             $('.breadcrumbs').on('onChangeClass', function(e){
                 var elem = $(this),
                     btnRealizarTramite = $('.row-ficha-encabezado .btn-realizar-tramite');
@@ -493,6 +496,37 @@ if(typeof(console) === 'undefined') {
                     btnRealizarTramite.show();
                 }
             });
+
+
+            var botonMejora = $('#btn-mejora');
+            var idFicha = $(botonMejora).data('ga-te-value');
+            console.log(idFicha);
+            var accion_mejorar = localStorage.getItem('accion_mejorar');
+            
+            if(!localStorage.accion_mejorar){
+                localStorage.setItem('accion_mejorar', [])
+            }
+            console.log(localStorage.accion_mejorar);
+            if(localStorage.accion_mejorar.indexOf(idFicha)>-1) {
+                $(botonMejora).hide();
+            }
+
+            botonMejora.on('click', function(event){
+                event.preventDefault();
+                var img = $('<img>').attr('src', '/assets_v2/img/loading.gif').css({'margin-right':'10px'});
+                var that = this;
+                
+                var tmpArray = localStorage.accion_mejorar.split(',');
+                tmpArray.push(idFicha)
+                localStorage.setItem('accion_mejorar',tmpArray);
+
+                $(this).prepend(img);
+                setTimeout(function(){
+                        $(that).hide();
+                        $('.mejora-agradecimiento').show();
+                }, 1*1500)
+
+            })
 
         },
         loadPlugins : function(){
