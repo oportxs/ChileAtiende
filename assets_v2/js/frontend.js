@@ -500,12 +500,14 @@ if(typeof(console) === 'undefined') {
 
             var botonMejora = $('#btn-mejora');
             var idFicha = $(botonMejora).data('ga-te-value');
-            var accion_mejorar = localStorage.getItem('accion_mejorar')
-            if(!accion_mejorar){
+            console.log(idFicha);
+            var accion_mejorar = localStorage.getItem('accion_mejorar');
+            
+            if(!localStorage.accion_mejorar){
                 localStorage.setItem('accion_mejorar', [])
             }
-            console.log(accion_mejorar);
-            if(accion_mejorar &&  accion_mejorar[idFicha]) {
+            console.log(localStorage.accion_mejorar);
+            if(localStorage.accion_mejorar.indexOf(idFicha)>-1) {
                 $(botonMejora).hide();
             }
 
@@ -513,9 +515,10 @@ if(typeof(console) === 'undefined') {
                 event.preventDefault();
                 var img = $('<img>').attr('src', '/assets_v2/img/loading.gif').css({'margin-right':'10px'});
                 var that = this;
-                var arrayMejorar =  localStorage.getItem('accion_mejorar');
-                arrayMejorar[idFicha] = true
-                localStorage.setItem('accion_mejorar',arrayMejorar);
+                
+                var tmpArray = localStorage.accion_mejorar.split(',');
+                tmpArray.push(idFicha)
+                localStorage.setItem('accion_mejorar',tmpArray);
 
                 $(this).prepend(img);
                 setTimeout(function(){
