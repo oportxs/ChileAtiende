@@ -176,7 +176,7 @@
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery.masonry.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/imagesloaded.pkgd.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/md5.js'); ?>"></script>
-        <script src="<?php echo base_url('assets_v2/js/frontend.js'); ?>?v=20140325"></script>
+        <script src="<?php echo base_url('assets_v2/js/frontend.js'); ?>?v=20160707"></script>
 
         <script type="text/javascript">
 
