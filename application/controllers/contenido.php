@@ -87,7 +87,7 @@ class Contenido extends CI_Controller {
 <li>Solicitar se modifiquen sus datos personales cuando ellos no sean correctos o no estén actualizados, si fuere procedente, y;</li>
 <li>Solicitar la eliminación o cancelación de los datos entregados cuando así lo desee, en tanto fuere procedente.</li>
 </ol>
-<p>Para ejercer sus derechos el usuario podrá dirigirse a LA UNIDAD DE MODERNIZACION Y GOBIERNO ELECTRÓNICO, ubicado en calle Teatinos Nº333 piso 4, Santiago, Teléfono: +562 688 77 01, o a la dirección electrónica: contactochileatiende@minsegpres.gob.cl, indicando claramente su solicitud.</p>
+<p>Para ejercer sus derechos el usuario podrá dirigirse a LA UNIDAD DE MODERNIZACION Y GOBIERNO ELECTRÓNICO, ubicado en calle Teatinos Nº 92 piso 9, Santiago, Teléfonos: +562 2219 8327 +562 2219 8407, o a la dirección electrónica: contactochileatiende@minsegpres.gob.cl, indicando claramente su solicitud.</p>
 ';
 
         $data['content'] = 'contenido/base';

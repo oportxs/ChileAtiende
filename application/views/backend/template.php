@@ -263,8 +263,8 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
             <div id="footer">
                 <address>
                     Gobierno de Chile - Modernización y Gobierno Digital - Ministerio Secretaría General de la Presidencia<br />
-                    Dirección: Teatinos 333 Piso 4, Santiago de Chile<br />
-                    Teléfono: +56 2 688 77 01
+                    Dirección: Teatinos Teatinos Nº 92 piso 9, Santiago <br />
+                    Teléfonos: +562 2219 8327 +562 2219 8407
                 </address>
             </div>
         </div>
