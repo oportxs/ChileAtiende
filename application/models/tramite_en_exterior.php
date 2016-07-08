@@ -1,0 +1,16 @@
+<?php
+    /**
+    * Modelo para los tramites en exterior
+    */
+    class TramiteEnExterior extends Doctrine_Record
+    {
+        public function setTableDefinition()
+        {
+            $this->setTableName('tramite_en_exterior');
+            $this->hasColumn('id');
+            $this->hasColumn('id_ficha');
+            $this->hasColumn('destacado', 'boolean', 1, array('default' => 0));
+        }
+    }
+
+?>

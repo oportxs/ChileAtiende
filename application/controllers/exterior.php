@@ -12,9 +12,9 @@ class Exterior extends CI_Controller {
     public function etapas() {
         $data = $this->_load_common_data();
         
-        $data['etapas'] = Doctrine_Query::create()->from('EtapaEmpresa')->orderBy('orden asc')->execute();
+        // $data['etapas'] = Doctrine_Query::create()->from('EtapaEmpresa')->orderBy('orden asc')->execute();
         
-        $data['slide'] = 'etapas';
+        // $data['slide'] = 'etapas';
         $data['title'] = 'Portada';
         //$data['content'] = 'portada/emprendete/slider';
         $data['content'] = 'portada/exterior_tabs';
