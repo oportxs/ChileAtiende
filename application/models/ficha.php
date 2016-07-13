@@ -402,6 +402,10 @@ class Ficha extends Doctrine_Record {
 
     function showRangosAsString() {
 
+        if (!isset($this->RangosEdad)) {
+            return '';
+        }
+
         $rangos = array();
         foreach ($this->RangosEdad as $rango) {
             if ($rango->edad_minima != null && $rango->edad_maxima != null)
@@ -409,6 +413,45 @@ class Ficha extends Doctrine_Record {
         }
 
         return implode(",", $rangos);
+    }
+
+    function checkMotivosSelected($string){
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        $motivos = array();
+        foreach($tramite_exterior as $t){
+            array_push($motivos, $t['motivo']);
+        }
+        $motivos_str =  implode(" ", $motivos);
+
+        if(strpos(strtolower($motivos_str), strtolower($string))>-1)
+            return true;
+        else
+            return false;
+    }
+
+    function listarMotivosExterior(){
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        $motivos = array();
+        foreach($tramite_exterior as $t){
+            array_push($motivos, $t['motivo']);
+        }
+        return implode(", ", $motivos);
+    }
+
+    function isTramiteExterior() {
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        if (sizeof($tramite_exterior) > 0)
+            return true;
+        return false;
+    }
+
+    function isTramiteExteriorDestacado() {
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        foreach($tramite_exterior as $t){
+            if($t['destacado'])
+                return true;
+        }
+        return false;
     }
 
     function setRangosEdadFromString($string) {

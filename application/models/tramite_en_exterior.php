@@ -10,6 +10,9 @@
             $this->hasColumn('id');
             $this->hasColumn('id_ficha');
             $this->hasColumn('destacado', 'boolean', 1, array('default' => 0));
+            $this->hasColumn('content_updated_data_at');
+            $this->hasColumn('motivo');
+
         }
     }
 

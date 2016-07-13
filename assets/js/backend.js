@@ -33,6 +33,13 @@ $(document).ready(function(){
         $('#clasificacion-personas').attr('style','display:none');
         $('#clasificacion-emprendete').attr('style','display:block');
     });
+    $('#chkbox_exterior').on('change', function(e){
+        // if(this.checked){
+
+        // }
+        $('#tipo_residente').prop('disabled', !this.checked).trigger("chosen:updated");
+        $('#chkbox_exterior_destacado').prop('disabled', !this.checked);
+    });
 
     // INFO: habilita/deshabilita las opciones de metaficha
     $('#metaficha_si').click(function(){

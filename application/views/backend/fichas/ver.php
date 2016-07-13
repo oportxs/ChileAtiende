@@ -396,6 +396,25 @@
             <td style="font-weight: bold;">Sic</td>
             <td><?= $ficha->sic ?></td>
         </tr>
+
+        <?php if($ficha->isTramiteExterior()):?>
+        <tr>
+            <td colspan="2" style="text-align: center; color: #000; background-color: #CCC; font-weight: bold;">Trámite para chilenos en el Exterior</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Motivos de estadía en el Exterior</td>
+            <td>
+                <?=$ficha->listarMotivosExterior()?>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Destacado en portada de ChileAtiende en el Exterior</td>
+            <td>
+                <?=($ficha->isTramiteExteriorDestacado()?"Si":"No")?>
+            </td>
+        </tr>
+        <?php endif;?>
+
         <?php
         if (UsuarioBackendSesion::usuario()->tieneRol('publicador')) {
             if ($ficha->cc_id || $ficha->cc_formulario || $ficha->cc_llavevalor) {

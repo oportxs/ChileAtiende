@@ -11,8 +11,7 @@ class Migration_TramiteEnExterior extends Doctrine_Migration_Base {
         
         $this->createTable('tramite_en_exterior', $columnas);
 
-        $this->createForeignKey('tramite_en_exterior', 'tramite_en_exterior_ficha_fk1', array('local' => 'id_ficha', 'foreign' => 'id', 'foreignTable' => 'ficha', 'onDelete' => 'SET NULL'));
-
+       
     }
 
     public function down(){

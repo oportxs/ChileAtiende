@@ -244,6 +244,14 @@ class Fichas extends CI_Controller {
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
 
+        // incluir datos del tramite en exterior en form de edicion - obtener desde la bd y renderear
+        // $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($id)->toArray();
+        // var_dump($tramite_exterior);die();
+        // $tramite_exterior_data = array(
+        //     'id' => $id,
+        //     'motivos' => array()
+        //     );
+
         $data['title'] = 'Backend - ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' ) . $ficha->titulo;
         $data['content'] = 'backend/fichas/editar';
         $data['ficha'] = $ficha;
@@ -260,6 +268,11 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
+        $data['motivos_en_exterior'] = array(
+            "Residencia Permanente en el Exterior",
+            "Residencia Temporal en el Exterior",
+            "De Viaje en el Exterior"
+        );
 
         $this->load->view('backend/template', $data);
     }
@@ -566,6 +579,21 @@ class Fichas extends CI_Controller {
                 $ficha->content_updated_data_at = date('Y-m-d H:i:s');
 
                 $ficha->save();
+
+                if($this->input->post('exterior')) {
+
+                    Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
+                    foreach ($this->input->post('tipo_residente') as $key => $value) {
+                        $tramite_exterior = new TramiteEnExterior();
+                        $tramite_exterior->id_ficha = $ficha->id;
+                        $tramite_exterior->destacado = ($this->input->post('exterior_destacado')=='on');
+                        $tramite_exterior->motivo = $value;
+                        $tramite_exterior->content_updated_data_at = date('Y-m-d H:i:s');
+                        $tramite_exterior->save();
+                    }
+                    
+                    
+                }
                 
                 // INFO: crea las nuevas SubFichas para cada Servicio si la Ficha es MetaFicha
                 if($ficha->metaficha == 1) {
