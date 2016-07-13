@@ -107,6 +107,14 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['ficha'] = $ficha;
         $data['etapasvida'] = $etapasvida;
         $data['flujo'] = $flujo;
@@ -137,6 +145,14 @@ class Fichas extends CI_Controller {
             exit;
         }
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['ficha'] = $ficha;
         $data['flujo'] = $flujo;
 
@@ -158,6 +174,14 @@ class Fichas extends CI_Controller {
             echo 'No tiene permisos';
             exit;
         }
+
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
 
         $data['ficha'] = $ficha;
         $data['flujo'] = $flujo;
@@ -199,6 +223,14 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
+
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
 
         $data['title'] = 'Backend - Agregar ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' );
         $data['content'] = 'backend/fichas/agregar';
@@ -253,13 +285,13 @@ class Fichas extends CI_Controller {
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
 
-        // incluir datos del tramite en exterior en form de edicion - obtener desde la bd y renderear
-        // $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($id)->toArray();
-        // var_dump($tramite_exterior);die();
-        // $tramite_exterior_data = array(
-        //     'id' => $id,
-        //     'motivos' => array()
-        //     );
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
 
         $data['title'] = 'Backend - ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' ) . $ficha->titulo;
         $data['content'] = 'backend/fichas/editar';
@@ -320,6 +352,14 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
+
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
 
         $data['title'] = 'Backend - ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' ) . $ficha->titulo;
         $data['content'] = 'backend/fichas/editar';
