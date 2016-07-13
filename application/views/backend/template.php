@@ -161,7 +161,10 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
                                     <?php if (UsuarioBackendSesion::usuario()->tieneRol(array('metaficha'))): ?>
                                     <li><a href="<?= site_url('backend/fichas/index/metafichas') ?>" title="Fichas con SubFichas asociadas">Metafichas <?= ($metafichas) ? '(' . $metafichas . ')' : ''; ?></a></li>
                                     <?php endif; ?>
-
+                                    
+                                    <?php if($fichas_exterior['total']>0):?>
+                                    <li><a href="<?= site_url('backend/fichas/index/exterior') ?>" title="Fichas para chilenos en el Exterior"> Chilenos en el Exterior (<?= $fichas_exterior['total']?>)</a></li>
+                                    <?php endif;?>
                                 </ul>
                             </li>
                         </ul>

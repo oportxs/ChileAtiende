@@ -15,8 +15,17 @@ class Portada extends CI_Controller {
     }
 
     public function index() {
+
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+
         $data['title'] = 'Portada Backend';
         $data['content'] = 'backend/portada/index';
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
 
         //$this->output->cache(1);
         $this->load->view('backend/template', $data);

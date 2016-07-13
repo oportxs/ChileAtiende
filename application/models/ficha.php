@@ -429,7 +429,7 @@ class Ficha extends Doctrine_Record {
             return false;
     }
 
-    function listarMotivosExterior(){
+    function listarMotivosExterior($string){
         $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
         $motivos = array();
         foreach($tramite_exterior as $t){
