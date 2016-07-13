@@ -51,10 +51,19 @@ class Fichas extends CI_Controller {
         $fichas = Doctrine::getTable('Ficha')->findMaestros($entidad, $servicio, $args);
         $nfichas = Doctrine::getTable('Ficha')->findMaestros($entidad, $servicio, $nargs);
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['title'] = 'Backend - ' . ( ($flujos) ? 'Flujos' : 'Fichas' );
         $data['content'] = 'backend/fichas/index';
         $data['fichas'] = $fichas;
         $data['flujos'] = $flujos;
+        $data['args'] = $args;
 
         if($flujos)
             $_action_url = "listarflujos";

@@ -151,6 +151,11 @@ class Ficha extends Doctrine_Record {
             'refClass' => 'FichaHasChileclicSubtema'
         ));
 
+        $this->hasMany('TramiteEnExterior as TramitesEnExterior', array(
+            'local' => 'id',
+            'foreign' => 'id_ficha'
+        ));
+
         $this->hasOne('Genero', array(
             'local' => 'genero_id',
             'foreign' => 'id'
