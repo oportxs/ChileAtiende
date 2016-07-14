@@ -149,6 +149,18 @@ $titulo = ( $flujo ) ? 'Flujo' : 'Ficha';
                     </td>
                     <td><textarea id="editorE" name="marco_legal" cols="65" rows="15"></textarea></td>
                 </tr>
+                <tr>
+                    <td class="titulo">
+                        Trámite en Consulado
+                        <br />
+                        <div class="metaficha_display">
+                            <span style="font-size: 80%; font-style: italic;">¿Info general?</span><br/>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="1" checked/> Si</label>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="0" /> No</label>
+                        </div>
+                    </td>
+                    <td><textarea id="editorT" name="guia_consulado" cols="65" rows="15"></textarea></td>
+                </tr>
                 <?php
                 }
                 ?>
@@ -312,6 +324,18 @@ $titulo = ( $flujo ) ? 'Flujo' : 'Ficha';
                         </td>
                         <td><textarea id="editorE" name="marco_legal" cols="65" rows="15"></textarea></td>
                     </tr>
+                    <tr>
+                    <td class="titulo">
+                        Trámite en Consulado
+                        <br />
+                        <div class="metaficha_display">
+                            <span style="font-size: 80%; font-style: italic;">¿Info general?</span><br/>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="1" checked/> Si</label>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="0" /> No</label>
+                        </div>
+                    </td>
+                    <td><textarea id="editorT" name="guia_consulado" cols="65" rows="15"></textarea></td>
+                </tr>
                     <?php
                 }
                 ?>

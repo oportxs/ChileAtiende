@@ -20,6 +20,7 @@ class Ficha extends Doctrine_Record {
         $this->hasColumn('guia_telefonico');
         $this->hasColumn('guia_correo');
         $this->hasColumn('guia_chileatiende');
+        $this->hasColumn('guia_consulado');
         $this->hasColumn('doc_requeridos');
         $this->hasColumn('maestro');
         $this->hasColumn('publicado', 'boolean', 1, array('default' => 0));
@@ -434,13 +435,13 @@ class Ficha extends Doctrine_Record {
             return false;
     }
 
-    function listarMotivosExterior($string){
+    function listarMotivosExterior(){
         $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
         $motivos = array();
         foreach($tramite_exterior as $t){
             array_push($motivos, $t['motivo']);
         }
-        return implode(", ", $motivos);
+        return $motivos;
     }
 
     function isTramiteExterior() {

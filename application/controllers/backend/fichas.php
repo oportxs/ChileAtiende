@@ -378,6 +378,11 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
+        $data['motivos_en_exterior'] = array(
+            "Residencia Permanente en el Exterior",
+            "Residencia Temporal en el Exterior",
+            "De Viaje en el Exterior"
+        );
 
         $data['editar_ext'] = TRUE;
 
@@ -571,6 +576,7 @@ class Fichas extends CI_Controller {
                 $ficha->guia_telefonico = $this->input->post('guia_telefonico');
                 $ficha->guia_correo = $this->input->post('guia_correo');
                 $ficha->guia_chileatiende = $this->input->post('guia_chileatiende');
+                $ficha->guia_consulado = $this->input->post('guia_consulado');
                 $ficha->maestro = 1;
                 $ficha->servicio_codigo = $this->input->post('servicio_codigo');
                 $ficha->genero_id = $this->input->post('genero') ? $this->input->post('genero') : NULL;

@@ -182,7 +182,7 @@ $(document).ready(function(){
     });
     
     // INFO: Selecciona los INPUT que van a ser cargados automaticamente con TinyMCE
-    var elementos = 'editorA,editorN';
+    var elementos = 'editorA,editorN,editorT';
     $("form").find('input[name^=metaficha_]').each(function(index, elem) { 
         var input_name = $(this).attr("name").substring(10);
         var input_id = $('textarea[name^='+input_name+']').attr('id');

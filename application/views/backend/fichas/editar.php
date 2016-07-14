@@ -78,7 +78,8 @@
                         'vigencia' => 1,
                         'costo' => 1,
                         'informacion_multimedia' => 1,
-                        'marco_legal' => 1
+                        'marco_legal' => 1,
+                        'guia_consulado' => 1
                     );
 
                 //Agrego a los default para inicializarlo
@@ -126,6 +127,11 @@
                         array(  'label' => "Marco Legal", 
                                 'id' => 'editorE', 
                                 'field' => 'marco_legal', 
+                                'type' => 'textarea'
+                        ),
+                        array(  'label' => "Trámite en Consulado", 
+                                'id' => 'editorT', 
+                                'field' => 'guia_consulado', 
                                 'type' => 'textarea'
                         )
                     );
@@ -257,6 +263,11 @@
                         array(  'label' => "Marco Legal", 
                                 'id' => 'editorE', 
                                 'field' => 'marco_legal', 
+                                'type' => 'textarea'
+                        ),
+                        array(  'label' => "Trámite en Consulado", 
+                                'id' => 'editorT', 
+                                'field' => 'guia_consulado', 
                                 'type' => 'textarea'
                         )
                     )

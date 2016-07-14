@@ -404,7 +404,11 @@
         <tr>
             <td style="font-weight: bold;">Motivos de estadía en el Exterior</td>
             <td>
-                <?=$ficha->listarMotivosExterior()?>
+                <ul>
+                <?php foreach($ficha->listarMotivosExterior() as $m):?>
+                    <li><?=$m?></li>
+                <?php endforeach; ?>
+                </ul>
             </td>
         </tr>
         <tr>
