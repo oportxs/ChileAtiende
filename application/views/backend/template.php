@@ -35,7 +35,7 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/backend-new.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/jquery-ui/jquery-ui.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/jquery-ui/jquery.ui.autocomplete.custom.css') ?>" />
-        <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/chosen.css') ?>" />
+        <link rel="stylesheet" type="text/css" href="<?= base_url('assets/js/chosen16/chosen.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/js/fileuploader/fileuploader.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/js/jquery.datetimepicker/jquery.datetimepicker.css'); ?>"/>
         <script type="text/javascript">
@@ -45,10 +45,11 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
         <script src="<?= base_url('assets/js/jquery-migrate-1.1.1.min.js') ?>"></script>
 
         <script type="text/javascript" src="<?= base_url('assets/js/jquery-ui/jquery-ui-1.10.2.js') ?>"></script>
-        <script type="text/javascript" src="<?= base_url('assets/js/jquery-tools/jquery-tools-1.2.5.js') ?>" ></script>
+        <script type="text/javascript" src="<?= base_url('assets/js/jquery-tools/jquery-tools-1.2.5.js') ?>" ></scr
+        ipt>
         <script type="text/javascript" src="<?= base_url('assets/js/tag-it/tag-it.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/tiny_mce/tiny_mce.js') ?>"></script>
-        <script type="text/javascript" src="<?= base_url('assets/js/chosen/chosen.jquery.js') ?>"></script>
+        <script type="text/javascript" src="<?= base_url('assets/js/chosen16/chosen.jquery.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/highcharts/highcharts.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/fileuploader/fileuploader.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/script.js') ?>" ></script>
