@@ -478,6 +478,9 @@ class Fichas extends CI_Controller {
         $this->form_validation->set_rules('correlativo', 'Código', 'required|is_natural_no_zero|callback_check_codigo[' . $id . ']');
         $this->form_validation->set_rules('guia_online_url', 'Guia Online URL', 'trim|prep_url');
         $this->form_validation->set_rules('metaficha', 'MetaFicha', 'required');
+        if($this->input->post('exterior')){
+            $this->form_validation->set_rules('tipo_residente', 'motivo de estadía para chilenos en el exterior', 'required');
+        }
         if($this->input->post('metaficha') == 1)
             $this->form_validation->set_rules('metaficha_categoria', 'Criterio para categorizar las SubFichas', 'required');
         
@@ -635,9 +638,10 @@ class Fichas extends CI_Controller {
 
                 $ficha->save();
 
-                if($this->input->post('exterior')) {
+                Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
 
-                    Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
+                if($this->input->post('exterior') && $this->input->post('tipo_residente') ) {
+
                     foreach ($this->input->post('tipo_residente') as $key => $value) {
                         $tramite_exterior = new TramiteEnExterior();
                         $tramite_exterior->id_ficha = $ficha->id;
