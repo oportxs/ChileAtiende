@@ -62,6 +62,7 @@ class Ficha extends Doctrine_Record {
         $this->hasColumn('metaficha_campos');
         $this->hasColumn('metaficha_servicios');
         $this->hasColumn('metaficha_opciones');
+        $this->hasColumn('es_tramite_exterior');
     }
 
     function setUp() {
@@ -445,10 +446,14 @@ class Ficha extends Doctrine_Record {
     }
 
     function isTramiteExterior() {
-        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
-        if (sizeof($tramite_exterior) > 0)
+        // $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        // if (sizeof($tramite_exterior) > 0)
+        //     return true;
+        // return false;
+        if($this->es_tramite_exterior > 0)
             return true;
-        return false;
+        else
+            return false;
     }
 
     function isTramiteExteriorDestacado() {

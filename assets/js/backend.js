@@ -34,9 +34,9 @@ $(document).ready(function(){
         $('#clasificacion-emprendete').attr('style','display:block');
     });
     $('#chkbox_exterior').on('change', function(e){
-        // if(this.checked){
-
-        // }
+        if(!this.checked){
+            console.log('no seleccionado')
+        }
         $('#tipo_residente').prop('disabled', !this.checked).trigger("chosen:updated");
         $('#chkbox_exterior_destacado').prop('disabled', !this.checked);
     });

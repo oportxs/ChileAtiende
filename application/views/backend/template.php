@@ -45,8 +45,7 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
         <script src="<?= base_url('assets/js/jquery-migrate-1.1.1.min.js') ?>"></script>
 
         <script type="text/javascript" src="<?= base_url('assets/js/jquery-ui/jquery-ui-1.10.2.js') ?>"></script>
-        <script type="text/javascript" src="<?= base_url('assets/js/jquery-tools/jquery-tools-1.2.5.js') ?>" ></scr
-        ipt>
+        <script type="text/javascript" src="<?= base_url('assets/js/jquery-tools/jquery-tools-1.2.5.js') ?>" ></script>
         <script type="text/javascript" src="<?= base_url('assets/js/tag-it/tag-it.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/tiny_mce/tiny_mce.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/chosen16/chosen.jquery.js') ?>"></script>
