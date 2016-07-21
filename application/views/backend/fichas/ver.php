@@ -417,6 +417,16 @@
                 <?=($ficha->isTramiteExteriorDestacado()?"Si":"No")?>
             </td>
         </tr>
+        <?php if($ficha->guia_consulado): ?>
+        <tr>
+            <td>
+                <strong>Guia en consulado</strong>
+            </td>
+            <td>
+                <?=$ficha->guia_consulado?>
+            </td>
+        </tr>
+        <?php endif; // guia_consulado?>
         <?php endif;?>
 
         <?php

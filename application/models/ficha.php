@@ -604,7 +604,7 @@ class Ficha extends Doctrine_Record {
             $penultima_version = $this->Versiones[1];
             $comparacion = $ultima_version->compareWith($penultima_version);
             if ($comparacion) {
-                $descripcion = make_description($comparacion, $ultima_version); //Helper historial
+                $descripcion = make_description($comparacion, $ultima_version, $this); //Helper historial
             } else {
                 $descripcion = '<p>' . ( ($this->flujo) ? 'El flujo' : 'La ficha' ) . ' ha sido guardado pero no se realizaron cambios.</p>';
             }
