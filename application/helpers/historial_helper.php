@@ -25,11 +25,11 @@ function make_description($comparacion, $ficha_nueva, $master) {
         }
         $descripcion.='<br />';
 
+        // Trámite en exterior
         if(strtolower($key)=='es_tramite_exterior'){
             if (intval($val->right) == 1){
                 $exterior_lista_motivos = $master->listarMotivosExterior();
-                $descripcion .= "<p>[ ".$ficha_nueva->id."] Se habilita para: " . implode(', ', $exterior_lista_motivos);
-                // $descripcion .= "<pre>" . print_r($exterior_lista_motivos) . "</pre>";
+                $descripcion .= "<p>Se habilita para: " . implode(', ', $exterior_lista_motivos);
             } else {
                 $descripcion .= "<p>Se deshabilita esta opción</p>";
             }
