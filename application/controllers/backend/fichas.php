@@ -51,10 +51,19 @@ class Fichas extends CI_Controller {
         $fichas = Doctrine::getTable('Ficha')->findMaestros($entidad, $servicio, $args);
         $nfichas = Doctrine::getTable('Ficha')->findMaestros($entidad, $servicio, $nargs);
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['title'] = 'Backend - ' . ( ($flujos) ? 'Flujos' : 'Fichas' );
         $data['content'] = 'backend/fichas/index';
         $data['fichas'] = $fichas;
         $data['flujos'] = $flujos;
+        $data['args'] = $args;
 
         if($flujos)
             $_action_url = "listarflujos";
@@ -98,6 +107,14 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['ficha'] = $ficha;
         $data['etapasvida'] = $etapasvida;
         $data['flujo'] = $flujo;
@@ -128,6 +145,14 @@ class Fichas extends CI_Controller {
             exit;
         }
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['ficha'] = $ficha;
         $data['flujo'] = $flujo;
 
@@ -149,6 +174,14 @@ class Fichas extends CI_Controller {
             echo 'No tiene permisos';
             exit;
         }
+
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
 
         $data['ficha'] = $ficha;
         $data['flujo'] = $flujo;
@@ -190,6 +223,14 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
+
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
 
         $data['title'] = 'Backend - Agregar ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' );
         $data['content'] = 'backend/fichas/agregar';
@@ -244,6 +285,14 @@ class Fichas extends CI_Controller {
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['title'] = 'Backend - ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' ) . $ficha->titulo;
         $data['content'] = 'backend/fichas/editar';
         $data['ficha'] = $ficha;
@@ -260,6 +309,11 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
+        $data['motivos_en_exterior'] = array(
+            "Residencia Permanente en el Exterior",
+            "Residencia Temporal en el Exterior",
+            "De Viaje en el Exterior"
+        );
 
         $this->load->view('backend/template', $data);
     }
@@ -299,6 +353,14 @@ class Fichas extends CI_Controller {
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
 
+        $query = Doctrine_Query::create();
+        $query->from('TramiteEnExterior t');
+        $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
+        
+        $data['fichas_exterior'] = array(
+            'total'=>$fichas_exterior[0]['fichas_exterior']
+            );
+
         $data['title'] = 'Backend - ' . ( ($flujo) ? 'Flujo ' : 'Ficha ' ) . $ficha->titulo;
         $data['content'] = 'backend/fichas/editar';
         $data['ficha'] = $ficha;
@@ -316,6 +378,11 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
+        $data['motivos_en_exterior'] = array(
+            "Residencia Permanente en el Exterior",
+            "Residencia Temporal en el Exterior",
+            "De Viaje en el Exterior"
+        );
 
         $data['editar_ext'] = TRUE;
 
@@ -411,6 +478,9 @@ class Fichas extends CI_Controller {
         $this->form_validation->set_rules('correlativo', 'Código', 'required|is_natural_no_zero|callback_check_codigo[' . $id . ']');
         $this->form_validation->set_rules('guia_online_url', 'Guia Online URL', 'trim|prep_url');
         $this->form_validation->set_rules('metaficha', 'MetaFicha', 'required');
+        if($this->input->post('exterior')){
+            $this->form_validation->set_rules('tipo_residente', 'motivo de estadía para chilenos en el exterior (al menos uno)', 'required');
+        }
         if($this->input->post('metaficha') == 1)
             $this->form_validation->set_rules('metaficha_categoria', 'Criterio para categorizar las SubFichas', 'required');
         
@@ -509,6 +579,7 @@ class Fichas extends CI_Controller {
                 $ficha->guia_telefonico = $this->input->post('guia_telefonico');
                 $ficha->guia_correo = $this->input->post('guia_correo');
                 $ficha->guia_chileatiende = $this->input->post('guia_chileatiende');
+                $ficha->guia_consulado = $this->input->post('guia_consulado');
                 $ficha->maestro = 1;
                 $ficha->servicio_codigo = $this->input->post('servicio_codigo');
                 $ficha->genero_id = $this->input->post('genero') ? $this->input->post('genero') : NULL;
@@ -565,7 +636,23 @@ class Fichas extends CI_Controller {
 
                 $ficha->content_updated_data_at = date('Y-m-d H:i:s');
 
+                $ficha->es_tramite_exterior = ($this->input->post('exterior')=='on');
+
                 $ficha->save();
+
+                if($this->input->post('tipo_residente') ) {
+                    Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
+                    foreach ($this->input->post('tipo_residente') as $key => $value) {
+                        $tramite_exterior = new TramiteEnExterior();
+                        $tramite_exterior->id_ficha = $ficha->id;
+                        $tramite_exterior->destacado = ($this->input->post('exterior_destacado')=='on');
+                        $tramite_exterior->motivo = $value;
+                        $tramite_exterior->content_updated_data_at = date('Y-m-d H:i:s');
+                        $tramite_exterior->save();
+                    }
+                    
+                    
+                }
                 
                 // INFO: crea las nuevas SubFichas para cada Servicio si la Ficha es MetaFicha
                 if($ficha->metaficha == 1) {

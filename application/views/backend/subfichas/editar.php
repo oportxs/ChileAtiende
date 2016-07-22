@@ -59,6 +59,11 @@
                                 'id' => 'editorE', 
                                 'field' => 'marco_legal', 
                                 'type' => 'textarea'
+                        ),
+                        array(  'label' => "Guia en Consulado", 
+                                'id' => 'editorT', 
+                                'field' => 'guia_consulado', 
+                                'type' => 'textarea'
                         )
                     );
                 } else {
@@ -141,6 +146,11 @@
                         array(  'label' => "Marco Legal", 
                                 'id' => 'editorE', 
                                 'field' => 'marco_legal', 
+                                'type' => 'textarea'
+                        ),
+                        array(  'label' => "Guia en Consulado", 
+                                'id' => 'editorT', 
+                                'field' => 'guia_consulado', 
                                 'type' => 'textarea'
                         )
                     );

@@ -43,7 +43,7 @@ $route['404_override'] = '';
 
 $route['backend'] = 'backend/portada';
 
-$route['exterior'] = 'exterior';
+// $route['exterior/'] = 'exterior/portada'; // deshabilita tempralmente hasta lanzamiento
 
 $route['funcionarios'] = 'funcionarios/destacados';
 $route['movil'] = 'movil/buscar';

@@ -149,6 +149,18 @@ $titulo = ( $flujo ) ? 'Flujo' : 'Ficha';
                     </td>
                     <td><textarea id="editorE" name="marco_legal" cols="65" rows="15"></textarea></td>
                 </tr>
+                <tr>
+                    <td class="titulo">
+                        Trámite en Consulado
+                        <br />
+                        <div class="metaficha_display">
+                            <span style="font-size: 80%; font-style: italic;">¿Info general?</span><br/>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="1" checked/> Si</label>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="0" /> No</label>
+                        </div>
+                    </td>
+                    <td><textarea id="editorT" name="guia_consulado" cols="65" rows="15"></textarea></td>
+                </tr>
                 <?php
                 }
                 ?>
@@ -312,6 +324,18 @@ $titulo = ( $flujo ) ? 'Flujo' : 'Ficha';
                         </td>
                         <td><textarea id="editorE" name="marco_legal" cols="65" rows="15"></textarea></td>
                     </tr>
+                    <tr>
+                    <td class="titulo">
+                        Trámite en Consulado
+                        <br />
+                        <div class="metaficha_display">
+                            <span style="font-size: 80%; font-style: italic;">¿Info general?</span><br/>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="1" checked/> Si</label>
+                            <label><input type="radio" name="metaficha_guia_consulado" value="0" /> No</label>
+                        </div>
+                    </td>
+                    <td><textarea id="editorT" name="guia_consulado" cols="65" rows="15"></textarea></td>
+                </tr>
                     <?php
                 }
                 ?>
@@ -403,6 +427,48 @@ $titulo = ( $flujo ) ? 'Flujo' : 'Ficha';
                         </td>
                     </tr>
                 </table>
+                <!-- chilenos en el extranjero -->
+                <div class="tramite-exterior">
+                    <table class="formTable">
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="exterior" id="chkbox_exterior"/>
+                                <label for="chkbox_exterior">Para chilenos en el exterior</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="tipos-exterior">
+                        <table class="formTable">
+                            <tr>
+                                <td>
+                                    <label for="chkbox_exterior">Para chilenos </label>
+                                </td>
+                                <td>
+                                    <select class="chzn-select" 
+                                            data-placeholder="Seleccionar un motivo de estadía en el exterior" 
+                                            multiple 
+                                            name="tipo_residente[]" 
+                                            id="tipo_residente" 
+                                            disabled="disabled" 
+                                            style="width: 350px;">
+                                        <option value></option>
+                                        <option value="Residencia permanente en el Exterior">con residencia permanente en el extranjero</option>
+                                        <option value="Residencia temporal en el Exterior">con residencia temporal en el extranjero</option>
+                                        <option value="De viaje en el Exterior">de viaje en el extranjero</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="checkbox" name="exterior_destacado" id="chkbox_exterior_destacado" disabled="true"/>
+                                    <label for="chkbox_exterior">Destacado en la portada de <strong>ChileAtiende en el Exterior</strong></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- fin chilenos en el extranjero -->
             </div>
             <table class="formTable">
                 <tr>

@@ -20,6 +20,7 @@ class Ficha extends Doctrine_Record {
         $this->hasColumn('guia_telefonico');
         $this->hasColumn('guia_correo');
         $this->hasColumn('guia_chileatiende');
+        $this->hasColumn('guia_consulado');
         $this->hasColumn('doc_requeridos');
         $this->hasColumn('maestro');
         $this->hasColumn('publicado', 'boolean', 1, array('default' => 0));
@@ -61,6 +62,7 @@ class Ficha extends Doctrine_Record {
         $this->hasColumn('metaficha_campos');
         $this->hasColumn('metaficha_servicios');
         $this->hasColumn('metaficha_opciones');
+        $this->hasColumn('es_tramite_exterior');
     }
 
     function setUp() {
@@ -149,6 +151,11 @@ class Ficha extends Doctrine_Record {
             'local' => 'ficha_id',
             'foreign' => 'chileclic_subtema_id',
             'refClass' => 'FichaHasChileclicSubtema'
+        ));
+
+        $this->hasMany('TramiteEnExterior as TramitesEnExterior', array(
+            'local' => 'id',
+            'foreign' => 'id_ficha'
         ));
 
         $this->hasOne('Genero', array(
@@ -402,6 +409,10 @@ class Ficha extends Doctrine_Record {
 
     function showRangosAsString() {
 
+        if (!isset($this->RangosEdad)) {
+            return '';
+        }
+
         $rangos = array();
         foreach ($this->RangosEdad as $rango) {
             if ($rango->edad_minima != null && $rango->edad_maxima != null)
@@ -409,6 +420,49 @@ class Ficha extends Doctrine_Record {
         }
 
         return implode(",", $rangos);
+    }
+
+    function checkMotivosSelected($string){
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        $motivos = array();
+        foreach($tramite_exterior as $t){
+            array_push($motivos, $t['motivo']);
+        }
+        $motivos_str =  implode(" ", $motivos);
+
+        if(strpos(strtolower($motivos_str), strtolower($string))>-1)
+            return true;
+        else
+            return false;
+    }
+
+    function listarMotivosExterior(){
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        $motivos = array();
+        foreach($tramite_exterior as $t){
+            array_push($motivos, $t['motivo']);
+        }
+        return $motivos;
+    }
+
+    function isTramiteExterior() {
+        // $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        // if (sizeof($tramite_exterior) > 0)
+        //     return true;
+        // return false;
+        if($this->es_tramite_exterior > 0)
+            return true;
+        else
+            return false;
+    }
+
+    function isTramiteExteriorDestacado() {
+        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        foreach($tramite_exterior as $t){
+            if($t['destacado'])
+                return true;
+        }
+        return false;
     }
 
     function setRangosEdadFromString($string) {
@@ -550,7 +604,7 @@ class Ficha extends Doctrine_Record {
             $penultima_version = $this->Versiones[1];
             $comparacion = $ultima_version->compareWith($penultima_version);
             if ($comparacion) {
-                $descripcion = make_description($comparacion, $ultima_version); //Helper historial
+                $descripcion = make_description($comparacion, $ultima_version, $this); //Helper historial
             } else {
                 $descripcion = '<p>' . ( ($this->flujo) ? 'El flujo' : 'La ficha' ) . ' ha sido guardado pero no se realizaron cambios.</p>';
             }

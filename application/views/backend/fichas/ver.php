@@ -396,6 +396,39 @@
             <td style="font-weight: bold;">Sic</td>
             <td><?= $ficha->sic ?></td>
         </tr>
+
+        <?php if($ficha->isTramiteExterior()):?>
+        <tr>
+            <td colspan="2" style="text-align: center; color: #000; background-color: #CCC; font-weight: bold;">Trámite para chilenos en el Exterior</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Motivos de estadía en el Exterior</td>
+            <td>
+                <ul>
+                <?php foreach($ficha->listarMotivosExterior() as $m):?>
+                    <li><?=$m?></li>
+                <?php endforeach; ?>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Destacado en portada de ChileAtiende en el Exterior</td>
+            <td>
+                <?=($ficha->isTramiteExteriorDestacado()?"Si":"No")?>
+            </td>
+        </tr>
+        <?php if($ficha->guia_consulado): ?>
+        <tr>
+            <td>
+                <strong>Guia en consulado</strong>
+            </td>
+            <td>
+                <?=$ficha->guia_consulado?>
+            </td>
+        </tr>
+        <?php endif; // guia_consulado?>
+        <?php endif;?>
+
         <?php
         if (UsuarioBackendSesion::usuario()->tieneRol('publicador')) {
             if ($ficha->cc_id || $ficha->cc_formulario || $ficha->cc_llavevalor) {
