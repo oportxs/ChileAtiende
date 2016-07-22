@@ -35,7 +35,7 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/backend-new.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/jquery-ui/jquery-ui.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/jquery-ui/jquery.ui.autocomplete.custom.css') ?>" />
-        <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/chosen.css') ?>" />
+        <link rel="stylesheet" type="text/css" href="<?= base_url('assets/js/chosen16/chosen.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/js/fileuploader/fileuploader.css') ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/js/jquery.datetimepicker/jquery.datetimepicker.css'); ?>"/>
         <script type="text/javascript">
@@ -48,7 +48,7 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
         <script type="text/javascript" src="<?= base_url('assets/js/jquery-tools/jquery-tools-1.2.5.js') ?>" ></script>
         <script type="text/javascript" src="<?= base_url('assets/js/tag-it/tag-it.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/tiny_mce/tiny_mce.js') ?>"></script>
-        <script type="text/javascript" src="<?= base_url('assets/js/chosen/chosen.jquery.js') ?>"></script>
+        <script type="text/javascript" src="<?= base_url('assets/js/chosen16/chosen.jquery.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/highcharts/highcharts.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/fileuploader/fileuploader.js') ?>"></script>
         <script type="text/javascript" src="<?= base_url('assets/js/script.js') ?>" ></script>
@@ -161,7 +161,10 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
                                     <?php if (UsuarioBackendSesion::usuario()->tieneRol(array('metaficha'))): ?>
                                     <li><a href="<?= site_url('backend/fichas/index/metafichas') ?>" title="Fichas con SubFichas asociadas">Metafichas <?= ($metafichas) ? '(' . $metafichas . ')' : ''; ?></a></li>
                                     <?php endif; ?>
-
+                                    
+                                    <?php if($fichas_exterior['total']>0):?>
+                                    <li><a href="<?= site_url('backend/fichas/index/exterior') ?>" title="Fichas para chilenos en el Exterior"> Chilenos en el Exterior (<?= $fichas_exterior['total']?>)</a></li>
+                                    <?php endif;?>
                                 </ul>
                             </li>
                         </ul>
@@ -263,8 +266,8 @@ $eventos_expirados = Doctrine::getTable('Evento')->findMaestros($entidad, $servi
             <div id="footer">
                 <address>
                     Gobierno de Chile - Modernización y Gobierno Digital - Ministerio Secretaría General de la Presidencia<br />
-                    Dirección: Teatinos 333 Piso 4, Santiago de Chile<br />
-                    Teléfono: +56 2 688 77 01
+                    Dirección: Teatinos Teatinos Nº 92 piso 9, Santiago <br />
+                    Teléfonos: +562 2219 8327 +562 2219 8407
                 </address>
             </div>
         </div>

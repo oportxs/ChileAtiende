@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-function make_description($comparacion, $ficha_nueva) {
+function make_description($comparacion, $ficha_nueva, $master) {
     $descripcion = "";
     $json_comentarios = $ficha_nueva->comentarios;
     $comentarios = null;
@@ -24,6 +24,16 @@ function make_description($comparacion, $ficha_nueva) {
             $descripcion .= "<p class='comment'><strong>Ocultar Comentarios (-)</strong><br/>" . $comentarios[$key] . "</p>";
         }
         $descripcion.='<br />';
+
+        // Trámite en exterior
+        if(strtolower($key)=='es_tramite_exterior'){
+            if (intval($val->right) == 1){
+                $exterior_lista_motivos = $master->listarMotivosExterior();
+                $descripcion .= "<p>Se habilita para: " . implode(', ', $exterior_lista_motivos);
+            } else {
+                $descripcion .= "<p>Se deshabilita esta opción</p>";
+            }
+        }
     }
 
     return $descripcion;

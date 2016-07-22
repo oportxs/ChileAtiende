@@ -638,5 +638,7 @@ fieldset {
     width:30px;
 }
 
-
+.mceVoiceLabel {
+    display: none;
+}
 

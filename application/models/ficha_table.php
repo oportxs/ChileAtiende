@@ -32,7 +32,7 @@ class FichaTable extends Doctrine_Table {
         if (isset($options['campos']))
             $query->select($options['campos']);
 
-        $query->from('Ficha f, f.Temas temas, f.Servicio servicio, servicio.Entidad entidad');
+        $query->from('Ficha f, f.Temas temas, f.Servicio servicio, servicio.Entidad entidad, f.TramitesEnExterior as exterior');
         $query->andWhere('f.maestro = 1');
 
         if ($entidad)
@@ -116,7 +116,10 @@ class FichaTable extends Doctrine_Table {
             }
 
             if ($options['estado'] == 'metafichas')
-                $query->andWhere("f.metaficha = 1");                
+                $query->andWhere("f.metaficha = 1");
+
+            if ($options['estado'] == 'exterior')
+                $query->andWhere("exterior.id_ficha IS NOT NULL");                
         }
 
         // debug($query->getSqlQuery(),"red");

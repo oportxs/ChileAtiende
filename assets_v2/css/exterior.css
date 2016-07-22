@@ -1,0 +1,435 @@
+body {
+  background: url('../img/background/bg_exterior.jpg ') center top no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+header {
+  background: url('../img/portada/fondo_header_home.png') left top transparent;
+}
+header h3 {
+  font-size: 22px;
+  color: #FFF;
+}
+header form {
+  margin-top: 30px;
+}
+header .row-top {
+  height: 65px;
+}
+header .header-right .row-bottom {
+  padding-bottom: initial;
+}
+header .header-center {
+  padding-top: initial;
+}
+header .nav-areas .span2:first-child {
+  margin-right: -40px;
+}
+header .nav-areas .eventos {
+  width: 25%;
+}
+header .banner-home {
+  margin: 20px;
+}
+.header-search {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.header-search form {
+  width: auto;
+  float: none;
+}
+.header-search form h3 {
+  font-size: 22px;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #000;
+  filter: dropshadow(color=#000000, offx=1, offy=1);
+}
+.header-search form .main_search_input {
+  float: none;
+  width: 640px;
+  height: 47px;
+  font-size: 16px;
+  border-right: none;
+  border-radius: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: inset 1px 6px 4px 0px #dddddd;
+}
+.header-search form .searchbtn {
+  display: inline;
+  float: none;
+  border: none;
+  height: 57px;
+  width: 105px;
+  padding: 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: #e20033;
+  margin-bottom: 10px;
+  margin-left: -5px;
+  color: #ffffff;
+  font-size: 23px;
+}
+.background {
+  z-index: -1;
+  position: absolute;
+  background-color: #000;
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+  display: block;
+  height: 100%;
+}
+body .esPortada {
+  background-color: transparent;
+}
+.contenedor-principal {
+  padding: 5px 35px 30px;
+}
+.titulos-accesos h3 {
+  float: left;
+  color: #FFF;
+  font-family: "gobCLHeavy", Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  padding: 6px 0 6px 40px;
+  font-weight: normal;
+}
+.titulos-accesos h3.etapas {
+  background: url('../img/portada/icon_bonos_servicios.png') left top no-repeat;
+}
+.titulos-accesos h3.puntos {
+  background: url('../img/portada/icon_puntos_atencion.png') left top no-repeat;
+}
+.nav-principal div.span2 {
+  background-color: #004ea2;
+  height: 105px;
+  min-height: 105px;
+  padding: 0px 10px;
+  text-align: center;
+}
+.nav-principal div.span2 h3 {
+  font-family: "gobCLBold", Arial, Helvetica, sans-serif;
+  font-weight: initial;
+  line-height: 25px;
+  color: #FFF;
+  margin-top: 25px;
+}
+.nav-principal div.span2 h3 a {
+  color: #FFF;
+}
+.nav-principal div.span2 h3 a:hover {
+  color: #FFF;
+}
+.nav-principal div:hover {
+  background-color: #006CB8;
+}
+.nav-principal div.selected {
+  background-color: #008bda;
+  margin-top: -10px;
+  height: 115px;
+}
+.nav-secundaria div.span3,
+.nav-secundaria-movil div.span3 {
+  background-color: rgba(255, 255, 255, 0.85);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#d9ffffff', endColorstr='#d9ffffff')";
+  /* IE */
+  height: 105px;
+  min-height: 105px;
+  padding: 0 30px;
+  border: 1px solid #DDD;
+}
+.nav-secundaria div.span3 h3,
+.nav-secundaria-movil div.span3 h3 {
+  font-size: 14px;
+  color: #004b99;
+  line-height: 20px;
+  font-weight: normal;
+}
+.nav-secundaria div.span3 h3.apoyo,
+.nav-secundaria-movil div.span3 h3.apoyo {
+  color: #e20033;
+}
+.nav-secundaria div.span3 h2,
+.nav-secundaria-movil div.span3 h2 {
+  line-height: 20px;
+  font-size: 24px;
+  font-weight: normal;
+}
+.nav-secundaria div.span3 h2 a,
+.nav-secundaria-movil div.span3 h2 a {
+  color: #000;
+}
+.nav-secundaria div.span3 h2 a:hover,
+.nav-secundaria-movil div.span3 h2 a:hover {
+  color: #000;
+}
+.nav-secundaria div.span3:hover,
+.nav-secundaria-movil div.span3:hover {
+  background-color: #fff;
+}
+.subcontenido {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.subcontenido .span6 .cabecera h3 {
+  color: #FFF;
+  padding-left: 25px;
+  font-family: "gobCLHeavy", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+.subcontenido .span6 .row {
+  background-color: rgba(255, 255, 255, 0.85);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#d9ffffff', endColorstr='#d9ffffff')";
+  /* IE */
+}
+.subcontenido .span6 .row ul {
+  margin: 0;
+}
+.subcontenido .span6 .row ul li {
+  list-style-type: none;
+  height: 65px;
+  border-bottom: 1px solid #FFF;
+  padding: 5px;
+  padding-top: 15px;
+  padding-left: 25px;
+}
+.subcontenido .span6 .row ul li a {
+  color: #555555;
+  font-weight: bold;
+  font-size: 18px;
+}
+.subcontenido .span6 .row ul li div.contenedor-label {
+  margin: 15px;
+}
+.subcontenido .span6 .row ul li span.institucion {
+  display: block;
+  color: #0091cc;
+}
+.subcontenido .span6 .row ul li:hover {
+  background-color: #ffffff;
+}
+#maincontent {
+  background-color: white;
+}
+.label-success {
+  padding: 3px 15px;
+}
+.paso-paso-emprendete {
+  border: 1px solid #CCC;
+  padding: 0px 5px;
+}
+.paso-paso-emprendete ol {
+  margin: initial;
+}
+.paso-paso-emprendete ol li {
+  background: url('/assets_v2/img/icon_bg_pasopaso.png') no-repeat 20px 20px;
+  list-style-position: inside;
+  list-style-type: none;
+  padding-top: 15px;
+  padding-left: 70px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #CCC;
+}
+.paso-paso-emprendete ol li strong {
+  font-size: 18px;
+}
+.emprendete-calendario {
+  padding-left: 30px !important;
+}
+.emprendete-calendario h4 {
+  background-image: url('/assets_v2/img/icon_calendario.png');
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+}
+.table td {
+  border-top: initial;
+  border-bottom: 1px solid #ccc;
+}
+.titulo-tabla {
+  color: #0065a9;
+  font-weight: bold;
+  white-space: nowrap;
+}
+@media (min-width: 1024px) {
+  .nav-principal .span12.nav-secundaria-movil {
+    display: none;
+    font-family: desktop;
+  }
+  .nav-principal .span2 {
+    width: 20%;
+  }
+}
+@media (max-width: 1024px) {
+  header .nav-areas a {
+    /* padding: 18px 21px; */
+    font-size: 18px;
+  }
+  header .nav-areas .eventos {
+    display: none;
+  }
+  .header-search form .main_search_input {
+    width: 540px;
+  }
+  .contenedor-principal h3.bread {
+    font-size: 22px;
+  }
+  .contenedor-principal .subcontenido .span6 .row ul li {
+    height: 75px;
+    padding: 5px 5px 5px 25px;
+  }
+  .contenedor-principal .subcontenido .span6 .row ul li a {
+    font-size: 16px;
+  }
+  .contenedor-principal .subcontenido .span6 .row ul li span {
+    font-size: 14px;
+  }
+  .contenedor-principal .nav-principal .span2 {
+    padding-left: 15px;
+  }
+  .nav-principal .span12.nav-secundaria-movil {
+    display: none;
+    font-family: desktop;
+  }
+  .nav-principal div.span2 {
+    min-height: 100px;
+    padding-left: 30px;
+    width: 20%;
+  }
+  .nav-principal div.span2 h3 {
+    font-size: 22px;
+  }
+  .nav-principal div.selected {
+    background-color: #008bda;
+    margin-top: -5px;
+    height: 110px;
+  }
+  .nav-secundaria div.span3 {
+    padding-left: 25px;
+  }
+  .nav-secundaria div.span3 h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 640px) {
+  body {
+    background-image: none;
+    background-color: #7a7979;
+  }
+  header .row-top {
+    height: initial;
+  }
+  header .nav-areas a {
+    padding: initial;
+    font-size: 16px;
+  }
+  header .cont-busqueda .main_search_input {
+    width: initial;
+  }
+  header form {
+    width: initial;
+  }
+  .header-search {
+    text-align: center;
+  }
+  .header-search form {
+    width: auto;
+    float: none;
+    margin-top: auto;
+  }
+  .header-search form h3 {
+    font-size: initial;
+    color: #FFF;
+    line-height: initial;
+  }
+  .header-search form .main_search_input {
+    float: none;
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    border-right: none;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: inset 1px 6px 4px 0px #dddddd;
+  }
+  .header-search form .searchbtn {
+    display: inline;
+    float: none;
+    border: none;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: url('../img/lupa_buscador.png') 12px 12px no-repeat #f03f3d;
+    text-indent: -9999px;
+    margin-bottom: 10px;
+    margin-left: -5px;
+  }
+  .contenedor-principal {
+    padding: initial;
+  }
+  .contenedor-principal h3.bread {
+    font-size: 14px;
+  }
+  .contenedor-principal .subcontenido {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .contenedor-principal .subcontenido .span6 .cabecera h3 {
+    color: #FFF;
+    padding-left: 25px;
+    font-size: initial;
+  }
+  .contenedor-principal .subcontenido .span6 .row ul li {
+    height: initial;
+  }
+  .contenedor-principal .subcontenido .span6 .row ul li a {
+    font-size: 14px;
+  }
+  .contenedor-principal .subcontenido .span6 .row ul li span {
+    font-size: 12px;
+  }
+  .nav-principal .span12.nav-secundaria-movil {
+    display: initial;
+    font-family: mobile;
+  }
+  .nav-principal .span12.nav-secundaria-movil div.span3 {
+    min-height: initial;
+    padding-left: 25px;
+  }
+  .nav-principal .span12.nav-secundaria-movil div.span3 h2 {
+    font-size: initial;
+  }
+  .nav-principal div.span2 {
+    width: initial;
+    min-height: 30px;
+    padding-left: 25px;
+    padding-top: 5px;
+    height: 50px;
+  }
+  .nav-principal div.span2 h3 {
+    margin: initial;
+    font-size: initial;
+    margin-top: initial;
+    line-height: initial;
+  }
+  .nav-principal div.selected {
+    margin-top: initial;
+    height: 50px;
+  }
+  .span12.nav-secundaria {
+    display: none;
+  }
+  .titulo-tabla {
+    white-space: initial;
+  }
+  .ficha #maincontent .participacion .opina {
+    height: initial;
+  }
+  .ficha #maincontent .participacion .reporta-error {
+    height: initial;
+  }
+}

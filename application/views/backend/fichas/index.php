@@ -35,6 +35,9 @@ $message = $this->session->flashdata('message');
             case 'publicados':
                 echo ' » Publicadas';
                 break;
+            case 'exterior':
+                echo ' » Chilenos en el Exterior';
+                break;
         }
     }
     ?>
