@@ -33,6 +33,11 @@ include('header_selector.php'); ?>
 
     </div>
 
+    <!-- 2do registro de chilenos ext -->
+    <style>
+        .front-container-portada {margin-top: -46px;}
+        .header-bottom {margin-bottom: 25px !important;}
+    </style>
     <div class="row-fluid">
         <div class="container">
             <div class="span12 title">
@@ -40,6 +45,7 @@ include('header_selector.php'); ?>
             </div>
         </div>
     </div>
+    <!-- fin 2do registro de chilenos ext -->
     
     <div class="header-bottom">
         <div class="container">
@@ -66,6 +72,13 @@ include('header_selector.php'); ?>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="container">
+            <a href="http://www.registrodechilenos.cl/" target="_blank">
+                <img class="pull-right" src="<?php echo base_url('/assets_v2/img/banners/2doregchilenos-logorojohorizontal.png'); ?>" width="320">
+            </a>
         </div>
     </div>
 
