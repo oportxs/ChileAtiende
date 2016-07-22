@@ -37,6 +37,12 @@ include('header_selector.php'); ?>
     <style>
         .front-container-portada {margin-top: -46px;}
         .header-bottom {margin-bottom: 25px !important;}
+        @media (max-width: 979px) and (min-width: 768px) {
+            .front-container-portada {margin-top: 0px;}
+        }
+        @media (max-width: 767px){
+            .front-container-portada {margin-top: 0px;}
+        }
     </style>
     <div class="row-fluid">
         <div class="container">
