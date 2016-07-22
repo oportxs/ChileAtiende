@@ -182,7 +182,7 @@ $(document).ready(function(){
     });
     
     // INFO: Selecciona los INPUT que van a ser cargados automaticamente con TinyMCE
-    var elementos = 'editorA,editorN';
+    var elementos = 'editorT,editorA,editorN';
     $("form").find('input[name^=metaficha_]').each(function(index, elem) { 
         var input_name = $(this).attr("name").substring(10);
         var input_id = $('textarea[name^='+input_name+']').attr('id');
@@ -224,7 +224,7 @@ $(document).ready(function(){
         handle_event_callback : function(event,editor){
             if(event.type == 'keypress' || event.keyCode == '8' || event.keyCode == '46'){
                 //Esto permite que aparezca el boton comentar en los campos tinyMCE
-                $("#"+editor.id).next().next().find('span').show('fast')
+                $("#"+editor.id).next().next().find('span.comentario').show('slow')
             }
         },
         // Style formats

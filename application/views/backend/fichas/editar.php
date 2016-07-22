@@ -129,7 +129,7 @@
                                 'field' => 'marco_legal', 
                                 'type' => 'textarea'
                         ),
-                        array(  'label' => "Trámite en Consulado", 
+                        array(  'label' => "Guia en Consulado", 
                                 'id' => 'editorT', 
                                 'field' => 'guia_consulado', 
                                 'type' => 'textarea'
@@ -265,7 +265,7 @@
                                 'field' => 'marco_legal', 
                                 'type' => 'textarea'
                         ),
-                        array(  'label' => "Trámite en Consulado", 
+                        array(  'label' => "Guia en Consulado", 
                                 'id' => 'editorT', 
                                 'field' => 'guia_consulado', 
                                 'type' => 'textarea'
