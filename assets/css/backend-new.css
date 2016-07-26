@@ -787,3 +787,8 @@ input[readonly],textarea[readonly] {
     border-radius: 5px; /* future proofing */
     -khtml-border-radius: 5px; /* for old Konqueror browsers */
 }
+
+/*fix chosen width (inputs)*/
+.chosen-container.chosen-container-single, .chosen-container.chosen-container-multi {
+    min-width: 300px !important; /* or any value that fits your needs */
+}
