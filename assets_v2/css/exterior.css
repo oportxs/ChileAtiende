@@ -1,12 +1,9 @@
 body {
-  background: url('../img/background/bg_exterior.jpg ') center top no-repeat fixed;
+  background: url('../img/background/fondo_chileatiende-en-el-exterior.jpg') center top no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-header {
-  background: url('../img/portada/fondo_header_home.png') left top transparent;
 }
 header h3 {
   font-size: 22px;
@@ -33,6 +30,12 @@ header .nav-areas .eventos {
 header .banner-home {
   margin: 20px;
 }
+.header-top {
+  padding: 10px 0 15px 0;
+}
+.header-top .search-bar{
+  text-align: right;
+}
 .header-search {
   text-align: center;
   padding-bottom: 10px;
@@ -47,27 +50,28 @@ header .banner-home {
   text-shadow: 1px 1px 1px #000;
   filter: dropshadow(color=#000000, offx=1, offy=1);
 }
-.header-search form .main_search_input {
+.header-top form .main_search_input {
   float: none;
-  width: 640px;
+  width: 540px;
   height: 47px;
-  font-size: 16px;
+  font-size: 20px;
   border-right: none;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  box-shadow: inset 1px 6px 4px 0px #dddddd;
+  padding-left: 15px;
+  font-weight: 100;
+  font-family: "gobCLRegular", Arial, Helvetica, sans-serif;
 }
-.header-search form .searchbtn {
+.header-top form .searchbtn {
   display: inline;
   float: none;
   border: none;
   height: 57px;
-  width: 105px;
-  padding: 5px;
+  padding: 5px 15px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background-color: #e20033;
+  background-color: #02d073;
   margin-bottom: 10px;
   margin-left: -5px;
   color: #ffffff;
@@ -103,38 +107,45 @@ body .esPortada {
   background: url('../img/portada/icon_puntos_atencion.png') left top no-repeat;
 }
 .nav-principal div.span2 {
-  background-color: #004ea2;
-  height: 105px;
-  min-height: 105px;
-  padding: 0px 10px;
+  background-color: #D1DADA;
+  padding: 0px 10px 10px;
   text-align: center;
 }
-.nav-principal div.span2 h3 {
+.nav-principal div.span2 p.tab {
   font-family: "gobCLBold", Arial, Helvetica, sans-serif;
   font-weight: initial;
   line-height: 25px;
-  color: #FFF;
+  color: black;
   margin-top: 25px;
 }
-.nav-principal div.span2 h3 a {
-  color: #FFF;
+.nav-principal div.span2:hover {
+  background-color: white;
 }
-.nav-principal div.span2 h3 a:hover {
-  color: #FFF;
+.nav-principal div.span2[data-id="1"]{min-width: 30%;border-left: 0px solid #a2a7a7;}
+.nav-principal div.span2[data-id="2"]{min-width: 23%;border-left: 1px solid #a2a7a7;}
+.nav-principal div.span2[data-id="3"]{min-width: 20%;border-left: 1px solid #a2a7a7;}
+.nav-principal div.span2[data-id="4"]{min-width: 27%;text-align: left;border-left: 1px solid #a2a7a7;}
+.nav-principal div.span2 p.tab a {
+  color: #686588;
+  text-decoration: none;
+
+}
+.nav-principal div.span2 p.tab a:hover, .nav-principal div.span2 p.tab:hover {
+  color: #000;
+  cursor: pointer;
 }
 .nav-principal div:hover {
-  background-color: #006CB8;
+  background-color: #D1DADA;
 }
 .nav-principal div.selected {
-  background-color: #008bda;
-  margin-top: -10px;
-  height: 115px;
+  background-color: white;
+}
+.nav-principal div.selected p.tab a {
+  color: #000065;
 }
 .nav-secundaria div.span3,
 .nav-secundaria-movil div.span3 {
-  background-color: rgba(255, 255, 255, 0.85);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#d9ffffff', endColorstr='#d9ffffff')";
-  /* IE */
+  background-color: rgba(255, 255, 255, 1);
   height: 105px;
   min-height: 105px;
   padding: 0 30px;
@@ -258,7 +269,7 @@ body .esPortada {
     font-family: desktop;
   }
   .nav-principal .span2 {
-    width: 20%;
+    
   }
 }
 @media (max-width: 1024px) {
