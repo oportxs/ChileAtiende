@@ -11779,3 +11779,9 @@ body.portada .container-alertas-sitio .alert:first-child,
 .modal {
     width: 100%;
 }
+
+/*fix ie registro*/
+a.registro-link img {
+  max-width: 320px;
+  width: 320px;
+}
