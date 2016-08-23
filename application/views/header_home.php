@@ -82,7 +82,7 @@ include('header_selector.php'); ?>
     </style>
     <div class="row-fluid">
         <div class="container">
-            <a href="http://www.registrodechilenos.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'http://www.registrodechilenos.cl/'])">
+            <a class="registro-chilenos" href="http://www.registrodechilenos.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'http://www.registrodechilenos.cl/'])">
                 <img class="pull-right" src="<?php echo base_url('/assets_v2/img/banners/2doregchilenos-logorojohorizontal.png'); ?>" width="320">
             </a>
         </div>
