@@ -11780,7 +11780,7 @@ body.portada .container-alertas-sitio .alert:first-child,
     width: 100%;
 }
 
-/*fix ie registro*/
+/* fix ie registro tamaño banner */
 a.registro-chilenos img {
   max-width: 320px;
   width: 320px;
