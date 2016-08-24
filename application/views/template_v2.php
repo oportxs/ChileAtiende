@@ -46,7 +46,7 @@
         ?>
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=2016082401">
+        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=2016082402">
         <?php echo isset($assets) ? loadAssets($assets, 'css') : ''; ?>
         <link rel="apple-touch-icon" href="<?php echo base_url('assets_v2/img/touch-icon-iphone.png'); ?>" />
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('assets_v2/img/touch-icon-ipad.png'); ?>" />
