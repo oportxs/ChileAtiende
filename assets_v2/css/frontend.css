@@ -11781,7 +11781,7 @@ body.portada .container-alertas-sitio .alert:first-child,
 }
 
 /*fix ie registro*/
-a.registro-link img {
+a.registro-chilenos img {
   max-width: 320px;
   width: 320px;
 }
