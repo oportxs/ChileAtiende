@@ -50,7 +50,8 @@ header .banner-home {
   text-shadow: 1px 1px 1px #000;
   filter: dropshadow(color=#000000, offx=1, offy=1);
 }
-.header-top form .main_search_input {
+header .header-top .search-bar form .main_search_input,
+header .header-top .cont-busqueda form .main_search_input {
   float: none;
   width: 540px;
   height: 47px;
@@ -63,7 +64,7 @@ header .banner-home {
   font-weight: 100;
   font-family: "gobCLRegular", Arial, Helvetica, sans-serif;
 }
-.header-top form .searchbtn {
+header .header-top form .searchbtn {
   display: inline;
   float: none;
   border: none;
@@ -91,6 +92,7 @@ body .esPortada {
 }
 .contenedor-principal {
   padding: 5px 35px 30px;
+  min-height: 520px;
 }
 .titulos-accesos h3 {
   float: left;
@@ -121,9 +123,9 @@ body .esPortada {
 .nav-principal div.span2:hover {
   background-color: white;
 }
-.nav-principal div.span2[data-id="1"]{min-width: 30%;border-left: 0px solid #a2a7a7;}
+.nav-principal div.span2[data-id="1"]{min-width: 20%;border-left: 0px solid #a2a7a7;}
 .nav-principal div.span2[data-id="2"]{min-width: 23%;border-left: 1px solid #a2a7a7;}
-.nav-principal div.span2[data-id="3"]{min-width: 20%;border-left: 1px solid #a2a7a7;}
+.nav-principal div.span2[data-id="3"]{min-width: 30%;border-left: 1px solid #a2a7a7;}
 .nav-principal div.span2[data-id="4"]{min-width: 27%;text-align: left;border-left: 1px solid #a2a7a7;}
 .nav-principal div.span2 p.tab a {
   color: #686588;
@@ -146,15 +148,13 @@ body .esPortada {
 .nav-secundaria div.span3,
 .nav-secundaria-movil div.span3 {
   background-color: rgba(255, 255, 255, 1);
-  height: 105px;
-  min-height: 105px;
   padding: 0 30px;
   border: 1px solid #DDD;
 }
 .nav-secundaria div.span3 h3,
 .nav-secundaria-movil div.span3 h3 {
-  font-size: 14px;
-  color: #004b99;
+  font-size: 16px;
+  color: #333333;
   line-height: 20px;
   font-weight: normal;
 }
@@ -164,13 +164,14 @@ body .esPortada {
 }
 .nav-secundaria div.span3 h2,
 .nav-secundaria-movil div.span3 h2 {
-  line-height: 20px;
+  line-height: 30px;
   font-size: 24px;
   font-weight: normal;
 }
 .nav-secundaria div.span3 h2 a,
 .nav-secundaria-movil div.span3 h2 a {
   color: #000;
+  text-decoration: none;
 }
 .nav-secundaria div.span3 h2 a:hover,
 .nav-secundaria-movil div.span3 h2 a:hover {
@@ -444,3 +445,25 @@ body .esPortada {
     height: initial;
   }
 }
+
+.viaje {
+  display: block;
+}
+.nav-secundaria.temporal, .nav-secundaria.permanentes {
+  display: none;
+}
+.masonry-brick {
+  min-height: 135px !important;
+}
+.sello_chilesinpapeleo > img {
+  position: absolute;
+  right: 0;
+}
+
+@media (min-width: 1200px) {
+  .fichas-exterior .span3 {
+    width: 33.3% !important;
+  }  
+}
+
+

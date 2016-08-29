@@ -12,6 +12,12 @@
             $this->hasColumn('destacado', 'boolean', 1, array('default' => 0));
             $this->hasColumn('content_updated_data_at');
             $this->hasColumn('motivo');
+            $this->hasColumn('motivo_id');
+
+            $this->hasMany('MotivosEnExterior as MotivosEnExterior', array(
+                'local' => 'id',
+                'foreign' => 'motivo_id'
+            ));
 
         }
     }

@@ -140,7 +140,7 @@
                     <?php
                     
                     if(!isset($filtro_tipo_empresa)) $filtro_tipo_empresa = array();
-                    foreach($tipos_empresa as $a) {
+                    foreach($tipos_empresa as $a) { 
                         $activo = in_array($a->id, $filtro_tipo_empresa);
                     ?>
                     <li class="<?php echo $activo?'on':''; ?>">
@@ -271,6 +271,21 @@
                   </ul>
                 <?php } ?>
             <?php endif ?>
+            <!-- Chilenos en el exterior -->
+            <?php if (isset($motivos_exterior) && count($motivos_exterior) > 0) { ?>
+                  <h2 id="f_chilenos_exterior" class="toggle filter_title lightblue-text">Chilenos en el Exterior</h2>
+                  <ul id='instituciones_filtro' class='text-small toggable'>
+                    <?php foreach ($motivos_exterior as $motivo): ?>
+                        <?php $activo = in_array($motivo['motivo_id'], $filtro_motivos_exterior); ?>
+                        <li class="<?php echo $activo?'on':''; ?>">
+                            <?php if ($motivo['motivo']): ?>
+                                <a class="<?php echo $activo?'on':''; ?>" href="<?php echo url_buscador('motivos_exterior', $motivo['motivo_id'], $activo, true); ?>"><?php echo $motivo['motivo']; ?></a> <span>(<?php echo $motivo['cnt']; ?>)</span>
+                                <!-- <p><?php echo $motivo['motivo']; ?></p> -->
+                            <?php endif ?>
+                        </li>
+                    <?php endforeach; ?>
+                  </ul>
+            <?php } ?>
         </div>
     </div>
 </div>

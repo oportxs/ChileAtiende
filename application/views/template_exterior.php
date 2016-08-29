@@ -9,7 +9,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <head>
         <meta charset="utf-8">
         
-        <title><?= $title ?> - ChileAtiende en el Exterior - Trémites para chilenos en el extranjero</title>
+        <title><?= $title ?> - ChileAtiende en el Exterior - Trámites para chilenos en el extranjero</title>
         <link rel="icon" type="image/x-icon" href="<?=base_url()?>assets_v2/img/favicon.ico" />
         <?php
         if (isset($descripcion)) {
@@ -51,7 +51,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <div class="row-fluid">
                         <div class="span4">
                             <h1>
-                                <a href="<?php echo site_url('/empresas'); ?>">
+                                <a href="<?php echo site_url('/exterior'); ?>">
                                     <img src="<?php echo base_url('assets_v2/img/header/chileatiende-en-el-exterior_logo.png'); ?>" alt="ChileAtiende en el Exterior">
                                 </a>
                             </h1>
@@ -60,7 +60,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             <form action="<?= site_url('buscar/fichas') ?>" method="get" id="main_search">
                                 <input accesskey="b" autofocus="autofocus" id="main_search_input" class="pull-left <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?> main_search_input" autocomplete="off" name="buscar" placeholder="Busca lo que necesitas" type="text" <?php echo (isset($hidden_string)) ? "value='" . $hidden_string . "'" : "" ?> />
                                 <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span> Buscar</button>
-                                <input type="hidden" name="e" value="<?php echo $hidden_buscador ?>">
+                                <input type="hidden" name="e" value="2">
                             </form>
                         </div>
                     </div>
@@ -70,11 +70,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         </header>
         <div class="container main-container <?php echo (isset($esPortada))? 'esPortada' : '' ?>">
             <?php $this->load->view($content); ?>
-            <div class="layer-sitio-inactivo">
-                <div class="modal-inactivo">
-                    ¿Eres un emprendedor?<br>Pronto podrás acceder a más contenidos para tu empresa.
-                </div>
-            </div>
         </div>
         <footer class="no-print">
             <div class="footer-top">
@@ -85,8 +80,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 Sobre ChileAtiende en el Exterior
                             </h4>
                             <ul class="unstyled">
-                                <li><a href="<?= base_url('contenidos/que-es-chileatiendepymes')."?e=1" ?>">¿Qué es ChileAtiende en el Exterior?</a></li>
-                                <li><a href="<?= base_url('contenido/politicadeprivacidad') ?>">Servicios disponibles en Consulados</a></li>
+                                <li><a href="<?= base_url('contenidos/que-es-chileatiende-exterior')."?exterior=1" ?>">¿Qué es ChileAtiende en el Exterior?</a></li>
+                                <li><a href="http://www.chilevacontigo.gob.cl/" target="_blank">Servicios disponibles en Consulados</a></li>
                                 <li><a href="<?= base_url('contenidos/terminos-y-condiciones-de-uso-pymes') ?>">Instituciones Asociadas</a></li>
                                 <li><a href="<?= base_url('contenidos/preguntas-frecuentes') ?>">Preguntas Frecuentes</a></li>
                             </ul>
@@ -106,9 +101,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             <h4>
                                 Nuestra Red de Atención
                             </h4>
-                            <div class="row-fluid">
-                                <div class="span1">CASA</div>
-                                <div class="span1">MAIL</div>
+                            <div class="offset1 row-fluid">
+                                <div class="span1">
+                                    <a href="http://www.chilevacontigo.gob.cl/" target="_blank"><img src="/assets_v2/img/iconos/icono-consulados.png"></a>
+                                </div>
+                                <div class="span1"><img src="https://www.chileatiende.gob.cl/assets_v2/img/nueva_home/ico_footer_mail.png"></div>
                             </div>
                         </div>
                 </div>
@@ -121,12 +118,12 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" title="Creative Commons">CC BY 3.0</a></li>
                             </ul>
                             <div class="modernizacion">
-                                <a href="http://www.economia.gob.cl/acerca-de/autoridades/jefes-de-divisiones/emt/" target="_blank">División Empresas de Menor Tamaño</a><br />
-                                Ministerio de Economía, Fomento y Turismo<br/>
-                                <span>Portal en <span class="label label-info">BETA</span></span><br />
+                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)" id="link-footer-70-8e9337fe3fb174750dfa4ffdf288330c">Instituto de Previsión Social (MINTRAB)</a></span><br>
+                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital" id="link-footer-71-6d9a36fa9fa35e45063673431d0558b3">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia" id="link-footer-72-eba202e9083cb9045b0911b5d8b6f9a0">(MINSEGPRES)</a></span><br>
+                                <span>Portal en <span class="label label-info">BETA</span></span><br>
                             </div>
                         </div>
-                        <div class="span4 offset4 cont-logo-footer">
+                        <div class="span6 offset4 cont-logo-footer">
                             <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/">Gobierno de Chile</a>
                         </div>
                     </div>
@@ -140,8 +137,10 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         </div>
         <script src="<?php echo base_url('assets_v2/js/vendor/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery.cookie.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/vendor/jquery.masonry.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/vendor/imagesloaded.pkgd.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/frontend.js'); ?>"></script>
-        <script src="<?php echo base_url('assets_v2/js/emprendete.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/exterior.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/rs_embhl_v2_es_419.js') ?>" type="text/javascript"></script>
         <script>
             var _gaq = _gaq || [];

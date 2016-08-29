@@ -27,7 +27,9 @@ class Contenidos extends CI_Controller {
             show_404();
         }else{
             $es_empresa        = $this->input->get('e') && $this->input->get('e') == 1 ? true:false;
+            $es_exterior        = $this->input->get('exterior') && $this->input->get('exterior') == 1 ? true:false;
             $theme             = $es_empresa ? 'template_emprendete_v2' : 'template_v2';
+            $theme             = ($es_exterior)?"template_exterior":$theme;
             $data['contenido'] = $contenido;
             $data['title'] = $contenido->titulo;
             $data['content'] = 'contenido/'.$contenido->plantilla;

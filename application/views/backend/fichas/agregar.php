@@ -452,9 +452,9 @@ $titulo = ( $flujo ) ? 'Flujo' : 'Ficha';
                                             disabled="disabled" 
                                             style="width: 350px;">
                                         <option value></option>
-                                        <option value="Residencia permanente en el Exterior">con residencia permanente en el extranjero</option>
-                                        <option value="Residencia temporal en el Exterior">con residencia temporal en el extranjero</option>
-                                        <option value="De viaje en el Exterior">de viaje en el extranjero</option>
+                                        <option value="1">con residencia permanente en el extranjero</option>
+                                        <option value="2">con residencia temporal en el extranjero</option>
+                                        <option value="3">de viaje en el extranjero</option>
                                     </select>
                                 </td>
                             </tr>

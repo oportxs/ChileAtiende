@@ -48,6 +48,7 @@
 
         <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=20140428">
         <?php echo isset($assets) ? loadAssets($assets, 'css') : ''; ?>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
         <link rel="apple-touch-icon" href="<?php echo base_url('assets_v2/img/touch-icon-iphone.png'); ?>" />
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('assets_v2/img/touch-icon-ipad.png'); ?>" />
         <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url('assets_v2/img/touch-icon-iphone-retina.png'); ?>" />

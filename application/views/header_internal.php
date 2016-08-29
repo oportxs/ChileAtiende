@@ -9,11 +9,15 @@ include('header_selector.php'); ?>
                 <div class="span4">
                     <h1>
                         <a href="/">
-                            <img src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/logo_chileatiende.png'; ?>" alt="ChileAtiende" />
+                            <?php if($es_exterior=="1"):?>
+                                <img class="chileatiende-img" src="<?php echo config_item('base_url').'assets_v2/img/header/chileatiende-en-el-exterior_logo.png'; ?>" alt="ChileAtiende en el Exterior" />
+                            <?php else: ?>
+                                <img class="chileatiende-img" src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/logo_chileatiende.png'; ?>" alt="ChileAtiende" />
+                            <?php endif; ?>
                         </a>
                     </h1>
                 </div>
-                <div class="offset2 span6">
+                <div class="span8">
                     <div class="row-fluid">
                         <div class="span12">
                             <?php 
@@ -24,7 +28,7 @@ include('header_selector.php'); ?>
                     </div>
                     <div class="row-fluid">
                         <div class="span12">
-                            <div class="btn-group pull-right">
+                            <div class="btn-group pull-right atencion-consultas-dropdown">
                               <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
                                 Atención y Consultas
                                 <span class="caret"></span>

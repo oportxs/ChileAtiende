@@ -6,10 +6,6 @@ if (!defined('BASEPATH'))
 class Exterior extends CI_Controller {
 
     public function index() {
-        $this->etapas();
-    }
-
-    public function etapas() {
         $data = $this->_load_common_data();
         $data['title'] = 'Portada ChileAtiende en el Exterior';
         $data['content'] = 'portada/exterior_tabs';
@@ -17,32 +13,11 @@ class Exterior extends CI_Controller {
         
         //habilitamos el cache
         $this->output->cache($this->config->item('cache'));
-        //$this->load->view('emprendete', $data);
         $this->load->view('template_exterior', $data);
     }
 
     public function subtemas($id) {
         redirect('empresas', 301);
-        $subtema = Doctrine::getTable('ChileclicSubtema')->find($id);
-
-        $this->session->set_flashdata('subtema', $subtema->id . "#" . $subtema->nombre);
-
-        $fichas = Doctrine_Query::create()
-                ->from('Ficha f, f.Maestro m ,m.ChileclicSubtemas s')
-                ->andWhere('f.maestro=0 and f.publicado=1 and s.id=?', $id)
-                ->execute();
-
-
-        $data['subtema'] = $subtema;
-        $data['fichas'] = $fichas;
-
-        $data['perfil'] = 'empresas';
-        $data['title'] = 'Portada Empresas';
-        $data['content'] = 'empresas/subtemas';
-
-        //habilitamos el cache
-        $this->output->cache($this->config->item('cache'));
-        $this->load->view('template', $data);
     }
 
     function apoyos() {
@@ -80,6 +55,13 @@ class Exterior extends CI_Controller {
 
         $fichas_por_pagina = 4;
         $options['limit'] = $fichas_por_pagina;
+
+
+        $data['fichas_exterior'] = array(
+            'permanentes' => Doctrine::getTable('Ficha')->FichasExterior(1),
+            'temporal' => Doctrine::getTable('Ficha')->FichasExterior(2),
+            'viaje' => Doctrine::getTable('Ficha')->FichasExterior(3)
+        );
 
         $fichasMasVistas = Doctrine::getTable('Ficha')->MasVistasEmpresa(array('limit' => $fichas_por_pagina, 'last_week' => true));
         //$fichasDestacadas = Doctrine::getTable('Ficha')->MasDestacadasEmpresa(4);

@@ -49,7 +49,7 @@
                                             <?php if ($ficha->Maestro->sello_chilesinpapeleo): ?>
                                                 <img class="sello-chilesinpapeleo has-tooltip-chilesinpapeleo" title="Este sello es otorgado a los trámites del Estado que se realizan completamente por Internet y no requieren presencia física de las personas para su realización." src="<?php echo base_url('assets/images/ico_chilesinpapeleo_32_on.png'); ?>" alt="Sello ChileSinPapeleo">
                                             <?php endif ?>
-                                            <a href="<?php echo site_url("fichas/ver/" . $ficha->maestro_id); ?>" ><?php echo $ficha->titulo; ?></a>
+                                            <a href="<?php echo site_url("fichas/ver/" . $ficha->maestro_id); ?><?php if($_GET['e']=="2")print '?exterior=1';?>" ><?php echo $ficha->titulo; ?></a>
                                         </h2>
                                         <p>
                                             <?php echo $ficha->resumenFicha($query?explode(' ',$query):null); ?>
@@ -68,7 +68,7 @@
                                             <?php if ($ficha->Maestro->sello_chilesinpapeleo): ?>
                                                 <img class="sello-chilesinpapeleo has-tooltip-chilesinpapeleo" title="Este sello es otorgado a los trámites del Estado que se realizan completamente por Internet y no requieren presencia física de las personas para su realización." src="<?php echo base_url('assets/images/ico_chilesinpapeleo_32_on.png'); ?>" alt="Sello ChileSinPapeleo">
                                             <?php endif ?>
-                                            <a href="<?php echo site_url("fichas/ver/" . $ficha->maestro_id); ?>" ><?php echo $ficha->titulo ?></a>
+                                            <a href="<?php echo site_url("fichas/ver/" . $ficha->maestro_id); ?><?php if($_GET['e']=="2")print '?exterior=1';?>" ><?php echo $ficha->titulo ?></a>
                                         </h2>
                                         <p>
                                             <?php echo $ficha->resumenFicha($query?explode(' ',$query):null); ?>

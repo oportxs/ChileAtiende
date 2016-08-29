@@ -3,7 +3,6 @@ $metaficha_campos = unserialize($ficha->metaficha_campos);
 $metaficha_servicios = unserialize($ficha->metaficha_servicios);
 $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_servicios;
 ?>
-
 <div class="row-fluid">
     <div class="breadcrumbs span12 no-print" data-spy="affix" data-offset-top="175">
         <a href="<?= site_url('/') ?>">Portada</a> / <?php echo $ficha->titulo; ?>

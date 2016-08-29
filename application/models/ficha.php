@@ -422,22 +422,26 @@ class Ficha extends Doctrine_Record {
         return implode(",", $rangos);
     }
 
-    function checkMotivosSelected($string){
+    function checkMotivosSelected($motivo_id){
         $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
-        $motivos = array();
         foreach($tramite_exterior as $t){
-            array_push($motivos, $t['motivo']);
+            if($motivo_id == $t['motivo_id'])
+                return true;
         }
-        $motivos_str =  implode(" ", $motivos);
-
-        if(strpos(strtolower($motivos_str), strtolower($string))>-1)
-            return true;
-        else
-            return false;
+        return false;
     }
 
     function listarMotivosExterior(){
-        $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
+        $tramite_exterior = Doctrine_Query::create()
+                                ->from('TramiteEnExterior t')
+                                ->where('t.id_ficha = ?', $this->id)
+                                // ->findByIdFicha($this->id)
+                                ->leftJoin('t.MotivosEnExterior m ON m.id = t.motivo_id')
+                                ->fetchArray();
+
+                        //         Doctrine_Query::create()
+                        // ->from('Ficha f')
+        return $tramite_exterior;
         $motivos = array();
         foreach($tramite_exterior as $t){
             array_push($motivos, $t['motivo']);
@@ -553,6 +557,7 @@ class Ficha extends Doctrine_Record {
 
             $this->logLastChange();
         }
+
     }
 
     public function copy($deep = false) {

@@ -15,6 +15,13 @@ class Fichas extends CI_Controller {
         $this->load->library('user_agent');
         $codigo_ab = !in_array($codigo_ab, array('2', '3', '4')) || $this->agent->is_mobile() ? '2' : $codigo_ab;
 
+        // verificar si estamos en ChAt exterior
+        $es_exterior = $this->input->get('exterior');
+        if($es_exterior==="1"){
+            $codigo_ab = "5";
+        }
+        $data['es_exterior'] = $es_exterior;
+
         list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
         if($ficha->titulo) {
 
@@ -50,7 +57,9 @@ class Fichas extends CI_Controller {
             //Se guardan variables
             $data['categorytabs_closed'] = TRUE;
             $data['title'] = ''.$ficha->titulo;
-            $data['content'] = 'fichas/ver_v'.$codigo_ab;
+            $this_tpl = 'fichas/ver_v'.$codigo_ab;
+            // var_dump($this_tpl);die();
+            $data['content'] = $this_tpl;
             $data['ficha'] = $ficha;
             $data['regiones'] = $regiones;
             $data['eventos'] = $eventos;
@@ -95,6 +104,7 @@ class Fichas extends CI_Controller {
         }
         $data["hidden_buscador"] = ($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) ? 1 : 0;
         $template = ($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) ? 'template_emprendete_v2' : 'template_v2';
+        $template = ($es_exterior==="1") ? 'template_exterior' : $template;
         //habilitamos el cache
         $this->output->cache($this->config->item('cache'));
 

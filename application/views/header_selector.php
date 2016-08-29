@@ -1,9 +1,11 @@
+
+
 <div id='navegacion' class='no-print'>
     <div class='container wrapper'>
         <ul class="pull-right">
-            <li class='<?php echo ($isEmpresa || $isExterior)?'':'active';?>' ><a href='/'>ChileAtiende</a></li>
+            <li class='<?php echo ($isEmpresa || $isExterior || $es_exterior)?'':'active';?>' ><a href='/'>ChileAtiende</a></li>
+            <li class='<?php echo ($isExterior || $es_exterior)?'active':'';?>' ><a href='/exterior'>ChileAtiende en el Exterior</a></li>
             <li class='<?php echo ($isEmpresa)?'active':'';?>'><a href='/empresas'>ChileAtiende Pymes</a></li>
-            <li class='<?php echo ($isExterior)?'active':'';?>' ><a href='<?php echo site_url('exterior'); ?>'>ChileAtiende en el Exterior</a></li>
         </ul>
 	</div>
 </div>
