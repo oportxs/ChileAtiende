@@ -34,10 +34,13 @@
 					<?php
 					$disponible = array();
 					if( isset($f['guia_correo']) && ($f['guia_correo']!='') ){
-						array_push($disponible, "Correo Electrónico");
+						array_push($disponible, "correo electrónico");
 					}
 					if(isset($f['guia_consulado']) && ($f['guia_consulado']!='') ){
-						array_push($disponible, "Consulado");
+						array_push($disponible, "consulado");
+					}
+					if( isset($f['guia_online_url']) && ($f['guia_online_url']!='') ){
+						array_push($disponible, "en línea");
 					}
 					?>
 					<?php if(sizeof($disponible)):?>
