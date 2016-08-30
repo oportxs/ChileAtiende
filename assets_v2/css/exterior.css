@@ -1,5 +1,6 @@
 body {
-  background: url('../img/background/fondo_chileatiende-en-el-exterior.jpg') center top no-repeat fixed;
+  /*background: url('../img/background/fondo_chileatiende-en-el-exterior.jpg') center top no-repeat fixed;*/
+  background: url('../img/background/chat-ext-bg.jpg') center top no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
