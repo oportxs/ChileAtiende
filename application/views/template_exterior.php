@@ -110,21 +110,21 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                         </div>
                 </div>
             </div>
-            <div class="footer-bottom visible-desktop">
+            <div class="footer-bottom">
                 <div class="container">
                     <div class="row-fluid">
-                        <div class="span4">
+                        <div class="span8">
                             <ul>
-                                <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" title="Creative Commons">CC BY 3.0</a></li>
+                                <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" alt="Creative Commons">CC BY 3.0</a></li>
                             </ul>
                             <div class="modernizacion">
-                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)" id="link-footer-70-8e9337fe3fb174750dfa4ffdf288330c">Instituto de Previsión Social (MINTRAB)</a></span><br>
-                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital" id="link-footer-71-6d9a36fa9fa35e45063673431d0558b3">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia" id="link-footer-72-eba202e9083cb9045b0911b5d8b6f9a0">(MINSEGPRES)</a></span><br>
-                                <span>Portal en <span class="label label-info">BETA</span></span><br>
+                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)">Instituto de Previsión Social (MINTRAB)</a></span><br />
+                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia">(MINSEGPRES)</a></span><br />
+                                <span>Portal en <span class="label label-info">BETA</span></span><br />
                             </div>
                         </div>
-                        <div class="span6 offset4 cont-logo-footer">
-                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/">Gobierno de Chile</a>
+                        <div class="span4 pull-right cont-logo-footer visible-desktop">
+                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/" alt="Gobierno de Chile">Gobierno de Chile</a>
                         </div>
                     </div>
                 </div>

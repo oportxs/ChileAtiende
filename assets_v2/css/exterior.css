@@ -459,7 +459,14 @@ body .esPortada {
   position: absolute;
   right: 0;
 }
+.masonry-item {
+  font-family: Helvetica, Arial, sans-serif;
+}
 
+
+.fichas-exterior .span3 {
+    width: 33.3%;
+}
 @media (min-width: 1200px) {
   .fichas-exterior .span3 {
     width: 33.3% !important;
