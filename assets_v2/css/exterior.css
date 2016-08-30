@@ -127,7 +127,7 @@ body .esPortada {
 .nav-principal div.span2[data-id="1"]{min-width: 20%;border-left: 0px solid #a2a7a7;}
 .nav-principal div.span2[data-id="2"]{min-width: 23%;border-left: 1px solid #a2a7a7;}
 .nav-principal div.span2[data-id="3"]{min-width: 30%;border-left: 1px solid #a2a7a7;}
-.nav-principal div.span2[data-id="4"]{min-width: 27%;text-align: left;border-left: 1px solid #a2a7a7;}
+.nav-principal div.span2[data-id="4"]{min-width: 27%;text-align: center;border-left: 1px solid #a2a7a7;}
 .nav-principal div.span2 p.tab a {
   color: #686588;
   text-decoration: none;
@@ -147,11 +147,11 @@ body .esPortada {
   color: #000065;
 }
 .nav-secundaria {
-  background-color: white;
+  background-color: transparent;
 }
 .nav-secundaria div.span3,
 .nav-secundaria-movil div.span3 {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.65);
   padding: 0 30px;
   border: 1px solid #DDD;
 }
