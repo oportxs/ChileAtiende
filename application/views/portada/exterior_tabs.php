@@ -9,7 +9,7 @@
 		</div>
 		<div class="span12 nav-principal">
 			<div class="span2 selected" data-id="1">
-				<p class="tab" onclick="showTab('viaje',this)"><a class="etapa-id" data-val="1" href="#">Chilenos de Viaje</a></p>
+				<p class="tab" id="tab-default" onclick="showTab('viaje',this)"><a class="etapa-id" data-val="1" href="#">Chilenos de Viaje</a></p>
 			</div>
 			<div class="span2" data-id="2">
 				<p class="tab" onclick="showTab('temporal',this)"><a class="etapa-id" data-val="2" href="#">Chilenos Residencia Temporal</a></p>
