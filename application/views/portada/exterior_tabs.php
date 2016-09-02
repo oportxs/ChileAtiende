@@ -9,13 +9,13 @@
 		</div>
 		<div class="span12 nav-principal">
 			<div class="span2 selected" data-id="1">
-				<p class="tab" id="tab-default" onclick="showTab('viaje',this)"><a class="etapa-id" data-val="1" href="#">Chilenos de Viaje</a></p>
+				<p class="tab" id="tab-default" onclick="showTab('viaje',this)"><a class="etapa-id" data-val="1" href="#">Chilenos de viaje</a></p>
 			</div>
 			<div class="span2" data-id="2">
-				<p class="tab" onclick="showTab('temporal',this)"><a class="etapa-id" data-val="2" href="#">Chilenos Residencia Temporal</a></p>
+				<p class="tab" onclick="showTab('temporal',this)"><a class="etapa-id" data-val="2" href="#">Chilenos residencia temporal</a></p>
 			</div>
 			<div class="span2" data-id="3">
-				<p class="tab" onclick="showTab('permanentes',this)"><a class="etapa-id" data-val="3" href="#">Chilenos Residentes Permanentes</a></p>
+				<p class="tab" onclick="showTab('permanentes',this)"><a class="etapa-id" data-val="3" href="#">Chilenos residentes permanentes</a></p>
 			</div>
 			<div class="span2" data-id="4">
 				<p class="tab"><a class="etapa-id" data-val="4" href="http://www.chilevacontigo.gob.cl/" target="_blank">Consulados</a></p>

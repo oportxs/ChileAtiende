@@ -82,8 +82,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             <ul class="unstyled">
                                 <li><a href="<?= base_url('contenidos/que-es-chileatiende-exterior')."?exterior=1" ?>">¿Qué es ChileAtiende en el Exterior?</a></li>
                                 <li><a href="http://www.chilevacontigo.gob.cl/" target="_blank">Servicios disponibles en Consulados</a></li>
-                                <li><a href="<?= base_url('contenidos/terminos-y-condiciones-de-uso-pymes') ?>">Instituciones Asociadas</a></li>
-                                <li><a href="<?= base_url('contenidos/preguntas-frecuentes') ?>">Preguntas Frecuentes</a></li>
+                                <li><a href="<?= base_url('servicios/directorioexterior') ?>">Instituciones Asociadas</a></li>
+                                <li><a href="<?= base_url('contenidos/faq-exterior?exterior=1') ?>">Preguntas Frecuentes</a></li>
                             </ul>
                         </div>
                         <div class="span4 terminos-condiciones">
