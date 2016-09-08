@@ -9,7 +9,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <head>
         <meta charset="utf-8">
         
-        <title><?= $title ?> - ChileAtiende en el Exterior - Trémites para chilenos en el extranjero</title>
+        <title><?= $title ?> - ChileAtiende en el Exterior - Trámites para chilenos en el extranjero</title>
         <link rel="icon" type="image/x-icon" href="<?=base_url()?>assets_v2/img/favicon.ico" />
         <?php
         if (isset($descripcion)) {
