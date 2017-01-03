@@ -53,11 +53,6 @@
 					<?php endif;?>
 				</div>
 			<?php endforeach;?>
-			<div class="masonry-item span3">
-            <a class="registro-link" href="http://www.registrodechilenos.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'http://www.registrodechilenos.cl/'])">
-                <img class="pull-right" src="<?php echo base_url('/assets_v2/img/banners/2doregchilenos-logorojohorizontal.png'); ?>" style="margin: 12px auto;">
-            </a>
-	    </div>
 		</div>
 		<?php endforeach;?>
 		
