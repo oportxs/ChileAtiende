@@ -64,6 +64,41 @@ class ServicioTable extends Doctrine_Table {
         return $resultado;
     }
 
+    public function findConPublicacionesExterior($options = array()) {
+        $query = Doctrine_Query::create();
+        $query->select("s.*,f.*, COUNT(s.codigo) AS numero_fichas");
+        $query->from('Servicio s ,s.Fichas f, s.SubFichas sf');
+        
+        //si está definido el servicio, buscará todas las fichas que esten o no publicadas
+        //así se previene de borrar un servicio que tiene fichas asociadas
+        if (isset($options['servicio'])) {
+            $query->where('f.servicio_codigo LIKE ?', $options['servicio']);
+            $query->orWhere('sf.servicio_codigo LIKE ? ', $options['servicio']);
+        }
+        else {
+            $query->where('f.es_tramite_exterior = 1');
+            // $query->where('f.publicado = 1 and f.maestro=0 and f.es_tramite_exterior = 1');
+            // $query->orWhere('sf.publicado = 1 and sf.maestro = 1');
+        }
+        
+        $query->orderBy('s.nombre asc');
+        $query->groupBy("s.codigo");
+
+        if (isset($options['limit']))
+            $query->limit($options['limit']);
+        if (isset($options['offset']))
+            $query->offset($options['offset']);
+
+        $resultado = NULL;
+        if (isset($options['justCount'])) {
+            $resultado = $query->count();
+        } else {
+            // debug($query->getSqlQuery(),"red");
+            $resultado = $query->execute();
+        }
+        return $resultado;
+    }
+
     /**
      * Funcion que entrega lista de instituciones de fichas asociadas a la busqueda
      */

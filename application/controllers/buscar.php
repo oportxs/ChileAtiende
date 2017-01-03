@@ -14,10 +14,7 @@ class Buscar extends CI_Controller {
 
         $offset                 = (int)$this->input->get('offset');
         $exacto                 = $this->input->get('exacto');
-        $empresa = $vista_pymes = $this->input->get('e') && $this->input->get('e') == 1 ? true:false;
-
-//var_dump($empresa);
-
+        $vista = $vista_pymes   = $this->input->get('e') ?  $this->input->get('e'):"0";
 
         $filtro_temas           = $this->input->get('temas') ? explode(',', $this->input->get('temas')) : array();
         $filtro_hecho           = $this->input->get('hecho') ? explode(',',$this->input->get('hecho')):array();
@@ -35,6 +32,7 @@ class Buscar extends CI_Controller {
         $filtro_aprende         = $this->input->get('aprende') ? explode(',',$this->input->get('aprende')) : array();
         $filtro_evento          = $this->input->get('evento') ? explode(',',$this->input->get('evento')) : array();
         $filtro_req_especial    = $this->input->get('req_especial') ? explode(',',$this->input->get('req_especial')) : array();
+        $filtro_motivos_exterior  = $this->input->get('motivos_exterior') ? explode(',',$this->input->get('motivos_exterior')) : array();
         $aData                  = array();
 
         //Sugerencias en base a diccionario
@@ -112,6 +110,16 @@ class Buscar extends CI_Controller {
         if(!empty($filtro_req_especial)) {
             $this->sphinxclient->setFilter('requisito_especial', $filtro_req_especial);
         }
+        // añade filtro de chilenos en el exterior solo en caso que sea en esa vista
+        if($vista == "2"){
+            $this->sphinxclient->setFilter('es_tramite_exterior', array(1));
+        }
+        // php entrega un warning por que sphinx no permite filtro con strings... en producción no se ve por congig "error_reporting(0)"
+        if(!empty($filtro_motivos_exterior)){
+            // var_dump($filtro_motivos_exterior);die();
+            $this->sphinxclient->setFilter('motivo_id', $filtro_motivos_exterior);
+        }
+            
 
         //Preparo los terminos para enviarlos al sphinx (Para que haga busqueda ANY)
         $sphinx_query=trim(preg_replace('/[\-\+\'\"]+/', ' ', $query));     //Le quitamos los caracteres especiales de sphinx (- + " ')
@@ -123,13 +131,13 @@ class Buscar extends CI_Controller {
         }
         
         //Hago la busqueda
-        $result=$this->sphinxclient->query($sphinx_query, 'redchile_fichas');
-                
+        $result=$this->sphinxclient->query($sphinx_query, 'redchile_fichas');   
+        // var_dump($result);die();  
         //Se hace el match de los resultados de Sphinx con el modelo en Doctrine.
         $doctrine_query = Doctrine_Query::create()
                         ->from('Ficha f')
                         ->where('f.maestro = 0 AND f.publicado = 1');
-             
+         
         if ($result['total']>0) {    
             $page_results=  array_slice($result['matches'],$offset ,$per_page,TRUE);
             $matches = array_keys($page_results);
@@ -194,6 +202,10 @@ class Buscar extends CI_Controller {
             $formalidad     = isset($aData['formalidad']) ? $aData['formalidad'] : array() ;
             $rubros         = Doctrine::getTable('Rubro')->findRubroBusqueda(implode(',', $all_ids));
             $req_especial   = isset($aData['req_especial']) ? $aData['req_especial'] : array();
+
+            $conn = Doctrine_Manager::getInstance()->connection();
+            $sql = "SELECT m.nombre as motivo, t.motivo_id as motivo_id, count(m.nombre) as cnt FROM tramite_en_exterior t LEFT JOIN motivos_en_exterior m ON m.id = t.motivo_id WHERE t.id_ficha IN (".implode(',', $all_ids).") GROUP BY m.nombre";
+            $motivos_exterior = $conn->execute($sql)->fetchAll();
         }else{
             $instituciones  = null;
             $temas          = null;
@@ -236,7 +248,7 @@ class Buscar extends CI_Controller {
         
         //Pasamos los parametros a la vista y cargamos la vista.
         $data['buscar']         = $buscar;    //La busqueda original del usuario
-        $data['empresa']        = $empresa;    //Es busqueda de ChilAtiende Empresas?
+        $data['empresa']        = $vista == 1?true:false;    //Es busqueda de ChilAtiende Empresas?
         $data['query']          = $query;    //La busqueda que se hizo realmente
         $data['suggest']        = $suggest;    //Sugerencia de alternativa
         $data['promocionados']  = $promocionados; //Resultados promocionados
@@ -255,6 +267,7 @@ class Buscar extends CI_Controller {
         $data['rubros']         = $rubros;
         $data['req_especial']   = $req_especial;
         $data['fps']            = $filtro_fps;
+        $data['motivos_exterior'] = $motivos_exterior;
 
         $data['filtro_temas']           = $filtro_temas;
         $data['filtro_tema_empresa']    = $filtro_tema_empresa;
@@ -266,11 +279,27 @@ class Buscar extends CI_Controller {
         $data['filtro_formalizacion']   = $filtro_formalizacion;
         $data['filtro_rubro']           = $filtro_rubro;
         $data['filtro_req_especial']    = $filtro_req_especial;
+        $data['filtro_motivos_exterior'] = $filtro_motivos_exterior;
+        
 
         $data['title']      = 'Resultados de Búsqueda';
         $data['content']    = 'busqueda/resultado_v2';
 
-        $template = ($empresa) ? 'template_emprendete_v2' : 'template_v2';
+        // $template = ($empresa) ? 'template_emprendete_v2' : 'template_v2';
+        switch($vista) {
+            case "0":
+                $template = 'template_v2';
+                break;
+            case "1":
+                $template = 'template_emprendete_v2';
+                break;
+            case "2":
+                $template = "template_exterior";
+                $data['filtro_es_tramite_exterior'] = true;
+                break;
+            default:
+                $template = 'template_v2';
+        }
             
         $this->load->view($template, $data);
     }
@@ -281,7 +310,7 @@ class Buscar extends CI_Controller {
         $buscar                 = $this->input->get('buscar');
         $offset                 = (int)$this->input->get('offset');
         $exacto                 = $this->input->get('exacto');
-        $empresa = $vista_pymes = $this->input->get('e') && $this->input->get('e') == 1 ? true:false;
+        $vista = $vista_pymes = $this->input->get('e') ?  $this->input->get('e'):"0";
         $filtro_etapa_empresa   = $this->input->get('ee') ? explode(',', $this->input->get('ee') ) : array();
         $filtro_tema_empresa    = $this->input->get('te') ? explode(',', $this->input->get('te')) : array();
         $filtro_apoyo_estado    = $this->input->get('ae') ? explode(',', $this->input->get('ae')) : array();
@@ -382,6 +411,14 @@ class Buscar extends CI_Controller {
 
         $etapas_empresa = Doctrine::getTable('EtapaEmpresa')->findAll()->toArray();
         $temas_empresa  = Doctrine::getTable('TemaEmpresa')->findAll()->toArray();
+
+        $motivos_exterior = Doctrine::getTable('TramiteEnExterior')
+                                        ->createQuery('t')
+                                        ->select('motivo, count(motivo) as num_fichas')
+                                        ->distinct(true)
+                                        ->groupBy('motivo')
+                                        ->fetchArray();
+
         $apoyos_estado  = array();
         if($filtro_etapa_empresa) {
             $apoyos_estado = Doctrine::getTable('ApoyoEstado')->getApoyoByEtapa($filtro_etapa_empresa)->toArray();
@@ -391,12 +428,13 @@ class Buscar extends CI_Controller {
 
         //Pasamos los parametros a la vista y cargamos la vista.
         $data['buscar']         = $buscar;    //La busqueda original del usuario
-        $data['empresa']        = $empresa;    //Es busqueda de ChilAtiende Empresas?
+        $data['empresa']        = $vista == "1"?true:false;    //Es busqueda de ChilAtiende Empresas?
         $data['query']          = $query;    //La busqueda que se hizo realmente
         $data['suggest']        = $suggest;    //Sugerencia de alternativa
         $data['fichas']         = $fichas;
         $data['offset']         = $offset;
         $data['total_fichas']   = $total_fichas;
+        $data['motivos_exterior']               = $motivos_exterior;
         $data['vista_filtros']  = 'filtro_pyme';
 
         $data['etapas_empresa']         = $etapas_empresa;
@@ -415,7 +453,20 @@ class Buscar extends CI_Controller {
         $data['title']      = 'Resultados de Búsqueda';
         $data['content']    = 'busqueda/resultado_v2';
 
-        $template = ($empresa) ? 'template_emprendete_v2' : 'template_v2';
+        // $template = ($empresa) ? 'template_emprendete_v2' : 'template_v2';
+        switch($vista) {
+            case "0":
+                $template = 'template_v2';
+                break;
+            case "1":
+                $template = 'template_emprendete_v2';
+                break;
+            case "2":
+                $template = "template_exterior";
+                break;
+            default:
+                $template = 'template_v2';
+        }
             
         $this->load->view($template, $data);
     }

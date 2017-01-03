@@ -491,7 +491,7 @@
                                             style="width: 350px;">
                                         <option value></option>
                                         <?php foreach($motivos_en_exterior as $key=>$value):?>
-                                        <option value="<?=$value?>" <?php if($ficha->checkMotivosSelected($value)) print "selected";?>><?=$value?></option>
+                                        <option value="<?=$value->id?>" <?php if($ficha->checkMotivosSelected($value->id)) print "selected";?>><?=$value->nombre?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </td>

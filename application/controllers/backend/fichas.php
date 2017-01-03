@@ -284,6 +284,7 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
+        $list_motivos_exterior = Doctrine::getTable('MotivosEnExterior')->findAll();
 
         $query = Doctrine_Query::create();
         $query->from('TramiteEnExterior t');
@@ -309,12 +310,7 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
-        $data['motivos_en_exterior'] = array(
-            "Residencia Permanente en el Exterior",
-            "Residencia Temporal en el Exterior",
-            "De Viaje en el Exterior"
-        );
-
+        $data['motivos_en_exterior'] = $list_motivos_exterior;
         $this->load->view('backend/template', $data);
     }
 
@@ -378,11 +374,9 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
-        $data['motivos_en_exterior'] = array(
-            "Residencia Permanente en el Exterior",
-            "Residencia Temporal en el Exterior",
-            "De Viaje en el Exterior"
-        );
+        $data['motivos_en_exterior'] = Doctrine::getTable('motivos_en_exterior')->findAll();
+
+        var_dump($data['motivos_en_exterior']);die();
 
         $data['editar_ext'] = TRUE;
 
@@ -638,22 +632,8 @@ class Fichas extends CI_Controller {
 
                 $ficha->es_tramite_exterior = ($this->input->post('exterior')=='on');
 
-                $ficha->save();
-
-                if($this->input->post('tipo_residente') ) {
-                    Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
-                    foreach ($this->input->post('tipo_residente') as $key => $value) {
-                        $tramite_exterior = new TramiteEnExterior();
-                        $tramite_exterior->id_ficha = $ficha->id;
-                        $tramite_exterior->destacado = ($this->input->post('exterior_destacado')=='on');
-                        $tramite_exterior->motivo = $value;
-                        $tramite_exterior->content_updated_data_at = date('Y-m-d H:i:s');
-                        $tramite_exterior->save();
-                    }
-                    
-                    
-                }
                 
+
                 // INFO: crea las nuevas SubFichas para cada Servicio si la Ficha es MetaFicha
                 if($ficha->metaficha == 1) {
                     $_sub_fichas_serv_codigos = array();
@@ -686,6 +666,20 @@ class Fichas extends CI_Controller {
                 }
                 
                 $ficha->generarVersion();
+                
+                $ficha->save();
+
+                if($this->input->post('tipo_residente') ) {
+                    // Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
+                    foreach ($this->input->post('tipo_residente') as $key => $value) {
+                        $tramite_exterior = new TramiteEnExterior();
+                        $tramite_exterior->id_ficha = $ficha->getUltimaVersion()->id;
+                        $tramite_exterior->destacado = ($this->input->post('exterior_destacado')=='on');
+                        $tramite_exterior->motivo_id = $value;
+                        $tramite_exterior->content_updated_data_at = date('Y-m-d H:i:s');
+                        $tramite_exterior->save();
+                    }
+                }
 
                 if ($id) {
                     $mensaje = ( ($flujo) ? 'Flujo' : 'Trámite' ) . ' actualizada exitosamente';

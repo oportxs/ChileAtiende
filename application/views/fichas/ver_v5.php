@@ -4,15 +4,17 @@ $metaficha_servicios = unserialize($ficha->metaficha_servicios);
 $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_servicios;
 ?>
 
+<link rel="stylesheet" href="<?php echo base_url('assets_v2/css/exterior_ficha.css'); ?>">
+
 <div class="row-fluid">
     <div class="breadcrumbs span12 no-print" data-spy="affix" data-offset-top="175">
         <a href="<?= site_url('/') ?>">Portada</a> / <?php echo $ficha->titulo; ?>
     </div>
 </div>
-<div id="content" class="ficha v4 <?php echo $ficha->flujo?' ficha-flujo':''; ?><?php echo $ficha->Maestro->sello_chilesinpapeleo?' ficha-sello-chilesinpapeleo':''; ?><?php echo $ficha->metaficha ? ' ficha-metaficha':''; ?>">
+<div id="content" class="ficha<?php echo $ficha->flujo?' ficha-flujo':''; ?><?php echo $ficha->Maestro->sello_chilesinpapeleo?' ficha-sello-chilesinpapeleo':''; ?><?php echo $ficha->metaficha ? ' ficha-metaficha':''; ?>">
     <div id="readspeaker_container" class="readspeaker_container">
         <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-            <a class="rsbtn_play" accesskey="L" title="Escuchar esta pagina utilizando ReadSpeaker" href="http://app.na.readspeaker.com/cgi-bin/rsent?customerid=6404&amp;lang=es_419&amp;readid=maincontent-ficha&amp;url=<?php echo urlencode('http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]); ?>">
+            <a class="rsbtn_play" accesskey="L" title="Escuchar esta pagina utilizando ReadSpeaker" href="https://app.readspeaker.com/cgi-bin/rsent?customerid=6404&amp;lang=es_419&amp;readid=maincontent-ficha&amp;url=<?php echo urlencode('http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]); ?>">
                 <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Escuchar</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span>
             </a>
         </div>
@@ -26,7 +28,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
             <div class="ficha-encabezado">
                 <div class="row-fluid print rs_skip">
                     <div class="pull-left">
-                        <img class="logo-print" src="<?php echo base_url('assets_v2/img/logo_chileatiende.png'); ?>" alt="ChileAtiende">
+                        <img class="logo-print" src="<?php echo base_url('assets_v2/img/header/chileatiende-en-el-exterior_logo.png'); ?>" alt="ChileAtiende en el Exterior">
                     </div>
                     <div class="pull-right">
                         <h6>Última actualización</h6>
@@ -54,19 +56,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php endif ?>
             </div>
             <div id="maincontent"  class="row-ficha-contenido" role="main">
-                <div class="span6 visible-desktop">
-                    <ul class="lista-redes-sociales unstyled">
-                        <li class="compartir_twitter">
-                            <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
-                        </li>
-                        <li class="compartir_facebook">
-                            <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
-                        </li>
-                        <li class="compartir_correo">
-                            <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="opciones-accesibilidad no-print rs_skip">
                     <ul class="nav nav-pills">
                         <li class="ajusta-tamano-fuente">
@@ -88,7 +77,9 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php if (!$ficha->flujo || ($ficha->Servicio->codigo == 'ZY000')) { ?>
                     <div class="text-content">
                         <a id="descripcion" class="anchor-top">&nbsp;</a>
-                        <?php echo prepare_content_ficha($ficha->resumen); ?>
+                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) { ?><h3 class="cabecera">Descripción</h3><?php } ?>
+                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
+                        
                         <?php 
                             $campos = array(
                                 'cc_observaciones' => "Detalles",
@@ -102,17 +93,14 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             );
 
                             // INFO: solo se muestra el enlace si almenos un campo debe ser mostrado
-                           
-                            if( !empty($ficha->resumen) ):
-                                foreach($campos as $campo => $titulo):
-                                    if($metaficha_campos[$campo] == 1 && !empty($ficha[$campo])):
-                            ?>
-                                    <a href="#informacion-del-tramite" class="no-print ver-mas-detalles-metaficha" data-ga-te-category="Acciones Ficha" data-ga-te-action="Ver Mas Detalles (scroll)" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Ver más detalles</a>
-                            <?php
-                                        break;
-                                    endif;
-                                endforeach;
-                            endif;
+                            foreach($campos as $campo => $titulo):
+                                if($metaficha_campos[$campo] == 1 && !empty($ficha[$campo])):
+                        ?>
+                        <a href="" class="ver-mas-detalles-metaficha" data-modal-type="div" data-modal-id="mas_informacion#inicio" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Ver Mas Detalles (modal)" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Ver más detalles</a>
+                        <?php
+                                    break;
+                                endif;
+                            endforeach;
                         ?>
                         <div id="mas_informacion" style="display: none">
                             <a href="" id="inicio" class="anchor"></a>
@@ -185,233 +173,34 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     </div>
                 <?php endif ?>
 
-                <h3>Trámite disponible en:</h3>
-
                 <?php 
-                $disponibles = [
-                    'guia_online'=>         'en línea',
-                    'guia_oficina'=>        'sucursal de la institución',
-                    'guia_telefonico'=>     'teléfono',
-                    'guia_correo'=>         'correo postal',
-                    'guia_chileatiende'=>   'sucursales de ChileAtiende'
-                    ];
-
-                $no_disponibles = [];
-                foreach ($disponibles as $key => $value) {
-                    if(empty($ficha->$key)){
-                        $no_disponibles[] = $value . ','; 
-                    }
-                }
-
-                if(count($no_disponibles)>0){
-                    $no_disponibles[count($no_disponibles)-1] = str_replace(',', '.', $no_disponibles[count($no_disponibles)-1]);
-                }
-
-                if(count($no_disponibles)>1){
-                    $no_disponibles[count($no_disponibles)-2] = trim($no_disponibles[count($no_disponibles)-2], ',');
-                    array_splice($no_disponibles, count($no_disponibles)-1, 0, "y");
-                }
-
                 $_metaficha_show00 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['guia_online'] == 1) ? true : false;
                 $_metaficha_show01 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['guia_oficina'] == 1) ? true : false;
                 $_metaficha_show02 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['guia_telefonico'] == 1) ? true : false;
                 $_metaficha_show03 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['guia_correo'] == 1) ? true : false;
                 $_metaficha_show04 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['guia_correo'] == 1) ? true : false;
                 if (    ($_metaficha_show00 && !empty($ficha->guia_online)) || 
-                        ($_metaficha_show01 && !empty($ficha->guia_oficina)) || 
-                        ($_metaficha_show02 && !empty($ficha->guia_telefonico)) || 
-                        ($_metaficha_show03 && !empty($ficha->guia_correo)) || 
-                        ($_metaficha_show04 && !empty($ficha->guia_chileatiende))
+                        ($_metaficha_show03 && !empty($ficha->guia_correo)) ||
+                        ($_metaficha_show04 && !empty($ficha->guia_consulado))
                     ): ?>
-                        <div class="panel-group" id="accordion">
-                                
-                                <?php if($_metaficha_show00 && !empty($ficha->guia_online)): ?>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading"><h4 class="panel-title icono-online"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOnline" class="collapsed" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Online" data-ga-te-value="<?php echo $ficha->maestro_id;?>">En línea</a></h4></div>
-                                        <div id="collapseOnline" class="panel-collapse collapse"><div class="panel-body"><?php echo prepare_content_ficha($ficha->guia_online).botonTramiteOnline($ficha)?></div></div>
-                                    </div>
-                                <?php endif; ?>
 
-                                <?php if($_metaficha_show01 && !empty($ficha->guia_oficina)): ?>
-                                    <div class="panel panel-default">    
-                                        <div class="panel-heading"><h4 class="panel-title icono-oficina"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOficina" class="collapsed" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Oficina" data-ga-te-value="<?php echo $ficha->maestro_id;?>"><?php echo ($ficha->guia_oficina_nombre)?'En '.$ficha->guia_oficina_nombre:'En oficina de la institución';?></a></h4></div>
-                                        <div id="collapseOficina" class="panel-collapse collapse"><div class="panel-body"><?php echo prepare_content_ficha($ficha->guia_oficina);?></div></div>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if($_metaficha_show02 && !empty($ficha->guia_telefonico)): ?>
-                                    <div class="panel panel-default">    
-                                        <div class="panel-heading"><h4 class="panel-title icono-telefono"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTelefono" class="collapsed" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Telefono" data-ga-te-value="<?php echo $ficha->maestro_id;?>">Por teléfono</a></h4></div>
-                                        <div id="collapseTelefono" class="panel-collapse collapse"><div class="panel-body"><?php echo prepare_content_ficha($ficha->guia_telefonico);?></div></div>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if($_metaficha_show03 && !empty($ficha->guia_correo)): ?>
-                                    <div class="panel panel-default">    
-                                        <div class="panel-heading"><h4 class="panel-title icono-correo"><a data-toggle="collapse" data-parent="#accordion" href="#collapseCorreo" class="collapsed" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="<?php echo $ficha->maestro_id;?>">Por correo</a></h4></div>
-                                        <div id="collapseCorreo" class="panel-collapse collapse"><div class="panel-body"><?php echo prepare_content_ficha($ficha->guia_correo)?></div></div>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if($_metaficha_show04 && !empty($ficha->guia_chileatiende)): ?>    
-                                    <div class="panel panel-default">    
-                                        <div class="panel-heading"><h4 class="panel-title icono-chileatiende"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChileatiende" class="collapsed" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab ChileAtiende" data-ga-te-value="<?php echo $ficha->maestro_id;?>">En oficina de IPS-ChileAtiende</a></h4></div>
-                                        <div id="collapseChileatiende" class="panel-collapse collapse"><div class="panel-body"><?php echo prepare_content_ficha($ficha->guia_chileatiende);?></div></div>
-                                    </div>
-                                <?php endif; ?>
-
+                    <div class="canales-tramite">
+                        <a id="como-realizar-el-tramite" class="anchor-top">&nbsp;</a>
+                        <ul class="nav nav-tabs no-print rs_skip" id="tabs-canales-tramite">
+                            <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<li class="online"><a href="#online" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Online" data-ga-te-value="'.$ficha->maestro_id.'">En línea</a></li>':''; ?>
+                            <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<li class="correo"><a href="#correo" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">Por correo</a></li>':''; ?>
+                            <?php echo ($_metaficha_show04 && !empty($ficha->guia_consulado))?'<li class="consulados"><a href="#consulado" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">En Consulado</a></li>':''; ?>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<h4 class="print">En Línea</h4><div class="tab-pane text-content" id="online">'.prepare_content_ficha($ficha->guia_online).botonTramiteOnline($ficha).botonMejorarTramite($ficha, 'online').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<h4 class="print">Por correo</h4><div class="tab-pane text-content" id="correo">'.prepare_content_ficha($ficha->guia_correo).botonMejorarTramite($ficha, 'correo').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show04 && !empty($ficha->guia_consulado))?'<h4 class="print">En Consulado</h4><div class="tab-pane text-content" id="consulado">'.prepare_content_ficha($ficha->guia_consulado).botonMejorarTramite($ficha, 'consulado').'<div class="clearfix"></div></div>':''; ?>
                         </div>
-                <?php endif ?>
-                <?php if(count($no_disponibles) && !($ficha->flujo)):?> 
-                    <p class="no-disponible"><strong>No disponible vía:</strong> <?php echo implode(' ', $no_disponibles); ?></p>
-                <?php endif;?>
-   
-                <h3 id="informacion-del-tramite">Información del trámite:</h3>
-
-                <?php 
-                $_metaficha_show00 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['beneficiarios'] == 1) ? true : false;
-                $_metaficha_show01 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['cc_observaciones'] == 1) ? true : false;
-                $_metaficha_show02 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['vigencia'] == 1) ? true : false;
-                $_metaficha_show03 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['doc_requeridos'] == 1) ? true : false;
-                $_metaficha_show04 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['costo'] == 1) ? true : false;
-                $_metaficha_show05 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['marco_legal'] == 1) ? true : false;
-                $_metaficha_show06 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['plazo'] == 1) ? true : false;
-                $_metaficha_show07 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['informacion_multimedia'] == 1) ? true : false;
-                $_metaficha_show08 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['informacion_multimedia'] == 1) ? true : false;
-           
-                if (
-                        !($ficha->flujo) && (
-                            ($_metaficha_show00 && !empty($ficha->beneficiarios)) || 
-                            ($_metaficha_show01 && !empty($ficha->cc_observaciones)) || 
-                            ($_metaficha_show02 && !empty($ficha->vigencia)) || 
-                            ($_metaficha_show03 && !empty($ficha->doc_requeridos)) || 
-                            ($_metaficha_show04 && !empty($ficha->costo)) || 
-                            ($_metaficha_show05 && !empty($ficha->marco_legal)) || 
-                            ($_metaficha_show06 && !empty($ficha->plazo)) || 
-                            ($_metaficha_show07 && !empty($ficha->informacion_multimedia)) ||
-                            ($_metaficha_show08 && !empty($ficha->objetivo))
-                        )
-                    ): //if grande ?>
-
-                    <!-- Nav tabs -->
-                    <?php $count = 1; ?>
-                    <ul id="tabs-detalles-tramite" class="nav nav-tabs no-print rs_skip" role="tablist">
-
-                        <?php if (($_metaficha_show08 && !empty($ficha->objetivo)) && !($ficha->flujo)): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#descripcion-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - descripcion" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Descripción</a>
-                            </li>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show00 && !empty($ficha->beneficiarios)) && !($ficha->flujo)): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#beneficiarios-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - beneficiarios" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Beneficiarios</a>
-                            </li>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show02 && !empty($ficha->vigencia)) && !($ficha->flujo)): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#vigencia-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - vigencia" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Vigencia</a>
-                            </li>
-                        <?php endif ?>
-
-                        <?php if (($_metaficha_show03 && !empty($ficha->doc_requeridos))): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#documentos-requeridos-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - documentos-requeridos" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Documentos requeridos</a>
-                            </li>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show04 && !empty($ficha->costo))): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#costo-tramite-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - costo-tramite" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Costo</a>
-                            </li>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show05 && !empty($ficha->marco_legal))): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#marco-legal-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - marco-legal" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Marco legal</a>
-                            </li>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show06 && !empty($ficha->plazo))): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#plazo-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - plazo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Tiempo</a>
-                            </li>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show07 && !empty($ficha->informacion_multimedia))): ?>
-                            <li class="<?php echo ($count==1)?'active':'';$count++;?>">
-                                <a role="tab" data-toggle="tab" href="#multimedia-tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Más detalles - multimedia" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Infografía, audio y video</a>
-                            </li>
-                        <?php endif ?>
-
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <?php $count = 1; ?>
-                        <?php if (($_metaficha_show08 && !empty($ficha->objetivo))  && !($ficha->flujo) ): ?>
-                            <div id="descripcion-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print <?php echo ($ficha->Servicio->codigo == 'ZY000' && ($ficha->flujo)) ? 'paso-paso-emprendete' : '' ?>" data-seccion="descripcion">
-                                <h3 class="print">Descripción</h3>
-                                <?php echo prepare_content_ficha($ficha->objetivo); ?>
-                                <?php echo prepare_content_ficha($ficha->cc_observaciones); ?>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show00 && !empty($ficha->beneficiarios))  && !($ficha->flujo) ): ?>
-                            <div id="beneficiarios-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print <?php echo ($ficha->Servicio->codigo == 'ZY000' && ($ficha->flujo)) ? 'paso-paso-emprendete' : '' ?>" data-seccion="beneficiarios">
-                                <h3 class="print">Beneficiarios</h3>
-                                <?php echo prepare_content_ficha($ficha->beneficiarios); ?>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show02 && !empty($ficha->vigencia)) && !($ficha->flujo) ): ?>
-                            <div id="vigencia-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print <?php echo ($ficha->Servicio->codigo == 'ZY000' && ($ficha->flujo)) ? 'paso-paso-emprendete' : '' ?>" data-seccion="vigencia">
-                                <h3 class="print">Vigencia</h3>
-                                <div class="mensaje mensaje-reloj">
-                                    <?php echo prepare_content_ficha($ficha->vigencia); ?>
-                                </div>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show03 && !empty($ficha->doc_requeridos))): ?>
-                            <div id="documentos-requeridos-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print" data-seccion="documentos-requeridos">
-                                <h3 class="print">Documentos Requerimientos</h3>
-                                <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, false, true); ?>
-                                <?php if ($doc_requeridos['doc_requeridos']): ?>
-                                    <table class="table-striped documentos-requeridos">
-                                        <?php foreach ($doc_requeridos['doc_requeridos'] as $doc_requerido): ?>
-                                            <?php echo $doc_requerido; ?>
-                                        <?php endforeach ?>
-                                    </table>
-                                <?php else: ?>
-                                    <?php echo $doc_requeridos['texto']; ?>
-                                <?php endif ?>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show04 && !empty($ficha->costo))): ?>
-                            <div id="costo-tramite-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print" data-seccion="costo-tramite">
-                                <h3 class="print">Costo del trámite</h3>
-                                <div class="mensaje mensaje-costo">
-                                    <?php echo prepare_content_ficha($ficha->costo); ?>
-                                </div>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show05 && !empty($ficha->marco_legal))): ?>
-                            <div id="marco-legal-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print" data-seccion="marco-legal">
-                                <h3 class="print">Marco legal</h3>
-                                <?php echo prepare_content_ficha($ficha->marco_legal); ?>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show06 && !empty($ficha->plazo))): ?>
-                            <div id="plazo-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print" data-seccion="plazo">
-                                <h3 class="print">Tiempo de realización</h3>
-                                <?php echo prepare_content_ficha($ficha->plazo); ?>
-                            </div>
-                        <?php endif ?>
-                        <?php if (($_metaficha_show07 && !empty($ficha->informacion_multimedia))): ?>
-                            <div id="multimedia-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print" data-seccion="multimedia">
-                                <h3 class="print">Multimedia</h3>
-                                <?php echo prepare_content_ficha($ficha->informacion_multimedia); ?>
-                            </div>
-                        <?php endif ?>
-
                     </div>
+                <?php endif ?>
 
-                <?php endif; //if grande ?>
-
-<!--
+                
                 <?php 
                 $_metaficha_show00 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['beneficiarios'] == 1) ? true : false;
                 $_metaficha_show01 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['cc_observaciones'] == 1) ? true : false;
@@ -560,8 +349,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     <?php endif ?>
                 <?php endif ?>
 
--->
-
                 <?php 
                 if ( ($ficha->flujo) && ($_metaficha_show05 && !empty($ficha->marco_legal)) ): ?>
                     <div class="indice-secciones rs_skip">
@@ -601,21 +388,39 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
         </div>
         <div class="span4 span-side-bar no-print hidden-phone">
             <div class="side-bar" data-offset-top="174" data-offset-bottom="276">
+                
                 <div class="cont-sociales">
                     <div class="row-fluid">
-                        <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
-                            <p>¿Te gusta?:</p>
-                            <div class="voto voto-positivo" data-voto="positivo">
-                                <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto positivo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">+</a>
-                                <span class="total-votos"></span>
+                        <?php if(!$this->config->item("lite_mode")){?>
+                            <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
+                                <p>¿Te gusta?:</p>
+                                <div class="voto voto-positivo" data-voto="positivo">
+                                    <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto positivo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">+</a>
+                                    <span class="total-votos"></span>
+                                </div>
+                                <div class="voto voto-negativo" data-voto="negativo">
+                                    <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto negativo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">-</a>
+                                    <span class="total-votos"></span>
+                                </div>
                             </div>
-                            <div class="voto voto-negativo" data-voto="negativo">
-                                <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto negativo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">-</a>
-                                <span class="total-votos"></span>
-                            </div>
+                        <?php } ?>
+                        <div class="span6 visible-desktop">
+                            <p>Compartir:</p>
+                            <ul class="lista-redes-sociales">
+                                <li class="compartir_twitter">
+                                    <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
+                                </li>
+                                <li class="compartir_facebook">
+                                    <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
+                                </li>
+                                <li class="compartir_correo">
+                                    <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+
 
                 <?php
                 // INFO: se muestra lista de eventos destacados solo para portal pymes
@@ -728,7 +533,9 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
-            $.post(site_url+"fichas/ajax_inserta_visita/"+<?= $ficha->Maestro->id ?>);
+            <?php if(!$this->config->item("lite_mode")){?>
+                $.post(site_url+"fichas/ajax_inserta_visita/"+<?= $ficha->Maestro->id ?>);
+            <?php } ?>
             
             <?php
             if ($ficha->Servicio->codigo == 'ZY000' && $ficha->flujo) {

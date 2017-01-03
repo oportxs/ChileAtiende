@@ -17,7 +17,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+	define('ENVIRONMENT', 'testing');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -33,9 +33,10 @@ if (defined('ENVIRONMENT'))
 	{
 		case 'development':
 			error_reporting(E_ERROR | E_WARNING | E_PARSE);
-		break;
-	
+			break;
 		case 'testing':
+			error_reporting(E_ERROR);
+			break;
 		case 'production':
 			error_reporting(0);
 		break;

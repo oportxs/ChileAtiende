@@ -3,7 +3,6 @@ $metaficha_campos = unserialize($ficha->metaficha_campos);
 $metaficha_servicios = unserialize($ficha->metaficha_servicios);
 $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_servicios;
 ?>
-
 <div class="row-fluid">
     <div class="breadcrumbs span12 no-print" data-spy="affix" data-offset-top="175">
         <a href="<?= site_url('/') ?>">Portada</a> / <?php echo $ficha->titulo; ?>
@@ -390,7 +389,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <div class="cont-sociales">
                     <div class="row-fluid">
                         <?php if(!$this->config->item("lite_mode")){?>
-                            <div class="span6 valoracion-ficha" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
+                            <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
                                 <p>¿Te gusta?:</p>
                                 <div class="voto voto-positivo" data-voto="positivo">
                                     <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto positivo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">+</a>

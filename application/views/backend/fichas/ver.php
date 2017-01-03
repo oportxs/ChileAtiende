@@ -406,7 +406,7 @@
             <td>
                 <ul>
                 <?php foreach($ficha->listarMotivosExterior() as $m):?>
-                    <li><?=$m?></li>
+                    <li><?=$m['MotivosEnExterior'][0]['nombre'];?></li>
                 <?php endforeach; ?>
                 </ul>
             </td>

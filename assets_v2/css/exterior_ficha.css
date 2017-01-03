@@ -1,0 +1,12 @@
+body {
+  /*background: url('../img/background/fondo_chileatiende-en-el-exterior.jpg') !important;*/
+  background: url('../img/background/chat-ext-bg.jpg') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.atencion-consultas-dropdown {
+	display: none !important;
+}
+#content.ficha {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}

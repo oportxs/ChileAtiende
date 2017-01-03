@@ -70,4 +70,21 @@ class Servicios extends CI_Controller {
         $this->load->view('template_v2', $data);
     }
 
+    function directorioExterior() {
+        $servicios = Doctrine_Query::create()
+                        ->from('Servicio s')
+                        ->orderBy('s.nombre')
+                        ->execute();
+        $servicios = Doctrine::getTable('Servicio')->findConPublicacionesExterior();
+        $data['categorytabs_closed'] = TRUE;
+        $data['title'] = 'Directorio';
+        $data['content'] = 'servicios/directorioext';
+        $data['servicios'] = $servicios;
+        $data['hidden_buscador'] = 0;
+
+        //habilitamos el cache
+        $this->output->cache($this->config->item('cache'));
+        $this->load->view('template_exterior', $data);
+    }
+
 }

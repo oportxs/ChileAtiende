@@ -6590,6 +6590,7 @@ header .header-bottom .nav-contactos .contactos-oficinamovil {
 }
 header .cont-busqueda {
   margin: 25px 0px 0px 15px;
+  float: right;
 }
 @media (max-width: 765px) {
   header .cont-busqueda {
@@ -6601,16 +6602,17 @@ header .cont-busqueda form {
   margin: 0px;
 }
 header .cont-busqueda .main_search_input {
-  height: 45px;
-  padding-left: 15px;
-  padding-right: 80px;
-  font-size: 16px;
-  font-style: italic;
-  border-color: #dddddd;
-  border-right: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+    float: none;
+    width: 540px;
+    height: 57px;
+    font-size: 20px;
+    border-right: none;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 15px;
+    font-weight: 100;
+    font-family: "gobCLRegular", Arial, Helvetica, sans-serif;
 }
 header .cont-busqueda .typeahead {
   width: 80%;
@@ -6627,17 +6629,18 @@ header .cont-busqueda .typeahead li a {
   line-height: 27px;
 }
 header .cont-busqueda .searchbtn {
-  position: absolute;
-  top: 0;
-  right: 0;
+  display: inline;
+  float: none;
   border: none;
-  height: 45px;
-  width: 100px;
-  padding: 5px;
-  background-color: #00D67E;
-  color: #004248;
-  display: block;
-  font-weight: bold;
+  height: 57px;
+  padding: 5px 15px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: #02d073;
+  margin-bottom: 10px;
+  margin-left: -5px;
+  color: #ffffff;
+  font-size: 23px;
 }
 header .accede-con {
   float: right;
@@ -8620,6 +8623,9 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
 .ficha .nav-tabs li.telefonico a {
   background-image: url('../img/ficha/icon_telefono.png');
 }
+.ficha .nav-tabs li.consulados a {
+  background-image: url('../img/ficha/icon_consulados.png');
+}
 .ficha .nav-tabs li.correo {
   padding-left: 30px;
   padding-right: 30px;
@@ -9447,6 +9453,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
 }
 .contenido #maincontent {
   padding: 40px 75px;
+  min-height: 320px;
 }
 @media (max-width: 480px) {
   .contenido #maincontent {
@@ -11778,4 +11785,10 @@ body.portada .container-alertas-sitio .alert:first-child,
 @media (max-width: 767px)
 .modal {
     width: 100%;
+}
+
+/*fix ie registro*/
+a.registro-link img {
+  max-width: 320px;
+  width: 320px;
 }

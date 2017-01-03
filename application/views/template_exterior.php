@@ -9,7 +9,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <head>
         <meta charset="utf-8">
         
-        <title><?= $title ?> - ChileAtiende en el Exterior - Trémites para chilenos en el extranjero</title>
+        <title><?= $title ?> - ChileAtiende en el Exterior - Trámites para chilenos en el extranjero</title>
         <link rel="icon" type="image/x-icon" href="<?=base_url()?>assets_v2/img/favicon.ico" />
         <?php
         if (isset($descripcion)) {
@@ -30,6 +30,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
         <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css?v=20140421'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/exterior.css'); ?>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery-1.9.1.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'); ?>"></script>
 
@@ -44,39 +45,23 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         $isEmpresa = false;
         $isExterior = true;
         include('header_selector.php'); ?>
-        <header class="no-print header-empresas">
+        <header class="no-print header-exterior">
             <div class="container">
                 <div class="header-top">
                     <div class="row-fluid">
                         <div class="span4">
                             <h1>
-                                <a href="<?php echo site_url('/empresas'); ?>">
-                                    <img src="<?php echo base_url('assets_v2/img/header/emprendete-logo-header.png'); ?>" alt="ChileAtiende Pymes">
+                                <a href="<?php echo site_url('/exterior'); ?>">
+                                    <img src="<?php echo base_url('assets_v2/img/header/chileatiende-en-el-exterior_logo.png'); ?>" alt="ChileAtiende en el Exterior">
                                 </a>
                             </h1>
                         </div>
-                        <div class="offset4 span4">
-                            <?php if (!isset($esPortada)){
-                                    $this->load->view('busqueda/buscador'); 
-                                }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-bottom">
-                    <div class="row-fluid">
-                        <div class="nav-areas">
-                            <div class="span2">
-                                <a href="<?php echo site_url('empresas'); ?>" onclick="_gaq.push(['_trackEvent', 'Acciones', 'Inicio', 'Nav']);" title="Inicio (alt+i)" accesskey="i">
-                                    Inicio
-                                </a>
-                            </div>
-                            <div class="span2">
-                                <a href="<?php echo site_url('buscar/filtros?e=1') ?>" onclick="_gaq.push(['_trackEvent', 'Acciones', 'Beneficios', 'Nav']);" title="Beneficios (alt+b)" accesskey="b">Beneficios</a>
-                            </div>
-                            <div class="span2 eventos">
-                                <!--<a href="<?php echo site_url('calendario?e=1') ?>" onclick="_gaq.push(['_trackEvent', 'Acciones', 'Eventos', 'Nav']);" title="Eventos y Postulaciones">Eventos y Postulaciones</a>-->
-                            </div>
+                        <div class="span8 search-bar">
+                            <form action="<?= site_url('buscar/fichas') ?>" method="get" id="main_search">
+                                <input accesskey="b" autofocus="autofocus" id="main_search_input" class="pull-left <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?> main_search_input" autocomplete="off" name="buscar" placeholder="Busca lo que necesitas" type="text" <?php echo (isset($hidden_string)) ? "value='" . $hidden_string . "'" : "" ?> />
+                                <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span> Buscar</button>
+                                <input type="hidden" name="e" value="2">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -85,80 +70,61 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         </header>
         <div class="container main-container <?php echo (isset($esPortada))? 'esPortada' : '' ?>">
             <?php $this->load->view($content); ?>
-            <div class="layer-sitio-inactivo">
-                <div class="modal-inactivo">
-                    ¿Eres un emprendedor?<br>Pronto podrás acceder a más contenidos para tu empresa.
-                </div>
-            </div>
         </div>
         <footer class="no-print">
             <div class="footer-top">
                 <div class="container">
                     <div class="row-fluid">
+                        <div class="span4 sobre-chileatiende">
+                            <h4>
+                                Sobre ChileAtiende en el Exterior
+                            </h4>
+                            <ul class="unstyled">
+                                <li><a href="<?= base_url('contenidos/que-es-chileatiende-exterior')."?exterior=1" ?>">¿Qué es ChileAtiende en el Exterior?</a></li>
+                                <li><a href="http://www.chilevacontigo.gob.cl/" target="_blank">Servicios disponibles en Consulados</a></li>
+                                <li><a href="<?= base_url('servicios/directorioexterior') ?>">Instituciones Asociadas</a></li>
+                                <li><a href="<?= base_url('contenidos/faq-exterior?exterior=1') ?>">Preguntas Frecuentes</a></li>
+                            </ul>
+                        </div>
                         <div class="span4 terminos-condiciones">
                             <h4>
                                 Términos y Condiciones
                             </h4>
                             <ul class="unstyled">
-                                <li><a href="<?= base_url('contenidos/que-es-chileatiendepymes')."?e=1" ?>">¿Qué es ChileAtiende Pymes?</a></li>
                                 <li><a href="<?= base_url('contenido/politicadeprivacidad') ?>">Política de Privacidad</a></li>
-                                <li><a href="<?= base_url('contenidos/terminos-y-condiciones-de-uso-pymes') ?>">Términos de Uso</a></li>
+                                <li><a href="<?= base_url('contenidos/terminosycondiciones') ?>">Términos de Uso</a></li>
+                                <li><a href="<?= base_url('/sitemap') ?>" title="Mapa del Sitio">Mapa del Sitio</a></li>
+                                <li><a href="<?= base_url('contenido/visualizadores') ?>">Herramientas de visualización de datos</a></li>
                             </ul>
                         </div>
                         <div class="span4 accesos-directos">
                             <h4>
-                                Accesos Directos
+                                Nuestra Red de Atención
                             </h4>
-                            <ul class="unstyled">
-                               <li><a href="<?= base_url('/sitemap') ?>" title="Mapa del Sitio">Mapa del Sitio</a></li>
-                               <li><a href="<?= base_url('contenido/visualizadores') ?>">Herramientas de visualización de datos</a></li>
-                            </ul>
+                            <div class="offset1 row-fluid">
+                                <div class="span1">
+                                    <a href="http://www.chilevacontigo.gob.cl/" target="_blank"><img src="/assets_v2/img/iconos/icono-consulados.png"></a>
+                                </div>
+                                <div class="span1"><img src="https://www.chileatiende.gob.cl/assets_v2/img/nueva_home/ico_footer_mail.png"></div>
+                            </div>
                         </div>
-                        <div class="span4 medios-contacto">
-                            <!--
-                            <h4>
-                                Medios de Contacto
-                            </h4>
-                            <ul class="unstyled icons-list">
-                                <li class="contactos-twitter">
-                                    <a href="">Twitter</a>
-                                </li>
-                                <li class="contactos-facebook">
-                                    <a href="">Facebook</a>
-                                </li>
-                                <li class="contactos-mapa">
-                                    <a href="">Mapa</a>
-                                </li>
-                                <li class="contactos-correo">
-                                    <a href="">Correo</a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <ul class="unstyled">
-                                <li class="contactos-callcenter">
-                                    <a href="">CallCenter 101</a>
-                                </li>
-                            </ul>
-                            -->
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="footer-bottom visible-desktop">
+            <div class="footer-bottom">
                 <div class="container">
                     <div class="row-fluid">
-                        <div class="span4">
+                        <div class="span8">
                             <ul>
-                                <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" title="Creative Commons">CC BY 3.0</a></li>
+                                <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" alt="Creative Commons">CC BY 3.0</a></li>
                             </ul>
                             <div class="modernizacion">
-                                <a href="http://www.economia.gob.cl/acerca-de/autoridades/jefes-de-divisiones/emt/" target="_blank">División Empresas de Menor Tamaño</a><br />
-                                Ministerio de Economía, Fomento y Turismo<br/>
+                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)">Instituto de Previsión Social (MINTRAB)</a></span><br />
+                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia">(MINSEGPRES)</a></span><br />
                                 <span>Portal en <span class="label label-info">BETA</span></span><br />
                             </div>
                         </div>
-                        <div class="span4 offset4 cont-logo-footer">
-                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/">Gobierno de Chile</a>
+                        <div class="span4 pull-right cont-logo-footer visible-desktop">
+                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/" alt="Gobierno de Chile">Gobierno de Chile</a>
                         </div>
                     </div>
                 </div>
@@ -171,8 +137,10 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         </div>
         <script src="<?php echo base_url('assets_v2/js/vendor/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery.cookie.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/vendor/jquery.masonry.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/vendor/imagesloaded.pkgd.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/frontend.js'); ?>"></script>
-        <script src="<?php echo base_url('assets_v2/js/emprendete.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/exterior.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/rs_embhl_v2_es_419.js') ?>" type="text/javascript"></script>
         <script>
             var _gaq = _gaq || [];
@@ -188,16 +156,5 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
-        <?php /* --Antigua marca de analytics
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-41618478-1', 'chileatiendepymes.cl');
-          ga('send', 'pageview');
-        </script>
-        */ ?>
     </body>
 </html>
