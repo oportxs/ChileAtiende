@@ -17,7 +17,7 @@
             <div id="maincontent">
                 <div class="row-fluid">
                     <div class="span12 filtros-puntosatencion">
-                        <p>En <strong>206</strong> sucursales y <strong>5</strong> oficinas móviles podrás realizar un total aproximado de <strong><?php echo $count_tramites; ?></strong> trámites en convenio con distintas instituciones</p>
+                        <p class="hide">En <strong>206</strong> sucursales y <strong>5</strong> oficinas móviles podrás realizar un total aproximado de <strong><?php echo $count_tramites; ?></strong> trámites en convenio con distintas instituciones</p>
                         <form action="<?php echo site_url('oficinas'); ?>" method="get" class="form form-inline">
                             <div class="row-fluid">
                                 <div class="span12">
