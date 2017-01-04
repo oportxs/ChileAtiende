@@ -776,7 +776,6 @@ class FichaTable extends Doctrine_Table {
         $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
         // $sql.= "WHERE f.maestro = 0 AND f.publicado = 1 AND t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1";
         $sql.= "WHERE t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1 LIMIT " . $limit;
-        
         $result = $conn->execute($sql);
         return $result->fetchAll();
     }
