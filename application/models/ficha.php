@@ -409,17 +409,19 @@ class Ficha extends Doctrine_Record {
 
     function showRangosAsString() {
 
-        if (!isset($this->RangosEdad)) {
-            return '';
-        }
+        // if (!isset($this->RangosEdad)) {
+        //     return '';
+        // }
 
         $rangos = array();
         foreach ($this->RangosEdad as $rango) {
+            if ($rango->edad_minima == 0 && $rango->edad_maxima == 999)
+                return '';
             if ($rango->edad_minima != null && $rango->edad_maxima != null)
                 $rangos[] = $rango->edad_minima . '-' . $rango->edad_maxima;
         }
-
         return implode(",", $rangos);
+        
     }
 
     function checkMotivosSelected($motivo_id){

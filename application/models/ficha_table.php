@@ -26,6 +26,14 @@ class FichaTable extends Doctrine_Table {
         return $this->_optionsHandler($query, $options);
     }
 
+    function findRangoEdadFicha($id) {
+        $query = Doctrine_Query::create();
+        $query->from('FichaHasRangoEdad r');
+        $query->andWhere('r.ficha_id = ' . $id);
+        $resultado = $query->fetchOne()->toArray();
+        return $resultado;
+    }
+
     function findMaestros($entidad=NULL, $servicio=NULL, $options=array()) {
         $query = Doctrine_Query::create();
 

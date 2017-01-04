@@ -103,6 +103,13 @@
                 <?php } ?>
             </div>
             <div class="cont-fichas-home fichas-nuevas">
+                <div class="masonry-item span4">
+                    <!-- <div class="container"> -->
+                        <a class="registro-link" href="http://www.registrodechilenos.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'http://www.registrodechilenos.cl/'])">
+                            <img class="pull-right" src="<?php echo base_url('/assets_v2/img/banners/2doregchilenos-logorojohorizontal.png'); ?>" width="320">
+                        </a>
+                    <!-- </div> -->
+                </div>
                 <?php foreach ($fichasNuevas as $key => $ficha){ ?>
                 <div class="masonry-item span4">
                     <a href="<?php echo site_url('fichas/ver/'.$ficha->maestro_id); ?>" data-ga-te-category="Tabs Fichas" data-ga-te-action="Ficha Nuevas" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">
