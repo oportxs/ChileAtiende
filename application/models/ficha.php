@@ -53,7 +53,7 @@ class Ficha extends Doctrine_Record {
         $this->hasColumn('puntaje_fps_max');
         $this->hasColumn('formalizacion');
         $this->hasColumn('req_especial');
-        $this->hasColumn('votos_positivos');
+        $this->hasColumn('votos_positivos');    
         $this->hasColumn('votos_negativos');
         $this->hasColumn('informacion_multimedia');
         $this->hasColumn('primera_version_publicada_id');

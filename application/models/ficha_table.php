@@ -766,7 +766,11 @@ class FichaTable extends Doctrine_Table {
         return $result;
     }
 
+<<<<<<< Updated upstream
     public function FichasExterior($motivo, $limit = 9){
+=======
+    public function FichasExterior($motivo){
+>>>>>>> Stashed changes
         // motivos: permamente = 1 | temporal = 2 | viaje = 3
 
         $conn = Doctrine_Manager::getInstance()->connection();
@@ -775,7 +779,11 @@ class FichaTable extends Doctrine_Table {
         $sql.= "LEFT JOIN tramite_en_exterior t ON f.id = t.id_ficha ";
         $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
         // $sql.= "WHERE f.maestro = 0 AND f.publicado = 1 AND t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1";
+<<<<<<< Updated upstream
         $sql.= "WHERE t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1 LIMIT " . $limit;
+=======
+        $sql.= "WHERE t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1";
+>>>>>>> Stashed changes
         
         $result = $conn->execute($sql);
         return $result->fetchAll();

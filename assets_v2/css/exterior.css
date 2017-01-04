@@ -127,7 +127,11 @@ body .esPortada {
 .nav-principal div.span2[data-id="1"]{min-width: 20%;border-left: 0px solid #a2a7a7;}
 .nav-principal div.span2[data-id="2"]{min-width: 23%;border-left: 1px solid #a2a7a7;}
 .nav-principal div.span2[data-id="3"]{min-width: 30%;border-left: 1px solid #a2a7a7;}
+<<<<<<< Updated upstream
 .nav-principal div.span2[data-id="4"]{min-width: 27%;text-align: center;border-left: 1px solid #a2a7a7;}
+=======
+.nav-principal div.span2[data-id="4"]{min-width: 27%;text-align: left;border-left: 1px solid #a2a7a7;}
+>>>>>>> Stashed changes
 .nav-principal div.span2 p.tab a {
   color: #686588;
   text-decoration: none;
@@ -151,7 +155,11 @@ body .esPortada {
 }
 .nav-secundaria div.span3,
 .nav-secundaria-movil div.span3 {
+<<<<<<< Updated upstream
   background-color: rgba(255, 255, 255, 0.65);
+=======
+  background-color: rgba(255, 255, 255, 1);
+>>>>>>> Stashed changes
   padding: 0 30px;
   border: 1px solid #DDD;
 }
@@ -501,6 +509,7 @@ body .esPortada {
 .masonry-brick {
   min-height: 135px !important;
 }
+<<<<<<< Updated upstream
 .sello_chilesinpapeleo > img {
   position: absolute;
   right: 0;
@@ -514,4 +523,6 @@ body .esPortada {
 }
 
 
+=======
+>>>>>>> Stashed changes
 
