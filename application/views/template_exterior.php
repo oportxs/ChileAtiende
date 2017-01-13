@@ -82,13 +82,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             <ul class="unstyled">
                                 <li><a href="<?= base_url('contenidos/que-es-chileatiende-exterior')."?exterior=1" ?>">¿Qué es ChileAtiende en el Exterior?</a></li>
                                 <li><a href="http://www.chilevacontigo.gob.cl/" target="_blank">Servicios disponibles en Consulados</a></li>
-<<<<<<< Updated upstream
                                 <li><a href="<?= base_url('servicios/directorioexterior') ?>">Instituciones Asociadas</a></li>
                                 <li><a href="<?= base_url('contenidos/faq-exterior?exterior=1') ?>">Preguntas Frecuentes</a></li>
-=======
-                                <li><a href="<?= base_url('contenidos/terminos-y-condiciones-de-uso-pymes') ?>">Instituciones Asociadas</a></li>
-                                <li><a href="<?= base_url('contenidos/preguntas-frecuentes') ?>">Preguntas Frecuentes</a></li>
->>>>>>> Stashed changes
                             </ul>
                         </div>
                         <div class="span4 terminos-condiciones">
@@ -123,23 +118,13 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" alt="Creative Commons">CC BY 3.0</a></li>
                             </ul>
                             <div class="modernizacion">
-<<<<<<< Updated upstream
-                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)">Instituto de Previsión Social (MINTRAB)</a></span><br />
-                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia">(MINSEGPRES)</a></span><br />
-                                <span>Portal en <span class="label label-info">BETA</span></span><br />
-                            </div>
-                        </div>
-                        <div class="span4 pull-right cont-logo-footer visible-desktop">
-                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/" alt="Gobierno de Chile">Gobierno de Chile</a>
-=======
                                 <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)" id="link-footer-70-8e9337fe3fb174750dfa4ffdf288330c">Instituto de Previsión Social (MINTRAB)</a></span><br>
-                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital" id="link-footer-71-6d9a36fa9fa35e45063673431d0558b3">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia" id="link-footer-72-eba202e9083cb9045b0911b5d8b6f9a0">(MINSEGPRES)</a></span><br>
+                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de Gobierno Digital" id="link-footer-71-6d9a36fa9fa35e45063673431d0558b3">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia" id="link-footer-72-eba202e9083cb9045b0911b5d8b6f9a0">(MINSEGPRES)</a></span><br>
                                 <span>Portal en <span class="label label-info">BETA</span></span><br>
                             </div>
                         </div>
                         <div class="span6 offset4 cont-logo-footer">
                             <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/">Gobierno de Chile</a>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>

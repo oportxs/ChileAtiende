@@ -8624,11 +8624,8 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   background-image: url('../img/ficha/icon_telefono.png');
 }
 .ficha .nav-tabs li.consulados a {
-<<<<<<< Updated upstream
   background-image: url('../img/ficha/icon_consulados.png');
-=======
-  background-image: url('../img/iconos/icono-consulados.png');
->>>>>>> Stashed changes
+  /*background-image: url('../img/iconos/icono-consulados.png');*/
 }
 .ficha .nav-tabs li.correo {
   padding-left: 30px;
@@ -11791,10 +11788,7 @@ body.portada .container-alertas-sitio .alert:first-child,
     width: 100%;
 }
 
-<<<<<<< Updated upstream
 /*fix ie registro*/
-=======
->>>>>>> Stashed changes
 a.registro-link img {
   max-width: 320px;
   width: 320px;
