@@ -27,10 +27,10 @@
 			<?php foreach($motivo as $k=>$f): ?>
 			  <div class="masonry-item span3 <?php if($f['sello_chilesinpapeleo']) print "sello_chilesinpapeleo";?>">
 					<?php if($f['sello_chilesinpapeleo']):?>
-					<img src="http://contodo.chileatiende.cl/assets_v2/img/label_sello_chileatiende.png" class="label_chilesinpapeleo" alt="Trámite 100% digital de Chile sin papeleo">
+					<img src="/assets_v2/img/label_sello_chileatiende.png" class="label_chilesinpapeleo" alt="Trámite 100% digital de Chile sin papeleo">
 					<?php endif;?>
 					<h3><?=$f['nombre_servicio']?></h3>
-					<h2><a href="http://contodo.chileatiende.cl/fichas/ver/<?php print $f['id'];?>?exterior=1"><?=$f['titulo']?></a></h2>
+					<h2><a href="/fichas/ver/<?php print $f['id'];?>?exterior=1"><?=$f['titulo']?></a></h2>
 					<?php
 					$disponible = array();
 					if( isset($f['guia_correo']) && ($f['guia_correo']!='') ){
