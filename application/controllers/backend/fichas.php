@@ -377,8 +377,14 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
+// º<<<<<<< HEAD
         $data['motivos_en_exterior'] = $list_motivos_exterior;
         $data['rangos_edad'] =  $rangos_edad;
+// =======
+//         $data['motivos_en_exterior'] = Doctrine::getTable('MotivosEnExterior')->findAll();
+
+//         var_dump($data['motivos_en_exterior']);die();
+// >>>>>>> devel
 
         $data['editar_ext'] = TRUE;
 
