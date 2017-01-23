@@ -190,12 +190,14 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<li class="online"><a href="#online" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Online" data-ga-te-value="'.$ficha->maestro_id.'">En línea</a></li>':''; ?>
                             <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<li class="correo"><a href="#correo" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">Por correo</a></li>':''; ?>
                             <?php echo ($_metaficha_show04 && !empty($ficha->guia_consulado))?'<li class="consulados"><a href="#consulado" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">En Consulado</a></li>':''; ?>
+                            <?php echo ($_metaficha_show04 && !empty($ficha->guia_oficina))?'<li class="oficina"><a href="#oficinachile" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">En Oficina en Chile</a></li>':''; ?>
                             
                         </ul>
                         <div class="tab-content">
                             <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<h4 class="print">En Línea</h4><div class="tab-pane text-content" id="online">'.prepare_content_ficha($ficha->guia_online).botonTramiteOnline($ficha).botonMejorarTramite($ficha, 'online').'<div class="clearfix"></div></div>':''; ?>
                             <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<h4 class="print">Por correo</h4><div class="tab-pane text-content" id="correo">'.prepare_content_ficha($ficha->guia_correo).botonMejorarTramite($ficha, 'correo').'<div class="clearfix"></div></div>':''; ?>
                             <?php echo ($_metaficha_show04 && !empty($ficha->guia_consulado))?'<h4 class="print">En Consulado</h4><div class="tab-pane text-content" id="consulado">'.prepare_content_ficha($ficha->guia_consulado).botonMejorarTramite($ficha, 'consulado').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show04 && !empty($ficha->guia_oficina))?'<h4 class="print">En Oficina en Chile</h4><div class="tab-pane text-content" id="oficinachile">'.prepare_content_ficha($ficha->guia_oficina).botonMejorarTramite($ficha, 'oficinachile').'<div class="clearfix"></div></div>':''; ?>
                         </div>
                     </div>
                 <?php endif ?>
