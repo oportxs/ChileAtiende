@@ -512,3 +512,8 @@ body .esPortada {
 .fichas-exterior .span3 {
     width: 33.3%;
 }
+
+.img-info {
+  margin: 10px auto 25px auto;
+  max-width: 90%;
+}

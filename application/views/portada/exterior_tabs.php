@@ -34,18 +34,21 @@
 					<?php
 					$disponible = array();
 					if( isset($f['guia_correo']) && ($f['guia_correo']!='') ){
-						array_push($disponible, "correo electrónico");
+						array_push($disponible, "por correo electrónico");
 					}
 					if(isset($f['guia_consulado']) && ($f['guia_consulado']!='') ){
-						array_push($disponible, "consulado");
+						array_push($disponible, "en consulado");
 					}
 					if( isset($f['guia_online_url']) && ($f['guia_online_url']!='') ){
 						array_push($disponible, "en línea");
 					}
+					if( isset($f['guia_oficina']) && ($f['guia_oficina']!='') ){
+						array_push($disponible, "en oficina en Chile");
+					}
 					?>
 					<?php if(sizeof($disponible)):?>
 					<p>
-						Disponible en:
+						Disponible:
 						<?php foreach($disponible as $disp):?>
 						<span class="label"><?=$disp?></span>
 						<?php endforeach;?>

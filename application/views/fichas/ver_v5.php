@@ -190,7 +190,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<li class="online"><a href="#online" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Online" data-ga-te-value="'.$ficha->maestro_id.'">En línea</a></li>':''; ?>
                             <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<li class="correo"><a href="#correo" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">Por correo</a></li>':''; ?>
                             <?php echo ($_metaficha_show04 && !empty($ficha->guia_consulado))?'<li class="consulados"><a href="#consulado" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">En Consulado</a></li>':''; ?>
-                            <?php echo ($_metaficha_show04 && !empty($ficha->guia_oficina))?'<li class="oficina"><a href="#oficinachile" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">En Oficina en Chile</a></li>':''; ?>
+                            <?php echo ($_metaficha_show04 && !empty($ficha->guia_oficina))?'<li class="oficina"><a href="#oficinachile" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">En oficina en Chile</a></li>':''; ?>
                             
                         </ul>
                         <div class="tab-content">
