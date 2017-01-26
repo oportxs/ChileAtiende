@@ -8,7 +8,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
 
 <div class="row-fluid">
     <div class="breadcrumbs span12 no-print" data-spy="affix" data-offset-top="175">
-        <a href="<?= site_url('/') ?>">Portada</a> / <?php echo $ficha->titulo; ?>
+        <a href="<?= site_url('/exterior') ?>">Portada</a> / <?php echo $ficha->titulo; ?>
     </div>
 </div>
 <div id="content" class="ficha<?php echo $ficha->flujo?' ficha-flujo':''; ?><?php echo $ficha->Maestro->sello_chilesinpapeleo?' ficha-sello-chilesinpapeleo':''; ?><?php echo $ficha->metaficha ? ' ficha-metaficha':''; ?>">
