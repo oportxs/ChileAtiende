@@ -514,6 +514,7 @@ body .esPortada {
 }
 
 .img-info {
+  content: url('../img/chileatiende-en-el-exterior-horizontal-que-es.jpg');
   margin: 10px auto 25px auto;
   max-width: 90%;
 }
