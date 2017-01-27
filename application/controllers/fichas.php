@@ -15,14 +15,15 @@ class Fichas extends CI_Controller {
         $this->load->library('user_agent');
         $codigo_ab = !in_array($codigo_ab, array('2', '3', '4')) || $this->agent->is_mobile() ? '2' : $codigo_ab;
 
+        list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
+
         // verificar si estamos en ChAt exterior
         $es_exterior = $this->input->get('exterior');
-        if($es_exterior==="1"){
+        if($es_exterior==="1"||$ficha->es_tramite_exterior==1){
             $codigo_ab = "5";
         }
         $data['es_exterior'] = $es_exterior;
 
-        list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
         if($ficha->titulo) {
 
             /*Para el caso del breadcumb*/

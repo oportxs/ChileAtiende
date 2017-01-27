@@ -53,21 +53,21 @@ class Exterior extends CI_Controller {
 
     function _load_common_data() {
 
-        $fichas_por_pagina = 4;
+        $fichas_por_pagina = 9;
         $options['limit'] = $fichas_por_pagina;
 
 
         $data['fichas_exterior'] = array(
-            'permanentes' => Doctrine::getTable('Ficha')->FichasExterior(1),
-            'temporal' => Doctrine::getTable('Ficha')->FichasExterior(2),
-            'viaje' => Doctrine::getTable('Ficha')->FichasExterior(3)
+            'permanentes' => Doctrine::getTable('Ficha')->FichasExterior(1,$fichas_por_pagina),
+            'temporal' => Doctrine::getTable('Ficha')->FichasExterior(2,$fichas_por_pagina),
+            'viaje' => Doctrine::getTable('Ficha')->FichasExterior(3,$fichas_por_pagina)
         );
 
-        $fichasMasVistas = Doctrine::getTable('Ficha')->MasVistasEmpresa(array('limit' => $fichas_por_pagina, 'last_week' => true));
-        //$fichasDestacadas = Doctrine::getTable('Ficha')->MasDestacadasEmpresa(4);
+        // $fichasMasVistas = Doctrine::getTable('Ficha')->MasVistasEmpresa(array('limit' => $fichas_por_pagina, 'last_week' => true));
+        // //$fichasDestacadas = Doctrine::getTable('Ficha')->MasDestacadasEmpresa(4);
 
-        $data['fichasMasVistas'] = $fichasMasVistas;
-        //$data['fichasDestacadas'] = $fichasDestacadas;
+        // $data['fichasMasVistas'] = $fichasMasVistas;
+        // //$data['fichasDestacadas'] = $fichasDestacadas;
 
         $nroFichas = Doctrine::getTable('Ficha')->totalPublicados('empresas');
         $data['nroFichas'] = ( substr($nroFichas, -1) > 0 ) ? $nroFichas - substr($nroFichas, -1) : $nroFichas;

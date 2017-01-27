@@ -26,6 +26,14 @@ class FichaTable extends Doctrine_Table {
         return $this->_optionsHandler($query, $options);
     }
 
+    function findRangoEdadFicha($id) {
+        $query = Doctrine_Query::create();
+        $query->from('FichaHasRangoEdad r');
+        $query->andWhere('r.ficha_id = ' . $id);
+        $resultado = $query->fetchOne()->toArray();
+        return $resultado;
+    }
+
     function findMaestros($entidad=NULL, $servicio=NULL, $options=array()) {
         $query = Doctrine_Query::create();
 
@@ -776,7 +784,6 @@ class FichaTable extends Doctrine_Table {
         $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
         // $sql.= "WHERE f.maestro = 0 AND f.publicado = 1 AND t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1";
         $sql.= "WHERE t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1 LIMIT " . $limit;
-        
         $result = $conn->execute($sql);
         return $result->fetchAll();
     }

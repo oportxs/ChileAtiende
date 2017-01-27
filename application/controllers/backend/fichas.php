@@ -285,7 +285,7 @@ class Fichas extends CI_Controller {
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
         $list_motivos_exterior = Doctrine::getTable('MotivosEnExterior')->findAll();
-
+        $rangos_edad = $ficha->showRangosAsString();
         $query = Doctrine_Query::create();
         $query->from('TramiteEnExterior t');
         $fichas_exterior = $query->select('COUNT(DISTINCT t.id_ficha) AS fichas_exterior')->fetchArray();
@@ -311,6 +311,7 @@ class Fichas extends CI_Controller {
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
         $data['motivos_en_exterior'] = $list_motivos_exterior;
+        $data['rangos_edad'] =  $rangos_edad;
         $this->load->view('backend/template', $data);
     }
 
@@ -348,6 +349,8 @@ class Fichas extends CI_Controller {
         $rubros = Doctrine::getTable('Rubro')->findAll();
         $regiones = Doctrine::getTable('Region')->findAll();
         $tipos_empresa = Doctrine::getTable('TipoEmpresa')->findAll();
+        $list_motivos_exterior = Doctrine::getTable('MotivosEnExterior')->findAll();
+        $rangos_edad = $ficha->showRangosAsString();
 
         $query = Doctrine_Query::create();
         $query->from('TramiteEnExterior t');
@@ -374,9 +377,14 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
-        $data['motivos_en_exterior'] = Doctrine::getTable('MotivosEnExterior')->findAll();
+// º<<<<<<< HEAD
+        $data['motivos_en_exterior'] = $list_motivos_exterior;
+        $data['rangos_edad'] =  $rangos_edad;
+// =======
+//         $data['motivos_en_exterior'] = Doctrine::getTable('MotivosEnExterior')->findAll();
 
-        var_dump($data['motivos_en_exterior']);die();
+//         var_dump($data['motivos_en_exterior']);die();
+// >>>>>>> devel
 
         $data['editar_ext'] = TRUE;
 

@@ -105,8 +105,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 <div class="span1">
                                     <a href="http://www.chilevacontigo.gob.cl/" target="_blank"><img src="/assets_v2/img/iconos/icono-consulados.png"></a>
                                 </div>
-                                <div class="span1"><img src="https://www.chileatiende.gob.cl/assets_v2/img/nueva_home/ico_footer_mail.png"></div>
-                            </div>
+                                <div class="span1">
+                                    <a href="https://contacto.chilesinpapeleo.cl/tramites/iniciar/3280" target="_blank"><img src="https://www.chileatiende.gob.cl/assets_v2/img/nueva_home/ico_footer_mail.png"></a></div>
+                                </div>
                         </div>
                 </div>
             </div>

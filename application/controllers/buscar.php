@@ -16,6 +16,10 @@ class Buscar extends CI_Controller {
         $exacto                 = $this->input->get('exacto');
         $vista = $vista_pymes   = $this->input->get('e') ?  $this->input->get('e'):"0";
 
+        // bypass vista exterior
+        $vista = $vista == 2 ? $vista = 0 : $vista;
+        // fin bypass vista exterior
+
         $filtro_temas           = $this->input->get('temas') ? explode(',', $this->input->get('temas')) : array();
         $filtro_hecho           = $this->input->get('hecho') ? explode(',',$this->input->get('hecho')):array();
         $filtro_genero          = $this->input->get('genero')?$this->input->get('genero'):null;
