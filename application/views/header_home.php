@@ -68,5 +68,24 @@ include('header_selector.php'); ?>
             </div>
         </div>
     </div>
+
+    <style>
+        .front-container-portada {margin-top: -46px;}
+        .header-bottom {margin-bottom: 25px !important;}
+        @media (max-width: 979px) and (min-width: 768px) {
+            .front-container-portada {margin-top: 0px;}
+        }
+        @media (max-width: 767px){
+            .front-container-portada {margin-top: 0px;}
+        }
+    </style>
+    <div class="row-fluid">
+        <div class="container">
+            <a class="registro-link" href="https://www.chileatiende.gob.cl/buscar/fichas?temas=24" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'https://www.chileatiende.gob.cl/buscar/fichas?temas=24'])">
+                <img class="pull-right" src="<?php echo base_url('/assets_v2/img/banners/banner-incendios-forestales.png'); ?>" width="320">
+            </a>
+        </div>
+    </div>
+
 </header>
 
