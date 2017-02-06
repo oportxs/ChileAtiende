@@ -123,7 +123,7 @@
                                 <a class="canal-twitter" href="https://twitter.com/ChileAtiende" target="_blank" alt="Twitter"></a>
                                 <a class="canal-facebook" href="https://www.facebook.com/ChileAtiende" target="_blank" alt="Facebook"></a>
                                 <a class="canal-oficina" href="<?php echo site_url('oficinas'); ?>" alt="Puntos de atención"></a>
-                                <a class="hidden-phone canal-mail" href="https://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
+                                <a class="hidden-phone canal-mail" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
                             </div>
                             <div class="clearfix"></div>
                             <div class="lista-canales-callcenter">
