@@ -182,7 +182,7 @@
                             <ul class="unstyled lista-contactos">
                                 <li>Contacto</li>
                                 <li class="contactos-correo">
-                                    <a href="https://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe">Contacto</a>
+                                    <a href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe">Contacto</a>
                                 </li>
                                 <li class="contactos-twitter">
                                     <a href="https://twitter.com/ChileAtiende" target="_blank">Twitter</a>
