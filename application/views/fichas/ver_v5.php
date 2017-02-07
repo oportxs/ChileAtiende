@@ -181,6 +181,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 $_metaficha_show04 = $ficha->metaficha == 0;//  || ($ficha->metaficha == 1 && $metaficha_campos['guia_correo'] == 1) ? true : false;
                 if (    ($_metaficha_show00 && !empty($ficha->guia_online)) || 
                         ($_metaficha_show03 && !empty($ficha->guia_correo)) ||
+                        ($_metaficha_show01 && !empty($ficha->guia_oficina)) ||
                         ($_metaficha_show04 && !empty($ficha->guia_consulado))
                     ): ?>
 
