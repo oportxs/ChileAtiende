@@ -491,6 +491,11 @@ body .esPortada {
     height: initial;
   }
 }
+@media (max-width: 580px) {
+  .fichas-exterior .span3 {
+      width: 100% !important;
+  }
+}
 
 .viaje {
   display: block;
