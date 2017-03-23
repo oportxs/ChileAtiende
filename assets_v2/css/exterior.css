@@ -270,6 +270,36 @@ body .esPortada {
   white-space: nowrap;
 }
 
+.viaje {
+  display: block;
+}
+.nav-secundaria.temporal, .nav-secundaria.permanentes {
+  display: none;
+}
+.masonry-brick {
+  min-height: 135px !important;
+}
+.sello_chilesinpapeleo > img {
+  position: absolute;
+  right: 0;
+}
+.masonry-item {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.fichas-exterior > .span3 {
+    width: 33.3%;
+}
+
+.img-info {
+  content: url('../img/chileatiende-en-el-exterior-horizontal-que-es.jpg');
+  margin: 10px auto 25px auto;
+  max-width: 90%;
+}
+
+/* MEDIA QUERIES */
+
+
 @media (min-width: 1200px) {
   .fichas-exterior .span3 {
     width: 33.3% !important;
@@ -499,31 +529,4 @@ body .esPortada {
   .fichas-exterior .span3 {
       width: 100% !important;
   }
-}
-
-.viaje {
-  display: block;
-}
-.nav-secundaria.temporal, .nav-secundaria.permanentes {
-  display: none;
-}
-.masonry-brick {
-  min-height: 135px !important;
-}
-.sello_chilesinpapeleo > img {
-  position: absolute;
-  right: 0;
-}
-.masonry-item {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.fichas-exterior > .span3 {
-    width: 33.3%;
-}
-
-.img-info {
-  content: url('../img/chileatiende-en-el-exterior-horizontal-que-es.jpg');
-  margin: 10px auto 25px auto;
-  max-width: 90%;
 }
