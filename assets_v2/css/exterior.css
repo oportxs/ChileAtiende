@@ -366,6 +366,10 @@ body .esPortada {
     width: 300px;
   }
 }
+@media (max-width: 580px) {
+  .fichas-exterior .span3 {
+    width: 100% !important;
+}
 @media (max-width: 640px) {
   body {
     background-image: none;
