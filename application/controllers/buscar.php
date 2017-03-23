@@ -17,7 +17,7 @@ class Buscar extends CI_Controller {
         $vista = $vista_pymes   = $this->input->get('e') ?  $this->input->get('e'):"0";
 
         // bypass vista exterior
-        $vista = $vista == 2 ? $vista = 0 : $vista;
+        // $vista = $vista == 2 ? $vista = 0 : $vista;
         // fin bypass vista exterior
 
         $filtro_temas           = $this->input->get('temas') ? explode(',', $this->input->get('temas')) : array();

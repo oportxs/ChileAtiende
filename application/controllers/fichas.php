@@ -105,7 +105,7 @@ class Fichas extends CI_Controller {
         }
         $data["hidden_buscador"] = ($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) ? 1 : 0;
         $template = ($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) ? 'template_emprendete_v2' : 'template_v2';
-        $template = ($es_exterior==="1") ? 'template_exterior' : $template;
+        $template = ($es_exterior==="1"||$ficha->es_tramite_exterior==1) ? 'template_exterior' : $template;
         //habilitamos el cache
         $this->output->cache($this->config->item('cache'));
 
