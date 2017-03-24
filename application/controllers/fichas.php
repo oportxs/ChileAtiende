@@ -18,8 +18,9 @@ class Fichas extends CI_Controller {
         list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
 
         // verificar si estamos en ChAt exterior
-        $es_exterior = $this->input->get('exterior');
-        if($es_exterior==="1"||$ficha->es_tramite_exterior==1){
+        // $es_exterior = $this->input->get('exterior');
+        // if($es_exterior==="1"||$ficha->es_tramite_exterior==1){
+        if($ficha->es_tramite_exterior==1){
             $codigo_ab = "5";
         }
         $data['es_exterior'] = $es_exterior;
