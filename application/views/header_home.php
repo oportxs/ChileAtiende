@@ -82,7 +82,7 @@ include('header_selector.php'); ?>
     <div class="row-fluid">
         <div class="container">
             <a class="registro-link" href="http://www.censo2017.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'https://www.chileatiende.gob.cl/buscar/fichas?temas=24'])">
-                <img class="pull-right" src="http://www.gob.cl/wp-content/uploads/2017/04/170407_censo_-abre_tu_puerta.gif" width="320">
+                <img class="pull-right" src="http://www.gob.cl/wp-content/uploads/2017/04/170407_censo_-abre_tu_puerta.gif" width="320" style="visibility:hidden">
             </a>
         </div>
     </div>
