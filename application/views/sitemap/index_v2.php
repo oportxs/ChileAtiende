@@ -113,7 +113,7 @@
                                 <a href="<?php echo site_url('contenidos/preguntas-frecuentes'); ?>">Twitter</a>
                             </li>
                             <li>
-                                <a href="https://contacto.chileatiende.cl/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe">Contacto</a>
+                                <a href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=<?php echo site_url(); ?>" data-toggle="modal-chileatiende" data-modal-type="iframe">Contacto</a>
                             </li>
                         </ul>
                     </div>

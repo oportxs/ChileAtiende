@@ -1,3 +1,5 @@
+<?php if (!isset($_GET['exterior'])): ?>
+
 <div class="cont-masinfo-home">
     <div class="row-fluid">
         <ul class="unstyled">
@@ -9,3 +11,5 @@
         </ul>
     </div>
 </div>
+
+<?php endif; ?>

@@ -68,8 +68,8 @@ include('header_selector.php'); ?>
                                             <a class="contactos-twitter" href="https://twitter.com/ChileAtiende" target="_blank" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Twitter">Twitter</a>
                                         </div>
                                         <div class="span4 text-center">
-                                            <a class="contactos-correo hidden-phone" href="https://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
-                                            <a class="visible-phone contactos-correo" href="https://contacto.chileatiende.cl/formulario.php?origen=http://www.chileatiende.gob.cl/" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
+                                            <a class="contactos-correo hidden-phone" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
+                                            <a class="visible-phone contactos-correo" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
                                         </div>
                                     </div>
                                 </li>

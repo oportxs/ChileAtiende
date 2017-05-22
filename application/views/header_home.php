@@ -69,4 +69,23 @@ include('header_selector.php'); ?>
         </div>
     </div>
 
+    <style>
+        .front-container-portada {margin-top: -46px;}
+        .header-bottom {margin-bottom: 25px !important;}
+        @media (max-width: 979px) and (min-width: 768px) {
+            .front-container-portada {margin-top: 0px;}
+        }
+        @media (max-width: 767px){
+            .front-container-portada {margin-top: 0px;}
+        }
+    </style>
+    <div class="row-fluid">
+        <div class="container">
+            <a class="registro-link" href="http://www.censo2017.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'https://www.chileatiende.gob.cl/buscar/fichas?temas=24'])">
+                <img class="pull-right" src="http://www.gob.cl/wp-content/uploads/2017/04/170407_censo_-abre_tu_puerta.gif" width="320" style="visibility:hidden">
+            </a>
+        </div>
+    </div>
+
 </header>
+

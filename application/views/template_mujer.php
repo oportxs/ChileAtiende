@@ -9,7 +9,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <head>
         <meta charset="utf-8">
         
-        <title><?= $title ?> - ChileAtiende en el Exterior - Trámites para chilenos en el extranjero</title>
+        <title><?= $title ?> - ChileAtiende Mujer</title>
         <link rel="icon" type="image/x-icon" href="<?=base_url()?>assets_v2/img/favicon.ico" />
         <?php
         if (isset($descripcion)) {
@@ -29,7 +29,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css?v=20140421'); ?>">
-        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/exterior.css?v=20170522'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/mujer.css?v=20170522'); ?>">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery-1.9.1.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'); ?>"></script>
@@ -43,16 +43,16 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <body data-spy="scroll" data-target=".nav-scrollspy">
         <?php 
         $isEmpresa = false;
-        $isExterior = true;
+        $isMujer = true;
         include('header_selector.php'); ?>
-        <header class="no-print header-exterior">
+        <header class="no-print header-mujer">
             <div class="container">
                 <div class="header-top">
                     <div class="row-fluid">
                         <div class="span4">
                             <h1>
-                                <a href="<?php echo site_url('/exterior'); ?>">
-                                    <img src="<?php echo base_url('assets_v2/img/header/chileatiende-en-el-exterior_logo.png'); ?>" alt="ChileAtiende en el Exterior">
+                                <a href="<?php echo site_url('/mujer'); ?>">
+                                    <img src="<?php echo base_url('assets_v2/img/header/chileatiende-en-el-mujer_logo.png'); ?>" alt="ChileAtiende Mujer">
                                 </a>
                             </h1>
                         </div>
@@ -77,13 +77,13 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <div class="row-fluid">
                         <div class="span4 sobre-chileatiende">
                             <h4>
-                                Sobre ChileAtiende en el Exterior
+                                Sobre ChileAtiende Mujer
                             </h4>
                             <ul class="unstyled">
-                                <li><a href="<?= base_url('contenidos/que-es-chileatiende-exterior')."?exterior=1" ?>">¿Qué es ChileAtiende en el Exterior?</a></li>
+                                <li><a href="<?= base_url('contenidos/que-es-chileatiende-mujer')."?mujer=1" ?>">¿Qué es ChileAtiende Mujer?</a></li>
                                 <li><a href="http://www.chilevacontigo.gob.cl/" target="_blank">Servicios disponibles en Consulados</a></li>
-                                <li><a href="<?= base_url('servicios/directorioexterior') ?>">Instituciones Asociadas</a></li>
-                                <li><a href="<?= base_url('contenidos/faq-exterior?exterior=1') ?>">Preguntas Frecuentes</a></li>
+                                <li><a href="<?= base_url('servicios/directoriomujerr') ?>">Instituciones Asociadas</a></li>
+                                <li><a href="<?= base_url('contenidos/faq-mujer?mujer=1') ?>">Preguntas Frecuentes</a></li>
                             </ul>
                         </div>
                         <div class="span4 terminos-condiciones">
@@ -141,7 +141,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery.masonry.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/imagesloaded.pkgd.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/frontend.js'); ?>"></script>
-        <script src="<?php echo base_url('assets_v2/js/exterior.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_v2/js/mujer.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/rs_embhl_v2_es_419.js') ?>" type="text/javascript"></script>
         <script>
             var _gaq = _gaq || [];

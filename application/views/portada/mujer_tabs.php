@@ -22,15 +22,15 @@
 			</div>
 		</div>
 		
-		<?php foreach($fichas_exterior as $key=>$motivo): ?>
-		<div class="span12 nav-secundaria fichas-exterior <?=$key?>" data-masonry='{ "itemSelector": ".masonry-item", "columnWidth": 200 }'>
+		<?php foreach($fichas_mujer as $key=>$motivo): ?>
+		<div class="span12 nav-secundaria fichas-mujer <?=$key?>" data-masonry='{ "itemSelector": ".masonry-item", "columnWidth": 200 }'>
 			<?php foreach($motivo as $k=>$f): ?>
 			  <div class="masonry-item span3 <?php if($f['sello_chilesinpapeleo']) print "sello_chilesinpapeleo";?>">
 					<?php if($f['sello_chilesinpapeleo']):?>
 					<img src="/assets_v2/img/label_sello_chileatiende.png" class="label_chilesinpapeleo" alt="Trámite 100% digital de Chile sin papeleo">
 					<?php endif;?>
 					<h3><?=$f['nombre_servicio']?></h3>
-					<h2><a href="/fichas/ver/<?php print $f['id'];?>?exterior=1"><?=$f['titulo']?></a></h2>
+					<h2><a href="/fichas/ver/<?php print $f['id'];?>?mujer=1"><?=$f['titulo']?></a></h2>
 					<?php
 					$disponible = array();
 					if( isset($f['guia_correo']) && ($f['guia_correo']!='') ){

@@ -3,17 +3,17 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Exterior extends CI_Controller {
+class Mujer extends CI_Controller {
 
     public function index() {
         $data = $this->_load_common_data();
-        $data['title'] = 'Portada ChileAtiende en el Exterior';
-        $data['content'] = 'portada/exterior_tabs';
+        $data['title'] = 'Portada ChileAtiende Mujer';
+        $data['content'] = 'portada/mujer_tabs';
         $data['hidden_buscador'] = 1;
         
         //habilitamos el cache
         $this->output->cache($this->config->item('cache'));
-        $this->load->view('template_exterior', $data);
+        $this->load->view('template_mujer', $data);
     }
 
     public function subtemas($id) {
@@ -57,10 +57,10 @@ class Exterior extends CI_Controller {
         $options['limit'] = $fichas_por_pagina;
 
 
-        $data['fichas_exterior'] = array(
-            'permanentes' => Doctrine::getTable('Ficha')->FichasExterior(1,$fichas_por_pagina),
-            'temporal' => Doctrine::getTable('Ficha')->FichasExterior(2,$fichas_por_pagina),
-            'viaje' => Doctrine::getTable('Ficha')->FichasExterior(3,$fichas_por_pagina)
+        $data['fichas_mujer'] = array(
+            'permanentes' => Doctrine::getTable('Ficha')->FichasMujer(1,$fichas_por_pagina),
+            'temporal' => Doctrine::getTable('Ficha')->FichasMujer(2,$fichas_por_pagina),
+            'viaje' => Doctrine::getTable('Ficha')->FichasMujer(3,$fichas_por_pagina)
         );
 
         // $fichasMasVistas = Doctrine::getTable('Ficha')->MasVistasEmpresa(array('limit' => $fichas_por_pagina, 'last_week' => true));

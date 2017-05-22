@@ -287,12 +287,12 @@ body .esPortada {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.fichas-exterior > .span3 {
+.fichas-mujer > .span3 {
     width: 33.3%;
 }
 
 .img-info {
-  content: url('../img/chileatiende-en-el-exterior-horizontal-que-es.jpg');
+  content: url('../img/chileatiende-mujer-horizontal-que-es.jpg');
   margin: 10px auto 25px auto;
   max-width: 90%;
 }
@@ -309,7 +309,7 @@ body .esPortada {
 
 
 @media (min-width: 1200px) {
-  .fichas-exterior .span3 {
+  .fichas-mujer .span3 {
     width: 33.3% !important;
   }
   .nav-principal div.span2 p.tab a {
@@ -410,7 +410,7 @@ body .esPortada {
     background-image: none;
     background-color: #7a7979;
   }
-  .fichas-exterior .span3 {
+  .fichas-mujer .span3 {
       width: 100% !important;
   }
   header .row-top {
@@ -534,7 +534,7 @@ body .esPortada {
   }
 }
 @media (max-width: 580px) {
-  .fichas-exterior .span3 {
+  .fichas-mujer .span3 {
       width: 100% !important;
   }
 }

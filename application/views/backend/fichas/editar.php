@@ -369,7 +369,8 @@
                     <tr>
                         <td class="titulo">Rangos de Edad</td>
                         <td>
-                            <input type="text" name="rangos" value="<?= $ficha->showRangosAsString()?$ficha->showRangosAsString():'' ?>" /> Ej: 15-30,40-65
+                            <pre></pre>
+                            <input type="text" name="rangos" value="<?= $rangos_edad ?>" /> Ej: 15-30,40-65
                         </td>
                     </tr>
                     <tr>

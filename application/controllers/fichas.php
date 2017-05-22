@@ -15,14 +15,16 @@ class Fichas extends CI_Controller {
         $this->load->library('user_agent');
         $codigo_ab = !in_array($codigo_ab, array('2', '3', '4')) || $this->agent->is_mobile() ? '2' : $codigo_ab;
 
+        list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
+
         // verificar si estamos en ChAt exterior
-        $es_exterior = $this->input->get('exterior');
-        if($es_exterior==="1"){
+        // $es_exterior = $this->input->get('exterior');
+        // if($es_exterior==="1"||$ficha->es_tramite_exterior==1){
+        if($ficha->es_tramite_exterior==1){
             $codigo_ab = "5";
         }
         $data['es_exterior'] = $es_exterior;
 
-        list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
         if($ficha->titulo) {
 
             /*Para el caso del breadcumb*/
@@ -104,7 +106,7 @@ class Fichas extends CI_Controller {
         }
         $data["hidden_buscador"] = ($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) ? 1 : 0;
         $template = ($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) ? 'template_emprendete_v2' : 'template_v2';
-        $template = ($es_exterior==="1") ? 'template_exterior' : $template;
+        $template = ($es_exterior==="1"||$ficha->es_tramite_exterior==1) ? 'template_exterior' : $template;
         //habilitamos el cache
         $this->output->cache($this->config->item('cache'));
 
