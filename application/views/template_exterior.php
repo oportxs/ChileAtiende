@@ -102,11 +102,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 Nuestra Red de Atención
                             </h4>
                             <div class="offset1 row-fluid">
-                                <div class="span1">
-                                    <a href="http://www.chilevacontigo.gob.cl/" target="_blank"><img src="/assets_v2/img/iconos/icono-consulados.png"></a>
+                                <div class="span1 red-atencion">
+                                    <a href="http://www.chilevacontigo.gob.cl/" target="_blank"><img class="btn-redatencion" src="/assets_v2/img/iconos/btn_red-atencion_chile-va-contigo.png"></a>
                                 </div>
-                                <div class="span1">
-                                    <a href="https://contacto.chilesinpapeleo.cl/tramites/iniciar/3280" target="_blank"><img src="https://www.chileatiende.gob.cl/assets_v2/img/nueva_home/ico_footer_mail.png"></a></div>
+                                <div class="span1 red-atencion">
+                                    <a href="https://contacto.chilesinpapeleo.cl/tramites/iniciar/3280" target="_blank"><img class="btn-redatencion" src="/assets_v2/img/iconos/btn_red-atencion_simple.png"></a></div>
                                 </div>
                         </div>
                 </div>
