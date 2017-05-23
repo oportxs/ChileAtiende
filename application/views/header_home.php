@@ -81,8 +81,8 @@ include('header_selector.php'); ?>
     </style>
     <div class="row-fluid">
         <div class="container">
-            <a class="registro-link" href="http://www.censo2017.cl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'https://www.chileatiende.gob.cl/buscar/fichas?temas=24'])">
-                <img class="pull-right" src="http://www.gob.cl/wp-content/uploads/2017/04/170407_censo_-abre_tu_puerta.gif" width="320" style="visibility:hidden">
+            <a class="registro-link" href="http://www.votoenelexterior.cl" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'www.votoenelexterior.cl'])">
+                <img class="pull-right" src="/assets_v2/img/banners/votoexterior320X100.png" width="320" style="visibility:visible">
             </a>
         </div>
     </div>
