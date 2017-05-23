@@ -44,6 +44,7 @@ $route['404_override'] = '';
 $route['backend'] = 'backend/portada';
 
 $route['exterior/'] = 'exterior/portada'; 
+$route['mujer/'] = 'mujer/portada'; 
 
 $route['funcionarios'] = 'funcionarios/destacados';
 $route['movil'] = 'movil/buscar';
