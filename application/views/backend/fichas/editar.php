@@ -353,7 +353,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Clasificación</legend>
+            <legend>Clasificación General</legend>
             <table class="formTable">
                 <tr>
                     <td class="titulo">Público objetivo</td>
@@ -466,51 +466,7 @@
                         </td>
                     </tr>
                 </table>
-                <!-- chilenos en el extranjero -->
-                <div class="tramite-exterior">
-                    <table class="formTable">
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="exterior" id="chkbox_exterior" <?php if($ficha->isTramiteExterior()) print "checked";?>/>
-                                <label for="chkbox_exterior">Para chilenos en el exterior</label>
-                            </td>
-                        </tr>
-                    </table>
-                    <div class="tipos-exterior">
-                        <table class="formTable">
-                            <tr>
-                                <td>
-                                    <label for="chkbox_exterior">Para chilenos </label>
-                                </td>
-                                <td>
-                                    <select class="chzn-select" 
-                                            data-placeholder="Seleccionar un motivo de estadía en el exterior" 
-                                            multiple 
-                                            name="tipo_residente[]" 
-                                            id="tipo_residente" 
-                                            <?php if(!$ficha->isTramiteExterior()) print 'disabled="disabled"';?>
-                                            style="width: 350px;">
-                                        <option value></option>
-                                        <?php foreach($motivos_en_exterior as $key=>$value):?>
-                                        <option value="<?=$value->id?>" <?php if($ficha->checkMotivosSelected($value->id)) print "selected";?>><?=$value->nombre?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="checkbox" name="exterior_destacado" id="chkbox_exterior_destacado" 
-                                        <?php if($ficha->isTramiteExteriorDestacado()) print "checked";?>
-                                        <?php if(!$ficha->isTramiteExterior()) print 'disabled="disabled"';?>
-                                        />
-                                    <label for="chkbox_exterior">Destacado en la portada de <strong>ChileAtiende en el Exterior</strong></label>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <!-- fin chilenos en el extranjero -->
+                
             </div>
             <table class="formTable">
                 <tr>
@@ -530,6 +486,81 @@
                 </tr>
             </table>
         </fieldset>
+
+        <!-- chilenos en el extranjero -->
+        <fieldset>
+            <legend>Clasificación Chileatiende en el Exterior</legend>
+
+            <div class="tramite-exterior">
+                <table class="formTable">
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="exterior" id="chkbox_exterior" <?php if($ficha->isTramiteExterior()) print "checked";?>/>
+                            <label for="chkbox_exterior">Para chilenos en el exterior</label>
+                        </td>
+                    </tr>
+                </table>
+                <div class="tipos-exterior">
+                    <table class="formTable">
+                        <tr>
+                            <td>
+                                <label for="chkbox_exterior">Para chilenos </label>
+                            </td>
+                            <td>
+                                <select class="chzn-select" 
+                                        data-placeholder="Seleccionar un motivo de estadía en el exterior" 
+                                        multiple 
+                                        name="tipo_residente[]" 
+                                        id="tipo_residente" 
+                                        <?php if(!$ficha->isTramiteExterior()) print 'disabled="disabled"';?>
+                                        style="width: 350px;">
+                                    <option value></option>
+                                    <?php foreach($motivos_en_exterior as $key=>$value):?>
+                                    <option value="<?=$value->id?>" <?php if($ficha->checkMotivosSelected($value->id)) print "selected";?>><?=$value->nombre?></option>
+                                    <?php endforeach;?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="checkbox" name="exterior_destacado" id="chkbox_exterior_destacado" 
+                                    <?php if($ficha->isTramiteExteriorDestacado()) print "checked";?>
+                                    <?php if(!$ficha->isTramiteExterior()) print 'disabled="disabled"';?>
+                                    />
+                                <label for="chkbox_exterior_destacado">Destacado en la portada de <strong>ChileAtiende en el Exterior</strong></label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+        <!-- fin chilenos en el extranjero -->
+
+        <!-- chileatiende mujer -->
+        <fieldset>
+            <legend>Clasificación Chileatiende Mujer</legend>
+            <div class="tramite-mujer">
+                <table class="formTable">
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="chat-mujer" id="chkbox_mujer" <?php if($ficha->isTramiteMujer()) print "checked";?>/>
+                            <label for="chkbox_exterior">Es un trámite para Chileatiende Mujer</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="mujer_destacado" id="chkbox_mujer_destacado" 
+                                <?php if($ficha->isTramiteMujerDestacado()) print "checked";?>
+                                <?php if(!$ficha->isTramiteMujer()) print 'disabled="disabled"';?>
+                                />
+                            <label for="chkbox_mujer_destacado">Destacado en la portada de <strong>ChileAtiende Mujer</strong></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+        <!-- fin chileatiende mujer -->
 
         <fieldset id="clasificacion-emprendete" style="<?=($ficha->tipo==2 || $ficha->tipo==3)? 'display:block;' : 'display:none;'?>">
             <legend>Clasificación ChileAtiende Pymes</legend>
@@ -788,7 +819,7 @@
             <legend>Clasificación Adicional</legend>
             <table class="formTable">
                 <tr>
-                    <td class="titulo">Destacada?</td>
+                    <td class="titulo">Destacado en Home principal Chileatiende?</td>
                     <td><input type="checkbox" name="destacado" <?= ($ficha->destacado) ? 'checked="checked"' : '' ?> /></td>
                 </tr>
                 <tr>

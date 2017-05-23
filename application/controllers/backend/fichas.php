@@ -91,6 +91,7 @@ class Fichas extends CI_Controller {
 
     public function ver($id, $flujo = FALSE) {
         $ficha = Doctrine::getTable('Ficha')->find($id);
+        // var_dump($ficha);die();
         
         $etapasvida = Doctrine::getTable('EtapaVida')->findAll();
 

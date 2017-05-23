@@ -63,6 +63,8 @@ class Ficha extends Doctrine_Record {
         $this->hasColumn('metaficha_servicios');
         $this->hasColumn('metaficha_opciones');
         $this->hasColumn('es_tramite_exterior');
+        $this->hasColumn('es_tramite_mujer');
+        $this->hasColumn('es_tramite_mujer_destacado');
     }
 
     function setUp() {
@@ -461,7 +463,6 @@ class Ficha extends Doctrine_Record {
         else
             return false;
     }
-
     function isTramiteExteriorDestacado() {
         $tramite_exterior = Doctrine::getTable('TramiteEnExterior')->findByIdFicha($this->id)->toArray();
         foreach($tramite_exterior as $t){
@@ -469,6 +470,24 @@ class Ficha extends Doctrine_Record {
                 return true;
         }
         return false;
+    }
+
+    function isTramiteMujer() {
+        if(is_null($this->es_tramite_mujer))
+            return false;
+        if($this->es_tramite_mujer > 0)
+            return true;
+        else
+            return false;
+    }
+
+    function isTramiteMujerDestacado() {
+        if(is_null($this->es_tramite_mujer_destacado))
+            return false;
+        if($this->es_tramite_mujer_destacado > 0)
+            return true;
+        else
+            return false;
     }
 
     function setRangosEdadFromString($string) {
