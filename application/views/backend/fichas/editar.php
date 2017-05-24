@@ -545,7 +545,7 @@
                     <tr>
                         <td>
                             <input type="checkbox" name="chat_mujer" id="chkbox_mujer" <?php if($ficha->isTramiteMujer()) print "checked";?>/>
-                            <label for="chkbox_exterior">Es un trámite para Chileatiende Mujer</label>
+                            <label for="chkbox_mujer">Es un trámite para Chileatiende Mujer</label>
                         </td>
                     </tr>
                     <tr>
