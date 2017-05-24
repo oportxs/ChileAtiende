@@ -544,13 +544,13 @@
                 <table class="formTable">
                     <tr>
                         <td>
-                            <input type="checkbox" name="chat-mujer" id="chkbox_mujer" <?php if($ficha->isTramiteMujer()) print "checked";?>/>
+                            <input type="checkbox" name="chat_mujer" id="chkbox_mujer" <?php if($ficha->isTramiteMujer()) print "checked";?>/>
                             <label for="chkbox_exterior">Es un trámite para Chileatiende Mujer</label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="mujer_destacado" id="chkbox_mujer_destacado" 
+                            <input type="checkbox" name="chat_mujer_destacado" id="chkbox_mujer_destacado" 
                                 <?php if($ficha->isTramiteMujerDestacado()) print "checked";?>
                                 <?php if(!$ficha->isTramiteMujer()) print 'disabled="disabled"';?>
                                 />

@@ -640,6 +640,8 @@ class Fichas extends CI_Controller {
                 $ficha->content_updated_data_at = date('Y-m-d H:i:s');
 
                 $ficha->es_tramite_exterior = ($this->input->post('exterior')=='on');
+                $ficha->es_tramite_mujer = ($this->input->post('chat_mujer')=='on');
+                $ficha->es_tramite_mujer_destacado = ($this->input->post('chat_mujer_destacado')=='on');
 
                 
 
