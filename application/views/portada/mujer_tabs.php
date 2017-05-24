@@ -7,7 +7,7 @@
 	<div class="row-fluid">
 		<div class="span12 titulos-accesos visible-desktop">
 		</div>
-		<div class="span12 nav-principal">
+<!-- 		<div class="span12 nav-principal">
 			<div class="span2 selected" data-id="1">
 				<p class="tab" id="tab-default" onclick="showTab('viaje',this)"><a class="etapa-id" data-val="1" href="#">Chilenos de viaje</a></p>
 			</div>
@@ -20,17 +20,23 @@
 			<div class="span2" data-id="4">
 				<p class="tab"><a class="etapa-id" data-val="4" href="http://www.chilevacontigo.gob.cl/" target="_blank">Consulados</a></p>
 			</div>
-		</div>
-		
-		<?php foreach($fichas_mujer as $key=>$motivo): ?>
+		</div> -->
+
+		<?php 
+			// foreach($fichas_mujer as $key=>$motivo): 
+			//foreach($tramites_mujer as $key=>$f): 
+		?>
 		<div class="span12 nav-secundaria fichas-mujer <?=$key?>" data-masonry='{ "itemSelector": ".masonry-item", "columnWidth": 200 }'>
-			<?php foreach($motivo as $k=>$f): ?>
+			<?php 
+				//foreach($motivo as $k=>$f): 
+				foreach($tramites_mujer as $key=>$f): 
+			?>
 			  <div class="masonry-item span3 <?php if($f['sello_chilesinpapeleo']) print "sello_chilesinpapeleo";?>">
 					<?php if($f['sello_chilesinpapeleo']):?>
 					<img src="/assets_v2/img/label_sello_chileatiende.png" class="label_chilesinpapeleo" alt="Trámite 100% digital de Chile sin papeleo">
 					<?php endif;?>
-					<h3><?=$f['nombre_servicio']?></h3>
-					<h2><a href="/fichas/ver/<?php print $f['id'];?>?mujer=1"><?=$f['titulo']?></a></h2>
+					<h3><?php echo $f['nombre_servicio']; ?></h3>
+					<h2><a href="/fichas/ver/<?php echo $f['id'];?>?mujer=1"><?=$f['titulo']?></a></h2>
 					<?php
 					$disponible = array();
 					if( isset($f['guia_correo']) && ($f['guia_correo']!='') ){
@@ -56,8 +62,9 @@
 					<?php endif;?>
 				</div>
 			<?php endforeach;?>
+
 		</div>
-		<?php endforeach;?>
+		<?php //endforeach;?>
 		
 	</div>
 

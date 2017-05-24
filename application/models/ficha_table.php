@@ -218,6 +218,14 @@ class FichaTable extends Doctrine_Table {
         return $this->_optionsHandler($query, $options);
     }
 
+    function findFichaMujer($ficha_id, $options=array()){
+        $query = Doctrine_Query::create();
+        $query->from('Ficha f, f.Temas temas, f.Servicio servicio, servicio.Entidad entidad');
+        $query->andWhere('f.id = ?', $ficha_id);
+// die("SQL => ".$query->getSqlQuery());
+        return $this->_optionsHandler($query, $options);
+    }
+
     /* Metodo privado que gestiona las opciones de busqueda para una ficha */
 
     function _optionsHandler($query, $options) {
@@ -711,6 +719,26 @@ class FichaTable extends Doctrine_Table {
 
         return $result;
     }
+
+    function FichasMujer($limit){
+        $conn = Doctrine_Manager::getInstance()->connection();
+        
+        $sql = "SELECT f.*, s.nombre as nombre_servicio FROM ficha f ";
+        $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
+        $sql.= "WHERE f.es_tramite_mujer = 1 AND f.es_tramite_mujer_destacado is null AND f.publicado = 1 LIMIT " . $limit;
+        $result = $conn->execute($sql);
+        return $result->fetchAll();
+    }
+    function FichasMujerDestacadas(){
+        $conn = Doctrine_Manager::getInstance()->connection();
+        
+        $sql = "SELECT f.*, s.nombre as nombre_servicio FROM ficha f ";
+        $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
+        $sql.= "WHERE f.es_tramite_mujer = 1 AND f.es_tramite_mujer_destacado = 1 AND f.publicado = 1";
+        $result = $conn->execute($sql);
+        return $result->fetchAll();
+    }
+
 
     function MasVotadas($aData) {
         if (!isset($aData['limit']))

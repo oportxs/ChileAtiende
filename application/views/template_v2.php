@@ -43,6 +43,11 @@
             <meta name="author" content="<?php echo ( ( isset($ficha->Servicio->nombre) ) ? $ficha->Servicio->nombre : '') ; ?>" />
             <?php
         }
+
+        if(isset($ficha->es_tramite_mujer) && $ficha->es_tramite_mujer == 1){
+            $isMujer = true;
+        }
+
         ?>
         <meta name="viewport" content="width=device-width">
 
