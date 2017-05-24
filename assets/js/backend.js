@@ -40,6 +40,12 @@ $(document).ready(function(){
         $('#tipo_residente').prop('disabled', !this.checked).trigger("chosen:updated");
         $('#chkbox_exterior_destacado').prop('disabled', !this.checked);
     });
+    $('#chkbox_mujer').on('change', function(e){
+        if(!this.checked){
+            console.log('no seleccionado')
+        }
+        $('#chkbox_mujer_destacado').prop('disabled', !this.checked);
+    });
 
     // INFO: habilita/deshabilita las opciones de metaficha
     $('#metaficha_si').click(function(){
