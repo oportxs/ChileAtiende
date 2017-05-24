@@ -56,22 +56,8 @@ class Mujer extends CI_Controller {
         $fichas_por_pagina = 9;
         $options['limit'] = $fichas_por_pagina;
 
-
-        $data['fichas_mujer'] = array(
-            'permanentes' => Doctrine::getTable('Ficha')->FichasMujer(1,$fichas_por_pagina),
-            'temporal' => Doctrine::getTable('Ficha')->FichasMujer(2,$fichas_por_pagina),
-            'viaje' => Doctrine::getTable('Ficha')->FichasMujer(3,$fichas_por_pagina)
-        );
-
-        // $fichasMasVistas = Doctrine::getTable('Ficha')->MasVistasEmpresa(array('limit' => $fichas_por_pagina, 'last_week' => true));
-        // //$fichasDestacadas = Doctrine::getTable('Ficha')->MasDestacadasEmpresa(4);
-
-        // $data['fichasMasVistas'] = $fichasMasVistas;
-        // //$data['fichasDestacadas'] = $fichasDestacadas;
-
-        $nroFichas = Doctrine::getTable('Ficha')->totalPublicados('empresas');
-        $data['nroFichas'] = ( substr($nroFichas, -1) > 0 ) ? $nroFichas - substr($nroFichas, -1) : $nroFichas;
-        $data['esPortada'] = true;
+        $data['tramites_mujer'] = Doctrine::getTable('Ficha')->findBy('es_tramite_mujer', true);
+        $data['tramites_mujer_destacado'] = Doctrine::getTable('Ficha')->findBy('es_tramite_mujer_destacado', true);
         
         return $data;
     }
