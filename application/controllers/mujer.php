@@ -56,8 +56,13 @@ class Mujer extends CI_Controller {
         $fichas_por_pagina = 9;
         $options['limit'] = $fichas_por_pagina;
 
-        $data['tramites_mujer'] = Doctrine::getTable('Ficha')->findBy('es_tramite_mujer', true);
-        $data['tramites_mujer_destacado'] = Doctrine::getTable('Ficha')->findBy('es_tramite_mujer_destacado', true);
+        // $data['tramites_mujer'] = Doctrine::getTable('Ficha')->findBy('es_tramite_mujer', true);
+        $data['tramites_mujer'] = Doctrine::getTable('Ficha')->FichasMujer($fichas_por_pagina);
+        $data['tramites_mujer_destacado'] = Doctrine::getTable('Ficha')->FichasMujerDestacadas();
+
+        // $data['tramites_mujer'] = Doctrine_Query::create()->from('Ficha f')->where('f.es_tramite_mujer = true')->andWhere('f.publicado = 1')->orderBy('f.id')->limit($fichas_por_pagina)->execute();
+        
+        // $data['tramites_mujer_destacado'] = Doctrine::getTable('Ficha')->findBy('es_tramite_mujer_destacado', true);
         
         return $data;
     }

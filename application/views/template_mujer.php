@@ -40,28 +40,55 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             var current_url="<?= current_url(); ?>";
         </script>
     </head>
-    <body data-spy="scroll" data-target=".nav-scrollspy">
+    <?php if(isset($ficha->objetivo)){ ?>
+        <body class="body-ficha-mujer" data-spy="scroll" data-target=".nav-scrollspy">
+    <?php }else{ ?>
+        <body data-spy="scroll" data-target=".nav-scrollspy">
+    <?php } ?>
         <?php 
-        $isEmpresa = false;
         $isMujer = true;
         include('header_selector.php'); ?>
-        <header class="no-print header-mujer">
+        <?php if(isset($ficha->objetivo)){ ?>
+            <header class="no-print header-mujer-home">
+        <?php }else{ ?>
+            <header class="no-print header-mujer">
+        <?php } ?>
+        
             <div class="container">
                 <div class="header-top">
                     <div class="row-fluid">
-                        <div class="span4">
+                        <div class="span7">
                             <h1>
                                 <a href="<?php echo site_url('/mujer'); ?>">
                                     <img src="<?php echo base_url('assets_v2/img/header/chileatiende-en-el-mujer_logo.png'); ?>" alt="ChileAtiende Mujer">
                                 </a>
                             </h1>
                         </div>
-                        <div class="span8 search-bar">
+                        <div class="span5 search-bar">
                             <form action="<?= site_url('buscar/fichas') ?>" method="get" id="main_search">
-                                <input accesskey="b" autofocus="autofocus" id="main_search_input" class="pull-left <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?> main_search_input" autocomplete="off" name="buscar" placeholder="Busca lo que necesitas" type="text" <?php echo (isset($hidden_string)) ? "value='" . $hidden_string . "'" : "" ?> />
-                                <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span> Buscar</button>
+                                <input style="border: none !important" accesskey="b" autofocus="autofocus" id="main_search_input" class="pull-left <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?> main_search_input" autocomplete="off" name="buscar" placeholder="Busca lo que necesitas..." type="text" <?php echo (isset($hidden_string)) ? "value='" . $hidden_string . "'" : "" ?> />
+                                <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span></button>
                                 <input type="hidden" name="e" value="2">
                             </form>
+                            <?php if(count($tramites_mujer_destacado)>0): ?>
+                            <div class="section-destacados">
+                                <div class="destacados-mujer-title">
+                                Destacados
+                                </div>
+                            <?php
+                                foreach ($tramites_mujer_destacado as $key => $value) {
+                            ?>
+                                <div class="destacados-mujer">
+                                    <a href="/fichas/ver/<?php print $value['id'];?>?mujer=1">
+                                        <?php echo $value['titulo']; ?>
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>    
+                                    </a>
+                                </div>
+                            <?php
+                                }
+                            ?>
+                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -75,40 +102,52 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <div class="footer-top">
                 <div class="container">
                     <div class="row-fluid">
-                        <div class="span4 sobre-chileatiende">
-                            <h4>
-                                Sobre ChileAtiende Mujer
-                            </h4>
+                        <div class="span3 sobre-chileatiende hidden-phone">
+                            <h4>Sobre ChileAtiende</h4>
                             <ul class="unstyled">
-                                <li><a href="<?= base_url('contenidos/que-es-chileatiende-mujer')."?mujer=1" ?>">¿Qué es ChileAtiende Mujer?</a></li>
-                                <li><a href="http://www.chilevacontigo.gob.cl/" target="_blank">Servicios disponibles en Consulados</a></li>
-                                <li><a href="<?= base_url('servicios/directoriomujerr') ?>">Instituciones Asociadas</a></li>
-                                <li><a href="<?= base_url('contenidos/faq-mujer?mujer=1') ?>">Preguntas Frecuentes</a></li>
+                                <li><a href="<?php echo site_url('contenidos/que-es-chileatiende'); ?>" alt="Encuentra toda la información relacionada al proyecto ChileAtiende">¿Qué es ChileAtiende?</a></li>
+                                <li><a href="<?php echo site_url('serviciosdisponibles'); ?>" alt="Encuentra todos los servicios y beneficios  disponibles en ChileAtiende">Servicios disponibles en sucursales</a></li>
+                                <li><a href="<?php echo site_url('servicios/directorio/') ?>" alt="Listado de todas las instituciones en convenio con ChileAtiende">Instituciones asociadas</a></li>
+                                <li><a href="<?php echo site_url('contenidos/preguntas-frecuentes'); ?>" rel="help" data-ga-te-category="Acciones" data-ga-te-action="Ayuda" data-ga-te-value="Footer" alt="Preguntas Frecuentes">Preguntas frecuentes</a></li>
                             </ul>
                         </div>
-                        <div class="span4 terminos-condiciones">
+                        <div class="span3 terminos-condiciones">
                             <h4>
-                                Términos y Condiciones
+                                Términos y condiciones
                             </h4>
                             <ul class="unstyled">
-                                <li><a href="<?= base_url('contenido/politicadeprivacidad') ?>">Política de Privacidad</a></li>
-                                <li><a href="<?= base_url('contenidos/terminosycondiciones') ?>">Términos de Uso</a></li>
-                                <li><a href="<?= base_url('/sitemap') ?>" title="Mapa del Sitio">Mapa del Sitio</a></li>
-                                <li><a href="<?= base_url('contenido/visualizadores') ?>">Herramientas de visualización de datos</a></li>
+                                <li><a href="<?= site_url('contenido/politicadeprivacidad') ?>" alt="Política de privacidad">Política de privacidad</a></li>
+                                <li><a href="<?= site_url('contenido/terminosycondiciones') ?>" alt="Términos de uso">Términos de uso</a></li>
+                                <li><a href="<?= site_url('contenido/visualizadores') ?>" alt="Visualizadores">Visualizadores</a></li>
                             </ul>
                         </div>
-                        <div class="span4 accesos-directos">
+                        <div class="span3 accesos-directos hidden-phone">
                             <h4>
-                                Nuestra Red de Atención
+                                Accesos directos
                             </h4>
-                            <div class="offset1 row-fluid">
-                                <div class="span1 red-atencion">
-                                    <a href="http://www.chilevacontigo.gob.cl/" target="_blank"><img class="btn-redatencion" src="/assets_v2/img/iconos/btn_red-atencion_chile-va-contigo.png"></a>
-                                </div>
-                                <div class="span1 red-atencion">
-                                    <a href="https://contacto.chilesinpapeleo.cl/tramites/iniciar/3280" target="_blank"><img class="btn-redatencion" src="/assets_v2/img/iconos/btn_red-atencion_simple.png"></a></div>
-                                </div>
+                            <ul class="unstyled">
+                               <li><a href="<?= base_url('/sitemap') ?>" alt="Mapa del sitio">Mapa del sitio</a></li>
+                               <li><a target="_blank" href="<?= base_url('/desarrolladores/') ?>" alt="API para desarrolladores">API para desarrolladores</a></li>
+                               <li><a href="<?= base_url('/widget/') ?>" alt="ChileAtiende en tu sitio">ChileAtiende en tu sitio</a></li>
+                            </ul>
                         </div>
+                        <div class="span3 red-multicanal">
+                            <h4>
+                                Nuestra red multicanal
+                            </h4>
+                            <div class="lista-canales">
+                                <a class="canal-twitter" href="https://twitter.com/ChileAtiende" target="_blank" alt="Twitter"></a>
+                                <a class="canal-facebook" href="https://www.facebook.com/ChileAtiende" target="_blank" alt="Facebook"></a>
+                                <a class="canal-oficina" href="<?php echo site_url('oficinas'); ?>" alt="Puntos de atención"></a>
+                                <a class="hidden-phone canal-mail" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="lista-canales-callcenter">
+                                <a class="canal-callcenter" href="<?php echo site_url('contenidos/callcenter'); ?>" alt="Twitter">CallCenter 101</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -119,13 +158,13 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 <li class="creative-commons"><a href="http://creativecommons.org/licenses/by/3.0/cl/" alt="Creative Commons">CC BY 3.0</a></li>
                             </ul>
                             <div class="modernizacion">
-                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)" id="link-footer-70-8e9337fe3fb174750dfa4ffdf288330c">Instituto de Previsión Social (MINTRAB)</a></span><br>
-                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de Gobierno Digital" id="link-footer-71-6d9a36fa9fa35e45063673431d0558b3">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia" id="link-footer-72-eba202e9083cb9045b0911b5d8b6f9a0">(MINSEGPRES)</a></span><br>
-                                <span>Portal en <span class="label label-info">BETA</span></span><br>
+                                <span>ChileAtiende es una marca registrada por: <a href="http://www.ips.gob.cl/" target="_blank" alt="Instituto de Previsión Social (MINTRAB)">Instituto de Previsión Social (MINTRAB)</a></span><br />
+                                <span>Portal desarrollado por: <a href="http://www.modernizacion.gob.cl" target="_blank" alt="Unidad de modernización y gobierno digital">Unidad de modernización y gobierno digital </a><a href="http://www.modernizacion.gob.cl" target="_blank" alt="Ministerio Secretaría General de la Presidencia">(MINSEGPRES)</a></span><br />
+                                <span>Portal en <span class="label label-info">BETA</span></span><br />
                             </div>
                         </div>
-                        <div class="span6 offset4 cont-logo-footer">
-                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/">Gobierno de Chile</a>
+                        <div class="span4 pull-right cont-logo-footer visible-desktop">
+                            <a class="gobierno-chile" target="_blank" href="http://www.gobiernodechile.cl/" alt="Gobierno de Chile">Gobierno de Chile</a>
                         </div>
                     </div>
                 </div>

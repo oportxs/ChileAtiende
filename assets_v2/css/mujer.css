@@ -1,6 +1,21 @@
 body {
   /*background: url('../img/background/fondo_chileatiende-en-el-exterior.jpg') center top no-repeat fixed;*/
-  background: url('../img/background/chat-ext-bg.jpg') center top no-repeat fixed;
+/*  background: url('../img/background/chat-ext-bg.jpg') center top no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: none !important;
+}
+.body-ficha-mujer {
+  background: url('../img/background/chat-mujer-bg.png') center top no-repeat !important;
+  -webkit-background-size: contain !important;
+  -moz-background-size: contain !important;
+  -o-background-size: contain !important;
+  background-size: contain !important;
+}
+.header-mujer {
+  background: url('../img/background/chat-mujer-bg.png') center top no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -54,13 +69,18 @@ header .banner-home {
 header .header-top .search-bar form .main_search_input,
 header .header-top .cont-busqueda form .main_search_input {
   float: none;
-  width: 540px;
-  height: 47px;
+  /*width: 540px;*/
+  /*width: 380px;*/
+  width: calc(100% - 80px);
+  /*height: 47px;*/
+  height: 25px;
   font-size: 20px;
   border-right: none;
   border-radius: 0;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  /*border-top-left-radius: 5px;*/
+  border-top-left-radius: 3px;
+  /*border-bottom-left-radius: 5px;*/
+  border-bottom-left-radius: 3px;
   padding-left: 15px;
   font-weight: 100;
   font-family: "gobCLRegular", Arial, Helvetica, sans-serif;
@@ -69,14 +89,18 @@ header .header-top form .searchbtn {
   display: inline;
   float: none;
   border: none;
-  height: 57px;
+  /*height: 57px;*/
+  /*height: 55px;*/
+  height: 33px;
   padding: 5px 15px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background-color: #02d073;
+  /*background-color: #02d073;*/
+  background-color: #FFFFFF;
   margin-bottom: 10px;
   margin-left: -5px;
-  color: #ffffff;
+  /*color: #ffffff;*/
+  color: #02d073;
   font-size: 23px;
 }
 .background {
@@ -95,6 +119,34 @@ body .esPortada {
   padding: 5px 35px 30px;
   min-height: 520px;
 }
+.section-destacados{
+  padding-top: 100px;
+  width: calc(100% - 10px);
+  text-align: left;
+  margin-left: 10px;
+}
+.destacados-mujer-title{
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 6px 4px 6px 6px;
+  margin-bottom: 2px;
+  color: white !important;
+  font-weight: bold !important;
+}
+.destacados-mujer{
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 6px 4px 6px 20px;
+  margin-bottom: 2px;
+}
+.destacados-mujer a{
+  text-decoration: none !important;
+  color: white !important;
+}
+.destacados-mujer .fa{
+  float: right !important;
+  margin-right: 10px !important;
+}
+
 .titulos-accesos h3 {
   float: left;
   color: #FFF;
@@ -380,7 +432,8 @@ body .esPortada {
     font-size: 22px;
   }
   header .header-top .search-bar form .main_search_input, header .header-top .cont-busqueda form .main_search_input {
-    width: 450px;
+    /*width: 450px;*/
+    width: 400px;
   }
   .nav-principal div.span2 p.tab a {
     font-size: 18px;
