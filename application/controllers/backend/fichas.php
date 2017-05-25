@@ -91,6 +91,7 @@ class Fichas extends CI_Controller {
 
     public function ver($id, $flujo = FALSE) {
         $ficha = Doctrine::getTable('Ficha')->find($id);
+        // var_dump($ficha);die();
         
         $etapasvida = Doctrine::getTable('EtapaVida')->findAll();
 
@@ -639,6 +640,8 @@ class Fichas extends CI_Controller {
                 $ficha->content_updated_data_at = date('Y-m-d H:i:s');
 
                 $ficha->es_tramite_exterior = ($this->input->post('exterior')=='on');
+                $ficha->es_tramite_mujer = ($this->input->post('chat_mujer')=='on');
+                $ficha->es_tramite_mujer_destacado = ($this->input->post('chat_mujer_destacado')=='on');
 
                 
 

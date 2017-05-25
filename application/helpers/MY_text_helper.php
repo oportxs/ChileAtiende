@@ -20,7 +20,7 @@ function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha 
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
-    $texto = tidy_parse_string($texto, array(), 'UTF8');
+    // $texto = tidy_parse_string($texto, array(), 'UTF8');
 
     // YOUTUBE
     // {{youtube:idvideo}}

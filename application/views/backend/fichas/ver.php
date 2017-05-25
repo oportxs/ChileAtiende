@@ -397,6 +397,24 @@
             <td><?= $ficha->sic ?></td>
         </tr>
 
+        <?php if($ficha->isTramiteMujer()):?>
+        <tr>
+            <td colspan="2" style="text-align: center; color: #000; background-color: #CCC; font-weight: bold;">Chileatiende Mujer</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Se muestra en portal ChileAtiende Mujer?</td>
+            <td>
+                <?=($ficha->isTramiteMujer()?"Si":"No")?>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Destacado en portada de ChileAtiende Mujer</td>
+            <td>
+                <?=($ficha->isTramiteMujerDestacado()?"Si":"No")?>
+            </td>
+        </tr>
+        <?php endif; // mujer?>
+
         <?php if($ficha->isTramiteExterior()):?>
         <tr>
             <td colspan="2" style="text-align: center; color: #000; background-color: #CCC; font-weight: bold;">Trámite para chilenos en el Exterior</td>
@@ -417,6 +435,8 @@
                 <?=($ficha->isTramiteExteriorDestacado()?"Si":"No")?>
             </td>
         </tr>
+        <?php endif; // exterior?>
+
         <?php if($ficha->guia_consulado): ?>
         <tr>
             <td>
@@ -427,8 +447,7 @@
             </td>
         </tr>
         <?php endif; // guia_consulado?>
-        <?php endif;?>
-
+        
         <?php
         if (UsuarioBackendSesion::usuario()->tieneRol('publicador')) {
             if ($ficha->cc_id || $ficha->cc_formulario || $ficha->cc_llavevalor) {
