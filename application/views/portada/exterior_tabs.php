@@ -1,6 +1,6 @@
 <div class="background span12"></div>
 <div class="contenedor-principal">	
-	<div class="header-search cont-busqueda">
+	<div class="header-banner-area">
 		
 	</div>
 
