@@ -1,10 +1,8 @@
-
-
 <div id='navegacion' class='no-print'>
     <div class='container wrapper'>
         <ul class="pull-right">
             <li class='<?php echo ($isEmpresa || $isExterior || $es_exterior || $isMujer)?'':'active';?>' ><a href='/'>ChileAtiende</a></li>
-            <li class='<?php echo ($isMujer || $es_mujer)?'active':'';?>' ><a href='/mujer'>Mujer</a></li>
+            <!-- <li class='<?php // echo ($isMujer || $es_mujer)?'active':'';?>' ><a href='/mujer'>Mujer</a></li> -->
             <li class='<?php echo ($isExterior || $es_exterior)?'active':'';?>' ><a href='/exterior'>Chilenos en el Exterior</a></li>
             <li class='<?php echo ($isEmpresa)?'active':'';?>'><a href='/empresas'>Pymes</a></li>
         </ul>
@@ -19,5 +17,3 @@
 		</div>
 	</div>
 </div> -->
-
-

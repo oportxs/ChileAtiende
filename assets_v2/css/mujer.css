@@ -8,14 +8,14 @@ body {
   background: none !important;
 }
 .body-ficha-mujer {
-  background: url('../img/background/chat-mujer-bg.png') center top no-repeat !important;
+  background: url('../img/background/chat-mujer-bg.jpg') center top no-repeat !important;
   -webkit-background-size: contain !important;
   -moz-background-size: contain !important;
   -o-background-size: contain !important;
   background-size: contain !important;
 }
 .header-mujer {
-  background: url('../img/background/chat-mujer-bg.png') center top no-repeat;
+  background: url('../img/background/chat-mujer-bg.jpg') center top no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
