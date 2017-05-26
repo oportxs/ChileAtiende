@@ -1,5 +1,3 @@
-
-
 <div id='navegacion' class='no-print'>
     <div class='container wrapper'>
         <ul class="pull-right">
@@ -18,6 +16,4 @@
 			<a href="http://www.onemi.gob.cl" target="_blank"><img src="<?php echo config_item('base_url');?>assets_v2/img/banners/banner-emergencia-980x80.png" class="img-responsive" /></a>
 		</div>
 	</div>
-</div> -->º
-
-
+</div> -->

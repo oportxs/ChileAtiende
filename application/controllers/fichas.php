@@ -63,7 +63,7 @@ class Fichas extends CI_Controller {
             $data['categorytabs_closed'] = TRUE;
             $data['title'] = ''.$ficha->titulo;
 
-            if($ficha->es_tramite_mujer==1){
+            if($ficha->es_tramite_mujer==1 || $codigo_ab == "mujer"){
                 $this_tpl = 'fichas/ver_mujer';
             }else{
                 $this_tpl = 'fichas/ver_v'.$codigo_ab;
