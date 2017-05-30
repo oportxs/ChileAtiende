@@ -222,7 +222,7 @@ class FichaTable extends Doctrine_Table {
         $query = Doctrine_Query::create();
         $query->from('Ficha f, f.Temas temas, f.Servicio servicio, servicio.Entidad entidad');
         $query->andWhere('f.id = ?', $ficha_id);
-// die("SQL => ".$query->getSqlQuery());
+        // die("SQL => ".$query->getSqlQuery());
         return $this->_optionsHandler($query, $options);
     }
 
