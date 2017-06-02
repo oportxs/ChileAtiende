@@ -6,6 +6,8 @@ if (!defined('BASEPATH'))
 class Mujer extends CI_Controller {
 
     public function index() {
+        show_404();
+
         $data = $this->_load_common_data();
         $data['title'] = 'Portada ChileAtiende Mujer';
         $data['content'] = 'portada/mujer_tabs';
