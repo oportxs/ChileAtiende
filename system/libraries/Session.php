@@ -324,7 +324,10 @@ class CI_Session {
 		// Save the data to the DB if needed
 		if ($this->sess_use_database === TRUE)
 		{
-			$this->CI->db->query($this->CI->db->insert_string($this->sess_table_name, $this->userdata));
+			$cadena_query = $this->CI->db->insert_string($this->sess_table_name, $this->sess_table_name);
+			$cadena_query = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $cadena_query);
+			$this->CI->db->query($cadena_query);
+			// $this->CI->db->query($this->CI->db->insert_string($this->sess_table_name, $this->userdata));
 		}
 
 		// Write the cookie
