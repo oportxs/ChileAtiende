@@ -137,6 +137,7 @@ body .esPortada {
   background-color: rgba(0, 0, 0, 0.65);
   padding: 6px 4px 6px 20px;
   margin-bottom: 2px;
+  margin-right: 10px;
 }
 .destacados-mujer a{
   text-decoration: none !important;
