@@ -62,6 +62,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span> Buscar</button>
                                 <input type="hidden" name="e" value="2">
                             </form>
+                            <a class="registro-link" href="http://www.votoenelexterior.cl" target="_blank" onclick="_gaq.push(['_trackEvent', 'outgoing_links', 'www.votoenelexterior.cl'])">
+                              <img class="pull-right" src="/assets_v2/img/banners/votoexterior320X100.png" width="320" style="visibility:visible">
+                            </a>
                         </div>
                     </div>
                 </div>

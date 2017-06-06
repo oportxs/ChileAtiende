@@ -15,12 +15,9 @@ class Fichas extends CI_Controller {
         $this->load->library('user_agent');
         $codigo_ab = !in_array($codigo_ab, array('2', '3', '4')) || $this->agent->is_mobile() ? '2' : $codigo_ab;
 
-        $pre_ficha = Doctrine::getTable('Ficha')->findFichaMujer($id);
-        if($pre_ficha->es_tramite_mujer){
-            list($ficha) = $pre_ficha;
+        list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
+        if(isset($ficha->es_tramite_mujer) && ($ficha->es_tramite_mujer == true)) {
             $codigo_ab = "mujer";
-        }else{
-            list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
         }
 
         // verificar si estamos en ChAt exterior

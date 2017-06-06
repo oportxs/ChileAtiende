@@ -68,7 +68,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             <form action="<?= site_url('buscar/fichas') ?>" method="get" id="main_search">
                                 <input style="border: none !important" accesskey="b" autofocus="autofocus" id="main_search_input" class="pull-left <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?> main_search_input" autocomplete="off" name="buscar" placeholder="Busca lo que necesitas..." type="text" <?php echo (isset($hidden_string)) ? "value='" . $hidden_string . "'" : "" ?> />
                                 <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span></button>
-                                <input type="hidden" name="e" value="2">
+                                <input type="hidden" name="e" value="3">
                             </form>
                             <?php if(count($tramites_mujer_destacado)>0): ?>
                             <div class="section-destacados">
