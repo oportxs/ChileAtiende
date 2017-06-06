@@ -79,7 +79,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 foreach ($tramites_mujer_destacado as $key => $value) {
                             ?>
                                 <div class="destacados-mujer">
-                                    <a href="/fichas/ver/<?php print $value['id'];?>?mujer=1">
+                                    <a href="/fichas/ver/<?php print $value['maestro_id'];?>?mujer=1">
                                         <?php echo $value['titulo']; ?>
                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>    
                                     </a>
