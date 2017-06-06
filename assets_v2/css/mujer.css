@@ -117,7 +117,7 @@ body .esPortada {
   background-color: transparent;
 }
 .contenedor-principal {
-  padding: 5px 35px 30px;
+  /*padding: 5px 35px 30px;*/
   min-height: 520px;
 }
 .section-destacados{
@@ -335,7 +335,8 @@ body .esPortada {
 }
 .sello_chilesinpapeleo > img {
   position: absolute;
-  right: 0;
+  /*right: 0;*/
+  right: 2px;
 }
 .masonry-item {
   font-family: Helvetica, Arial, sans-serif;
