@@ -96,4 +96,8 @@ $(document).ready(function() {
         $('#tab-default').trigger('click');
     }, 1*500)
 
+    $('.grid').masonry({
+      itemSelector: '.grid-item'
+    });
+
 });
