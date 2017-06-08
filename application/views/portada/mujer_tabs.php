@@ -2,11 +2,11 @@
 <div class="contenedor-principal">	
 	<div class="header-search cont-busqueda"></div>
 	<div class="row-fluid">
-		<div class="span12 nav-secundaria-movil fichas-mujer <?=$key?>" data-masonry='{ "itemSelector": ".masonry-item", "columnWidth": 200 }'>
+		<div class="grid span12 nav-secundaria-movil fichas-mujer <?=$key?>">
 			<?php  
 				foreach($tramites_mujer as $key=>$f): 
 			?>
-			  <div class="mujer-box masonry-item span3 <?php if($f['sello_chilesinpapeleo']) print "sello_chilesinpapeleo";?>">
+			  <div class="grid-item mujer-box span3 <?php if($f['sello_chilesinpapeleo']) print "sello_chilesinpapeleo";?>">
 					<?php if($f['sello_chilesinpapeleo']):?>
 					<img src="/assets_v2/img/label_sello_chileatiende.png" class="label_chilesinpapeleo" alt="Trámite 100% digital de Chile sin papeleo">
 					<?php endif;?>
