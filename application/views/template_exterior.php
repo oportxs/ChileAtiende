@@ -160,5 +160,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
+
+        <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
+
     </body>
 </html>
