@@ -466,6 +466,15 @@ body .esPortada {
     background-image: none;
     background-color: #7a7979;
   }
+
+  .body-ficha-mujer {
+    background: url('../img/background/chat-mujer-bg.jpg') center top no-repeat !important;
+    -webkit-background-size: initial !important;
+    -moz-background-size: initial !important;
+    -o-background-size: initial !important;
+    background-size: initial !important;
+  }
+
   .fichas-mujer .span3 {
       width: 100% !important;
   }
