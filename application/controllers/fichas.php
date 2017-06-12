@@ -16,12 +16,6 @@ class Fichas extends CI_Controller {
         $codigo_ab = !in_array($codigo_ab, array('2', '3', '4')) || $this->agent->is_mobile() ? '2' : $codigo_ab;
 
         list($ficha) = Doctrine::getTable('Ficha')->findPublicado($id);
-
-        // echo "<pre>";
-        // print_r( $ficha );
-        // echo "</pre>";
-        // die();
-
         if(isset($ficha->es_tramite_mujer) && ($ficha->es_tramite_mujer == true)) {
             $codigo_ab = "mujer";
         }
