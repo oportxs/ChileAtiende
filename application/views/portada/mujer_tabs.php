@@ -24,7 +24,7 @@
 						array_push($disponible, "en línea");
 					}
 					if( isset($f['guia_oficina']) && ($f['guia_oficina']!='') ){
-						array_push($disponible, "en oficina en Chile");
+						array_push($disponible, "en oficina");
 					}
 					?>
 					<?php if(sizeof($disponible)):?>
