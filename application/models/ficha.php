@@ -436,9 +436,11 @@ class Ficha extends Doctrine_Record {
     }
 
     function listarMotivosExterior(){
+        $last_version = $this->getUltimaVersion()->id;
         $tramite_exterior = Doctrine_Query::create()
                                 ->from('TramiteEnExterior t')
-                                ->where('t.id_ficha = ?', $this->id)
+                                // ->where('t.id_ficha = ?', $this->id)
+                                ->where('t.id_ficha = ?', $last_version)
                                 // ->findByIdFicha($this->id)
                                 ->leftJoin('t.MotivosEnExterior m ON m.id = t.motivo_id')
                                 ->fetchArray();

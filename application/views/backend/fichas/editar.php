@@ -490,7 +490,9 @@
         <!-- chilenos en el extranjero -->
         <fieldset>
             <legend>Clasificación Chileatiende en el Exterior</legend>
-
+            <pre>
+                <?php //var_dump($motivos_en_exterior); ?>
+            </pre>
             <div class="tramite-exterior">
                 <table class="formTable">
                     <tr>
@@ -515,8 +517,9 @@
                                         <?php if(!$ficha->isTramiteExterior()) print 'disabled="disabled"';?>
                                         style="width: 350px;">
                                     <option value></option>
+
                                     <?php foreach($motivos_en_exterior as $key=>$value):?>
-                                    <option value="<?=$value->id?>" <?php if($ficha->checkMotivosSelected($value->id)) print "selected";?>><?=$value->nombre?></option>
+                                    <option value="<?=$value->id?>" <?php if($ficha->getUltimaVersion()->checkMotivosSelected($value->id)) print "selected";?>><?=$value->nombre?></option>
                                     <?php endforeach;?>
                                 </select>
                             </td>

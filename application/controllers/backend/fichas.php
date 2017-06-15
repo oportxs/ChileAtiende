@@ -681,6 +681,7 @@ class Fichas extends CI_Controller {
                 $ficha->save();
 
                 if($this->input->post('tipo_residente') ) {
+                    // var_dump($this->input->post('tipo_residente'));die();
                     // Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
                     foreach ($this->input->post('tipo_residente') as $key => $value) {
                         $tramite_exterior = new TramiteEnExterior();
