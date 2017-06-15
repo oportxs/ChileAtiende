@@ -104,6 +104,9 @@ header .header-top form .searchbtn {
   color: #02d073;
   font-size: 23px;
 }
+.sobre-esta-imagen{
+  display: none !important;
+}
 .background {
   z-index: -1;
   position: absolute;
