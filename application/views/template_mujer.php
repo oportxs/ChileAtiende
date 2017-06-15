@@ -68,7 +68,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                             <form action="<?= site_url('buscar/fichas') ?>" method="get" id="main_search">
                                 <input style="border: none !important" accesskey="b" autofocus="autofocus" id="main_search_input" class="pull-left <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?> main_search_input" autocomplete="off" name="buscar" placeholder="Busca lo que necesitas..." type="text" <?php echo (isset($hidden_string)) ? "value='" . $hidden_string . "'" : "" ?> />
                                 <button type="submit" accesskey="s" class="pull-right searchbtn"><span class="fa fa-search" aria-hidden="true"></span></button>
-                                <input type="hidden" name="e" value="2">
+                                <input type="hidden" name="e" value="3">
                             </form>
                             <?php if(count($tramites_mujer_destacado)>0): ?>
                             <div class="section-destacados">
@@ -79,7 +79,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                 foreach ($tramites_mujer_destacado as $key => $value) {
                             ?>
                                 <div class="destacados-mujer">
-                                    <a href="/fichas/ver/<?php print $value['id'];?>?mujer=1">
+                                    <a href="/fichas/ver/<?php print $value['maestro_id'];?>?mujer=1">
                                         <?php echo $value['titulo']; ?>
                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>    
                                     </a>
@@ -175,13 +175,20 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         </a>
         <div id="modal-chileatiende" class="modal hide fade">
         </div>
+
+        <script type="text/javascript">
+            var site_url="<?= base_url() ?>";
+            var base_url="<?= base_url() ?>";
+            var current_url="<?= current_url(); ?>";
+        </script>
+
         <script src="<?php echo base_url('assets_v2/js/vendor/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery.cookie.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/jquery.masonry.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/vendor/imagesloaded.pkgd.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/frontend.js'); ?>"></script>
         <script src="<?php echo base_url('assets_v2/js/mujer.js'); ?>"></script>
-        <script src="<?php echo base_url('assets_v2/js/vendor/rs_embhl_v2_es_419.js') ?>" type="text/javascript"></script>
+
         <script>
             var _gaq = _gaq || [];
             var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
@@ -196,5 +203,54 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
+ 
+        <script>
+            //Se maraca el origen de navegación en el sitio
+            var origen_navegacion = $.cookie('origen_navegacion') || '';
+            _gaq.push(['_setCustomVar', 3, 'origen_navegacion', origen_navegacion, 2]);
+            if($.cookie('id_modulo') && $.cookie('id_modulo') != 'null'){
+                var id_modulo = $.cookie('id_modulo'),
+                    url_barra_modulo = '<?php echo site_url("portada/barramodulo"); ?>/'+id_modulo+'/1';
+
+                $('#cont-barra-modulo-atencion').load(url_barra_modulo, function () {
+                    $(this).on('click', '.accionModulo a', function (e) {
+                        $.cookie('id_modulo', null, {path: '/'});
+                        window.location = this.href;
+                        e.preventDefault();
+                    });
+                    //El trackPageView se debe hacer despúes de inclur las customVars de la barra de modulos de autoatencion
+                    _gaq.push(['_trackPageview']);
+                });
+            }else{
+                if($('#cont-modal-oficinas').length){
+                    $('#modal-moduloatencion').modal();
+                    $('#modal-moduloatencion').on('submit', 'form', function (e) {
+                        $.cookie('id_modulo', $(this).find('#id_modulo').val(), {path: '/'});
+                        window.location = $(this).attr('action');
+                        e.preventDefault();
+                    });
+                }
+                //Si no se está cargando la barra del modulo de autoatencion, se marca la pagina
+                _gaq.push(['_trackPageview']);
+            }
+        </script>
+
+        <?php echo isset($assets) ? loadAssets($assets, 'js') : ''; ?>
+
+        <div id="survey-modal" class="modal hide fade" tabindex="-1" role="dialog">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+              <h3>Queremos conocer su Opinión</h3>
+          </div>
+          <div class="modal-body">
+              <iframe id="gform" src="" height="250" frameborder="0"></iframe>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+
+        <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
+
     </body>
 </html>

@@ -725,18 +725,18 @@ class FichaTable extends Doctrine_Table {
         
         $sql = "SELECT f.*, s.nombre as nombre_servicio FROM ficha f ";
         $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
-        $sql.= "WHERE f.es_tramite_mujer = 1 AND f.maestro = 0 AND f.es_tramite_mujer_destacado != 1 AND f.publicado = 1 LIMIT " . $limit;
+        $sql.= "WHERE f.es_tramite_mujer = 1 AND f.maestro = 0 AND f.publicado = 1 LIMIT " . $limit;
         $result = $conn->execute($sql);
         return $result->fetchAll();
     }
     function FichasMujerDestacadas(){
-        $conn = Doctrine_Manager::getInstance()->connection();
-        
-        $sql = "SELECT f.*, s.nombre as nombre_servicio FROM ficha f ";
-        $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
-        $sql.= "WHERE f.es_tramite_mujer = 1 AND f.maestro = 0 AND f.es_tramite_mujer_destacado = 1 AND f.publicado = 1";
-        $result = $conn->execute($sql);
-        return $result->fetchAll();
+        $query = Doctrine_Query::create();
+        $query->from('Ficha f, f.Temas temas, f.Servicio servicio, servicio.Entidad entidad');
+        $query->andWhere('f.es_tramite_mujer = 1 and f.es_tramite_mujer_destacado = 1');
+        $query->andWhere('f.maestro = 0 and f.publicado = 1');
+
+        return $this->_optionsHandler($query, $options);
+
     }
 
 

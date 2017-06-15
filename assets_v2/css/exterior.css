@@ -411,8 +411,13 @@ body .esPortada {
 }
 @media (max-width: 640px) {
   body {
-    background-image: none;
-    background-color: #7a7979;
+    /*background-image: none;*/
+    /*background-color: #7a7979;*/
+    background: url('../img/background/chat-ext-bg.jpg') center top no-repeat fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
   }
   .fichas-exterior .span3 {
       width: 100% !important;
@@ -504,9 +509,11 @@ body .esPortada {
     font-size: initial;
   }
   .nav-principal div.span2 {
-    width: 100%;
+    /*width: 100%;*/
+    width: 20% !important;
     min-height: 30px;
-    height: 65px;
+    /*height: 65px;*/
+    height: 110px;
     text-align: center;
   }
   .nav-principal div.span2[data-id="4"] {
@@ -522,7 +529,7 @@ body .esPortada {
     margin-top: initial;
   }
   header .header-top .search-bar form .main_search_input, header .header-top .cont-busqueda form .main_search_input {
-    width: 300px;
+    /*width: 400px;*/
   }
   .span12.nav-secundaria {
     display: none;

@@ -6,11 +6,11 @@ if (!defined('BASEPATH'))
 class Buscar extends CI_Controller {
 
     public function fichas() {
+
         $per_page = 10;
 
         //Se obtienen los parametros de busqueda definidos en el input del usuario
         $buscar                 = $this->input->get('buscar');
-
 
         $offset                 = (int)$this->input->get('offset');
         $exacto                 = $this->input->get('exacto');
@@ -18,8 +18,8 @@ class Buscar extends CI_Controller {
 
         // bypass vista exterior
         $vista = $vista == 2 ? $vista = 0 : $vista;
-        // fin bypass vista exterior
 
+        // fin bypass vista exterior
         $filtro_temas           = $this->input->get('temas') ? explode(',', $this->input->get('temas')) : array();
         $filtro_hecho           = $this->input->get('hecho') ? explode(',',$this->input->get('hecho')):array();
         $filtro_genero          = $this->input->get('genero')?$this->input->get('genero'):null;
@@ -300,6 +300,10 @@ class Buscar extends CI_Controller {
             case "2":
                 $template = "template_exterior";
                 $data['filtro_es_tramite_exterior'] = true;
+                break;
+            case "3": /* mujer */
+                $template = "template_mujer";
+                $data['filtro_es_tramite_mujer'] = true;
                 break;
             default:
                 $template = 'template_v2';
