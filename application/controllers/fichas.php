@@ -22,8 +22,10 @@ class Fichas extends CI_Controller {
 
         // verificar si estamos en ChAt exterior
         // $es_exterior = $this->input->get('exterior');
-        // if($es_exterior==="1"||$ficha->es_tramite_exterior==1){
-        $data['es_exterior'] = $es_exterior;
+        if($ficha->es_tramite_exterior==1){
+            // $data['es_exterior'] = $es_exterior;
+            $codigo_ab = 5;
+        }
 
         if($ficha->titulo) {
 
@@ -59,7 +61,7 @@ class Fichas extends CI_Controller {
             //Se guardan variables
             $data['categorytabs_closed'] = TRUE;
             $data['title'] = ''.$ficha->titulo;
-
+            // var_dump($codigo_ab);die();
             if($ficha->es_tramite_mujer==1 || $codigo_ab == "mujer"){
                 if($_GET['mujer'] == 1){
                     $this_tpl = 'fichas/ver_mujer';

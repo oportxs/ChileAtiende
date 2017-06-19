@@ -186,6 +186,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     ): ?>
 
                     <div class="canales-tramite">
+                        <pre><?php print_r($ficha->guia_consulado);?></pre>
                         <a id="como-realizar-el-tramite" class="anchor-top">&nbsp;</a>
                         <ul class="nav nav-tabs no-print rs_skip" id="tabs-canales-tramite">
                             <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<li class="online"><a href="#online" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Online" data-ga-te-value="'.$ficha->maestro_id.'">En línea</a></li>':''; ?>
