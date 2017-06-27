@@ -804,12 +804,13 @@ class FichaTable extends Doctrine_Table {
 
     public function FichasExterior($motivo, $limit = 9){
         // motivos: permamente = 1 | temporal = 2 | viaje = 3
-        $conn = Doctrine_Manager::getInstance()->connection();
+        $conn = Doctrine_Manager::getInstance()->connection(); 
         
         $sql = "SELECT f.*, s.nombre as nombre_servicio FROM ficha f ";
-        $sql.= "LEFT JOIN tramite_en_exterior t ON f.id = t.id_ficha ";
-        $sql.= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
+        $sql .= "LEFT JOIN tramite_en_exterior t ON f.id = t.id_ficha ";
+        $sql .= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
         $sql .= "WHERE t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1 AND t.destacado = 1 ";
+        $sql .= "ORDER BY f.created_at DESC ";
         $sql .= "LIMIT " . $limit;
         $result = $conn->execute($sql);
         return $result->fetchAll();
