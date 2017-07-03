@@ -20,9 +20,6 @@ class Fichas extends CI_Controller {
             $codigo_ab = "mujer";
         }
 
-        // verificar si estamos en ChAt exterior
-        // $es_exterior = $this->input->get('exterior');
-        // if($es_exterior==="1"||$ficha->es_tramite_exterior==1){
         $data['es_exterior'] = $es_exterior;
 
         if($ficha->titulo) {
