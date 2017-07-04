@@ -490,9 +490,6 @@
         <!-- chilenos en el extranjero -->
         <fieldset>
             <legend>Clasificación Chileatiende en el Exterior</legend>
-            <pre>
-                <?php //var_dump($motivos_en_exterior); ?>
-            </pre>
             <div class="tramite-exterior">
                 <table class="formTable">
                     <tr>
@@ -527,11 +524,11 @@
                         <tr>
                             <td></td>
                             <td>
-                                <input type="checkbox" name="exterior_destacado" id="chkbox_exterior_destacado" 
+                                <!-- <input type="checkbox" name="exterior_destacado" id="chkbox_exterior_destacado" 
                                     <?php if($ficha->isTramiteExteriorDestacado()) print "checked";?>
                                     <?php if(!$ficha->isTramiteExterior()) print 'disabled="disabled"';?>
                                     />
-                                <label for="chkbox_exterior_destacado">Destacado en la portada de <strong>ChileAtiende en el Exterior</strong></label>
+                                <label for="chkbox_exterior_destacado">Destacado en la portada de <strong>ChileAtiende en el Exterior</strong></label> -->
                             </td>
                         </tr>
                     </table>
