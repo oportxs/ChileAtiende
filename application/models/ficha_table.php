@@ -809,7 +809,12 @@ class FichaTable extends Doctrine_Table {
         $sql = "SELECT f.*, s.nombre as nombre_servicio FROM ficha f ";
         $sql .= "LEFT JOIN tramite_en_exterior t ON f.id = t.id_ficha ";
         $sql .= "LEFT JOIN servicio s ON f.servicio_codigo = s.codigo ";
-        $sql .= "WHERE t.motivo_id = " . $motivo . " AND f.es_tramite_exterior = 1 AND t.destacado = 1 ";
+        //indica la seccion a la que pertenece
+        $sql .= "WHERE t.motivo_id = " . $motivo ." "; 
+        //indica si es de exterior
+        $sql .= "AND f.es_tramite_exterior = 1 ";
+        //indica si es maestro y esta publicado
+        $sql .= "AND f.maestro = 1 AND f.publicado = 1 ";
         $sql .= "ORDER BY f.created_at DESC ";
         $sql .= "LIMIT " . $limit;
         $result = $conn->execute($sql);
