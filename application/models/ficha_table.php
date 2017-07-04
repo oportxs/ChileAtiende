@@ -814,7 +814,7 @@ class FichaTable extends Doctrine_Table {
         //indica si es de exterior
         $sql .= "AND f.es_tramite_exterior = 1 ";
         //indica si es maestro y esta publicado
-        $sql .= "AND f.maestro = 1 AND f.publicado = 1 ";
+        $sql .= "AND f.publicado = 1 ";
         $sql .= "ORDER BY f.created_at DESC ";
         $sql .= "LIMIT " . $limit;
         $result = $conn->execute($sql);
