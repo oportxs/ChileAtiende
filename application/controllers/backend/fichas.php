@@ -378,17 +378,9 @@ class Fichas extends CI_Controller {
         $data['rubros'] = $rubros;
         $data['regiones'] = $regiones;
         $data['tipos_empresa'] = $tipos_empresa;
-// º<<<<<<< HEAD
         $data['motivos_en_exterior'] = $list_motivos_exterior;
         $data['rangos_edad'] =  $rangos_edad;
-// =======
-//         $data['motivos_en_exterior'] = Doctrine::getTable('MotivosEnExterior')->findAll();
-
-//         var_dump($data['motivos_en_exterior']);die();
-// >>>>>>> devel
-
         $data['editar_ext'] = TRUE;
-
         $this->load->view('backend/template', $data);
     }
 
@@ -681,7 +673,7 @@ class Fichas extends CI_Controller {
                 $ficha->save();
 
                 if($this->input->post('tipo_residente') ) {
-                    // Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
+                    Doctrine::getTable('TramiteEnExterior')->findByIdFicha($ficha->id)->delete();
                     foreach ($this->input->post('tipo_residente') as $key => $value) {
                         $tramite_exterior = new TramiteEnExterior();
                         $tramite_exterior->id_ficha = $ficha->getUltimaVersion()->id;
