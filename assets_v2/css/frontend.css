@@ -11772,9 +11772,18 @@ body.portada .container-alertas-sitio .alert:first-child,
 
 /*form encuestas*/
 #gform {
-  width: 100%;
-  height: 350px;
-  overflow-x: hidden;
+  width: 90%;
+  height: 300px;
+  overflow: scroll;
+  padding: 20px;
+}
+#gform .input {
+  width: 90% !important;
+}
+#gform .form-submit {
+    width: 100%;
+    margin-top: 25px;
+    padding: 5px;
 }
 .modal-body {
     position: relative;

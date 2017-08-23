@@ -51,7 +51,7 @@
         ?>
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=2016082402">
+        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=2017081601">
         <?php echo isset($assets) ? loadAssets($assets, 'css') : ''; ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
         <link rel="apple-touch-icon" href="<?php echo base_url('assets_v2/img/touch-icon-iphone.png'); ?>" />
@@ -233,19 +233,58 @@
         <?php echo isset($assets) ? loadAssets($assets, 'js') : ''; ?>
 
         <div id="survey-modal" class="modal hide fade" tabindex="-1" role="dialog">
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)"></iframe>
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-              <h3>Queremos conocer su Opinión</h3>
+            <button type="button" class="close" data-dismiss="modal" id="close-modal">×</button>
+              <h3>Nos interesa tu opinión</h3>
           </div>
           <div class="modal-body">
-              <iframe id="gform" src="" height="250" frameborder="0"></iframe>
+              <!-- <iframe id="gform" src="" height="250" frameborder="0"></iframe> -->
+              <img src="/assets_v2/img/gob_cl.png">
+              <form id="gform" 
+                    class="form" 
+                    target="hidden_iframe"
+                    onsubmit="submitted=true;" 
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSdvAUG_4qXXNq17BC9q1dqt1yKKk42eICw8WuClElXs78LdZw/formResponse">
+                <h4>Déjanos tu email para contactarte y tener tu opinión y evaluación de nuestro canal web</h4>
+                <div class="form-group">
+                    <label>e-mail</label>
+                    <input class="input" id="gform-email" name="entry.175042737" type="email" required placeholder="ejemplo@dominio.com"/>
+                </div>
+                <div class="form-group">
+                    <label>Región</label>
+                    <select class="input" name="entry.879761844">
+                      <option value="Región Metropolitana" selected="selected">Región Metropolitana</option>
+                      <option value="Arica y Parinacota">Arica y Parinacota</option>
+                      <option value="Tarapacá">Tarapacá</option>
+                      <option value="Antofagasta">Antofagasta</option>
+                      <option value="Atacama">Atacama</option>
+                      <option value="Coquimbo">Coquimbo</option>
+                      <option value="Valparaiso">Valparaiso</option>
+                      <option value="O'Higgins">O'Higgins</option>
+                      <option value="Tarapacá">Maule</option>
+                      <option value="Biobío">Biobío</option>
+                      <option value="La Araucanía">La Araucanía</option>
+                      <option value="Los Ríos">Los Ríos</option>
+                      <option value="Los Lagos">Los Lagos</option>
+                      <option value="Aysen">Aysén</option>
+                      <option value="Magallanes y Antártica">Magallanes y Antártica</option>
+                    </select>
+                </div>
+                <div class="form-group text-right">
+                    <input class="form-submit btn btn-primary" id="gform-submit" type="submit" value="Deseo participar"/>
+                    <!-- <input class="form-submit btn btn-secondary" data-dismiss="modal" type="button" value="No deseo participar"/> -->
+                </div>
+            </form>
+
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button class="btn" data-dismiss="modal">Cerrar</button>
-          </div>
+          </div> -->
         </div>
 
         <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
+        <script src="/assets_v2/js/survey.js" type="text/javascript"></script>
 
     </body>
 </html>
