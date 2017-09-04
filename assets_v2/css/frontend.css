@@ -8303,6 +8303,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
 }
 .opciones-accesibilidad {
   float: right;
+  margin-top: 10px;
 }
 .opciones-accesibilidad .nav-pills {
   margin: 0;
@@ -8332,6 +8333,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
 .ficha-sello-chilesinpapeleo .ficha-encabezado .sello-chilesinpapeleo {
   float: right;
   margin: 10px;
+  padding-right: 50px;
 }
 @media (max-width: 480px) {
   .ficha-sello-chilesinpapeleo .ficha-encabezado .sello-chilesinpapeleo {
@@ -8923,8 +8925,8 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   position: absolute;
 }
 .side-bar > div {
-  padding: 15px 20px;
-  border-bottom: 1px solid #d5d5d5;
+  /*padding: 15px 20px;*/
+  /*border-bottom: 1px solid #d5d5d5;*/
   background-color: #ffffff;
 }
 .side-bar h4 {

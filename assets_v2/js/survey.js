@@ -26,7 +26,7 @@ $(document).ready(
 		  $('#survey-modal').modal({show:true})
 		}
 		// if (localStorage.getItem("iswrpdivloaded2") === null) {
-		  loadSurvey();
+		  // loadSurvey();
 		// 	localStorage.setItem('iswrpdivloaded2', 1);
 		// }
 

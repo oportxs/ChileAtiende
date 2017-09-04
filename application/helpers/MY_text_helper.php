@@ -256,7 +256,7 @@ function botonMejorarTramite($obj, $tipoTramite = 'online')
     if(!$obj->guia_online_url){
         return $agradecimiento . '<a id="btn-mejora" class="btn btn-quiero-tramite-online rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Quiero Trámite Online" data-ga-te-value="'.$ficha->Maestro->id.'">Quisiera este trámite disponible en línea</a>';
     }else{
-        return $agradecimiento . '<a id="btn-mejora" class="btn btn-mejorar-tramite rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
+        //return $agradecimiento . '<a id="btn-mejora" class="btn btn-mejorar-tramite rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
     }
 }
 
