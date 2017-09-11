@@ -159,3 +159,5 @@
     </div>
     <?php //$this->load->view('widget/menu-inferior'); ?>
 </div>
+
+<script src="/assets_v2/js/survey.js" type="text/javascript"></script>
