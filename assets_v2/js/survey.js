@@ -4,8 +4,10 @@ String.prototype.isValidMail = function() {
 }
 
 $(document).ready(
-	
 	function(){
+
+		console.log('survey loading...');
+
 		var submitted = false;
 		var form = $('#gform-submit');
 		form.on('click', function(e){
@@ -25,9 +27,10 @@ $(document).ready(
 			$('#survey-modal').on('show');
 		  $('#survey-modal').modal({show:true})
 		}
+
 		// if (localStorage.getItem("iswrpdivloaded2") === null) {
-		  // loadSurvey();
-		// 	localStorage.setItem('iswrpdivloaded2', 1);
+				loadSurvey();
+		// 		localStorage.setItem('iswrpdivloaded2', 1);
 		// }
 
 	}
