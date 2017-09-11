@@ -21,8 +21,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
     <div class="row-ficha-encabezado" style="display: none"></div>
     
     <div class="row-fluid row-ficha">
-        <!-- <div class="span8 span-maincontent" id="maincontent-ficha"> -->
-        <div class="span-maincontent" id="maincontent-ficha">
+        <div class="span8 span-maincontent" id="maincontent-ficha">
             <div class="ficha-encabezado">
                 <div class="row-fluid print rs_skip">
                     <div class="pull-left">
@@ -45,25 +44,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <?php $updatedDate = ($ficha->updated_data_at)? $ficha->updated_data_at : $ficha->publicado_at; ?>
                         <?php echo strftime('%A %d de %B del %Y', mysql_to_unix($updatedDate)); ?>
                     </h6>
-
-                    <div class="side-bar">
-                        <div class="cont-sociales">
-                            <div class="span6 visible-desktop">
-                                <ul class="lista-redes-sociales">
-                                    <li class="compartir_twitter">
-                                        <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
-                                    </li>
-                                    <li class="compartir_facebook">
-                                        <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
-                                    </li>
-                                    <li class="compartir_correo">
-                                        <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
                 <?php endif; ?>
 
@@ -89,7 +69,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="clearfix"></div> -->
+                <div class="clearfix"></div>
                 <?php echo getAlertasUrl(); ?>
                 <?php if (!$ficha->flujo || ($ficha->Servicio->codigo == 'ZY000')) { ?>
                     <div class="text-content">
@@ -108,7 +88,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                 'plazo' => "Plazo",
                                 'informacion_multimedia' => "Información Multimedia"
                             );
-
                             // INFO: solo se muestra el enlace si almenos un campo debe ser mostrado
                             foreach($campos as $campo => $titulo):
                                 if($metaficha_campos[$campo] == 1 && !empty($ficha[$campo])):
@@ -143,7 +122,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <div id="ajax-content">
                 <?php 
                 endif;
-
                 $_metaficha_show00 = $ficha->metaficha == 0 ;// || ($ficha->metaficha == 1 && $metaficha_campos['beneficiarios'] == 1) ? true : false;
                 if ($_metaficha_show00 && !empty($ficha->beneficiarios) && ($ficha->flujo)): ?>
                     <div class="text-content <?php echo ($ficha->Servicio->codigo == 'ZY000') ? 'paso-paso-emprendete' : '' ?>">
@@ -409,8 +387,8 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <div class="cont-sociales">
                     <div class="row-fluid">
                         <?php if(!$this->config->item("lite_mode")){?>
-                            <!-- <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
-                                <p>¿Te gusta?:</p>
+                            <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
+                                <!-- <p>¿Te gusta?:</p>
                                 <div class="voto voto-positivo" data-voto="positivo">
                                     <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto positivo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">+</a>
                                     <span class="total-votos"></span>
@@ -418,10 +396,10 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                 <div class="voto voto-negativo" data-voto="negativo">
                                     <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto negativo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">-</a>
                                     <span class="total-votos"></span>
-                                </div>
-                            </div> -->
+                                </div> -->
+                            </div>
                         <?php } ?>
-                        <!-- <div class="span6 visible-desktop">
+                        <div class="span6 visible-desktop">
                             <p>Compartir:</p>
                             <ul class="lista-redes-sociales">
                                 <li class="compartir_twitter">
@@ -434,7 +412,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                     <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
                                 </li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
 
@@ -449,7 +427,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php 
                                 $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
                                 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-
                                 foreach($eventos as $evento):
                                     
                                     if($evento->permanente == 1)
@@ -487,7 +464,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     </div>
                 <?php endif; ?>
                 
-                <?php /* ?>
+                <?php if ($fichasRelacionadas): ?>
                     <div class="temas-sugerido listado-fichas">
                         <h4 class="accordion-heading toggle active">Relacionados:</h4>
                         <ul class="accordion-body" style="display:block;">
@@ -516,10 +493,9 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php } ?>
                         </ul>
                     </div>
-                <?php */ ?>
-                <?php /*
+                <?php endif ?>
                 <div class="temas-destacados listado-fichas">
-                    <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
+                    <!-- <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>
                             <div class="ficha-sidebar ficha-destacada<?php echo $fichaDestacada->flujo?' flujo':''; ?><?php echo ($fichaDestacada->Maestro->sello_chilesinpapeleo?' sello_chilesinpapeleo':''); ?>">
@@ -544,9 +520,8 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                 </div>
                             </div>
                         <?php } ?>
-                    </ul>
+                    </ul> -->
                 </div>
-                */ ?>
             </div>
         </div>
     </div>
@@ -575,8 +550,10 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
             }
         });
     </script>
+
     <?php if($ficha->guia_online) : ?>
     <script src="/assets_v2/js/survey.js" type="text/javascript"></script>
     <?php endif; ?>
 
 </div>
+
