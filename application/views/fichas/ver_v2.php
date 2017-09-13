@@ -543,6 +543,15 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php
             }
             ?>
+
+            $("#boton_ir_a_tramite").click(function(e){
+                setTimeout("$('#redirectModal').modal('hide');",3000);
+            });
+            $('#redirectModal').on('hidden.bs.modal', function () {
+                document.getElementById("data_url_link_hide").click();
+            })
+
+
             if($.cookie('idFicha')) {
                 if($.cookie('nombrePaso'))
                     $('#migapasopaso').html('<a href="/fichas/ver/'+$.cookie('idFicha')+'">Paso a Paso</a> / <a href="/fichas/ver/'+$.cookie('idFicha')+'">'+$.cookie('nombrePaso')+'</a> /');

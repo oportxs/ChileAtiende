@@ -243,8 +243,35 @@ function botonTramiteOnline($ficha, $texto = 'Ir al trámite')
     $botonTramiteOnline = '';
 
     if($ficha->guia_online_url)
-        $botonTramiteOnline = '<a class="btn btn-ir-tramite-online t_online rs_skip" href="'.$ficha->guia_online_url.'" target="_blank" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'">'.$texto.'</a>';
+        // $botonTramiteOnline = '<a class="btn btn-ir-tramite-online t_online rs_skip" href="'.$ficha->guia_online_url.'" target="_blank" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'">'.$texto.'</a>';
 
+$botonTramiteOnline = '
+<a style="display: none" id="data_url_link_hide" href="'.$ficha->guia_online_url.'" target="_blank">vinculo</a>
+
+<div class="span4 proj-div" data-toggle="modal" data-target="#redirectModal">
+        <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+</div>
+
+<div id="redirectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #0148A2">
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+        <h4 class="modal-title" id="myModalLabel">Redireccionando...</h4>-->
+        <img style="height: 70px" src="http://localhost:8000/assets_v2/img/nueva_home/logo_chileatiende.png">
+      </div>
+      <div class="modal-body" style="height: 120px !important; padding: 30px !important; text-align: center;">
+        Hola,<br>
+        Estamos redireccionandote al tramite<br>
+        <img src="http://fancorp.jp/img/load.gif" style="width: 100px;">
+      </div>
+      <div class="modal-footer" style="background-color: #1a1d21;">
+        <img src="http://localhost:8000/assets_v2/img/logo_gobierno_footer.png" style="height: 35px">
+      </div>
+    </div>
+  </div>
+</div>
+';
     return $botonTramiteOnline;
 }
 
