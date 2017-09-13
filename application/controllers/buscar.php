@@ -57,12 +57,17 @@ class Buscar extends CI_Controller {
         $this->load->library('sphinxclient');
         $this->sphinxclient->setServer($this->config->item('sphinx_host'),(int)$this->config->item('sphinx_port'));
         $this->sphinxclient->SetFieldWeights(array('keywords' => 50, 'titulo' => 100, 'sic' => 50, 'objetivo' => 5));
+        /* 
+            'flujo'         = 0 => +5
+            'guia_online'   = 1 => +10
+        */
         if($query){ //Si hau una busqueda, usamos el algoritmo para clasificar los resultados
             $this->sphinxclient->SetMatchMode(SPH_MATCH_EXTENDED);
-            $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 100*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits)');
+            $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 100*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits) + IF(flujo = 0, 5, 0) + IF(online = 1, 10, 0)');
         }else{  //Si no hay busqueda, simplement ordenamos por hits.
             $this->sphinxclient->SetSortMode(SPH_SORT_ATTR_DESC,'hits');
         }
+
         $this->sphinxclient->setLimits(0, 1000);
         
         if (!empty($filtro_temas)){
@@ -136,6 +141,7 @@ class Buscar extends CI_Controller {
         
         //Hago la busqueda
         $result=$this->sphinxclient->query($sphinx_query, 'redchile_fichas');   
+
         // var_dump($result);die();  
         //Se hace el match de los resultados de Sphinx con el modelo en Doctrine.
         $doctrine_query = Doctrine_Query::create()
