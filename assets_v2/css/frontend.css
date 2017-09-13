@@ -11772,9 +11772,10 @@ body.portada .container-alertas-sitio .alert:first-child,
 
 /*form encuestas*/
 #gform {
-  width: 100%;
+  width: 90%;
   height: 350px;
   overflow-x: hidden;
+  padding: 20px;
 }
 .modal-body {
     position: relative;
@@ -11783,6 +11784,19 @@ body.portada .container-alertas-sitio .alert:first-child,
     max-height: 420px;
     padding: 1px !important;
 }
+#survey-modal form {
+  text-align: center;
+}
+#survey-modal form input{
+  width: 95%;
+}
+#survey-modal form select {
+  width: 99%;
+}
+#survey-modal form input.form-submit{
+  margin-top: 25px;
+}
+
 @media (max-width: 767px)
 .modal {
     width: 100%;

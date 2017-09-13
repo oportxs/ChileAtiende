@@ -22,12 +22,12 @@
                         action="https://docs.google.com/forms/d/e/1FAIpQLSdvAUG_4qXXNq17BC9q1dqt1yKKk42eICw8WuClElXs78LdZw/formResponse">
                     <h4>Déjanos tu email para contactarte y tener tu opinión y evaluación de nuestro canal web</h4>
                     <div class="form-group">
-                      <label>e-mail</label>
+                      <label class="text-left">E-mail:</label>
                       <input class="input" id="gform-email" name="entry.175042737" type="email" required placeholder="ejemplo@dominio.com"/>
                       <input class="hidden" id="gform-origin" name="entry.1240825932" value="<?php echo $ficha->maestro_id? 'ficha'.$ficha->maestro_id : 'Home' ?>" />
                     </div>
                     <div class="form-group">
-                      <label>Región</label>
+                      <label class="text-left">Región:</label>
                       <select class="input" name="entry.879761844">
                         <option value="Región Metropolitana" selected="selected">Región Metropolitana</option>
                         <option value="Arica y Parinacota">Arica y Parinacota</option>
@@ -46,7 +46,7 @@
                         <option value="Magallanes y Antártica">Magallanes y Antártica</option>
                       </select>
                     </div>
-                    <div class="form-group text-right">
+                    <div class="form-group">
                       <input class="form-submit btn btn-primary" id="gform-submit" type="submit" value="Deseo participar"/>
                       <!-- <input class="form-submit btn btn-secondary" data-dismiss="modal" type="button" value="No deseo participar"/> -->
                     </div>
