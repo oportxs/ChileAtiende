@@ -193,6 +193,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             })();
         </script>
 
+        <?php $this->load->view('survey'); ?>
+
         <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
 
         <?php /* --Antigua marca de analytics
