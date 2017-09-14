@@ -533,7 +533,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 setTimeout("$('#redirectModal').modal('hide');",3000);
             });
             $("#boton_ir_a_tramite_sidebar").click(function(e){
-                setTimeout("$('#redirectModal').modal('hide');",3000);
+                document.getElementById("boton_ir_a_tramite").click();
             });
             $('#redirectModal').on('hidden.bs.modal', function () {
                 document.getElementById("data_url_link_hide").click();
