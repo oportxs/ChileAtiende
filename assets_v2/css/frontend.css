@@ -6191,21 +6191,61 @@ body.tiene-barra-campana {
   width: 92px;
   height: 26px;
 }
+.btn-ir-tramite-online-sidebar {
+  background-color: #1578c7 !important;
+  color: #ffffff !important;
+  border: none !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
+  text-shadow: none !important;
+  font-size: 1.2em;
+  border-radius: 0px;
+  padding: 20px 50px;
+  /*margin-top: 50px;*/
+  margin-left: 30px;
+}
+.arrow-ir-al-tramite-sidebar {
+    background-color: #0d5a98;
+    margin-left: -5px;
+    color: white;
+    font-size: 1.2em;
+    padding: 21px;
+    padding-bottom: 23px;
+}
 .btn-ir-tramite-online {
+  background-color: #1578c7 !important;
+  color: #ffffff !important;
+  border: none !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
+  text-shadow: none !important;
+  font-size: 1.2em;
+  border-radius: 0px;
+  padding: 7.2px 15px;
+}
+.arrow-ir-al-tramite {
+  background-color: #0d5a98;
+  margin-top: 20px;
+  padding: 5px 3px;
+  margin-left: -10px;
+  height: 25px;
+  color: white;
+  width: 23px;
+  padding-left: 7px;
+  font-size: 1.2em;
+}
+/*.btn-ir-tramite-online {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #246baa;
-  background-image: -moz-linear-gradient(top, #1d65a5, #2e73b1);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1d65a5), to(#2e73b1));
-  background-image: -webkit-linear-gradient(top, #1d65a5, #2e73b1);
-  background-image: -o-linear-gradient(top, #1d65a5, #2e73b1);
-  background-image: linear-gradient(to bottom, #1d65a5, #2e73b1);
+  background-image: -moz-linear-gradient(top, #0094cf, #2e73b1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0094cf), to(#2e73b1));
+  background-image: -webkit-linear-gradient(top, #0094cf, #2e73b1);
+  background-image: -o-linear-gradient(top, #0094cf, #2e73b1);
+  background-image: linear-gradient(to bottom, #0094cf, #2e73b1);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d65a5', endColorstr='#ff2e73b1', GradientType=0);
   border-color: #2e73b1 #2e73b1 #1e4c74;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #2e73b1;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-ir-tramite-online:hover,
@@ -8302,7 +8342,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   }
 }
 .opciones-accesibilidad {
-  float: right;
+  float: left;
 }
 .opciones-accesibilidad .nav-pills {
   margin: 0;
@@ -9006,10 +9046,10 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   margin: 0;
 }
 .side-bar .lista-redes-sociales li {
-  float: left;
+  float: right;
   background: none;
-  margin-top: 10px;
-  padding: 0 25px 0 0;
+  margin-top: 4px;
+  padding: 0px 4px;
 }
 @media (max-width: 1024px) {
   .side-bar .lista-redes-sociales li {

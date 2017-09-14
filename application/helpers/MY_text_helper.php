@@ -234,7 +234,24 @@ function truncatePreserveWords($text, $needles, $w_near_keywords=30, $class="hig
     return highlight_phrases(preg_replace("/\.{3,}/i", "...", $o), $needles, $class);
 }
 
-function botonTramiteOnline($ficha, $texto = 'Ir al trámite')
+function botonTramiteOnlineSidebar($ficha, $texto = 'Ir al trámite en línea')
+{
+    $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
+
+    $gaCategory = uri_string() == 'buscar/fichas' ? 'Acciones Buscador' : 'Acciones Ficha';
+    $botonTramiteOnline = '';
+
+    if($ficha->guia_online_url)
+$botonTramiteOnlineSidebar = '
+<div class="proj-div" style="padding-top: 40px;" data-toggle="modal" data-target="#redirectModal">
+        <input type="button" id="boton_ir_a_tramite_sidebar" class="btn btn-ir-tramite-online-sidebar t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+        <i class="fa fa-long-arrow-right arrow-ir-al-tramite-sidebar" aria-hidden="true"></i>
+</div>
+';
+    return $botonTramiteOnlineSidebar;
+}
+
+function botonTramiteOnline($ficha, $texto = 'Ir al trámite en línea')
 {
     // INFO: se agrega para usar la misma funcion en Fichas y SubFichas
     $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
@@ -248,8 +265,9 @@ function botonTramiteOnline($ficha, $texto = 'Ir al trámite')
 $botonTramiteOnline = '
 <a style="display: none" id="data_url_link_hide" href="'.$ficha->guia_online_url.'" target="_blank">vinculo</a>
 
-<div class="span4 proj-div" data-toggle="modal" data-target="#redirectModal">
+<div class="proj-div" data-toggle="modal" data-target="#redirectModal">
         <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+        <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true"></i>
 </div>
 
 <div id="redirectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
