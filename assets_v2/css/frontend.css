@@ -6191,6 +6191,10 @@ body.tiene-barra-campana {
   width: 92px;
   height: 26px;
 }
+.btn-ir-tramite-online-sidebar:hover {
+  background-color: #0d5a98 !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
 .btn-ir-tramite-online-sidebar {
   background-color: #1578c7 !important;
   color: #ffffff !important;
@@ -6202,6 +6206,7 @@ body.tiene-barra-campana {
   padding: 20px 50px;
   /*margin-top: 50px;*/
   margin-left: 30px;
+  margin-top: -1px;
 }
 .arrow-ir-al-tramite-sidebar {
     background-color: #0d5a98;
@@ -6211,20 +6216,24 @@ body.tiene-barra-campana {
     padding: 21px;
     padding-bottom: 23px;
 }
+.btn-ir-tramite-online:hover {
+  background-color: #0d5a98 !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
 .btn-ir-tramite-online {
   background-color: #1578c7 !important;
   color: #ffffff !important;
   border: none !important;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
   text-shadow: none !important;
-  font-size: 1.2em;
+  font-size: 1em;
   border-radius: 0px;
   padding: 7.2px 15px;
 }
 .arrow-ir-al-tramite {
   background-color: #0d5a98;
   margin-top: 20px;
-  padding: 5px 3px;
+  padding: 7px 3px 2px;
   margin-left: -10px;
   height: 25px;
   color: white;
