@@ -314,7 +314,7 @@
 
         <?php echo isset($assets) ? loadAssets($assets, 'js') : ''; ?>
 
-        <?php $this->load->view('survey'); ?>
+        <?php /*$this->load->view('survey');*/ ?>
 
         <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
     </body>
