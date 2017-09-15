@@ -243,7 +243,7 @@ function botonTramiteOnlineMini($ficha, $texto = 'Ir al trámite'){
     if($ficha->guia_online_url){
         $boton_mini = '
         <div class="proj-div" data-toggle="modal" style="width: 222px" data-target="#redirectModal">
-                <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+                <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online búsqueda" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
         </div>
 
         <div id="redirectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -285,7 +285,7 @@ function botonTramiteOnlineSidebar($ficha, $texto = 'Ir al trámite en línea')
     if($ficha->guia_online_url){
         $botonTramiteOnlineSidebar = '
         <div class="proj-div" style="padding-top: 40px;">
-                <input type="button" id="boton_ir_a_tramite_sidebar" class="btn btn-ir-tramite-online-sidebar t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+                <input type="button" id="boton_ir_a_tramite_sidebar" class="btn btn-ir-tramite-online-sidebar t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online Superior" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
                 <i class="fa fa-long-arrow-right arrow-ir-al-tramite-sidebar" id="arrow-ir-al-tramite-sidebar" style="cursor: pointer" aria-hidden="true"></i>
         </div>
         ';
