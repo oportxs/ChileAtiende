@@ -70,20 +70,20 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     </ul>
                 </div>
 
-<div class="side-bar">
-    <ul class="lista-redes-sociales">
-        <li class="compartir_correo">
-            <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
-        </li>
-        <li class="compartir_facebook">
-            <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
-        </li>
-        <li class="compartir_twitter">
-            <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
-        </li>
-        <li style="margin-top: 10px !important">Compartir: </li>
-    </ul>
-</div>
+                <div class="side-bar">
+                    <ul class="lista-redes-sociales">
+                        <li class="compartir_correo">
+                            <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
+                        </li>
+                        <li class="compartir_facebook">
+                            <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
+                        </li>
+                        <li class="compartir_twitter">
+                            <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
+                        </li>
+                        <li style="margin-top: 10px !important">Compartir: </li>
+                    </ul>
+                </div>
 
                 <div class="clearfix"></div>
                 <?php echo getAlertasUrl(); ?>
@@ -397,10 +397,9 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php echo $this->load->view('widget/participacion'); ?>
             </div>
         </div>
-        <div class="span4 no-print hidden-phone">
-            <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<div class="tab-pane text-content" id="online">'.botonTramiteOnlineSidebar($ficha).'<div class="clearfix"></div></div>':''; ?>
-        </div>
-        <div class="hidden span4 span-side-bar no-print hidden-phone">
+        <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<div class="span4 no-print hidden-phone section-ir-tramite">
+            <div class="tab-pane text-content" id="online">'.botonTramiteOnlineSidebar($ficha).'<div class="clearfix"></div></div></div>':''; ?>
+        <div class="span4 span-side-bar no-print hidden-phone">
             <div class="side-bar" data-offset-top="174" data-offset-bottom="276">
                 <?php
                 // INFO: se muestra lista de eventos destacados solo para portal pymes
@@ -480,7 +479,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     </div>
                 <?php endif ?>
                 <div class="temas-destacados listado-fichas">
-                    <!-- <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
+                    <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>
                             <div class="ficha-sidebar ficha-destacada<?php echo $fichaDestacada->flujo?' flujo':''; ?><?php echo ($fichaDestacada->Maestro->sello_chilesinpapeleo?' sello_chilesinpapeleo':''); ?>">
@@ -505,7 +504,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                 </div>
                             </div>
                         <?php } ?>
-                    </ul> -->
+                    </ul>
                 </div>
             </div>
         </div>
@@ -538,7 +537,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
             $('#redirectModal').on('hidden.bs.modal', function () {
                 document.getElementById("data_url_link_hide").click();
             })
-
 
             if($.cookie('idFicha')) {
                 if($.cookie('nombrePaso'))

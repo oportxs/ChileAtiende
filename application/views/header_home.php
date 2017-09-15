@@ -35,8 +35,8 @@ include('header_selector.php'); ?>
 
     <div class="row-fluid">
         <div class="container">
-            <div class="span12 title">
-                Atención e información de trámites y beneficios del Estado
+            <div class="span12 title title-home">
+                Guía de trámites y beneficios del Estado
             </div>
         </div>
     </div>
