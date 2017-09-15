@@ -487,7 +487,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </ul>
                     </div>
                 <?php endif ?>
-                <div class="temas-destacados listado-fichas">
+                <div class="hidden temas-destacados listado-fichas">
                     <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>

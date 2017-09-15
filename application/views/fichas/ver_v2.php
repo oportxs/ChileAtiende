@@ -478,7 +478,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </ul>
                     </div>
                 <?php endif ?>
-                <div class="temas-destacados listado-fichas">
+                <div class="hidden temas-destacados listado-fichas">
                     <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>
@@ -528,8 +528,11 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
             }
             ?>
 
+            $("#btn_ir_y_cerrar").click(function(e){
+                document.getElementById("btn_close_modal").click();
+            });
             $("#boton_ir_a_tramite").click(function(e){
-                setTimeout("$('#redirectModal').modal('hide');",3000);
+                // setTimeout("$('#redirectModal').modal('hide');",3000);
             });
             
             $("#boton_ir_a_tramite_sidebar").click(function(e){
@@ -539,9 +542,9 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 document.getElementById("boton_ir_a_tramite").click();
             });
             
-            $('#redirectModal').on('hidden.bs.modal', function () {
-                document.getElementById("data_url_link_hide").click();
-            })
+            // $('#redirectModal').on('hidden.bs.modal', function () {
+            //     document.getElementById("data_url_link_hide").click();
+            // })
 
             if($.cookie('idFicha')) {
                 if($.cookie('nombrePaso'))

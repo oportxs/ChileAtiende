@@ -6047,6 +6047,7 @@ body {
   max-width: 450px;
 }
 .sobre-esta-imagen {
+  display: none !important;
   position: fixed;
   top: 350px;
   padding: 10px;
@@ -6195,6 +6196,20 @@ body.tiene-barra-campana {
 .btn-ir-tramite-online-sidebar:hover {
   background-color: #0d5a98 !important;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
+.btn-ir-tramite-online-mini:hover {
+  background-color: #0d5a98 !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
+.btn-ir-tramite-online-mini {
+  background-color: #1578c7 !important;
+  color: #ffffff !important;
+  border: none !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
+  text-shadow: none !important;
+  font-size: 1em;
+  border-radius: 0px;
+  padding: 7.2px 15px;
 }
 .btn-ir-tramite-online-sidebar {
   background-color: #1578c7 !important;
@@ -11842,6 +11857,9 @@ body.portada .container-alertas-sitio .alert:first-child,
     height: 420px;
     max-height: 420px;
     padding: 1px !important;
+
+    font-size: 18px;
+    line-height: 20px;
 }
 #survey-modal form {
   text-align: center;
