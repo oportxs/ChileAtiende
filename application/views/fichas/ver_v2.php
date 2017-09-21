@@ -40,10 +40,17 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php if($ficha->metaficha == 0): ?>
                 <div class="row-fluid">
                     <h5>Información proporcionada por: <a href="<?php echo site_url('servicios/ver/'.$ficha->Servicio->codigo); ?>"><?php echo $ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':''); ?></a></h5>
-                    <h6>Última actualización: 
+                    <h6>Última Actualización: 
                         <?php $updatedDate = ($ficha->updated_data_at)? $ficha->updated_data_at : $ficha->publicado_at; ?>
                         <?php echo strftime('%A %d de %B del %Y', mysql_to_unix($updatedDate)); ?>
                     </h6>
+                    <?php if ($ficha->Maestro->sello_chilesinpapeleo): ?>
+                    <div class="proj-div top-online-btn" data-toggle="modal" data-target="#redirectModal">
+                        <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="Acciones Ficha" data-ga-te-action="Botón Trámite Online búsqueda" data-ga-te-value="<?= isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id?>" value="Ir al trámite en línea" />
+                        <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer"></i>
+                    </div>
+                    <br>
+                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
 
@@ -90,9 +97,10 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php if (!$ficha->flujo || ($ficha->Servicio->codigo == 'ZY000')) { ?>
                     <div class="text-content">
                         <a id="descripcion" class="anchor-top">&nbsp;</a>
-                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) { ?><h3 class="cabecera">Descripción</h3><?php } ?>
-                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
-                        
+                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) : ?>
+                            <h3 class="cabecera">Descripción</h3>
+                        <?php endif; ?>
+                        <?php echo prepare_content_ficha($ficha); ?>
                         <?php 
                             $campos = array(
                                 'cc_observaciones' => "Detalles",

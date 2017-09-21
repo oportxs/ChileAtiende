@@ -6220,11 +6220,24 @@ body.tiene-barra-campana {
   text-shadow: none !important;
   font-size: 1.2em;
   border-radius: 0px;
-  padding: 20px 50px;
+  padding: 20px 29px;
   /*margin-top: 50px;*/
-  margin-left: 30px;
+  margin-left: 25px;
   margin-top: -1px;
 }
+@media (max-width: 980px) {
+  .btn-ir-tramite-online-sidebar {
+    padding: 20px 10px;
+    margin-left: 5px;
+    font-size: 17px;
+  }  
+}
+@media (min-width: 768px) {
+  .top-online-btn {
+    display: none;
+  }
+}
+
 .arrow-ir-al-tramite-sidebar {
     background-color: #0d5a98;
     margin-left: -5px;
@@ -8298,15 +8311,15 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   }
 }
 .searchresults li .resultado-info .t_online {
-  width: 60%;
+  /*width: 60%;*/
   display: block;
-  margin: 0 auto;
+  margin: 5px 0;
 }
 @media (max-width: 768px) {
   .searchresults li .resultado-info .t_online {
     float: left;
-    width: 40%;
-    margin: 0;
+    /*width: 40%;*/
+    margin: 5px 0;
   }
 }
 .searchresults .num-ficha {

@@ -16,7 +16,17 @@ function separa_contenidos($texto, $pattern, $replacement)
     return array($texto, $contenido);
 }
 
-function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha = '') {
+function prepare_content_ficha($ficha, $movil=false, $separados=false, $idFicha = '') {
+    $texto = $ficha->objetivo;
+    // if($ficha->guia_online_url){
+    //     $botonTramiteOnline = '
+    //         <div class="proj-div" data-toggle="modal" style="width: 222px" data-target="#redirectModal">
+    //                 <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+    //                 <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer"></i>
+    //         </div>';
+    //     $texto = $botonTramiteOnline . $texto;
+    // }
+
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
@@ -246,7 +256,7 @@ function botonTramiteOnlineMini($ficha, $texto = 'Ir al trámite'){
                 <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online búsqueda" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
         </div>
 
-        <div id="redirectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="redirectModal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header" style="background-color: #0148A2">
@@ -309,7 +319,7 @@ $botonTramiteOnline = '
         <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer"></i>
 </div>
 
-<div id="redirectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="redirectModal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #0148A2">
