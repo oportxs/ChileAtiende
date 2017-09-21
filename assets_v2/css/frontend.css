@@ -6477,12 +6477,30 @@ header .header-top h1 {
   font-size: 2em !important;
 }
 header .header-top .temas-destacados {
-  margin-left: 111px;
+  margin-left: 52px;
 }
-@media (max-width: 765px) {
+@media (max-width: 475px) {
+  header .cont-busqueda .searchbtn span.etiqueta {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  header .header-top .cont-busqueda {
+    text-align: left;
+    padding-left: 10px;
+  }
   header .header-top .temas-destacados {
-    margin: 0px 15px;
-    text-align: center;
+    margin-left: 15px;
+  }
+}
+@media (max-width: 980px) {
+  header .header-top .temas-destacados {
+    margin-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  header .header-top .temas-destacados {
+    margin-left: 95px;
   }
 }
 header .header-top .temas-destacados span.label {
@@ -6665,6 +6683,8 @@ header .header-bottom .nav-contactos .contactos-oficinamovil {
 header .cont-busqueda {
   margin: 25px 0px 0px 15px;
   float: right;
+  width: 420px;
+  text-align: right;
 }
 @media (max-width: 765px) {
   header .cont-busqueda {
@@ -6677,8 +6697,8 @@ header .cont-busqueda form {
 }
 header .cont-busqueda .main_search_input {
     float: none;
-    width: 540px;
-    height: 57px;
+    width: 70%;
+    height: 47px;
     font-size: 20px;
     border-right: none;
     border-radius: 0;
@@ -8774,6 +8794,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
 @media (max-width: 480px) {
   .ficha .tab-content .btn-ir-tramite-online {
     width: 35%;
+    min-width: 190px;
   }
 }
 .ficha .tab-content .btn-mejorar-tramite {
@@ -11363,7 +11384,7 @@ code {
 .row-ficha-contenido .tab-content .btn-mejorar-tramite,
 .row-ficha-contenido .text-content .btn-ir-tramite-online,
 .row-ficha-contenido .tab-content .btn-ir-tramite-online {
-  margin: 20px 10px 20px 0;
+  margin: 20px 4px 20px 0;
 }
 .row-ficha-contenido .text-content h4.titulo_celeste,
 .row-ficha-contenido .tab-content h4.titulo_celeste {
@@ -11817,6 +11838,7 @@ body.portada .container-alertas-sitio .alert:first-child,
 @media (max-width: 480px) {
   .v4 .panel-body .btn-ir-tramite-online {
     width: 35%;
+    min-width: 190px;
   }
 }
 .v4 .panel-body .btn-mejorar-tramite {
