@@ -80,6 +80,7 @@ textarea {
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
+  font-family: inherit !important;
 }
 button,
 input {
@@ -11847,25 +11848,33 @@ body.portada .container-alertas-sitio .alert:first-child,
 /*form encuestas*/
 #gform {
   width: 90%;
-  height: 350px;
+  height: 320px;
   overflow-x: hidden;
   padding: 20px;
 }
 .modal-body {
     position: relative;
     overflow: hidden;
-    height: 420px;
+    height: 360px;
     max-height: 420px;
-    padding: 1px !important;
-
+    padding: 5px 20px !important;
     font-size: 18px;
     line-height: 20px;
+}
+#survey-modal .modal-header h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 #survey-modal form {
   text-align: center;
 }
 #survey-modal form input{
   width: 95%;
+}
+#survey-modal form input.form-submit{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
 }
 #survey-modal form select {
   width: 99%;
