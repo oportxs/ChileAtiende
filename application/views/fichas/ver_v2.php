@@ -44,13 +44,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <?php $updatedDate = ($ficha->updated_data_at)? $ficha->updated_data_at : $ficha->publicado_at; ?>
                         <?php echo strftime('%A %d de %B del %Y', mysql_to_unix($updatedDate)); ?>
                     </h6>
-                    <?php if ($ficha->Maestro->sello_chilesinpapeleo): ?>
-                    <div class="proj-div top-online-btn" data-toggle="modal" data-target="#redirectModal">
-                        <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="Acciones Ficha" data-ga-te-action="Botón Trámite Online búsqueda" data-ga-te-value="<?= isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id?>" value="Ir al trámite en línea" />
-                        <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer"></i>
-                    </div>
-                    <br>
-                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
 
@@ -100,7 +93,8 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) : ?>
                             <h3 class="cabecera">Descripción</h3>
                         <?php endif; ?>
-                        <?php echo prepare_content_ficha($ficha); ?>
+                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
+                        
                         <?php 
                             $campos = array(
                                 'cc_observaciones' => "Detalles",

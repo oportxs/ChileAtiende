@@ -16,17 +16,7 @@ function separa_contenidos($texto, $pattern, $replacement)
     return array($texto, $contenido);
 }
 
-function prepare_content_ficha($ficha, $movil=false, $separados=false, $idFicha = '') {
-    $texto = $ficha->objetivo;
-    // if($ficha->guia_online_url){
-    //     $botonTramiteOnline = '
-    //         <div class="proj-div" data-toggle="modal" style="width: 222px" data-target="#redirectModal">
-    //                 <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
-    //                 <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer"></i>
-    //         </div>';
-    //     $texto = $botonTramiteOnline . $texto;
-    // }
-
+function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha = '') {
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
