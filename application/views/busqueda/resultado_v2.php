@@ -45,7 +45,7 @@
                                 <li class="<?php echo 'flujo'.($num_ficha%2?' par':' none'); ?>">
                                     <div class="resultado-resumen">
                                         <span class="num-ficha"><?php echo $num_ficha+1; ?></span>
-                                        <h2>
+                                        <h2>[<?php echo $ficha->weight; ?>]&nbsp;
                                             <?php if ($ficha->Maestro->sello_chilesinpapeleo): ?>
                                                 <img class="sello-chilesinpapeleo has-tooltip-chilesinpapeleo" title="Este sello es otorgado a los trámites del Estado que se realizan completamente por Internet y no requieren presencia física de las personas para su realización." src="<?php echo base_url('assets/images/ico_chilesinpapeleo_32_on.png'); ?>" alt="Sello ChileSinPapeleo">
                                             <?php endif ?>
@@ -64,7 +64,7 @@
                                 <li class="<?php echo ($num_ficha%2?'par':'none'); ?>">
                                     <div class="resultado-resumen">
                                         <span class="num-ficha"><?php echo $num_ficha+1; ?></span>
-                                        <h2>
+                                        <h2>[<?php echo $ficha->weight; ?>]&nbsp;
                                             <?php if ($ficha->Maestro->sello_chilesinpapeleo): ?>
                                                 <img class="sello-chilesinpapeleo has-tooltip-chilesinpapeleo" title="Este sello es otorgado a los trámites del Estado que se realizan completamente por Internet y no requieren presencia física de las personas para su realización." src="<?php echo base_url('assets/images/ico_chilesinpapeleo_32_on.png'); ?>" alt="Sello ChileSinPapeleo">
                                             <?php endif ?>

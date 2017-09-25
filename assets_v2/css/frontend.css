@@ -6465,7 +6465,7 @@ form #name-opina {
 }
 header .header-top h1 {
   max-width: 280px;
-  margin: 25px 0 10px 0px;
+  margin: 0px 0 10px 0px;
 }
 @media (max-width: 765px) {
   header .header-top h1 {
