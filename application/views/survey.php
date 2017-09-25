@@ -8,21 +8,21 @@
 
               <div id="survey-modal" class="modal hide fade" tabindex="-1" role="dialog">
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" ></iframe>
-                <div class="modal-header">
+                <div class="modal-header text-center">
                   <button type="button" class="close" data-dismiss="modal" id="close-modal">×</button>
-                  <h3>Nos interesa tu opinión</h3>
+                  <h3>¿Tienes un minuto?</h3>
                 </div>
                 <div class="modal-body">
                   <!-- <iframe id="gform" src="" height="250" frameborder="0"></iframe> -->
-                  <img src="/assets_v2/img/gob_cl.png">
+                  <img src="/assets_v2/img/gob_cl.png" class="hide">
                   <form id="gform" 
                         class="form" 
                         target="hidden_iframe"
                         onsubmit="submitSurvey('<?php echo $ficha->maestro_id? "ficha".$ficha->maestro_id : "Home" ?>')"
                         action="https://docs.google.com/forms/d/e/1FAIpQLSdvAUG_4qXXNq17BC9q1dqt1yKKk42eICw8WuClElXs78LdZw/formResponse">
-                    <h4>Déjanos tu email para contactarte y tener tu opinión y evaluación de nuestro canal web</h4>
+                    <h4>Déjanos tu email para contactarte y conocer tu opinión sobre el portal ChileAtiende.gob.cl</h4>
                     <div class="form-group">
-                      <label class="text-left">E-mail:</label>
+                      <label class="text-left">Correo electrónico:</label>
                       <input class="input" id="gform-email" name="entry.175042737" type="email" required placeholder="ejemplo@dominio.com"/>
                       <input class="hidden" id="gform-origin" name="entry.1240825932" value="<?php echo $ficha->maestro_id? 'ficha'.$ficha->maestro_id : 'Home' ?>" />
                     </div>

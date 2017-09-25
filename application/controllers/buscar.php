@@ -63,7 +63,7 @@ class Buscar extends CI_Controller {
         */
         if($query){ //Si hau una busqueda, usamos el algoritmo para clasificar los resultados
             $this->sphinxclient->SetMatchMode(SPH_MATCH_EXTENDED);
-            $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 100*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits) + IF(flujo = 0, 5, 0) + IF(online = 1, 5, 0)');
+            $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 100*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits) + IF(flujo = 0, 5, 0) + IF(online = 1, 10, 0)');
         }else{  //Si no hay busqueda, simplement ordenamos por hits.
             $this->sphinxclient->SetSortMode(SPH_SORT_ATTR_DESC,'hits');
         }

@@ -40,7 +40,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php if($ficha->metaficha == 0): ?>
                 <div class="row-fluid">
                     <h5>Información proporcionada por: <a href="<?php echo site_url('servicios/ver/'.$ficha->Servicio->codigo); ?>"><?php echo $ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':''); ?></a></h5>
-                    <h6>Última actualización: 
+                    <h6>Última Actualización: 
                         <?php $updatedDate = ($ficha->updated_data_at)? $ficha->updated_data_at : $ficha->publicado_at; ?>
                         <?php echo strftime('%A %d de %B del %Y', mysql_to_unix($updatedDate)); ?>
                     </h6>
@@ -90,7 +90,9 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php if (!$ficha->flujo || ($ficha->Servicio->codigo == 'ZY000')) { ?>
                     <div class="text-content">
                         <a id="descripcion" class="anchor-top">&nbsp;</a>
-                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) { ?><h3 class="cabecera">Descripción</h3><?php } ?>
+                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) : ?>
+                            <h3 class="cabecera">Descripción</h3>
+                        <?php endif; ?>
                         <?php echo prepare_content_ficha($ficha->objetivo); ?>
                         
                         <?php 

@@ -6,7 +6,7 @@ include('header_selector.php'); ?>
     <div class="container">
         <div class="header-top">
             <div class="row-fluid">
-                <div class="span4">
+                <div class="span3">
                     <h1>
                         <a href="<?php echo site_url(); ?>">
                             <img src="<?php echo base_url('assets_v2/img/nueva_home/logo_chileatiende.png'); ?>" alt="ChileAtiende" />
@@ -15,7 +15,7 @@ include('header_selector.php'); ?>
                 </div>
                 <div class="span8">
 
-                    <div class="row">
+                    <div class="row buscador-view">
                         <div class="span12">
                             <?php $this->load->view('busqueda/buscador'); ?>
                         </div>
