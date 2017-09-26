@@ -100,7 +100,8 @@ function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $
 
     // {{mensaje[tipo]:texto libre}}
     $pattern = '/\{\{mensaje\[(.*)\]:([^\}\}]+)\}\}/';
-    $replacement = $btn_ir_tramite_responsive.'<div class="clearfix"></div><div class="mensaje mensaje-$1">$2</div>';
+    $replacement = '<div class="clearfix"></div><div class="mensaje mensaje-$1">$2</div>';
+    $texto = preg_replace($pattern, $btn_ir_tramite_responsive.$replacement, $texto, 1);
     $texto = preg_replace($pattern, $replacement, $texto);
 
     // {{marcolegal:texto libre}}
