@@ -109,8 +109,8 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) : ?>
                             <h3 class="cabecera">Descripción</h3>
                         <?php endif; ?>
-                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
-                        
+                        <?php echo prepare_content_ficha($ficha->objetivo, $ficha); ?>
+
                         <?php 
                             $campos = array(
                                 'cc_observaciones' => "Detalles",

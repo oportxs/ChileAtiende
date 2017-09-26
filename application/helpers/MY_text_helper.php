@@ -16,7 +16,7 @@ function separa_contenidos($texto, $pattern, $replacement)
     return array($texto, $contenido);
 }
 
-function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha = '') {
+function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $idFicha = '') {
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
@@ -95,9 +95,12 @@ function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha 
         $texto = preg_replace($pattern, $replacement, $texto);
     }
 
+    // botonTramiteOnline($ficha)
+    $btn_ir_tramite_responsive = "<div class='visible-phone' style='text-align: center'>".botonTramiteOnlinePhone($ficha)."</div>";
+
     // {{mensaje[tipo]:texto libre}}
     $pattern = '/\{\{mensaje\[(.*)\]:([^\}\}]+)\}\}/';
-    $replacement = '<div class="clearfix"></div><div class="mensaje mensaje-$1">$2</div>';
+    $replacement = $btn_ir_tramite_responsive.'<div class="clearfix"></div><div class="mensaje mensaje-$1">$2</div>';
     $texto = preg_replace($pattern, $replacement, $texto);
 
     // {{marcolegal:texto libre}}
@@ -291,6 +294,24 @@ function botonTramiteOnlineSidebar($ficha, $texto = 'Ir al trámite en línea')
         ';
     } 
     return $botonTramiteOnlineSidebar;
+}
+
+function botonTramiteOnlinePhone($ficha, $texto = 'Ir al trámite en línea')
+{
+    // INFO: se agrega para usar la misma funcion en Fichas y SubFichas
+    $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
+
+    $gaCategory = uri_string() == 'buscar/fichas' ? 'Acciones Buscador' : 'Acciones Ficha';
+    $botonTramiteOnline = '';
+
+    if($ficha->guia_online_url)
+$botonTramiteOnline = '
+<div class="proj-div" data-toggle="modal" data-target="#redirectModal">
+        <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" style="margin: 0px 4px 0px 0; width: calc( 100% - 32px ); height: 50px;" />
+        <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer;     padding: 15px 3px 10px !important;"></i>
+</div>
+';
+    return $botonTramiteOnline;
 }
 
 function botonTramiteOnline($ficha, $texto = 'Ir al trámite en línea')
