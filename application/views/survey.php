@@ -48,6 +48,7 @@
                     </div>
                     <div class="form-group">
                       <input class="form-submit btn btn-primary" id="gform-submit" type="submit" value="Deseo participar"/>
+                      <img class="footer-modal" src="/assets_v2/img/footer_modal_encuesta.png" />
                       <!-- <input class="form-submit btn btn-secondary" data-dismiss="modal" type="button" value="No deseo participar"/> -->
                     </div>
                   </form>

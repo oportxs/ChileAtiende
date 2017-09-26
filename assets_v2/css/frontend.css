@@ -11901,6 +11901,11 @@ body.portada .container-alertas-sitio .alert:first-child,
   padding-top: 10px;
   padding-bottom: 10px;
 }
+#survey-modal .footer-modal {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
 #survey-modal form {
   text-align: center;
 }

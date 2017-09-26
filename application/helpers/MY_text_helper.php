@@ -16,7 +16,7 @@ function separa_contenidos($texto, $pattern, $replacement)
     return array($texto, $contenido);
 }
 
-function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $idFicha = '') {
+function prepare_content_ficha($texto, $ficha='', $movil=false, $separados=false, $idFicha = '') {
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
@@ -95,8 +95,10 @@ function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $
         $texto = preg_replace($pattern, $replacement, $texto);
     }
 
-    // botonTramiteOnline($ficha)
-    $btn_ir_tramite_responsive = "<div class='visible-phone' style='text-align: center'>".botonTramiteOnlinePhone($ficha)."</div>";
+    $btn_ir_tramite_responsive = '';
+    if( $ficha != ''){
+        $btn_ir_tramite_responsive = "<div class='visible-phone' style='text-align: center'>".botonTramiteOnlinePhone($ficha)."</div>";
+    }
 
     // {{mensaje[tipo]:texto libre}}
     $pattern = '/\{\{mensaje\[(.*)\]:([^\}\}]+)\}\}/';
