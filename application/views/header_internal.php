@@ -26,7 +26,7 @@ include('header_selector.php'); ?>
                             } ?> 
                         </div>
                     </div>
-                    <div class="row-fluid">
+                    <div class="row-fluid hidden-phone">
                         <div class="span12">
                             <div class="btn-group pull-right atencion-consultas-dropdown">
                               <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">

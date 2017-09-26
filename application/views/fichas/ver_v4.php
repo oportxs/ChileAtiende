@@ -599,6 +599,8 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php echo $this->load->view('widget/participacion'); ?>
             </div>
         </div>
+        <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<div class="span4 no-print hidden-phone section-ir-tramite">
+            <div class="tab-pane text-content" id="online">'.botonTramiteOnlineSidebar($ficha).'<div class="clearfix"></div></div></div>':''; ?>
         <div class="span4 span-side-bar no-print hidden-phone">
             <div class="side-bar" data-offset-top="174" data-offset-bottom="276">
                 <div class="cont-sociales">
@@ -695,7 +697,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </ul>
                     </div>
                 <?php endif ?>
-                <div class="temas-destacados listado-fichas">
+                <div class="hidden temas-destacados listado-fichas">
                     <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>
@@ -742,6 +744,17 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php
             }
             ?>
+
+            $("#boton_ir_a_tramite").click(function(e){
+                setTimeout("$('#redirectModal').modal('hide');",3000);
+            });
+            $("#boton_ir_a_tramite_sidebar").click(function(e){
+                document.getElementById("boton_ir_a_tramite").click();
+            });
+            $('#redirectModal').on('hidden.bs.modal', function () {
+                document.getElementById("data_url_link_hide").click();
+            })
+
             if($.cookie('idFicha')) {
                 if($.cookie('nombrePaso'))
                     $('#migapasopaso').html('<a href="/fichas/ver/'+$.cookie('idFicha')+'">Paso a Paso</a> / <a href="/fichas/ver/'+$.cookie('idFicha')+'">'+$.cookie('nombrePaso')+'</a> /');
@@ -750,3 +763,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
         });
     </script>
 </div>
+
+<?php if($ficha->guia_online) : ?>
+<script src="/assets_v2/js/survey.js" type="text/javascript"></script>
+<?php endif; ?>

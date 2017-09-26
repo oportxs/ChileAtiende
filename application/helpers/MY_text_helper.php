@@ -16,7 +16,7 @@ function separa_contenidos($texto, $pattern, $replacement)
     return array($texto, $contenido);
 }
 
-function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha = '') {
+function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $idFicha = '') {
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
@@ -95,9 +95,13 @@ function prepare_content_ficha($texto, $movil=false, $separados=false, $idFicha 
         $texto = preg_replace($pattern, $replacement, $texto);
     }
 
+    // botonTramiteOnline($ficha)
+    $btn_ir_tramite_responsive = "<div class='visible-phone' style='text-align: center'>".botonTramiteOnlinePhone($ficha)."</div>";
+
     // {{mensaje[tipo]:texto libre}}
     $pattern = '/\{\{mensaje\[(.*)\]:([^\}\}]+)\}\}/';
     $replacement = '<div class="clearfix"></div><div class="mensaje mensaje-$1">$2</div>';
+    $texto = preg_replace($pattern, $btn_ir_tramite_responsive.$replacement, $texto, 1);
     $texto = preg_replace($pattern, $replacement, $texto);
 
     // {{marcolegal:texto libre}}
@@ -234,7 +238,66 @@ function truncatePreserveWords($text, $needles, $w_near_keywords=30, $class="hig
     return highlight_phrases(preg_replace("/\.{3,}/i", "...", $o), $needles, $class);
 }
 
-function botonTramiteOnline($ficha, $texto = 'Ir al trámite')
+function botonTramiteOnlineMini($ficha, $texto = 'Ir al trámite'){
+    $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
+
+    $gaCategory = uri_string() == 'buscar/fichas' ? 'Acciones Buscador' : 'Acciones Ficha';
+    $boton_mini = '';
+
+    if($ficha->guia_online_url){
+        $boton_mini = '
+        <div class="proj-div" data-toggle="modal" style="width: 222px" data-target="#redirectModal">
+                <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online búsqueda" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+        </div>
+
+        <div id="redirectModal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="background-color: #0148A2">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+                <!--<h4 class="modal-title" id="myModalLabel">Redireccionando...</h4>-->
+                <img style="height: 70px" src="/assets_v2/img/nueva_home/logo_chileatiende.png">
+              </div>
+                <div class="modal-body" style="font-family: Helvetica, Arial, sans-serif; font-weight: 100;height: 120px !important; padding: 30px !important; text-align: center;">
+                    Para realizar tu trámite te <b>redirigiremos</b> al sitio web institucional de '.$ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':'').'
+                    <br>
+                    <a target="_blank" id="btn_ir_y_cerrar" style="text-decoration: none;" href="'.$ficha->guia_online_url.'">
+                        <button type="button" class="btn btn-primary" style="margin: 20px 10px 5px 10px; padding: 10px 20px; border: none;">Entendido</button>
+                    </a>
+                    <br>
+                    <a id="btn_close_modal" href="" data-dismiss="modal" style="color: gray;font-size: 0.8em;">Prefiero seguir en ChileAtiende</a>
+                    <br>
+                </div>
+              <div class="modal-footer" style="background-color: #1a1d21;">
+                <img src="/assets_v2/img/logo_gobierno_footer.png" style="height: 35px">
+              </div>
+            </div>
+          </div>
+        </div>
+        ';
+    }
+    return $boton_mini;
+}
+
+function botonTramiteOnlineSidebar($ficha, $texto = 'Ir al trámite en línea')
+{
+    $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
+
+    $gaCategory = uri_string() == 'buscar/fichas' ? 'Acciones Buscador' : 'Acciones Ficha';
+    $botonTramiteOnlineSidebar = '';
+
+    if($ficha->guia_online_url){
+        $botonTramiteOnlineSidebar = '
+        <div class="proj-div" style="padding-top: 40px;">
+                <input type="button" id="boton_ir_a_tramite_sidebar" class="btn btn-ir-tramite-online-sidebar t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online Superior" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+                <i class="fa fa-long-arrow-right arrow-ir-al-tramite-sidebar" id="arrow-ir-al-tramite-sidebar" style="cursor: pointer" aria-hidden="true"></i>
+        </div>
+        ';
+    } 
+    return $botonTramiteOnlineSidebar;
+}
+
+function botonTramiteOnlinePhone($ficha, $texto = 'Ir al trámite en línea')
 {
     // INFO: se agrega para usar la misma funcion en Fichas y SubFichas
     $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
@@ -243,8 +306,56 @@ function botonTramiteOnline($ficha, $texto = 'Ir al trámite')
     $botonTramiteOnline = '';
 
     if($ficha->guia_online_url)
-        $botonTramiteOnline = '<a class="btn btn-ir-tramite-online t_online rs_skip" href="'.$ficha->guia_online_url.'" target="_blank" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'">'.$texto.'</a>';
+$botonTramiteOnline = '
+<div class="proj-div" data-toggle="modal" data-target="#redirectModal">
+        <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" style="margin: 0px 4px 0px 0; width: calc( 100% - 32px ); height: 50px;" />
+        <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer;     padding: 15px 3px 10px !important;"></i>
+</div>
+';
+    return $botonTramiteOnline;
+}
 
+function botonTramiteOnline($ficha, $texto = 'Ir al trámite en línea')
+{
+    // INFO: se agrega para usar la misma funcion en Fichas y SubFichas
+    $id_ficha_original = isset($ficha['metaficha']) ? $ficha->Maestro->id : $ficha->MetaFicha->id;
+
+    $gaCategory = uri_string() == 'buscar/fichas' ? 'Acciones Buscador' : 'Acciones Ficha';
+    $botonTramiteOnline = '';
+
+    if($ficha->guia_online_url)
+        // $botonTramiteOnline = '<a class="btn btn-ir-tramite-online t_online rs_skip" href="'.$ficha->guia_online_url.'" target="_blank" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'">'.$texto.'</a>';
+$botonTramiteOnline = '
+<div class="proj-div" data-toggle="modal" style="width: 222px" data-target="#redirectModal">
+        <input type="button" id="boton_ir_a_tramite" class="btn btn-ir-tramite-online t_online rs_skip" alt="Realizar en línea" data-ga-te-category="'.$gaCategory.'" data-ga-te-action="Botón Trámite Online" data-ga-te-value="'.$id_ficha_original.'" value="'.$texto.'" />
+        <i class="fa fa-long-arrow-right arrow-ir-al-tramite" aria-hidden="true" style="cursor:pointer"></i>
+</div>
+
+<div id="redirectModal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #0148A2">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+        <!--<h4 class="modal-title" id="myModalLabel">Redireccionando...</h4>-->
+        <img style="height: 70px" src="/assets_v2/img/nueva_home/logo_chileatiende.png">
+      </div>
+      <div class="modal-body" style="font-family: Helvetica, Arial, sans-serif; font-weight: 100;height: 120px !important; padding: 30px !important; text-align: center;">
+        Para realizar tu trámite te <b>redirigiremos</b> al sitio web institucional de '.$ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':'').'
+        <br>
+        <a target="_blank" id="btn_ir_y_cerrar" style="text-decoration: none;" href="'.$ficha->guia_online_url.'">
+            <button type="button" class="btn btn-primary" style="margin: 20px 10px 5px 10px; padding: 10px 20px; border: none;">Entendido</button>
+        </a>
+        <br>
+        <a id="btn_close_modal" href="" data-dismiss="modal" style="color: gray;font-size: 0.8em;">Prefiero seguir en ChileAtiende</a>
+        <br>
+      </div>
+      <div class="modal-footer" style="background-color: #1a1d21;">
+        <img src="/assets_v2/img/logo_gobierno_footer.png" style="height: 35px">
+      </div>
+    </div>
+  </div>
+</div>
+';
     return $botonTramiteOnline;
 }
 
@@ -256,7 +367,7 @@ function botonMejorarTramite($obj, $tipoTramite = 'online')
     if(!$obj->guia_online_url){
         return $agradecimiento . '<a id="btn-mejora" class="btn btn-quiero-tramite-online rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Quiero Trámite Online" data-ga-te-value="'.$ficha->Maestro->id.'">Quisiera este trámite disponible en línea</a>';
     }else{
-        return $agradecimiento . '<a id="btn-mejora" class="btn btn-mejorar-tramite rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
+        //return $agradecimiento . '<a id="btn-mejora" class="btn btn-mejorar-tramite rs_skip" href="#" data-ga-te-category="Fichas" data-ga-te-action="Botón Mejorar Trámite" data-ga-te-value="'.$ficha->Maestro->id.'">¿Podemos mejorar este trámite?</a>';
     }
 }
 

@@ -80,6 +80,7 @@ textarea {
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
+  font-family: inherit !important;
 }
 button,
 input {
@@ -6029,11 +6030,12 @@ a:active {
   overflow: hidden;
 }
 body {
-  background: url('../img/portada/fondo_15.jpg') center top no-repeat fixed;
+  /*background: url('../img/portada/fondo_15.jpg') center top no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
+  background-color: #19223c;  
   margin: 0;
   padding: 0;
   color: #333333;
@@ -6046,6 +6048,7 @@ body {
   max-width: 450px;
 }
 .sobre-esta-imagen {
+  display: none !important;
   position: fixed;
   top: 350px;
   padding: 10px;
@@ -6191,21 +6194,101 @@ body.tiene-barra-campana {
   width: 92px;
   height: 26px;
 }
+.btn-ir-tramite-online-sidebar:hover {
+  background-color: #0d5a98 !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
+.btn-ir-tramite-online-mini:hover {
+  background-color: #0d5a98 !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
+.btn-ir-tramite-online-mini {
+  background-color: #1578c7 !important;
+  color: #ffffff !important;
+  border: none !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
+  text-shadow: none !important;
+  font-size: 1em;
+  border-radius: 0px;
+  padding: 7.2px 15px;
+}
+.btn-ir-tramite-online-sidebar {
+  background-color: #1578c7 !important;
+  color: #ffffff !important;
+  border: none !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
+  text-shadow: none !important;
+  font-size: 1.2em;
+  border-radius: 0px;
+  padding: 20px 29px;
+  /*margin-top: 50px;*/
+  margin-left: 25px;
+  margin-top: -1px;
+}
+@media (max-width: 980px) {
+  .btn-ir-tramite-online-sidebar {
+    padding: 20px 10px;
+    margin-left: 5px;
+    font-size: 17px;
+  }  
+}
+@media (min-width: 768px) {
+  .top-online-btn {
+    display: none;
+  }
+}
+
+.arrow-ir-al-tramite-sidebar {
+    background-color: #0d5a98;
+    margin-left: -5px;
+    color: white;
+    font-size: 1.2em;
+    padding: 21px;
+    padding-bottom: 23px;
+}
+.section-ir-tramite{
+  padding-bottom: 38px;
+  border-bottom: 1px solid #d5d5d5;
+}
+.btn-ir-tramite-online:hover {
+  background-color: #0d5a98 !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0d5a98), to(#0d5a98));
+}
 .btn-ir-tramite-online {
+  background-color: #1578c7 !important;
+  color: #ffffff !important;
+  border: none !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1578c7), to(#1578c7));
+  text-shadow: none !important;
+  font-size: 1em;
+  border-radius: 0px;
+  padding: 7.2px 15px;
+}
+.arrow-ir-al-tramite {
+  background-color: #0d5a98;
+  margin-top: 20px;
+  padding: 7px 3px 2px;
+  margin-left: -10px;
+  height: 25px;
+  color: white;
+  width: 23px;
+  padding-left: 7px;
+  font-size: 1.2em;
+}
+/*.btn-ir-tramite-online {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #246baa;
-  background-image: -moz-linear-gradient(top, #1d65a5, #2e73b1);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1d65a5), to(#2e73b1));
-  background-image: -webkit-linear-gradient(top, #1d65a5, #2e73b1);
-  background-image: -o-linear-gradient(top, #1d65a5, #2e73b1);
-  background-image: linear-gradient(to bottom, #1d65a5, #2e73b1);
+  background-image: -moz-linear-gradient(top, #0094cf, #2e73b1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0094cf), to(#2e73b1));
+  background-image: -webkit-linear-gradient(top, #0094cf, #2e73b1);
+  background-image: -o-linear-gradient(top, #0094cf, #2e73b1);
+  background-image: linear-gradient(to bottom, #0094cf, #2e73b1);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d65a5', endColorstr='#ff2e73b1', GradientType=0);
   border-color: #2e73b1 #2e73b1 #1e4c74;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #2e73b1;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .btn-ir-tramite-online:hover,
@@ -6396,30 +6479,51 @@ form #name-opina {
 }
 header .header-top h1 {
   max-width: 280px;
-  margin: 25px 0 10px 0px;
+  margin: 0px 0 10px 0px;
 }
 @media (max-width: 765px) {
   header .header-top h1 {
     margin: 20px 0 10px 15px;
   }
 }
-header .header-top .temas-destacados {
-  margin-left: 15px;
+.title-home{
+  font-size: 2em !important;
 }
-@media (max-width: 765px) {
+header .header-top .temas-destacados {
+  margin-left: 52px;
+}
+@media (max-width: 475px) {
+  header .cont-busqueda .searchbtn span.etiqueta {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  header .header-top .cont-busqueda {
+    text-align: left;
+    padding-left: 10px;
+  }
   header .header-top .temas-destacados {
-    margin: 0px 15px;
-    text-align: center;
+    margin-left: 15px;
+  }
+}
+@media (max-width: 980px) {
+  header .header-top .temas-destacados {
+    margin-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  header .header-top .temas-destacados {
+    margin-left: 95px;
   }
 }
 header .header-top .temas-destacados span.label {
   padding: 10px;
-  font-size: 15px;
-  background-color: #00D67E;
+  font-size: 1em;
+  background-color: #0e64ea;
   border: none;
   border-radius: 0px;
   text-shadow: none;
-  color: #004248;
+  color: white;
   margin-bottom: 3px;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -6445,7 +6549,8 @@ header .title {
   }
 }
 header .header-bottom {
-  background-color: rgba(0, 0, 0, 0.4);
+  /*background-color: rgba(0, 0, 0, 0.4);*/
+  background-color: #314f97;
   color: #FFF;
   margin: 0px 0px 80px 0px;
 }
@@ -6591,6 +6696,8 @@ header .header-bottom .nav-contactos .contactos-oficinamovil {
 header .cont-busqueda {
   margin: 25px 0px 0px 15px;
   float: right;
+  width: 420px;
+  text-align: right;
 }
 @media (max-width: 765px) {
   header .cont-busqueda {
@@ -6603,8 +6710,8 @@ header .cont-busqueda form {
 }
 header .cont-busqueda .main_search_input {
     float: none;
-    width: 540px;
-    height: 57px;
+    width: 70%;
+    height: 47px;
     font-size: 20px;
     border-right: none;
     border-radius: 0;
@@ -6636,7 +6743,8 @@ header .cont-busqueda .searchbtn {
   padding: 5px 15px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background-color: #02d073;
+  /*background-color: #02d073;*/
+  background-color: #0e64ea;
   margin-bottom: 10px;
   margin-left: -5px;
   color: #ffffff;
@@ -6994,7 +7102,8 @@ header.header-empresas .cont-busqueda .searchbtn {
   top: 0;
   right: 0;
   border: none;
-  height: 37px;
+  /*height: 37px;*/
+  height: 47px;
   width: 75px;
   padding: 5px;
   -webkit-border-top-right-radius: 3px;
@@ -8203,15 +8312,15 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   }
 }
 .searchresults li .resultado-info .t_online {
-  width: 60%;
+  /*width: 60%;*/
   display: block;
-  margin: 0 auto;
+  margin: 5px 0;
 }
 @media (max-width: 768px) {
   .searchresults li .resultado-info .t_online {
     float: left;
-    width: 40%;
-    margin: 0;
+    /*width: 40%;*/
+    margin: 5px 0;
   }
 }
 .searchresults .num-ficha {
@@ -8302,7 +8411,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   }
 }
 .opciones-accesibilidad {
-  float: right;
+  float: left;
 }
 .opciones-accesibilidad .nav-pills {
   margin: 0;
@@ -8699,6 +8808,7 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
 @media (max-width: 480px) {
   .ficha .tab-content .btn-ir-tramite-online {
     width: 35%;
+    min-width: 190px;
   }
 }
 .ficha .tab-content .btn-mejorar-tramite {
@@ -9006,10 +9116,10 @@ body.portada .cont-beneficios-home .cont-fichas-home .tipotramite span {
   margin: 0;
 }
 .side-bar .lista-redes-sociales li {
-  float: left;
+  float: right;
   background: none;
-  margin-top: 10px;
-  padding: 0 25px 0 0;
+  margin-top: 4px;
+  padding: 0px 4px;
 }
 @media (max-width: 1024px) {
   .side-bar .lista-redes-sociales li {
@@ -11288,7 +11398,7 @@ code {
 .row-ficha-contenido .tab-content .btn-mejorar-tramite,
 .row-ficha-contenido .text-content .btn-ir-tramite-online,
 .row-ficha-contenido .tab-content .btn-ir-tramite-online {
-  margin: 20px 10px 20px 0;
+  margin: 20px 4px 20px 0;
 }
 .row-ficha-contenido .text-content h4.titulo_celeste,
 .row-ficha-contenido .tab-content h4.titulo_celeste {
@@ -11742,6 +11852,7 @@ body.portada .container-alertas-sitio .alert:first-child,
 @media (max-width: 480px) {
   .v4 .panel-body .btn-ir-tramite-online {
     width: 35%;
+    min-width: 190px;
   }
 }
 .v4 .panel-body .btn-mejorar-tramite {
@@ -11772,17 +11883,42 @@ body.portada .container-alertas-sitio .alert:first-child,
 
 /*form encuestas*/
 #gform {
-  width: 100%;
-  height: 350px;
+  width: 90%;
+  height: 320px;
   overflow-x: hidden;
+  padding: 20px;
 }
 .modal-body {
     position: relative;
     overflow: hidden;
-    height: 420px;
+    height: 360px;
     max-height: 420px;
-    padding: 1px !important;
+    padding: 5px 20px !important;
+    font-size: 18px;
+    line-height: 20px;
 }
+#survey-modal .modal-header h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#survey-modal form {
+  text-align: center;
+}
+#survey-modal form input{
+  width: 95%;
+}
+#survey-modal form input.form-submit{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+}
+#survey-modal form select {
+  width: 99%;
+}
+#survey-modal form input.form-submit{
+  margin-top: 25px;
+}
+
 @media (max-width: 767px)
 .modal {
     width: 100%;

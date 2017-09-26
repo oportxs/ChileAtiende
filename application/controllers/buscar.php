@@ -57,12 +57,17 @@ class Buscar extends CI_Controller {
         $this->load->library('sphinxclient');
         $this->sphinxclient->setServer($this->config->item('sphinx_host'),(int)$this->config->item('sphinx_port'));
         $this->sphinxclient->SetFieldWeights(array('keywords' => 50, 'titulo' => 100, 'sic' => 50, 'objetivo' => 5));
+        /* 
+            'flujo'         = 0 => +5
+            'guia_online'   = 1 => +10
+        */
         if($query){ //Si hau una busqueda, usamos el algoritmo para clasificar los resultados
             $this->sphinxclient->SetMatchMode(SPH_MATCH_EXTENDED);
-            $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 100*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits)');
+            $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 100*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits) + IF(flujo = 0, 5, 0) + IF(online = 1, 10, 0)');
         }else{  //Si no hay busqueda, simplement ordenamos por hits.
             $this->sphinxclient->SetSortMode(SPH_SORT_ATTR_DESC,'hits');
         }
+
         $this->sphinxclient->setLimits(0, 1000);
         
         if (!empty($filtro_temas)){
@@ -120,10 +125,8 @@ class Buscar extends CI_Controller {
         }
         // php entrega un warning por que sphinx no permite filtro con strings... en producción no se ve por congig "error_reporting(0)"
         if(!empty($filtro_motivos_exterior)){
-            // var_dump($filtro_motivos_exterior);die();
             $this->sphinxclient->setFilter('motivo_id', $filtro_motivos_exterior);
         }
-            
 
         //Preparo los terminos para enviarlos al sphinx (Para que haga busqueda ANY)
         $sphinx_query=trim(preg_replace('/[\-\+\'\"]+/', ' ', $query));     //Le quitamos los caracteres especiales de sphinx (- + " ')
@@ -135,10 +138,12 @@ class Buscar extends CI_Controller {
         }
         
         //Hago la busqueda
-        $result=$this->sphinxclient->query($sphinx_query, 'redchile_fichas');   
-        // var_dump($result);die();  
+        $result=$this->sphinxclient->query($sphinx_query, 'redchile_fichas');
+
         //Se hace el match de los resultados de Sphinx con el modelo en Doctrine.
         $doctrine_query = Doctrine_Query::create()
+                        // ->select('f.*, '.SPH_RANK_EXPR.' as rank1, '.SPH_MATCH_EXTENDED.' as rank2, '.SPH_SORT_ATTR_DESC.' as rank3, 0 as weight')
+                        ->select('f.*, 0 as weight')
                         ->from('Ficha f')
                         ->where('f.maestro = 0 AND f.publicado = 1');
          
@@ -148,6 +153,7 @@ class Buscar extends CI_Controller {
             if(!empty($matches)){
                 $doctrine_query->whereIn('f.id', $matches);
                 $doctrine_query->orderBy('FIELD (id, '.implode(',', $matches).')');
+
             }else{
                 $doctrine_query->where('0');
             }
@@ -155,9 +161,8 @@ class Buscar extends CI_Controller {
             $doctrine_query->where('0');
         }
 
-        $fichas = $doctrine_query->execute();
+        $fichas = $doctrine_query->execute();        
         $total_fichas = $result['total'];
-
         
         //Se configura la paginacion
         $this->pagination->initialize(array(
@@ -173,7 +178,6 @@ class Buscar extends CI_Controller {
             $req_especial = array('mujer' => 'Mujer', 'indigena' => 'Indigena');
 
             foreach($result['matches'] as $ficha) {
-                
                 foreach( $formalidad as $tramite => $nombre){
                     if($ficha['attrs'][$tramite])
                         if(!isset($aData['formalidad'][$tramite])){
@@ -193,6 +197,10 @@ class Buscar extends CI_Controller {
                             $aData['req_especial'][$tramite]['numero_fichas']++;
                         }
                 }
+            }
+
+            foreach ($fichas as $f_key => $f_value) {
+                $fichas[$f_key]['weight'] = $result['matches'][$f_value->id]['weight'];
             }
 
             $all_ids        = array_keys($result['matches']);
@@ -331,7 +339,8 @@ class Buscar extends CI_Controller {
         $this->sphinxclient->setServer($this->config->item('sphinx_host'),(int)$this->config->item('sphinx_port'));
         $this->sphinxclient->SetFieldWeights(array('keywords' => 10, 'titulo' => 100, 'sic' => 10));
         $this->sphinxclient->SetMatchMode(SPH_MATCH_EXTENDED);
-        $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 10*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits)');
+        // $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 10*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits)');
+        $this->sphinxclient->setRankingMode(SPH_RANK_EXPR, 'bm25 + 10*(sum(lcs*user_weight)/max_lcs) + 10*(hits/max_hits) + IF(flujo = 0, 5, 0) + IF(online = 1, 5, 0)');
         $this->sphinxclient->setLimits(0, 1000);
 
         //Sugerencias en base a diccionario

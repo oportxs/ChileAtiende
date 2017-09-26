@@ -56,7 +56,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php endif ?>
             </div>
             <div id="maincontent"  class="row-ficha-contenido" role="main">
-                <div class="opciones-accesibilidad no-print rs_skip">
+                <div class="hidden-phone opciones-accesibilidad no-print rs_skip">
                     <ul class="nav nav-pills">
                         <li class="ajusta-tamano-fuente">
                             <a href="#" class="tamano-fuente" data-dir="1">+A</a>
@@ -72,13 +72,47 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </li>
                     </ul>
                 </div>
+
+                <div class="visible-phone opciones-accesibilidad no-print rs_skip" style="float: right">
+                    <ul class="nav nav-pills">
+                        <li class="ajusta-tamano-fuente">
+                            <a href="#" class="tamano-fuente" data-dir="1">+A</a>
+                        </li>
+                        <li class="ajusta-tamano-fuente">
+                            <a href="#" class="tamano-fuente" data-dir="-1">-A</a>
+                        </li>
+                        <li class="escuchar">
+                            <a href="#">Escuchar</a>
+                        </li>
+                        <li class="imprimir hidden-phone">
+                            <a href="javascript:print();">Imprimir</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-phone clearfix"></div>
+
+                <div class="side-bar">
+                    <ul class="lista-redes-sociales">
+                        <li class="compartir_correo">
+                            <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
+                        </li>
+                        <li class="compartir_facebook">
+                            <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
+                        </li>
+                        <li class="compartir_twitter">
+                            <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
+                        </li>    
+                        <li style="margin-top: 10px !important">Compartir: </li>
+                    </ul>
+                </div>
+
                 <div class="clearfix"></div>
                 <?php echo getAlertasUrl(); ?>
                 <?php if (!$ficha->flujo || ($ficha->Servicio->codigo == 'ZY000')) { ?>
                     <div class="text-content">
                         <a id="descripcion" class="anchor-top">&nbsp;</a>
                         <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) { ?><h3 class="cabecera">Descripción</h3><?php } ?>
-                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
+                        <?php echo prepare_content_ficha($ficha->objetivo, $ficha); ?>
                         
                         <?php 
                             $campos = array(
@@ -389,42 +423,10 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php echo $this->load->view('widget/participacion'); ?>
             </div>
         </div>
+        <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<div class="span4 no-print hidden-phone section-ir-tramite">
+            <div class="tab-pane text-content" id="online">'.botonTramiteOnlineSidebar($ficha).'<div class="clearfix"></div></div></div>':''; ?>
         <div class="span4 span-side-bar no-print hidden-phone">
             <div class="side-bar" data-offset-top="174" data-offset-bottom="276">
-                
-                <div class="cont-sociales">
-                    <div class="row-fluid">
-                        <?php if(!$this->config->item("lite_mode")){?>
-                            <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
-                                <p>¿Te gusta?:</p>
-                                <div class="voto voto-positivo" data-voto="positivo">
-                                    <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto positivo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">+</a>
-                                    <span class="total-votos"></span>
-                                </div>
-                                <div class="voto voto-negativo" data-voto="negativo">
-                                    <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto negativo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">-</a>
-                                    <span class="total-votos"></span>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <div class="span6 visible-desktop">
-                            <p>Compartir:</p>
-                            <ul class="lista-redes-sociales">
-                                <li class="compartir_twitter">
-                                    <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
-                                </li>
-                                <li class="compartir_facebook">
-                                    <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
-                                </li>
-                                <li class="compartir_correo">
-                                    <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
                 <?php
                 // INFO: se muestra lista de eventos destacados solo para portal pymes
                 if(($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) && count($eventos)) :
@@ -503,7 +505,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </ul>
                     </div>
                 <?php endif ?>
-                <div class="temas-destacados listado-fichas">
+                <div class="hidden temas-destacados listado-fichas">
                     <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>
@@ -552,6 +554,17 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php
             }
             ?>
+
+            $("#boton_ir_a_tramite").click(function(e){
+                setTimeout("$('#redirectModal').modal('hide');",3000);
+            });
+            $("#boton_ir_a_tramite_sidebar").click(function(e){
+                document.getElementById("boton_ir_a_tramite").click();
+            });
+            $('#redirectModal').on('hidden.bs.modal', function () {
+                document.getElementById("data_url_link_hide").click();
+            })
+
             if($.cookie('idFicha')) {
                 if($.cookie('nombrePaso'))
                     $('#migapasopaso').html('<a href="/fichas/ver/'+$.cookie('idFicha')+'">Paso a Paso</a> / <a href="/fichas/ver/'+$.cookie('idFicha')+'">'+$.cookie('nombrePaso')+'</a> /');
@@ -560,3 +573,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
         });
     </script>
 </div>
+
+<?php if($ficha->guia_online) : ?>
+<script src="/assets_v2/js/survey.js" type="text/javascript"></script>
+<?php endif; ?>
