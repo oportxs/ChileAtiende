@@ -159,6 +159,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 $_metaficha_show00 = $ficha->metaficha == 0 ;// || ($ficha->metaficha == 1 && $metaficha_campos['beneficiarios'] == 1) ? true : false;
                 if ($_metaficha_show00 && !empty($ficha->beneficiarios) && ($ficha->flujo)): ?>
                     <div class="text-content <?php echo ($ficha->Servicio->codigo == 'ZY000') ? 'paso-paso-emprendete' : '' ?>">
+                        <br>
                         <a id="beneficiarios" class="anchor-top">&nbsp;</a>
                         <?php if (!$ficha->flujo): ?>
                             <h3>Beneficiarios</h3>
