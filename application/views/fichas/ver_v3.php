@@ -161,7 +161,7 @@
                     <div class="text-content contenedor-info-ficha" data-seccion="documentos-requeridos">
                         <a id="documentos-requeridos" class="anchor-top">&nbsp;</a>
                         <h3><?php echo $numInfoFicha++; ?>. Documentos requeridos</h3>
-                        <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, false, true); ?>
+                        <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, $ficha, false, true); ?>
                         <?php if ($doc_requeridos['doc_requeridos']): ?>
                             <table class="table-striped documentos-requeridos">
                                 <?php foreach ($doc_requeridos['doc_requeridos'] as $doc_requerido): ?>

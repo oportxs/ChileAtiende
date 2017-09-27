@@ -2,7 +2,7 @@
 
 function extrae_contenidos($contenido)
 {
-    return prepare_content_ficha($contenido, false, true);
+    return prepare_content_ficha($contenido, '', false, true);
 }
 
 function separa_contenidos($texto, $pattern, $replacement)

@@ -148,7 +148,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php echo prepare_content_ficha($ficha->beneficiarios); ?>
                         <?php else: ?>
                             <?php 
-                                $contenido_flujo = prepare_content_ficha($ficha->beneficiarios, false, true);
+                                $contenido_flujo = prepare_content_ficha($ficha->beneficiarios, $ficha, false, true);
                                 echo $contenido_flujo['texto'];
                             ?>
                             <?php if (isset($contenido_flujo['videos']) && $contenido_flujo['videos']): ?>
@@ -368,7 +368,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <?php if (($_metaficha_show03 && !empty($ficha->doc_requeridos))): ?>
                             <div id="documentos-requeridos-tab" class="text-content <?php echo ($count==1)?'active':'';$count++;?> tab-pane print" data-seccion="documentos-requeridos">
                                 <h3 class="print">Documentos Requerimientos</h3>
-                                <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, false, true); ?>
+                                <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, $ficha, false, true); ?>
                                 <?php if ($doc_requeridos['doc_requeridos']): ?>
                                     <table class="table-striped documentos-requeridos">
                                         <?php foreach ($doc_requeridos['doc_requeridos'] as $doc_requerido): ?>

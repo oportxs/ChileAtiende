@@ -25,7 +25,7 @@ if (!empty($_metaficha_obj00->beneficiarios) && ($metaficha->flujo)): ?>
             <?php echo prepare_content_ficha($_metaficha_obj00->beneficiarios); ?>
         <?php else: ?>
             <?php 
-                $contenido_flujo = prepare_content_ficha($_metaficha_obj00->beneficiarios, false, true);
+                $contenido_flujo = prepare_content_ficha($_metaficha_obj00->beneficiarios, $_metaficha_obj00, false, true);
                 echo $contenido_flujo['texto'];
             ?>
             <?php if (isset($contenido_flujo['videos']) && $contenido_flujo['videos']): ?>

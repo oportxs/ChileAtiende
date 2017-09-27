@@ -20,7 +20,7 @@ class Rss extends CI_Controller {
 		foreach ($fichas as $key => $ficha) {
 			$items[$key]->link = base_url() . 'fichas/ver/' . $ficha->maestro_id;
 			$items[$key]->titulo = $ficha->titulo;
-			$items[$key]->descripcion = prepare_content_ficha($ficha->objetivo);
+			$items[$key]->descripcion = prepare_content_ficha($ficha->objetivo, $ficha);
 		}
 
 		$data['items'] = $items;
