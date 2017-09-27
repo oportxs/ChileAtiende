@@ -37,7 +37,7 @@
                         <option value="Coquimbo">Coquimbo</option>
                         <option value="Valparaiso">Valparaiso</option>
                         <option value="O'Higgins">O'Higgins</option>
-                        <option value="Tarapacá">Maule</option>
+                        <option value="Maule">Maule</option>
                         <option value="Biobío">Biobío</option>
                         <option value="La Araucanía">La Araucanía</option>
                         <option value="Los Ríos">Los Ríos</option>
