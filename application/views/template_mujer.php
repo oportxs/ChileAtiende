@@ -237,18 +237,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
         <?php echo isset($assets) ? loadAssets($assets, 'js') : ''; ?>
 
-        <div id="survey-modal" class="modal hide fade" tabindex="-1" role="dialog">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-              <h3>Queremos conocer su Opinión</h3>
-          </div>
-          <div class="modal-body">
-              <iframe id="gform" src="" height="250" frameborder="0"></iframe>
-          </div>
-          <div class="modal-footer">
-            <button class="btn" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
+        <?php $this->load->view('survey'); ?>
 
         <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
 

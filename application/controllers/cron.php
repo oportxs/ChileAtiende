@@ -11,7 +11,7 @@ class Cron extends CI_Controller{
     
     public function hourly(){
         //Indexamos las busquedas en Sphinx
-        system('cd sphinx; searchd; indexer --rotate --all');
+        system('cd sphinx; searchd -c sphinx.conf; indexer --rotate --all');
     }
     
     public function daily(){

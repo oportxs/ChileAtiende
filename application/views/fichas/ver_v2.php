@@ -40,7 +40,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php if($ficha->metaficha == 0): ?>
                 <div class="row-fluid">
                     <h5>Información proporcionada por: <a href="<?php echo site_url('servicios/ver/'.$ficha->Servicio->codigo); ?>"><?php echo $ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':''); ?></a></h5>
-                    <h6>Última actualización: 
+                    <h6>Última Actualización: 
                         <?php $updatedDate = ($ficha->updated_data_at)? $ficha->updated_data_at : $ficha->publicado_at; ?>
                         <?php echo strftime('%A %d de %B del %Y', mysql_to_unix($updatedDate)); ?>
                     </h6>
@@ -52,8 +52,8 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     <img src="<?php echo base_url('assets_v2/img/label_aprende_sobre_big.png'); ?>" class="label_flujo no-print rs_skip" alt="Label Flujo">
                 <?php endif ?>
             </div>
-            <div id="maincontent"  class="row-ficha-contenido" role="main">
-                <div class="opciones-accesibilidad no-print rs_skip">
+            <div id="maincontent"  class="row-ficha-contenido" role="main" style="margin-top: 0px !important;">
+                <div class="hidden-phone opciones-accesibilidad no-print rs_skip">
                     <ul class="nav nav-pills">
                         <li class="ajusta-tamano-fuente">
                             <a href="#" class="tamano-fuente" data-dir="1">+A</a>
@@ -69,14 +69,48 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </li>
                     </ul>
                 </div>
+                <div class="visible-phone opciones-accesibilidad no-print rs_skip" style="float: right">
+                    <ul class="nav nav-pills">
+                        <li class="ajusta-tamano-fuente">
+                            <a href="#" class="tamano-fuente" data-dir="1">+A</a>
+                        </li>
+                        <li class="ajusta-tamano-fuente">
+                            <a href="#" class="tamano-fuente" data-dir="-1">-A</a>
+                        </li>
+                        <li class="escuchar">
+                            <a href="#">Escuchar</a>
+                        </li>
+                        <li class="imprimir hidden-phone">
+                            <a href="javascript:print();">Imprimir</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-phone clearfix"></div>
+                <div class="side-bar">
+                    <ul class="lista-redes-sociales">
+                        <li class="compartir_correo">
+                            <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
+                        </li>
+                        <li class="compartir_facebook">
+                            <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
+                        </li>
+                        <li class="compartir_twitter">
+                            <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
+                        </li>
+                        <li style="margin-top: 10px !important">Compartir: </li>
+                    </ul>
+                </div>
+
                 <div class="clearfix"></div>
                 <?php echo getAlertasUrl(); ?>
                 <?php if (!$ficha->flujo || ($ficha->Servicio->codigo == 'ZY000')) { ?>
                     <div class="text-content">
                         <a id="descripcion" class="anchor-top">&nbsp;</a>
-                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) { ?><h3 class="cabecera">Descripción</h3><?php } ?>
-                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
-                        
+                        <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) : ?>
+                            <h3 class="cabecera">Descripción</h3>
+                        <?php endif; ?>
+                        <?php echo prepare_content_ficha($ficha->objetivo, $ficha); ?>
+
                         <?php 
                             $campos = array(
                                 'cc_observaciones' => "Detalles",
@@ -88,7 +122,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                 'plazo' => "Plazo",
                                 'informacion_multimedia' => "Información Multimedia"
                             );
-
                             // INFO: solo se muestra el enlace si almenos un campo debe ser mostrado
                             foreach($campos as $campo => $titulo):
                                 if($metaficha_campos[$campo] == 1 && !empty($ficha[$campo])):
@@ -123,7 +156,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <div id="ajax-content">
                 <?php 
                 endif;
-
                 $_metaficha_show00 = $ficha->metaficha == 0 ;// || ($ficha->metaficha == 1 && $metaficha_campos['beneficiarios'] == 1) ? true : false;
                 if ($_metaficha_show00 && !empty($ficha->beneficiarios) && ($ficha->flujo)): ?>
                     <div class="text-content <?php echo ($ficha->Servicio->codigo == 'ZY000') ? 'paso-paso-emprendete' : '' ?>">
@@ -383,42 +415,10 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php echo $this->load->view('widget/participacion'); ?>
             </div>
         </div>
+        <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<div class="span4 no-print hidden-phone section-ir-tramite">
+            <div class="tab-pane text-content" id="online">'.botonTramiteOnlineSidebar($ficha).'<div class="clearfix"></div></div></div>':''; ?>
         <div class="span4 span-side-bar no-print hidden-phone">
             <div class="side-bar" data-offset-top="174" data-offset-bottom="276">
-                
-                <div class="cont-sociales">
-                    <div class="row-fluid">
-                        <?php if(!$this->config->item("lite_mode")){?>
-                            <div class="span6 valoracion-ficha <?php if(isset($_GET['exterior']) && $_GET['exterior'] == "1") print "hide";?>" data-id-ficha="<?php echo $ficha->maestro_id; ?>" data-modificador="0">
-                                <p>¿Te gusta?:</p>
-                                <div class="voto voto-positivo" data-voto="positivo">
-                                    <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto positivo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">+</a>
-                                    <span class="total-votos"></span>
-                                </div>
-                                <div class="voto voto-negativo" data-voto="negativo">
-                                    <a href="#" data-ga-te-category="Acciones Ficha" data-ga-te-action="Voto negativo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">-</a>
-                                    <span class="total-votos"></span>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <div class="span6 visible-desktop">
-                            <p>Compartir:</p>
-                            <ul class="lista-redes-sociales">
-                                <li class="compartir_twitter">
-                                    <a target="_blank" href="http://twitter.com/intent/tweet?text=<?php echo urlencode($ficha->titulo); ?>&url=<?php echo current_url(); ?>&via=chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Twitter" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Twitter</a>
-                                </li>
-                                <li class="compartir_facebook">
-                                    <a  target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo urlencode(current_url()); ?>&t=<?php echo urlencode($ficha->titulo); ?>"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Facebook" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Facebook</a>
-                                </li>
-                                <li class="compartir_correo">
-                                    <a href="<?php echo site_url('contacto/enviaramigo'); ?>" data-toggle="modal-chileatiende"  data-ga-te-category="Acciones Ficha" data-ga-te-action="Compartir Correo" data-ga-te-value="<?php echo $ficha->maestro_id; ?>">Correo</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
                 <?php
                 // INFO: se muestra lista de eventos destacados solo para portal pymes
                 if(($ficha->Servicio->codigo == 'ZY000' || ($ficha->tipo==2) ) && count($eventos)) :
@@ -429,7 +429,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php 
                                 $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
                                 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-
                                 foreach($eventos as $evento):
                                     
                                     if($evento->permanente == 1)
@@ -497,7 +496,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </ul>
                     </div>
                 <?php endif ?>
-                <div class="temas-destacados listado-fichas">
+                <div class="hidden temas-destacados listado-fichas">
                     <h4 class="accordion-heading active">Destacados ChileAtiende:</h4>
                     <ul class="accordion-body" style="display:block;">
                         <?php foreach ($fichasDestacadas as $key => $fichaDestacada){ ?>
@@ -546,6 +545,25 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php
             }
             ?>
+
+            $("#btn_ir_y_cerrar").click(function(e){
+                document.getElementById("btn_close_modal").click();
+            });
+            $("#boton_ir_a_tramite").click(function(e){
+                // setTimeout("$('#redirectModal').modal('hide');",3000);
+            });
+            
+            $("#boton_ir_a_tramite_sidebar").click(function(e){
+                document.getElementById("boton_ir_a_tramite").click();
+            });
+            $("#arrow-ir-al-tramite-sidebar").click(function(e){
+                document.getElementById("boton_ir_a_tramite").click();
+            });
+            
+            // $('#redirectModal').on('hidden.bs.modal', function () {
+            //     document.getElementById("data_url_link_hide").click();
+            // })
+
             if($.cookie('idFicha')) {
                 if($.cookie('nombrePaso'))
                     $('#migapasopaso').html('<a href="/fichas/ver/'+$.cookie('idFicha')+'">Paso a Paso</a> / <a href="/fichas/ver/'+$.cookie('idFicha')+'">'+$.cookie('nombrePaso')+'</a> /');
@@ -553,4 +571,6 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
             }
         });
     </script>
+
 </div>
+

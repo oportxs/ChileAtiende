@@ -86,7 +86,7 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <?php if ($ficha->guia_online_url): ?>
-                                            <?php echo botonTramiteOnline($ficha); ?>
+                                            <?php echo botonTramiteOnlineMini($ficha); ?>
                                         <?php endif ?>
                                     </div>
                                     <div class="clearfix"></div>
@@ -128,3 +128,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#btn_ir_y_cerrar").click(function(e){
+        document.getElementById("btn_close_modal").click();
+    });
+</script>

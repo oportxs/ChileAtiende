@@ -51,7 +51,7 @@
         ?>
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=2016082402">
+        <link rel="stylesheet" href="<?php echo base_url('assets_v2/css/frontend.css'); ?>?v=2017081601">
         <?php echo isset($assets) ? loadAssets($assets, 'css') : ''; ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
         <link rel="apple-touch-icon" href="<?php echo base_url('assets_v2/img/touch-icon-iphone.png'); ?>" />
@@ -86,12 +86,94 @@
                         <?php $this->load->view($content); ?>
                     </div>
                 <?php endif ?>
+            <div>
+                <div class="row-fluid visible-phone">
+                    <div class="span12" style="text-align: center; padding: 10px;">
+                        <div style="width: 100%;" class="btn-group atencion-consultas-dropdown">
+                          <a style="width: calc(100% - 40px);" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                            Atención y Consultas
+                            <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu" style="width: 100%; background-color: #2168a8;">
+                            <li class="internal-shortcut" style="text-align: left">
+                                <a style="color: white !important" class="btn-primary" href="<?php echo config_item('base_url').'contenidos/en-linea'; ?>" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="En línea">
+                                <img width="40" src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/ico_digital.png'; ?>" />
+                                <span>En línea</span></a>
+                            </li>
+                            <li class="internal-shortcut" style="text-align: left">
+                                <a style="color: white !important" class="btn-primary" href="<?php echo config_item('base_url').'contenidos/callcenter'; ?>" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="101">
+                                <img width="40" src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/ico_101.png'; ?>" />
+                                <span>101</span></a>
+                            </li>
+                            <li class="internal-shortcut" style="text-align: left">
+                                <a style="color: white !important" class="btn-primary" href="<?php echo config_item('base_url').'contenidos/oficinamovil'; ?>" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Oficinas móviles">
+                                <img width="40" src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/ico_movil.png'; ?>" />
+                                <span>Oficinas móviles</span></a>
+                            </li>
+                            <li class="internal-shortcut" style="text-align: left">
+                                <a style="color: white !important" class="btn-primary" href="<?php echo config_item('base_url').'oficinas'; ?>" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Puntos de atención">
+                                <img width="40" src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/ico_sucursales.png'; ?>" />
+                                <span>Sucursales</span></a>
+                            </li>
+                            <li class="internal-shortcut" style="text-align: left">
+                                <a style="color: white !important" class="btn-primary" href="<?php echo config_item('base_url').'contenidos/preguntas-frecuentes'; ?>" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Preguntas Frecuentes">
+                                <img width="30" src="<?php echo config_item('base_url').'assets_v2/img/nueva_home/ico_preguntas-frecuentes.png'; ?>" />
+                                <span>Preguntas Frecuentes</span></a>
+                            </li>
+                            <!-- <li class="internal-shortcut lista-contactos">
+                                <div class="row-fluid">
+                                    <div class="span4 text-center">
+                                        <a class="contactos-facebook" href="https://www.facebook.com/ChileAtiende" target="_blank" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Facebook">Facebook</a>
+                                    </div>
+                                    <div class="span4 text-center">
+                                        <a class="contactos-twitter" href="https://twitter.com/ChileAtiende" target="_blank" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Twitter">Twitter</a>
+                                    </div>
+                                    <div class="span4 text-center">
+                                        <a class="contactos-correo hidden-phone" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
+                                        <a class="visible-phone contactos-correo" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-ga-te-category="Menu Interna" data-ga-te-action="clic" data-ga-te-value="Contacto">Contacto</a>
+                                    </div>
+                                </div>
+                            </li> -->
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <footer class="no-print">
             <div class="footer-top">
                 <div class="container">
-                    <div class="row-fluid">
-                        <div class="span3 sobre-chileatiende hidden-phone">
+                    <div class="row-fluid visible-phone">
+                        <div class="terminos-condiciones">
+                            <h4>
+                                Términos y condiciones
+                            </h4>
+                            <ul class="unstyled">
+                                <li><a href="<?= site_url('contenido/politicadeprivacidad') ?>" alt="Política de privacidad">Política de privacidad</a></li>
+                                <li><a href="<?= site_url('contenido/terminosycondiciones') ?>" alt="Términos de uso">Términos de uso</a></li>
+                                <li><a href="<?= site_url('contenido/visualizadores') ?>" alt="Visualizadores">Visualizadores</a></li>
+                            </ul>
+                        </div>
+                        <div class="red-multicanal">
+                            <h4>
+                                Nuestra red multicanal
+                            </h4>
+                            <div class="lista-canales" style="margin-left: 0px;">
+                                <a class="canal-twitter" href="https://twitter.com/ChileAtiende" target="_blank" alt="Twitter"></a>
+                                <a class="canal-facebook" href="https://www.facebook.com/ChileAtiende" target="_blank" alt="Facebook"></a>
+                                <a class="canal-oficina" href="<?php echo site_url('oficinas'); ?>" alt="Puntos de atención"></a>
+                                <a class="hidden-phone canal-mail" href="https://www.chileatiende.gob.cl/contacto/formulario.php?origen=http://www.chileatiende.gob.cl/" data-toggle="modal-chileatiende" data-modal-type="iframe"></a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="lista-canales-callcenter" style="margin-left: 0px;">
+                                <a class="canal-callcenter" href="<?php echo site_url('contenidos/callcenter'); ?>" alt="Twitter">CallCenter 101</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid hidden-phone">
+                        <div class="span3 sobre-chileatiende">
                             <h4>Sobre ChileAtiende</h4>
                             <ul class="unstyled">
                                 <li><a href="<?php echo site_url('contenidos/que-es-chileatiende'); ?>" alt="Encuentra toda la información relacionada al proyecto ChileAtiende">¿Qué es ChileAtiende?</a></li>
@@ -110,7 +192,7 @@
                                 <li><a href="<?= site_url('contenido/visualizadores') ?>" alt="Visualizadores">Visualizadores</a></li>
                             </ul>
                         </div>
-                        <div class="span3 accesos-directos hidden-phone">
+                        <div class="span3 accesos-directos">
                             <h4>
                                 Accesos directos
                             </h4>
@@ -200,7 +282,7 @@
 
         </script>
         <script>
-            //Se maraca el origen de navegación en el sitio
+            //Se marca el origen de navegación en el sitio
             var origen_navegacion = $.cookie('origen_navegacion') || '';
             _gaq.push(['_setCustomVar', 3, 'origen_navegacion', origen_navegacion, 2]);
             if($.cookie('id_modulo') && $.cookie('id_modulo') != 'null'){
@@ -232,20 +314,8 @@
 
         <?php echo isset($assets) ? loadAssets($assets, 'js') : ''; ?>
 
-        <div id="survey-modal" class="modal hide fade" tabindex="-1" role="dialog">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-              <h3>Queremos conocer su Opinión</h3>
-          </div>
-          <div class="modal-body">
-              <iframe id="gform" src="" height="250" frameborder="0"></iframe>
-          </div>
-          <div class="modal-footer">
-            <button class="btn" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
+        <?php $this->load->view('survey'); ?>
 
         <script src="/assets_v2/js/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
-
     </body>
 </html>
