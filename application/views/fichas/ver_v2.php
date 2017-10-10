@@ -556,9 +556,5 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
         });
     </script>
 
-    <?php if($ficha->guia_online) : ?>
-    <script src="/assets_v2/js/survey.js" type="text/javascript"></script>
-    <?php endif; ?>
-
 </div>
 

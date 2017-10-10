@@ -266,6 +266,3 @@
     </div>
 </div>
 
-<?php if($ficha->guia_online) : ?>
-<script src="/assets_v2/js/survey.js" type="text/javascript"></script>
-<?php endif; ?>
