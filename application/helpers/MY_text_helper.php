@@ -2,7 +2,7 @@
 
 function extrae_contenidos($contenido)
 {
-    return prepare_content_ficha($contenido, false, true);
+    return prepare_content_ficha($contenido, '', false, true);
 }
 
 function separa_contenidos($texto, $pattern, $replacement)
@@ -16,7 +16,7 @@ function separa_contenidos($texto, $pattern, $replacement)
     return array($texto, $contenido);
 }
 
-function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $idFicha = '') {
+function prepare_content_ficha($texto, $ficha='', $movil=false, $separados=false, $idFicha = '') {
     $contenidos = array('videos' => array());
     $texto = preg_replace('/\[\[(\d+)\]\]/', site_url((($movil) ? 'movil/' : '') . 'fichas/ver/$1'), $texto);
     $texto = prepare_content_ficha_remove_empty_tags($texto);
@@ -95,8 +95,10 @@ function prepare_content_ficha($texto, $ficha, $movil=false, $separados=false, $
         $texto = preg_replace($pattern, $replacement, $texto);
     }
 
-    // botonTramiteOnline($ficha)
-    $btn_ir_tramite_responsive = "<div class='visible-phone' style='text-align: center'>".botonTramiteOnlinePhone($ficha)."</div>";
+    $btn_ir_tramite_responsive = '';
+    if( $ficha != ''){
+        $btn_ir_tramite_responsive = "<div class='visible-phone' style='text-align: center'>".botonTramiteOnlinePhone($ficha)."</div>";
+    }
 
     // {{mensaje[tipo]:texto libre}}
     $pattern = '/\{\{mensaje\[(.*)\]:([^\}\}]+)\}\}/';
@@ -262,10 +264,10 @@ function botonTramiteOnlineMini($ficha, $texto = 'Ir al trámite'){
                     Para realizar tu trámite te <b>redirigiremos</b> al sitio web institucional de '.$ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':'').'
                     <br>
                     <a target="_blank" id="btn_ir_y_cerrar" style="text-decoration: none;" href="'.$ficha->guia_online_url.'">
-                        <button type="button" class="btn btn-primary" style="margin: 20px 10px 5px 10px; padding: 10px 20px; border: none;">Entendido</button>
+                        <button type="button" class="btn btn-primary" data-ga-te-action="Modal Ir" style="margin: 20px 10px 5px 10px; padding: 10px 20px; border: none;">Entendido</button>
                     </a>
                     <br>
-                    <a id="btn_close_modal" href="" data-dismiss="modal" style="color: gray;font-size: 0.8em;">Prefiero seguir en ChileAtiende</a>
+                    <a id="btn_close_modal" href="" data-dismiss="modal" data-ga-te-action="Modal Cancelar" style="color: gray;font-size: 0.8em;">Prefiero seguir en ChileAtiende</a>
                     <br>
                 </div>
               <div class="modal-footer" style="background-color: #1a1d21;">
@@ -343,10 +345,10 @@ $botonTramiteOnline = '
         Para realizar tu trámite te <b>redirigiremos</b> al sitio web institucional de '.$ficha->Servicio->nombre.($ficha->Servicio->sigla?' ('.$ficha->Servicio->sigla.')':'').'
         <br>
         <a target="_blank" id="btn_ir_y_cerrar" style="text-decoration: none;" href="'.$ficha->guia_online_url.'">
-            <button type="button" class="btn btn-primary" style="margin: 20px 10px 5px 10px; padding: 10px 20px; border: none;">Entendido</button>
+            <button type="button" class="btn btn-primary" data-ga-te-action="Modal Ir" style="margin: 20px 10px 5px 10px; padding: 10px 20px; border: none;">Entendido</button>
         </a>
         <br>
-        <a id="btn_close_modal" href="" data-dismiss="modal" style="color: gray;font-size: 0.8em;">Prefiero seguir en ChileAtiende</a>
+        <a id="btn_close_modal" href="" data-dismiss="modal" data-ga-te-action="Modal Cancelar" style="color: gray;font-size: 0.8em;">Prefiero seguir en ChileAtiende</a>
         <br>
       </div>
       <div class="modal-footer" style="background-color: #1a1d21;">

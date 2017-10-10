@@ -140,7 +140,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             $nro = 1;
                             foreach($campos as $campo => $titulo) {
                                 if($metaficha_campos[$campo] == 1 && !empty($ficha[$campo]))
-                                    echo '<div id="'.$campo.'" class="anchor"><h3>'.$nro++.'. '.$titulo.'</h3><p>'.prepare_content_ficha($ficha[$campo]).'</p></div>';  
+                                    echo '<div id="'.$campo.'" class="anchor"><h3>'.$nro++.'. '.$titulo.'</h3><p>'.prepare_content_ficha($ficha[$campo], $ficha).'</p></div>';  
                             }
                         ?>
                             </div>
@@ -159,13 +159,14 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 $_metaficha_show00 = $ficha->metaficha == 0 ;// || ($ficha->metaficha == 1 && $metaficha_campos['beneficiarios'] == 1) ? true : false;
                 if ($_metaficha_show00 && !empty($ficha->beneficiarios) && ($ficha->flujo)): ?>
                     <div class="text-content <?php echo ($ficha->Servicio->codigo == 'ZY000') ? 'paso-paso-emprendete' : '' ?>">
+                        <br>
                         <a id="beneficiarios" class="anchor-top">&nbsp;</a>
                         <?php if (!$ficha->flujo): ?>
                             <h3>Beneficiarios</h3>
-                            <?php echo prepare_content_ficha($ficha->beneficiarios); ?>
+                            <?php echo prepare_content_ficha($ficha->beneficiarios, $ficha); ?>
                         <?php else: ?>
                             <?php 
-                                $contenido_flujo = prepare_content_ficha($ficha->beneficiarios, false, true);
+                                $contenido_flujo = prepare_content_ficha($ficha->beneficiarios, $ficha, false, true);
                                 echo $contenido_flujo['texto'];
                             ?>
                             <?php if (isset($contenido_flujo['videos']) && $contenido_flujo['videos']): ?>
@@ -221,10 +222,10 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<li class="correo"><a href="#correo" data-toggle="tab" data-ga-te-category="Acciones Ficha" data-ga-te-action="Tab Correo" data-ga-te-value="'.$ficha->maestro_id.'">Por correo</a></li>':''; ?>
                         </ul>
                         <div class="tab-content">
-                            <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<h4 class="print">En Línea</h4><div class="tab-pane text-content" id="online">'.prepare_content_ficha($ficha->guia_online).botonTramiteOnline($ficha).botonMejorarTramite($ficha, 'online').'<div class="clearfix"></div></div>':''; ?>
-                            <?php echo ($_metaficha_show01 && !empty($ficha->guia_oficina))?'<h4 class="print">En Oficina</h4><div class="tab-pane text-content" id="oficina">'.prepare_content_ficha($ficha->guia_oficina).botonMejorarTramite($ficha, 'oficina').'<div class="clearfix"></div></div>':''; ?>
-                            <?php echo ($_metaficha_show02 && !empty($ficha->guia_telefonico))?'<h4 class="print">Por Teléfono</h4><div class="tab-pane text-content" id="telefonico">'.prepare_content_ficha($ficha->guia_telefonico).botonMejorarTramite($ficha, 'telefonico').'<div class="clearfix"></div></div>':''; ?>
-                            <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<h4 class="print">Por correo</h4><div class="tab-pane text-content" id="correo">'.prepare_content_ficha($ficha->guia_correo).botonMejorarTramite($ficha, 'correo').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show00 && !empty($ficha->guia_online))?'<h4 class="print">En Línea</h4><div class="tab-pane text-content" id="online">'.prepare_content_ficha($ficha->guia_online, $ficha).botonTramiteOnline($ficha).botonMejorarTramite($ficha, 'online').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show01 && !empty($ficha->guia_oficina))?'<h4 class="print">En Oficina</h4><div class="tab-pane text-content" id="oficina">'.prepare_content_ficha($ficha->guia_oficina, $ficha).botonMejorarTramite($ficha, 'oficina').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show02 && !empty($ficha->guia_telefonico))?'<h4 class="print">Por Teléfono</h4><div class="tab-pane text-content" id="telefonico">'.prepare_content_ficha($ficha->guia_telefonico, $ficha).botonMejorarTramite($ficha, 'telefonico').'<div class="clearfix"></div></div>':''; ?>
+                            <?php echo ($_metaficha_show03 && !empty($ficha->guia_correo))?'<h4 class="print">Por correo</h4><div class="tab-pane text-content" id="correo">'.prepare_content_ficha($ficha->guia_correo, $ficha).botonMejorarTramite($ficha, 'correo').'<div class="clearfix"></div></div>':''; ?>
                         </div>
                     </div>
                 <?php endif ?>
@@ -307,7 +308,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php if (!$ficha->flujo): ?>
                                 <h3><?php echo $count++; ?>. Detalles</h3>
                             <?php endif ?>
-                            <?php echo prepare_content_ficha($ficha->cc_observaciones); ?>
+                            <?php echo prepare_content_ficha($ficha->cc_observaciones, $ficha); ?>
                         </div>
                     <?php endif ?>
                     <?php if (($_metaficha_show00 && !empty($ficha->beneficiarios))  && !($ficha->flujo) ): ?>
@@ -316,7 +317,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <?php if (!$ficha->flujo): ?>
                                 <h3><?php echo $count++; ?>. Beneficiarios</h3>
                             <?php endif ?>
-                            <?php echo prepare_content_ficha($ficha->beneficiarios); ?>
+                            <?php echo prepare_content_ficha($ficha->beneficiarios, $ficha); ?>
                         </div>
                     <?php endif ?>
                     <?php if (($_metaficha_show02 && !empty($ficha->vigencia)) && !($ficha->flujo) ): ?>
@@ -326,7 +327,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                                 <h3><?php echo $count++; ?>. Vigencia</h3>
                             <?php endif ?>
                             <div class="mensaje mensaje-reloj">
-                                <?php echo prepare_content_ficha($ficha->vigencia); ?>
+                                <?php echo prepare_content_ficha($ficha->vigencia, $ficha); ?>
                             </div>
                         </div>
                     <?php endif ?>
@@ -334,7 +335,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <div class="text-content texto-seccion print" data-seccion="documentos-requeridos">
                             <a id="documentos-requeridos" class="anchor-top">&nbsp;</a>
                             <h3><?php echo $count++; ?>. Documentos requeridos</h3>
-                            <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, false, true); ?>
+                            <?php $doc_requeridos = prepare_content_ficha($ficha->doc_requeridos, $ficha, false, true); ?>
                             <?php if ($doc_requeridos['doc_requeridos']): ?>
                                 <table class="table-striped documentos-requeridos">
                                     <?php foreach ($doc_requeridos['doc_requeridos'] as $doc_requerido): ?>
@@ -351,7 +352,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                             <a id="costo-tramite" class="anchor-top">&nbsp;</a>
                             <h3><?php echo $count++; ?>. Costo del trámite</h3>
                             <div class="mensaje mensaje-costo">
-                                <?php echo prepare_content_ficha($ficha->costo); ?>
+                                <?php echo prepare_content_ficha($ficha->costo, $ficha); ?>
                             </div>
                         </div>
                     <?php endif ?>
@@ -359,21 +360,21 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <div class="text-content texto-seccion print" data-seccion="marco-legal">
                             <a id="marco-legal" class="anchor-top">&nbsp;</a>
                             <h3><?php echo $count++; ?>. Marco legal</h3>
-                            <?php echo prepare_content_ficha($ficha->marco_legal); ?>
+                            <?php echo prepare_content_ficha($ficha->marco_legal, $ficha); ?>
                         </div>
                     <?php endif ?>
                     <?php if (($_metaficha_show06 && !empty($ficha->plazo))): ?>
                         <div class="text-content texto-seccion print" data-seccion="plazo">
                             <a id="plazo" class="anchor-top">&nbsp;</a>
                             <h3><?php echo $count++; ?>. Tiempo de realización</h3>
-                            <?php echo prepare_content_ficha($ficha->plazo); ?>
+                            <?php echo prepare_content_ficha($ficha->plazo, $ficha); ?>
                         </div>
                     <?php endif ?>
                     <?php if (($_metaficha_show07 && !empty($ficha->informacion_multimedia))): ?>
                         <div class="text-content texto-seccion print" data-seccion="multimedia">
                             <a id="multimedia" class="anchor-top">&nbsp;</a>
                             <h3><?php echo $count++; ?>. Infografía, audio y video</h3>
-                            <?php echo prepare_content_ficha($ficha->informacion_multimedia); ?>
+                            <?php echo prepare_content_ficha($ficha->informacion_multimedia, $ficha); ?>
                         </div>
                     <?php endif ?>
                 <?php endif ?>
@@ -397,7 +398,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         <div class="text-content texto-seccion print" data-seccion="marco-legal">
                             <a id="marco-legal" class="anchor-top">&nbsp;</a>
                             <h3>Marco legal</h3>
-                            <?php echo prepare_content_ficha($ficha->marco_legal); ?>
+                            <?php echo prepare_content_ficha($ficha->marco_legal, $ficha); ?>
                         </div>
                     <?php endif ?>
                 <?php endif ?>
