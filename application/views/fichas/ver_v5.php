@@ -56,7 +56,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                 <?php endif ?>
             </div>
             <div id="maincontent"  class="row-ficha-contenido" role="main">
-                <div class="opciones-accesibilidad no-print rs_skip">
+                <div class="hidden-phone opciones-accesibilidad no-print rs_skip">
                     <ul class="nav nav-pills">
                         <li class="ajusta-tamano-fuente">
                             <a href="#" class="tamano-fuente" data-dir="1">+A</a>
@@ -72,6 +72,24 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                         </li>
                     </ul>
                 </div>
+
+                <div class="visible-phone opciones-accesibilidad no-print rs_skip" style="float: right">
+                    <ul class="nav nav-pills">
+                        <li class="ajusta-tamano-fuente">
+                            <a href="#" class="tamano-fuente" data-dir="1">+A</a>
+                        </li>
+                        <li class="ajusta-tamano-fuente">
+                            <a href="#" class="tamano-fuente" data-dir="-1">-A</a>
+                        </li>
+                        <li class="escuchar">
+                            <a href="#">Escuchar</a>
+                        </li>
+                        <li class="imprimir hidden-phone">
+                            <a href="javascript:print();">Imprimir</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-phone clearfix"></div>
 
                 <div class="side-bar">
                     <ul class="lista-redes-sociales">
@@ -94,7 +112,7 @@ $metaficha_servicios = $metaficha_servicios === false ? array() : $metaficha_ser
                     <div class="text-content">
                         <a id="descripcion" class="anchor-top">&nbsp;</a>
                         <?php if($ficha->Servicio->codigo != 'NADA' /* TODO: 'ZY000' */ ) { ?><h3 class="cabecera">Descripción</h3><?php } ?>
-                        <?php echo prepare_content_ficha($ficha->objetivo); ?>
+                        <?php echo prepare_content_ficha($ficha->objetivo, $ficha); ?>
                         
                         <?php 
                             $campos = array(

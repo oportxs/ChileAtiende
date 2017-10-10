@@ -15,7 +15,9 @@
         <input title="Escribe aquí lo que buscas" accesskey="b" id="main_search_input" class="main_search_input <?php echo (!$this->config->item("lite_mode"))?'active_search':''; ?>" autocomplete="off" name="buscar" placeholder="Escribe aquí lo que buscas" type="text" <?php echo (isset($buscar)) ? "value='" . htmlspecialchars($buscar,ENT_QUOTES) . "'" : "" ?> />
         <button type="submit" accesskey="s" class="searchbtn">
         	<span class="fa fa-search" aria-hidden="true"></span> 
+        	<?php if( !isset($empresa) || $empresa != 1 ){ ?>
         	<span class="etiqueta"> Buscar</span>
+        	<?php } ?>
         </button>
         <input type="hidden" name="e" value="<?=$e_value?>">
     </form>
