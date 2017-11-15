@@ -28,10 +28,10 @@ $(document).ready(
 		  $('#survey-modal').modal({show:true})
 		}
 
-		// if (localStorage.getItem("iswrpdivloaded2") === null) {
-		// 		loadSurvey();
-		// 		localStorage.setItem('iswrpdivloaded2', 1);
-		// }
+		if (localStorage.getItem("iswrpdivloaded2") === null) {
+				loadSurvey();
+				localStorage.setItem('iswrpdivloaded2', 1);
+		}
 
 	}
 
